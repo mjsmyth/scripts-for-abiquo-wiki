@@ -1,0 +1,129 @@
+client.theme.defaultEnterpriseLogoPath = Directory and filename of the default enterprise logo file. The directory is relative to the Abiquo UI folder. The logo file should be a .png, .jpg, or other web compatible image file. The resolution should be 72 PPI and the space reserved for the image is 48 x 48 pixels
+
+client.main.enableTutorials = See [Abiquo Tutorials for Onboarding Users]
+
+client.user.numberElementsPerPage = -
+
+client.main.enterpriseLogoURL = To display this page, the Abiquo server must have access to the URL
+
+client.main.billingUrl = To enable users to display this button, also assign the privilege to access reports to their user roles. For more details, see the [Abiquo Reports with Jaspersoft] section
+
+client.main.reportingLogoutUrl = Before the user enters *Reports* through the UI, the platform will use this URL to log out from any previous sessions in *Reports*
+
+client.main.disableChangePassword = Select this option to enable users to open a dialog to edit their personal details from the menu of the *User* icon in the bottom left corner of the screen. The user can change their password if platform authentication is used. If you disable this option, you can only edit users in Users view. See [Configure the username menu]
+
+client.main.allowLogout = Allow users to log out by selecting *Log out* from the menu of the *User* icon in the bottom left corner of the screen. Otherwise *Log out* will not display on the menu, and users will only be logged out when their browser session ends
+
+client.main.showHardDisk = Display the VM Hard disk tab
+
+client.logout.url = If you do not enter a logout URL, the platform displays the login screen after the user logs out
+
+client.main.defaultView = Select from the list of Abiquo views - Home, Infrastructure, etc. The *Home* view dashboard is the system default. If another view is set as the system default and the user does not have enough privileges to display it, the *Home* view will display
+
+client.main.showSoftInfo = If you do not select this option, the soft limits message states that the user has reached the soft limit, and asks if they want to continue. See [Hard and soft limits] and [Allocation limit messages]
+
+client.main.showHardInfo =  If you do not select this option, the hard limits message states that the user has reached the hard limit and that the operation cannot be performed. See [Hard and soft limits] and [Allocation limit messages]
+
+client.main.workflowEnabled = If you select this option, the platform will hold deploy and reconfigure tasks and display the queue in *Virtual datacenters* view on the *Workflow tasks* tab. Before you enable workflow, enter the *Workflow endpoint*, otherwise any tasks in progress will fail because of the missing endpoint. See [Abiquo Workflow Feature]
+
+client.main.workflowEndPoint = Enter the URL endpoint for the workflow process. If workflow is enabled, Abiquo will send workflow requests to this URL. The workflow endpoint is the URL of the web application that connects to the workflow tool. If you do not have the URL for the workflow endpoint, check with your system administrator. See [Abiquo Workflow Feature]
+
+client.main.monitorEnabled = If you select this option and monitoring is configured, see [Configure VM Monitoring and Metrics] and [Abiquo Configuration Properties#monitoring], by default the platform will fetch metrics for each VM and display all metrics on the VM graph. This property will apply to all VMs created after you change its value, including newly captured VMs. In the API, the value of client.main.monitorEnabled system property is set to 0 for disabled or 1 for enabled
+
+client.applibrary.defaultTemplateRepository = -
+
+client.applibrary.ovfpackagesDownloadingProgressUpdateInterval = How often the background process will check the download to update the progress bar when you Add a VM template from a remote repository to the Service catalogue of a datacenter
+
+client.infra.googleMapsDefaultLatitude = The decimal latitude of the map location to display when the map opens in the *Infrastructure* view. The default value is for Barcelona. See [Display infrastructure map]
+
+client.infra.googleMapsDefaultLongitude = The decimal longitude of the map location to display when the map opens in the *Infrastructure* view. The default value is for Barcelona. See [Display infrastructure map]
+
+client.infra.googleMapsDefaultZoom = See [Display infrastructure map]
+
+client.infra.InfrastructureUpdateInterval = How often Abiquo updates the display of the *Infrastructure* view. You may decide to adjust this interval if more than one cloud administrator is working with the same Abiquo platform at the same time
+
+client.metering.meteringUpdateInterval = How often Abiquo updates the display of events on the *Events* widget on the dashboard in [Home View]
+
+client.network.numberIpAdressesPerPage = -
+
+client.virtual.allowVMRemoteAccess = If you select this option, you can click the console icon of a VM in a virtual datacenter to open a remote access console. This option does not affect remote shell access outside of Abiquo. Otherwise, the console icon is disabled. See [Configure Remote Access to Virtual Machines]
+
+client.virtual.virtualApplianceDeployingUpdateInterval = How often the background process checks the deployment of virtual appliances and updates the virtual appliance state. See [Manage Virtual Appliances]
+
+client.virtual.virtualAppliancesUpdateInterval = How often the background process checks the state of virtual appliances and updates the state. See [Manage Virtual Appliances]
+
+client.infra.defaultHypervisorPassword = -
+
+client.infra.defaultHypervisorPort = -
+
+client.infra.defaultHypervisorUser = -
+
+client.storage.volumeMaxSizeValues = The platform displays these values in gigabytes to select when adding a new volume in private cloud. Enter values separated by commas with no spaces. You can enter values with decimal places and values lower than one
+
+client.infra.vlanIdMin = -
+
+client.infra.vlanIdMax = -
+
+client.virtual.virtualImagesRefreshConversionsInterval = In private cloud when you edit a VM template in the Service catalogue, you can launch a background process to convert to the missing template formats for other hypervisors. How often the platform checks the state of template conversions and refreshes the *Conversions* list. See [Manage template disk conversions]
+
+client.network.defaultName = The name of the default private network
+
+client.network.defaultNetmask = The network mask of the default private network
+
+client.network.defaultAddress = The network address of the default private network
+
+client.network.defaultGateway = The gateway of the network. The gateway IP address must be inside the range defined by the network address and the network mask
+
+client.network.defaultPrimaryDNS = -
+
+client.network.defaultSecondaryDNS = -
+
+client.network.defaultSufixDNS = -
+
+client.dashboard.abiquoURL = -
+
+client.dashboard.allowUsersAccess = If selected, the platform displays the *Users* view button, and administrators can edit users. If not selected, the platform does not display the button, and no one can edit users until the cloud administrator changes this option
+
+client.dashboard.dashboardUpdateInterval = Time interval between updates of the dashboard of the *Home* view to enable multiple users to make and view changes
+
+client.dashboard.licenseUrl = URL that will display in Abiquo to enable users to purchase licenses
+
+client.dashboard.enabledMaintenance = Enable the display of maintenance window notices. See [Configure maintenance notices]	
+
+client.dashboard.maintenanceStartTime = Specify the start of the maintenance period in JavaScript date-time format: yyyy-mm-ddTHH:MM:ss.lo, for example, 2018-10-19T11:00:00.000+0200	
+
+client.dashboard.maintenanceEndTime = Specify the end of the maintenance period in JavaScript date-time format: yyyy-mm-ddTHH:MM:ss.lo, for example, 2018-10-20T11:00:00.000+0200
+
+client.dashboard.maintenanceAdditionalInfoUrl = Link on the maintenance popup to add additional information about the maintenance. See [Configure maintenance notices]
+
+client.main.twoFactorAuthEnabled = See [Configure two factor authentication]
+
+client.main.passwordHistory = Set a history value to prevent users from repeating old passwords. The platform will check new passwords against the password history. The range of values is 0 to 100, and the default value of 1 password means that users cannot repeat the previous password. To disable this check, set the value to 0
+
+client.main.passwordMaxAge = Prevent users from keeping the same password for a long time by setting a maximum password age. The range of values is from 0 to 999 days. To disable this check, set the value to 0
+
+client.main.passwordMinAge = Prevent users from quickly changing their password, especially back to an old password by setting a minimum password age. This is the minimum time from when a password is changed until the password can be changed again. The range of values is from 0 to 999 days. To disable this check, set the value to 0
+
+client.main.passwordLength = Prevent users from creating short passwords that are easier to break by setting a minimum password length. The range of values is from 1 to 21 characters
+
+client.main.passwordComplexity = If selected, the user must enter a complex password. A complex password must not contain the user's name and must include at least three of the following five categories - uppercase letters, lowercase letters, digits, non-alphanumeric characters, and other Unicode characters
+
+client.main.passwordTries = Number of unsuccessful login attempts that a user can make before their account is locked. The range of values is 0 to 5 tries. The default value of 0 means that the check is disabled by default
+
+client.main.passwordLockTime = Length of time in minutes that a user account is locked after the user has made too many unsuccessful login attempts. The range of values is from 1 to 60 minutes
+
+client.main.passwordRecover = If selected, the platform will allow a user to reset their password. See [Configure Passwords]. Further configuration and ReCaptcha is required
+
+client.main.passwordClientUri = Enter a URI that the platform will redirect to when users request a password reset. See [Configure Passwords]
+
+client.main.guestPasswordEmailEnabled = Send guest password by email to the user email address. To configure guest password length and characters, see [Abiquo Configuration Properties#guest]
+
+client.main.guestPasswordSMSGateway = The URL of an SMS gateway (e.g. email.smsgateway.example.com) for sending guest password by SMS. Leave empty to disable this feature. The platform will send an email to "user phone number@sms gateway"
+
+client.wiki.showHelp = If selected, display the help button on all dialogs. When users click this icon, the platform will open the specific help page for the dialog or the default help page
+
+client.wiki.showDefaultHelp = For pop-ups without a specific help page link, display the default help button to link to the default help page
+
+client.wiki.defaultURL = URL of the default help page
+
+config.dashboard.restoredefaultdashboards.button = Click this button to restore the default dashboards to display *Metrics*, *Hybrid*, and *Optimization* tabs.
