@@ -1,2 +1,0 @@
-USERS_MANAGE_SYSTEM_ROLES | Global roles are also called system roles.
-APPLIB_MANAGE_GLOBAL_CATEGORIES | Global categories are also called system categories.
