@@ -96,7 +96,8 @@ def updateWiki(updatePageTitle, wikiContent, wikiFormat, site_URL,
     origPageContent = page["body"]["storage"]["value"][:]
     print("origPageContent: ", origPageContent)
     # Convert events table to Confluence XHTML format from wiki style
-    pageContentDict = confluence.convert_wiki_to_storage(wikiContent)
+    if wikiFormat is not "storage":
+        pageContentDict = confluence.convert_wiki_to_storage(wikiContent)
     pageContent = pageContentDict["value"][:]
     newPageContent = ""
     if "table" in origPageContent:
