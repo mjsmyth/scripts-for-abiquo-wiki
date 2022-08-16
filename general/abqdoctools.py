@@ -65,7 +65,7 @@ def getParentPageId(page):
     return(parentPageId)
 
 
-def updateWiki(updatePageTitle, wikiContent, site_URL,
+def updateWiki(updatePageTitle, wikiContent, wikiFormat, site_URL,
                cloud_username, pwd, spacekey, tableReplaceString,
                release_version, print_version):
 

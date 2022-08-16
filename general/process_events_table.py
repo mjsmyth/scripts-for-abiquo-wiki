@@ -13,6 +13,7 @@ todaysDate = datetime.today().strftime('%Y-%m-%d')
 wikiEventTracerFile = "wiki_event_tracer_all_" + todaysDate + ".txt"
 updatePageTitle = "Events table"
 tableReplaceString = r'<table(.*?)</table>'
+wikiFormat = "wiki"
 
 
 def main():
@@ -123,8 +124,8 @@ def main():
     release_version = input("Release version, e.g. v463: ")
     print_version = input("Release print version, e.g. 4.6.3: ")
 
-    status = adt.updateWiki(updatePageTitle, wikiContent, site_URL,
-                            cloud_username, pwd, spacekey,
+    status = adt.updateWiki(updatePageTitle, wikiContent, wikiFormat,
+                            site_URL, cloud_username, pwd, spacekey,
                             tableReplaceString,
                             release_version, print_version)
     if status is True:
