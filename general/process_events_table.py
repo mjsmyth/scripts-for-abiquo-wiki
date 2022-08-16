@@ -4,32 +4,19 @@
 import re
 import os
 from datetime import datetime
-from pytablewriter import MarkdownTableWriter
+import abqdoctools as adt
 
-
-# SEVERITY = [("INFO", "(i)"), ("WARN", "(!)"), ("ERROR", "(-)")]
-SEVERITY = [("INFO", '<ac:emoticon ac:name="information" ac:emoji-shortname=":info:" ac:emoji-id="atlassian-info" ac:emoji-fallback=":info:" />'),
-            ("WARN", '<ac:emoticon ac:name="warning" ac:emoji-shortname=":warning:" ac:emoji-id="atlassian-warning" ac:emoji-fallback=":warning:" />'),
-            ("ERROR", '<ac:emoticon ac:name="cross" ac:emoji-shortname=":cross_mark:" ac:emoji-id="atlassian-cross_mark" ac:emoji-fallback=":cross_mark:" />')]
+SEVERITY = [("INFO", "(i)"), ("WARN", "(!)"), ("ERROR", "(-)")]
 outputSubdir = "output_files"
 todaysDate = datetime.today().strftime('%Y-%m-%d')
 # todaysDate = "2021-11-03"
 wikiEventTracerFile = "wiki_event_tracer_all_" + todaysDate + ".txt"
-tracerList = []
-
-
-def writemarkdowntable(tracerMatrix):
-    writer = MarkdownTableWriter(
-        table_name="Events messages",
-        headers=["Entity", "Action", "Severity", "Tracer", "Event privileges"],
-        value_matrix=tracerMatrix
-    )
-    writer.write_table()
-    output_file = outputSubdir + "/" + wikiEventTracerFile
-    writer.dump(output_file)
+updatePageTitle = "Events table"
+tableReplaceString = r'<table(.*?)</table>'
 
 
 def main():
+    header = "|| Entity || Action || Severity || Tracer || Event privileges ||\n"
 
     # Read the entity action file
     tracerEntitiesDir = "../../platform/api/src/main/generated"
@@ -49,6 +36,7 @@ def main():
     eventSecurityPropertyFile = [es.strip() for es in open(os.path.join(
         eventSecurityPropertiesDir, eventSecurityPropertiesFileName))]
 
+    tracerList = []
     entityActionList = []
     securityDict = {}
 
@@ -89,8 +77,7 @@ def main():
                             "nackup": "backup",
                             "Plna": "Plan"}
         for spellingMistake, correction in spellingMistakes.items():
-            tracerPropertyMessage = tracerPropertyMessage.replace(
-                spellingMistake, correction)
+            tracerPropertyMessage = tracerPropertyMessage.replace(spellingMistake, correction)
         for (entity, action, entityAction) in entityActionList:
             if entityAction in tracerPropertyKey:
                 # print("tracerPropertyKey: ", tracerPropertyKey)
@@ -103,28 +90,49 @@ def main():
                     # Look for severity type (INFO, WARNING, ERROR)
                     if severity in tracerPropertyKey:
                         # print("severity: ", severity)
-                        tracerLine = [f"{entity}", f"{action}",
-                                      f"{severityCode}",
-                                      f"{tracerPropertyMessage}",
-                                      f"{privileges}"]
+                        tracerLine = "| " + entity + " | " + action + \
+                            " | " + severityCode + " | " + \
+                            tracerPropertyMessage + " | " + \
+                            privileges + " |\n"
                         tracerList.append(tracerLine)
     # Variable to check if new group for header row
     lastEntity = " "
+    with open(os.path.join(outputSubdir, wikiEventTracerFile), 'w') as f:
+        f.write(header)
+        sortedTracerList = sorted(tracerList)
+        for tracer in sortedTracerList:
+            tracerEntity = tracer.split("|")[1].strip()
+            if tracerEntity != lastEntity:
+                tracerHeaderLine = "||  h6. " + tracerEntity.replace("_", " ").capitalize() + " ||  ||  ||  ||  ||\n"
+                f.write(tracerHeaderLine)
+                lastEntity = tracerEntity[:]
+            f.write(tracer)
 
-    tracerToWrite = []
-    sortedTracerList = sorted(tracerList)
-    for tracer in sortedTracerList:
-        tracerEntity = tracer[0].strip("\"")
-        if tracerEntity != lastEntity:
-            tracerHeader = "###### " + \
-                tracerEntity.replace("_", " ").capitalize()
-            tracerHeaderList = [f"{tracerHeader}", f" ", f" ", f" ", f" "]
-            tracerToWrite.append(tracerHeaderList)
-            tracerHeaderUnder = ["---", "---", "---", "---", "---"]
-            tracerToWrite.append(tracerHeaderUnder)
-            lastEntity = tracerEntity[:]
-        tracerToWrite.append(tracer)
-    writemarkdowntable(tracerToWrite)
+    wikiContent = ""
+    with open(os.path.join(outputSubdir, wikiEventTracerFile), 'r') as f:
+        wikiContent = f.read()
+
+    # Get user credentials and space
+    site_URL = input("Confluence Cloud site URL, with protocol,"
+                     + " and wiki, and exclude final slash, "
+                     + "e.g. https://abiquo.atlassian.net/wiki: ")
+    cloud_username = input("Cloud username: ")
+    pwd = input("Cloud token string: ")
+    spacekey = input("Space key: ")
+
+    release_version = input("Release version, e.g. v463: ")
+    print_version = input("Release print version, e.g. 4.6.3: ")
+
+    status = adt.updateWiki(updatePageTitle, wikiContent, site_URL,
+                            cloud_username, pwd, spacekey,
+                            tableReplaceString,
+                            release_version, print_version)
+    if status is True:
+        print("Page ", updatePageTitle,
+              " for this version's draft was updated sucessfully!")
+    else:
+        print("Page ", updatePageTitle,
+              " for this version's draft was not updated successfully!")
 
 
 # Calls the main() function
