@@ -4,37 +4,51 @@
 import re
 import os
 from datetime import datetime
+from pytablewriter import MarkdownTableWriter
 
 
-SEVERITY = [("INFO", "(i)"), ("WARN", "(!)"), ("ERROR", "(-)")]
+# SEVERITY = [("INFO", "(i)"), ("WARN", "(!)"), ("ERROR", "(-)")]
+SEVERITY = [("INFO", '<ac:emoticon ac:name="information" ac:emoji-shortname=":info:" ac:emoji-id="atlassian-info" ac:emoji-fallback=":info:" />'),
+            ("WARN", '<ac:emoticon ac:name="warning" ac:emoji-shortname=":warning:" ac:emoji-id="atlassian-warning" ac:emoji-fallback=":warning:" />'),
+            ("ERROR", '<ac:emoticon ac:name="cross" ac:emoji-shortname=":cross_mark:" ac:emoji-id="atlassian-cross_mark" ac:emoji-fallback=":cross_mark:" />')]
 outputSubdir = "output_files"
 todaysDate = datetime.today().strftime('%Y-%m-%d')
 # todaysDate = "2021-11-03"
 wikiEventTracerFile = "wiki_event_tracer_all_" + todaysDate + ".txt"
+tracerList = []
+
+
+def writemarkdowntable(tracerMatrix):
+    writer = MarkdownTableWriter(
+        table_name="Events messages",
+        headers=["Entity", "Action", "Severity", "Tracer", "Event privileges"],
+        value_matrix=tracerMatrix
+    )
+    writer.write_table()
+    output_file = outputSubdir + "/" + wikiEventTracerFile
+    writer.dump(output_file)
 
 
 def main():
-    header = "|| Entity || Action || Severity || Tracer || Event privileges ||\n"
 
     # Read the entity action file
-    tracerEntitiesDir = "../platform/api/src/main/generated"
+    tracerEntitiesDir = "../../platform/api/src/main/generated"
     tracerEntitiesFileName = "tracer.entities"
     entityAllActionsFile = [eea.strip() for eea in open(os.path.join(
         tracerEntitiesDir, tracerEntitiesFileName))]
 
     # Read the tracer properties file
-    tracerPropertiesDir = "../platform/api/src/main/generated"
+    tracerPropertiesDir = "../../platform/api/src/main/generated"
     tracerPropertiesFileName = "tracer-properties.doc"
     tracerPropertyFile = [tp.strip() for tp in open(os.path.join(
         tracerPropertiesDir, tracerPropertiesFileName))]
 
     # Read the event security properties file
-    eventSecurityPropertiesDir = "../platform/api/src/main/resources/events"
+    eventSecurityPropertiesDir = "../../platform/api/src/main/resources/events"
     eventSecurityPropertiesFileName = "events-security.properties"
     eventSecurityPropertyFile = [es.strip() for es in open(os.path.join(
         eventSecurityPropertiesDir, eventSecurityPropertiesFileName))]
 
-    tracerList = []
     entityActionList = []
     securityDict = {}
 
@@ -75,7 +89,8 @@ def main():
                             "nackup": "backup",
                             "Plna": "Plan"}
         for spellingMistake, correction in spellingMistakes.items():
-            tracerPropertyMessage = tracerPropertyMessage.replace(spellingMistake, correction)
+            tracerPropertyMessage = tracerPropertyMessage.replace(
+                spellingMistake, correction)
         for (entity, action, entityAction) in entityActionList:
             if entityAction in tracerPropertyKey:
                 # print("tracerPropertyKey: ", tracerPropertyKey)
@@ -88,23 +103,28 @@ def main():
                     # Look for severity type (INFO, WARNING, ERROR)
                     if severity in tracerPropertyKey:
                         # print("severity: ", severity)
-                        tracerLine = "| " + entity + " | " + action + \
-                            " | " + severityCode + " | " + \
-                            tracerPropertyMessage + " | " + \
-                            privileges + " |\n"
+                        tracerLine = [f"{entity}", f"{action}",
+                                      f"{severityCode}",
+                                      f"{tracerPropertyMessage}",
+                                      f"{privileges}"]
                         tracerList.append(tracerLine)
     # Variable to check if new group for header row
     lastEntity = " "
-    with open(os.path.join(outputSubdir, wikiEventTracerFile), 'w') as f:
-        f.write(header)
-        sortedTracerList = sorted(tracerList)
-        for tracer in sortedTracerList:
-            tracerEntity = tracer.split("|")[1].strip()
-            if tracerEntity != lastEntity:
-                tracerHeaderLine = "||  h6. " + tracerEntity.replace("_", " ").capitalize() + " ||  ||  ||  ||  ||\n"
-                f.write(tracerHeaderLine)
-                lastEntity = tracerEntity[:]
-            f.write(tracer)
+
+    tracerToWrite = []
+    sortedTracerList = sorted(tracerList)
+    for tracer in sortedTracerList:
+        tracerEntity = tracer[0].strip("\"")
+        if tracerEntity != lastEntity:
+            tracerHeader = "###### " + \
+                tracerEntity.replace("_", " ").capitalize()
+            tracerHeaderList = [f"{tracerHeader}", f" ", f" ", f" ", f" "]
+            tracerToWrite.append(tracerHeaderList)
+            tracerHeaderUnder = ["---", "---", "---", "---", "---"]
+            tracerToWrite.append(tracerHeaderUnder)
+            lastEntity = tracerEntity[:]
+        tracerToWrite.append(tracer)
+    writemarkdowntable(tracerToWrite)
 
 
 # Calls the main() function
