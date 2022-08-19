@@ -68,7 +68,7 @@ def sortForOutput(propertiesDict):
             propertiesDict[pName]["sortName"] = copy.deepcopy(
                 propertiesDict[pName]["property"])
     sortedPropDict = dict(sorted(propertiesDict.items(),
-                          key=lambda x: x[1]["sortName"].lower()))
+                                 key=lambda x: x[1]["sortName"].lower()))
     return sortedPropDict
 
 
@@ -78,18 +78,18 @@ def prepareForWiki(pSDict, profileColumns,
                    PLUGIN_BLANK_DEFAULTS):
     # Prepare a dict with the properties to document
     pTPD = {}
-    previousCategory = ""
+    # previousCategory = ""
     anchor = ""
     propvDefault = {}
     for pname, propv in pSDict.items():
         pTPD[pname] = {}
         # Prepare the Property entry
         pluginList = ""
-        if propv["category"] != previousCategory:
-            anchor = " {anchor: " + copy.deepcopy(propv["category"]) + "} "
-        else:
-            anchor = ""
-        previousCategory = copy.deepcopy(propv["category"])
+        # if propv["category"] != previousCategory:
+        #     anchor = " {anchor: " + copy.deepcopy(propv["category"]) + "} "
+        # else:
+        #     anchor = ""
+        # previousCategory = copy.deepcopy(propv["category"])
         propName = propv["property"]
         if "{" in propName:
             propName = re.sub(r"\{", r"\\{", propName)
@@ -107,6 +107,8 @@ def prepareForWiki(pSDict, profileColumns,
 
         # Prepare the default entry
         defaultList = ""
+        if "C:" in propv:
+            propv = re.sub("\\", "\\\\", propv)
         if "default" in propv:
             if type(propv["default"]) is str:
                 if "http" in propv["default"] or ("{" or "[") \
@@ -465,9 +467,9 @@ def main():
     propSearchString = r"#?\s?((([\w,\-,\{,\}]{1,60}?\.){1,10})([\w,\-,\{,\}]{1,50}))(=?(.*?))"
 
     # Input and output files
-    inputDir = '/Users/maryjane/platform/system-properties/src/main/resources/'
+    inputDir = '../../platform/system-properties/src/main/resources/'
     propertyFile = 'abiquo.properties'
-    outputSubdir = '/Users/maryjane/abiquo-wiki-scripts/properties/'
+    outputSubdir = 'output_files/'
     outputPropertyFile = 'wiki_properties_table_'
     todaysDate = datetime.today().strftime('%Y-%m-%d')
     wikiPropertiesFile = outputPropertyFile + todaysDate + ".txt"

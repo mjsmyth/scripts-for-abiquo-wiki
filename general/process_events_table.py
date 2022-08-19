@@ -13,7 +13,7 @@ todaysDate = datetime.today().strftime('%Y-%m-%d')
 wikiEventTracerFile = "wiki_event_tracer_all_" + todaysDate + ".txt"
 updatePageTitle = "Events table"
 tableReplaceString = r'<table(.*?)</table>'
-wikiFormat = "wiki"
+wikiFormat = True
 
 
 def main():

@@ -88,17 +88,23 @@ def updateWiki(updatePageTitle, wikiContent, wikiFormat, site_URL,
             expand='ancestors,version,body.storage')
     # Otherwise get the master page to save it as the version page
     else:
-        pageId = confluence.get_page_id(spacekey, updatePageTitle)
-        page = confluence.get_page_by_id(
-            page_id=pageId,
-            expand='ancestors,version,body.storage')
+        if confluence.page_exists(spacekey, updatePageTitle):
+            pageId = confluence.get_page_id(spacekey, updatePageTitle)
+            page = confluence.get_page_by_id(
+                page_id=pageId,
+                expand='ancestors,version,body.storage')
+        else:
+            print("no idea: ", updatePageTitle)
+            breakpoint
     parentPageId = getParentPageId(page)
     origPageContent = page["body"]["storage"]["value"][:]
     print("origPageContent: ", origPageContent)
     # Convert events table to Confluence XHTML format from wiki style
-    if wikiFormat is not "storage":
+    if wikiFormat is True:
         pageContentDict = confluence.convert_wiki_to_storage(wikiContent)
-    pageContent = pageContentDict["value"][:]
+        pageContent = pageContentDict["value"][:]
+    else:
+        pageContent = wikiContent[:]
     newPageContent = ""
     if "table" in origPageContent:
         newPageContent = re.sub(tableReplaceString,
