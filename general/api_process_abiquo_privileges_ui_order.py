@@ -11,7 +11,7 @@
 # select * from privilege;
 #
 
-import sys
+
 import re
 import json
 import os
@@ -19,6 +19,8 @@ import collections
 import pystache
 import codecs
 import requests
+from datetime import datetime
+import abqdoctools as adt
 
 # reload(sys)
 # sys.setdefaultencoding('utf-8')
@@ -177,7 +179,8 @@ def newOrderByUItextFile(td):
 
 
 def main():
-    td = "2021-12-21"
+    todaysDate = datetime.today().strftime('%Y-%m-%d')
+    # td = "2022-08-17"
     input_gitdir = '../../platform/ui/app/lang'
     input_subdir = 'input_files'
     output_subdir = 'output_files'
@@ -210,7 +213,7 @@ def main():
 
     # From a text file grabbed from the UI screen, get the groups and the order
     uiOrder = collections.OrderedDict()
-    uiOrder = newOrderByUItextFile(td)
+    uiOrder = newOrderByUItextFile(todaysDate)
 
     privFullDescs = {}
     privFullRoles = {}
@@ -264,14 +267,18 @@ def main():
         category["roleheader"] = rheaders
         category["entries"] = []
         for priv in uiOrder[group]:
-            privlabel = nameLabelDict[priv]
+            if priv in nameLabelDict:
+                privlabel = nameLabelDict[priv]
+            else:
+                print("error with UI label: ", priv)
             category["entries"].append(ppdict[privlabel])
         categories.append(category)
 
     privilege_out = {}
     privilege_out["categories"] = categories
 
-    with open(os.path.join(output_subdir, "privtestout" + td + ".txt"), 'w') \
+    with open(os.path.join(output_subdir,
+                           "privtestout" + todaysDate + ".txt"), 'w') \
             as ofile:
         for cpr in privilege_out["categories"]:
             ofile.write(json.dumps(cpr))
@@ -285,12 +292,41 @@ def main():
     #        'xmlcharrefreplace')
     efo = pystache.render(mustacheTemplate, privilege_out)
     # efo = pystache.render(mustacheTemplate, privilege_out)
-
+    privilegesOutFile = "privileges_out_" + todaysDate + ".txt"
     ef = open_if_not_existing(os.path.join(output_subdir,
-                              "privileges_out_" + td + ".txt"))
+                                           privilegesOutFile))
     if ef:
         ef.write(efo)
         ef.close()
+
+    wikiContent = ""
+
+    with open(os.path.join(output_subdir, privilegesOutFile), 'r') as f:
+        wikiContent = f.read()
+
+    # Get user credentials and space
+    site_URL = input("Confluence Cloud site URL, with protocol,"
+                     + " and wiki, and exclude final slash, "
+                     + "e.g. https://abiquo.atlassian.net/wiki: ")
+    cloud_username = input("Cloud username: ")
+    pwd = input("Cloud token string: ")
+    spacekey = input("Space key: ")
+
+    release_version = input("Release version, e.g. v463: ")
+    print_version = input("Release print version, e.g. 4.6.3: ")
+    wikiFormat = False
+    updatePageTitle = "Privileges"
+    tableReplaceString = r'<table(.*?)</table>'
+    status = adt.updateWiki(updatePageTitle, wikiContent, wikiFormat,
+                            site_URL, cloud_username, pwd, spacekey,
+                            tableReplaceString,
+                            release_version, print_version)
+    if status is True:
+        print("Page ", updatePageTitle,
+              " for this version's draft was updated sucessfully!")
+    else:
+        print("Page ", updatePageTitle,
+              " for this version's draft was not updated successfully!")
 
 
 # Calls the main() function

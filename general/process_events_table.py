@@ -4,32 +4,35 @@
 import re
 import os
 from datetime import datetime
-
+import abqdoctools as adt
 
 SEVERITY = [("INFO", "(i)"), ("WARN", "(!)"), ("ERROR", "(-)")]
 outputSubdir = "output_files"
 todaysDate = datetime.today().strftime('%Y-%m-%d')
 # todaysDate = "2021-11-03"
 wikiEventTracerFile = "wiki_event_tracer_all_" + todaysDate + ".txt"
+updatePageTitle = "Events table"
+tableReplaceString = r'<table(.*?)</table>'
+wikiFormat = True
 
 
 def main():
     header = "|| Entity || Action || Severity || Tracer || Event privileges ||\n"
 
     # Read the entity action file
-    tracerEntitiesDir = "../platform/api/src/main/generated"
+    tracerEntitiesDir = "../../platform/api/src/main/generated"
     tracerEntitiesFileName = "tracer.entities"
     entityAllActionsFile = [eea.strip() for eea in open(os.path.join(
         tracerEntitiesDir, tracerEntitiesFileName))]
 
     # Read the tracer properties file
-    tracerPropertiesDir = "../platform/api/src/main/generated"
+    tracerPropertiesDir = "../../platform/api/src/main/generated"
     tracerPropertiesFileName = "tracer-properties.doc"
     tracerPropertyFile = [tp.strip() for tp in open(os.path.join(
         tracerPropertiesDir, tracerPropertiesFileName))]
 
     # Read the event security properties file
-    eventSecurityPropertiesDir = "../platform/api/src/main/resources/events"
+    eventSecurityPropertiesDir = "../../platform/api/src/main/resources/events"
     eventSecurityPropertiesFileName = "events-security.properties"
     eventSecurityPropertyFile = [es.strip() for es in open(os.path.join(
         eventSecurityPropertiesDir, eventSecurityPropertiesFileName))]
@@ -105,6 +108,32 @@ def main():
                 f.write(tracerHeaderLine)
                 lastEntity = tracerEntity[:]
             f.write(tracer)
+
+    wikiContent = ""
+    with open(os.path.join(outputSubdir, wikiEventTracerFile), 'r') as f:
+        wikiContent = f.read()
+
+    # Get user credentials and space
+    site_URL = input("Confluence Cloud site URL, with protocol,"
+                     + " and wiki, and exclude final slash, "
+                     + "e.g. https://abiquo.atlassian.net/wiki: ")
+    cloud_username = input("Cloud username: ")
+    pwd = input("Cloud token string: ")
+    spacekey = input("Space key: ")
+
+    release_version = input("Release version, e.g. v463: ")
+    print_version = input("Release print version, e.g. 4.6.3: ")
+
+    status = adt.updateWiki(updatePageTitle, wikiContent, wikiFormat,
+                            site_URL, cloud_username, pwd, spacekey,
+                            tableReplaceString,
+                            release_version, print_version)
+    if status is True:
+        print("Page ", updatePageTitle,
+              " for this version's draft was updated sucessfully!")
+    else:
+        print("Page ", updatePageTitle,
+              " for this version's draft was not updated successfully!")
 
 
 # Calls the main() function

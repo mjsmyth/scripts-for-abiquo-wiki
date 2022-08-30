@@ -9,6 +9,8 @@ The scripts are purely functional and very ugly.
 
 ## Add output from scripts to the wiki
 
+Some of the scripts automatically update the wiki.
+
 To add wiki markup output from scripts to the wiki:
 1. Convert to Markdown 
 2. Open the page with the Alt-text editor, by clicking the button near the Edit button
@@ -162,6 +164,8 @@ You can find the table in the output_files folder and the filename is in the for
 
 It uses today's date from the system, but you could override this to use another date as required.
 
+It creates or updates the Confluence draft page for the given version.
+
 
 ## Properties
 
@@ -246,3 +250,8 @@ To update the config view tables:
 
 ## Get wiki content
 Use a modified version of Sarah Maddox's script in the Confluence cloud migration section.
+
+
+
+## Abiquo documentation tools
+This is a utility file called abqdoctools.py that contains common functions for the documentation scripts.

@@ -89,7 +89,7 @@ def writePropsToFile(propertiesDict, outputSubdir, wikiPropertiesFile,
                      FMTPRINTORDER):
     # Basic wiki markup file with all properties
     with open(os.path.join(outputSubdir, wikiPropertiesFile), 'w') as f:
-        previousCategory = ""
+        # previousCategory = ""
         headLineText = " || ".join(str(x) for x in FMTPRINTORDER)
         headLine = "|| " + headLineText + " ||\n"
         f.write(headLine)
@@ -105,13 +105,6 @@ def writePropsToFile(propertiesDict, outputSubdir, wikiPropertiesFile,
             addDefault = " "
             addRange = " "
             groupDefault = " "
-            # add an anchor for the category
-            if propertiesDict[pNa]["Category"] != previousCategory:
-                anchor = " {anchor: " + \
-                    copy.deepcopy(propertiesDict[pNa]["Category"]) + "} "
-            else:
-                anchor = " "
-            previousCategory = copy.deepcopy(propertiesDict[pNa]["Category"])
 
             # add profiles
             if propertiesDict[pNa]["profiles"]:
@@ -131,8 +124,7 @@ def writePropsToFile(propertiesDict, outputSubdir, wikiPropertiesFile,
 
             # use real name
             if propertiesDict[pNa]["realName"]:
-                printName = anchor + " " + \
-                    copy.deepcopy(propertiesDict[pNa]["realName"])
+                printName = copy.deepcopy(propertiesDict[pNa]["realName"])
                 if "defaults" in propertiesDict[pNa]:
                     print("found Group with defaults: ", pNa)
                     if len(set(propertiesDict[pNa]["defaults"].values())) \
@@ -150,8 +142,9 @@ def writePropsToFile(propertiesDict, outputSubdir, wikiPropertiesFile,
                                 groupDefault += "\\\\" + " - " + tag \
                                     + " = " + df + " "
             else:
-                printName = anchor + " #*#" + \
-                    copy.deepcopy(propertiesDict[pNa]["Property"]) + "#*# "
+                printName = "#*#" \
+                    + copy.deepcopy(propertiesDict[pNa]["Property"]) \
+                    + "#*# "
 
             # add the default and range to the description
             if "Default" in propertiesDict[pNa]:
@@ -214,11 +207,12 @@ def writePropsToFile(propertiesDict, outputSubdir, wikiPropertiesFile,
                 if "newcode" not in propLine:
                     propLine = re.sub(r'(?<!\\){', r'\\{', propLine)
                 # For macros, unescape the escape we just did of {
-                propLine = re.sub(r'\\{(?=anchor)|\\{(?=status)',
-                                  r'{', propLine)
+                propLine = re.sub(r'\\{(?=status)', r'{', propLine)
                 propLine = re.sub(r'\[javax mail property]',
                                   r'\{javaxMailProperty}',
                                   propLine)
+            if "C:" in propLine:
+                propLine = re.sub("\\", "\\\\", propLine)
             # Unescape stars for bold text by replacing escaped stars
             propLine = re.sub(r'\*', r'\\*', propLine)
             propLine = re.sub(r'\#\\\*\#', r'*', propLine)
@@ -405,13 +399,13 @@ def main():
     # Note that a single property only has two parts :-p abiquo.capturedhcp :-(
     propertySearchString = r"#?\s?((([\w,\-,{,}]{1,60}?\.){1,10})([\w,\-,{,}]{1,50}))(=?(.*?))\n"
     # rangeSearchString = r"(Range[\s]*?:?[\s]*?)(.*?)"
-    inputDir = '/Users/maryjane/platform/system-properties/src/main/resources/'
+    inputDir = '../../platform/system-properties/src/main/resources/'
     propertyFile = 'abiquo.properties'
-    outputSubdir = '/Users/maryjane/abiquo-wiki-scripts/properties/'
+    outputSubdir = 'output_files'
     outputPropertyFile = 'wiki_properties_'
     #    inputDirPropertyFile = inputDir + propertyFile
     todaysDate = datetime.today().strftime('%Y-%m-%d')
-    wikiPropertiesFile = outputPropertyFile + "_format_" + todaysDate + ".txt"
+    wikiPropertiesFile = outputPropertyFile + "format_" + todaysDate + ".txt"
     # inputDirPropertyFile = inputDir + propertyFile
     # outputDirPropertyFile = outputSubdir + wikiPropertiesFile
 
@@ -447,15 +441,15 @@ def main():
                      "MOUTBOUNDAPI":
                      " {status:colour=yellow|title=OA|subtle=false}",
                      "DNSMASQ":
-                     " {status:colour=yellow|title=DNSMASQ|subtle=false}",
+                     " {status:colour=blue|title=DNSMASQ|subtle=false}",
                      "COSTUSAGE":
-                     " {status:colour=yellow|title=COSTUSAGE|subtle=false}",
+                     " {status:colour=green|title=COSTUSAGE|subtle=false}",
                      "BILLING":
-                     " {status:colour=yellow|title=BILLING|subtle=false}",
+                     " {status:colour=green|title=BILLING|subtle=false}",
                      "XAASRS":
-                     " {status:colour=yellow|title=XAAS|subtle=false}",
+                     " {status:colour=blue|title=XAAS|subtle=false}",
                      "XAASAPI":
-                     " {status:colour=yellow|title=XAAS|subtle=false}"            
+                     " {status:colour=green|title=XAAS|subtle=false}"
                      }
     # Piggyback the profiles into the main columns
     profileColumns = {"SERVER": "SERVER",
