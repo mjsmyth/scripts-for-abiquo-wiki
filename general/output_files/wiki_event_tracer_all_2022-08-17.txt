@@ -1,0 +1,999 @@
+|| Entity || Action || Severity || Tracer || Event privileges ||
+||  h6. Abstract datastore tier ||  ||  ||  ||  ||
+| ABSTRACT_DATASTORE_TIER | CREATE | (i) | Abstract datastore tier 'name' has been created. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| ABSTRACT_DATASTORE_TIER | DELETE | (i) | Abstract datastore tier 'name' has been deleted. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| ABSTRACT_DATASTORE_TIER | MODIFY | (i) | Abstract datastore tier 'name' has been modified. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+||  h6. Action plan ||  ||  ||  ||  ||
+| ACTION_PLAN | CREATE | (i) | Action plan 'actionPlanName' created | ACTION_PLAN_MANAGE |
+| ACTION_PLAN | DELETE | (i) | Action plan 'actionPlanName' deleted | ACTION_PLAN_MANAGE |
+| ACTION_PLAN | EXECUTION | (-) | Error while executing entry 'actionPlanEntryType' (sequence - 'actionPlanEntrySequence') of action plan 'actionPlanName'. errorMessage | ACTION_PLAN_MANAGE |
+| ACTION_PLAN | FINISH_EXECUTION | (-) | Error while finishing action plan execution 'actionPlanName' - 'errorMessage' | ACTION_PLAN_MANAGE |
+| ACTION_PLAN | FINISH_EXECUTION | (i) | Action plan 'actionPlanName' execution finished. | ACTION_PLAN_MANAGE |
+| ACTION_PLAN | MODIFY | (i) | Action plan 'actionPlanName' modified | ACTION_PLAN_MANAGE |
+| ACTION_PLAN | START_EXECUTION | (-) | Error while executing action plan 'actionPlanName' - 'errorMessage' | ACTION_PLAN_MANAGE |
+| ACTION_PLAN | START_EXECUTION | (i) | Action plan 'actionPlanName' execution started. initiatorMessage | ACTION_PLAN_MANAGE |
+||  h6. Address range ||  ||  ||  ||  ||
+| ADDRESS_RANGE | CREATE | (i) | Address range 'cidr' has been added to the virtual datacenter vdc | VDC_MANAGE_NETWORK |
+| ADDRESS_RANGE | DELETE | (i) | Address range 'cidr' has been deleted from the virtual datacenter vdc | VDC_MANAGE_NETWORK |
+| ADDRESS_RANGE | SYNC_CREATE | (i) | Address range 'cidr' has been added to the virtual datacenter vdc during synchronization | VDC_MANAGE_NETWORK |
+| ADDRESS_RANGE | SYNC_DELETE | (i) | Address range 'cidr' has been deleted from the virtual datacenter vdc during synchronization | VDC_MANAGE_NETWORK |
+||  h6. Alarm ||  ||  ||  ||  ||
+| ALARM | CREATE | (i) | Alarm 'alarmName' has been created on 'entityType' 'entityName' | USERS_MANAGE_ALARMS |
+| ALARM | DELETE | (i) | Alarm 'alarmName' has been removed from 'entityType' 'entityName' | USERS_MANAGE_ALARMS |
+| ALARM | MODIFY | (i) | Alarm 'alarmName' has been updated on 'entityType' 'entityName' | USERS_MANAGE_ALARMS |
+||  h6. Alert ||  ||  ||  ||  ||
+| ALERT | ACTIVE | (i) | Alert 'alertName' has been activated | USERS_MANAGE_ALERTS |
+| ALERT | CREATE | (i) | Alert 'alertName' has been created | USERS_MANAGE_ALERTS |
+| ALERT | DELETE | (i) | Alert 'alertName' has been deleted | USERS_MANAGE_ALERTS |
+| ALERT | INACTIVE | (i) | Alert 'alertName' has been deactivated | USERS_MANAGE_ALERTS |
+| ALERT | MODIFY | (i) | Alert 'alertName' has been updated | USERS_MANAGE_ALERTS |
+||  h6. Application ||  ||  ||  ||  ||
+| APPLICATION | CREATE | (i) | Application 'applicationName' added for user 'userName'. | AUTHENTICATED |
+| APPLICATION | DELETE | (i) | Application 'applicationName' has been removed for user 'userName'. | AUTHENTICATED |
+||  h6. Availability set ||  ||  ||  ||  ||
+| AVAILABILITY_SET | CREATE | (i) | Availability Set 'name' has been created (providerId - 'providerId'). | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | DELETE | (i) | Availability Set 'name' has been deleted (providerId - 'providerId'). | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | MODIFY | (i) | Availability Set 'name' has been modified (Virtual datacenter - 'vdcName'). | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_CREATE | (i) | Availability Set 'name' created during synchronization in location 'providerId' but it is not available for use. It is used by a virtualmachine in a virtual network not managed by Abiquo. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_CREATE | (i) | Availability Set 'name' created during synchronization in location 'providerId'. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_CREATE_UNAVAILABLE | (i) | Availability Set 'name' created during synchronization in location 'providerId' but it is not available for use. It is used by a virtualmachine in a virtual network not managed by Abiquo. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_DELETE | (i) | Availability Set 'name' deleted during synchronization in location 'providerId'. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_MODIFY | (!) | Availability set 'oldAvailSetName' of virtual machine 'virtualMachineInfo' has been removed. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_MODIFY | (i) | Availability Set 'name' modified during synchronization in location 'providerId'. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_MODIFY | (i) | Availability set of virtual machine 'virtualMachineInfo' has been changed from 'oldAvailSetName' to 'newAvailSetName'. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_MODIFY_VM | (!) | Availability set 'oldAvailSetName' of virtual machine 'virtualMachineInfo' has been removed. | MANAGE_AVAILABILITY_SET |
+| AVAILABILITY_SET | SYNC_MODIFY_VM | (i) | Availability set of virtual machine 'virtualMachineInfo' has been changed from 'oldAvailSetName' to 'newAvailSetName'. | MANAGE_AVAILABILITY_SET |
+||  h6. Backup datacenter properties ||  ||  ||  ||  ||
+| BACKUP_DATACENTER_PROPERTIES | UPDATE | (i) | Backup properties for datacenter 'datacenterName' have been updated - message." | PHYS_DC_ALLOW_BACKUP_CONFIG |
+||  h6. Backup manager ||  ||  ||  ||  ||
+| BACKUP_MANAGER | CREATE | (i) | The backup manager has been created for datacenter 'datacenterName'. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+| BACKUP_MANAGER | DELETE | (i) | The backup manager of datacenter 'datacenterName' has been deleted. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+| BACKUP_MANAGER | MODIFY | (i) | The backup manager of datacenter 'datacenterName' has been modified. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+||  h6. Backup policy ||  ||  ||  ||  ||
+| BACKUP_POLICY | ALLOW | (i) | Backup policy 'backupPolicyName' has been allowed for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+| BACKUP_POLICY | CREATE | (i) | Created backup policy 'backupPolicyName' in datacenter 'datacenterName'. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+| BACKUP_POLICY | DELETE | (i) | Deleted backup policy 'backupPolicyName' in datacenter 'datacenterName'. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+| BACKUP_POLICY | MODIFY | (i) | Modified backup policy 'backupPolicyName' in datacenter 'datacenterName'. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+| BACKUP_POLICY | RESTRICT | (i) | Backup policy 'backupPolicyName' has been restricted for enterprise 'entepriseName'. | PHYS_DC_ALLOW_BACKUP_CONFIG |
+||  h6. Bandwidth limit nat ||  ||  ||  ||  ||
+| BANDWIDTH_LIMIT_NAT | MODIFY | (-) | Cannot update NAT bandwidth limit in virtual datacenter 'virtualDatacenterName'. | MANAGE_BANDWIDTHLIMIT_NAT |
+| BANDWIDTH_LIMIT_NAT | MODIFY | (i) | NAT bandwidth limit updated in virtual datacenter 'virtualDatacenterName'. | MANAGE_BANDWIDTHLIMIT_NAT |
+||  h6. Bandwidth limit public ||  ||  ||  ||  ||
+| BANDWIDTH_LIMIT_PUBLIC | MODIFY | (!) | Public networks bandwidth limit update for virtual datacenter 'virtualDatacenterName' failed in virtual machine 'virtualMachineInfo' caused by 'error'. | MANAGE_BANDWIDTHLIMIT_PUBLIC |
+| BANDWIDTH_LIMIT_PUBLIC | MODIFY | (-) | Cannot update public networks bandwidth limit in virtual datacenter 'virtualDatacenterName'. | MANAGE_BANDWIDTHLIMIT_PUBLIC |
+| BANDWIDTH_LIMIT_PUBLIC | MODIFY | (i) | Public networks bandwidth limit updated in virtual datacenter 'virtualDatacenterName'. | MANAGE_BANDWIDTHLIMIT_PUBLIC |
+||  h6. Bill ||  ||  ||  ||  ||
+| BILL | CREATE | (i) | Bill for period 'billStartPeriod' - 'billEndPeriod' created for enterprise 'enterpriseName' and provider 'provider'. | BILLS_MANAGE |
+| BILL | DELETE | (i) | Bills for period 'billStartPeriod' - 'billEndPeriod' deleted for enterprise 'enterpriseName' and provider 'provider' with IDs ids. | BILLS_MANAGE |
+||  h6. Bill register ||  ||  ||  ||  ||
+| BILL_REGISTER | CREATE | (i) | Bill register for period 'billStartPeriod' - 'billEndPeriod' and date billDate created for enterprise 'enterpriseName' and provider 'provider'. | BILLS_MANAGE |
+| BILL_REGISTER | DELETE | (i) | Bills register for period 'billStartPeriod' - 'billEndPeriod' and date billDate deleted for enterprise 'enterpriseName' and provider 'provider' with IDs ids. | BILLS_MANAGE |
+||  h6. Budget ||  ||  ||  ||  ||
+| BUDGET | CREATE | (i) | Budget for period 'budgetStartDate' - 'budgetEndDate' created in enterprise 'enterpriseName' with reset period 'resetPeriod'. | BUDGET_MANAGE |
+| BUDGET | DELETE | (i) | Budget for period 'budgetStartDate' - 'budgetEndDate' deleted in enterprise 'enterpriseName' with reset period 'resetPeriod'. | BUDGET_MANAGE |
+| BUDGET | MODIFY | (i) | Budget for period 'budgetStartDate' - 'budgetEndDate' modified in enterprise 'enterpriseName' with reset period 'resetPeriod'. | BUDGET_MANAGE |
+||  h6. Category ||  ||  ||  ||  ||
+| CATEGORY | CREATE | (i) | A new category has been created with the name 'categoryName'. | APPLIB_MANAGE_GLOBAL_CATEGORIES |
+| CATEGORY | DELETE | (i) | Removing category 'categoryName'. | APPLIB_MANAGE_CATEGORIES, APPLIB_MANAGE_GLOBAL_CATEGORIES |
+| CATEGORY | MODIFY | (i) | Category 'oldCategoryName' updated. | APPLIB_MANAGE_CATEGORIES, APPLIB_MANAGE_GLOBAL_CATEGORIES |
+||  h6. Classic firewall ||  ||  ||  ||  ||
+| CLASSIC_FIREWALL | MODIFY | (i) | Modified classic firewall 'classicFirewallName'. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL | SYNC | (i) | Classic firewall 'classicFirewallName' created during synchronization in location 'locationName'. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL | SYNC | (i) | Classic firewall 'classicFirewallName' deleted during synchronization in location 'locationName'. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL | SYNC | (i) | Synchronized classic firewall 'classicFirewallName' in location 'location'. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL | SYNC | (i) | Synchronized classic firewalls in location 'locationName'. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL | SYNC_ALL | (i) | Synchronized classic firewalls in location 'locationName'. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL | SYNC_CREATE | (i) | Classic firewall 'classicFirewallName' created during synchronization in location 'locationName'. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL | SYNC_DELETE | (i) | Classic firewall 'classicFirewallName' deleted during synchronization in location 'locationName'. | MANAGE_CLASSIC_FIREWALLS |
+||  h6. Classic firewall rule ||  ||  ||  ||  ||
+| CLASSIC_FIREWALL_RULE | CREATE | (i) | Classic firewall rule created. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL_RULE | DELETE | (i) | Classic firewall rule deleted. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL_RULE | MODIFY | (i) | Classic firewall rule modified. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL_RULE | REORDER | (i) | Classic firewall rules reordered. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL_RULE | SYNC_CREATE | (i) | Classic firewall rule created during synchronization. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL_RULE | SYNC_DELETE | (i) | Classic firewall rule deleted during synchronization. | MANAGE_CLASSIC_FIREWALLS |
+| CLASSIC_FIREWALL_RULE | SYNC_MODIFY | (i) | Classic firewall rule modified during synchronization. | MANAGE_CLASSIC_FIREWALLS |
+||  h6. Conditional action ||  ||  ||  ||  ||
+| CONDITIONAL_ACTION | CREATE | (i) | Added conditional action with priority 'priority' to the routing rule with protocol In 'protocolIn and port In 'portIn' of the load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+| CONDITIONAL_ACTION | DELETE | (i) | Removed conditional action with priority 'priority' from the routing rule with protocol In 'protocolIn and port In 'portIn' of the load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+| CONDITIONAL_ACTION | MODIFY | (i) | Modified conditional action with priority 'priority' of the routing rule with protocol In 'protocolIn and port In 'portIn' of the load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+||  h6. Costcode ||  ||  ||  ||  ||
+| COSTCODE | CREATE | (i) | Cost code 'costcodeName' has been created. | PRICING_MANAGE |
+| COSTCODE | DELETE | (i) | Cost code 'costcodeName' has been deleted. | PRICING_MANAGE |
+| COSTCODE | MODIFY | (i) | Cost code 'costcodeName' has been modified (Name - 'newCostCodeName'). | PRICING_MANAGE |
+||  h6. Currency ||  ||  ||  ||  ||
+| CURRENCY | CREATE | (i) | Created currency 'currencyName'. | PRICING_MANAGE |
+| CURRENCY | DELETE | (i) | Currency 'currencyName' removed. | PRICING_MANAGE |
+| CURRENCY | MODIFY | (i) | Currency 'currencyName' modified. | PRICING_MANAGE |
+||  h6. Datacenter ||  ||  ||  ||  ||
+| DATACENTER | CREATE | (-) | Virtual datacenter could not be created with cause - 'cause'. | PHYS_DC_MANAGE |
+| DATACENTER | CREATE | (i) | Datacenter 'datacenterName' has been created in 'datacenterLocation'. | PHYS_DC_MANAGE |
+| DATACENTER | CREATE | (i) | Hardware profile 'hardwareProfileName' has been created in datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+| DATACENTER | CREATE | (i) | Virtual datacenter 'virtualDatacenterName' has been created. | PHYS_DC_MANAGE |
+| DATACENTER | DELETE | (-) | Cannot delete datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+| DATACENTER | DELETE | (-) | Virtual datacenter 'virtualDatacenterName' could not be deleted with cause - 'cause'. | PHYS_DC_MANAGE |
+| DATACENTER | DELETE | (i) | Datacenter 'datacenterName' deleted. | PHYS_DC_MANAGE |
+| DATACENTER | DELETE | (i) | Hardware profile 'hardwareProfileName' has been deleted in datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+| DATACENTER | DELETE | (i) | Virtual datacenter 'virtualDatacenterName' has been deleted. | PHYS_DC_MANAGE |
+| DATACENTER | ENQUEUE_DC_REQUEST | (-) | Failed to persist task. Redis might be down or not configured. | PHYS_DC_MANAGE |
+| DATACENTER | MODIFY | (i) | Datacenter 'oldDatacenterName' has been modified (Name - 'currentDatacenterName', Location - 'currentDatacenterLocation') | PHYS_DC_MANAGE |
+| DATACENTER | MODIFY | (i) | Hardware profile 'hardwareProfileName' has been modified in datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+| DATACENTER | MODIFY | (i) | Virtual datacenter 'virtualDatacenterName' has been modified. | PHYS_DC_MANAGE |
+| DATACENTER | REMOTE_SERVICES_CREATE | (!) | The remote service from datacenter 'datacenterName' is down or not configured. | PHYS_DC_MANAGE |
+| DATACENTER | REMOTE_SERVICES_CREATE | (i) | Remote services have been successfully added to datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+||  h6. Datacenter repository ||  ||  ||  ||  ||
+| DATACENTER_REPOSITORY | REFRESH | (-) | Cannot refresh datacenter repository 'repositoryName'. | APPLIB_MANAGE_REPOSITORY |
+| DATACENTER_REPOSITORY | REFRESH | (i) | Datacenter repository 'repositoryName' refresh started. | APPLIB_MANAGE_REPOSITORY |
+||  h6. Datastore tier ||  ||  ||  ||  ||
+| DATASTORE_TIER | ADD_DATASTORE | (i) | Added datastore 'datastoreName' to datastore tier 'datastoreTierName' on datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | ALLOW | (i) | Datastore tier 'datastoreTierName' has been allowed for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | CREATE | (i) | Abstract datastore tier 'name' has been created. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | CREATE | (i) | Created datastore tier 'datastoreTiername' on datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | DELETE | (i) | Abstract datastore tier 'name' has been deleted. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | DELETE | (i) | Deleted datastore tier 'datastoreTierName' on datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | MODIFY | (i) | Abstract datastore tier 'name' has been modified. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | MODIFY | (i) | Modified datastore tier 'datastoreTierName' on datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | RELEASE_DATASTORE | (i) | Released datastore 'datastoreName' from datastore tier 'datastoreTierName' on datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| DATASTORE_TIER | RESTRICT | (i) | Datastore tier 'datastoreTierName' has been restricted for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+||  h6. Device ||  ||  ||  ||  ||
+| DEVICE | CREATE | (i) | Storage device 'storageDeciceName' has been created. | MANAGE_DEVICES |
+| DEVICE | CREATE | (i) | The device has been created | MANAGE_DEVICES |
+||  h6. Disk ||  ||  ||  ||  ||
+| DISK | AVAILABLE | (i) | Disk 'diskPath' of virtual machine template 'virtualMachineTemplateName' is available again. | MANAGE_DEVICES |
+| DISK | CONVERSION_CREATED_IN_REPO | (i) | New disk conversion at 'conversionTargetPath' with format 'conversionTargetFormat'. | MANAGE_DEVICES |
+| DISK | COPY_FROM_TEMPLATE | (-) | Failed to copy disk from path 'labelOrPathName'. | MANAGE_DEVICES |
+| DISK | COPY_FROM_TEMPLATE | (-) | Virtual machine template virtualMachineTemplateName copy failed | APPLIB_ALLOW_MODIFY |
+| DISK | COPY_FROM_TEMPLATE | (i) | Disk 'diskPath' copy completed. | MANAGE_DEVICES |
+| DISK | COPY_FROM_TEMPLATE | (i) | Disk 'labelOrPathName' copy started. | MANAGE_DEVICES |
+| DISK | COPY_FROM_TEMPLATE | (i) | Disk copy completed for virtual machine template 'virtualMachineTemplateName'. | APPLIB_ALLOW_MODIFY |
+| DISK | COPY_FROM_TEMPLATE_START | (i) | Disk 'labelOrPathName' copy started. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE | (-) | Cannot add disk to virtual machine template event for 'templateName' in datacenter repository 'repositoryUrl'. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE | (-) | Disk 'diskPath' download failed. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE | (-) | Disk 'diskPath' is not available in the datacenter repository. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE | (i) | A new disk of diskSizeInMbf MB has been added at virtual machine template 'templateName'. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE | (i) | A new hard disk of diskSizeInMb MB has been created in virtual datacenter 'virtualDatacenterName'. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| DISK | CREATE | (i) | Disk 'diskPath' available in the datacenter repository. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE | (i) | Disk 'diskPath' download completed. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE | (i) | New disk added to virtual machine template 'templateName' at 'diskPath'. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATED_IN_REPO | (-) | Cannot add disk to virtual machine template event for 'templateName' in datacenter repository 'repositoryUrl'. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATED_IN_REPO | (i) | New disk added to virtual machine template 'templateName' at 'diskPath'. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE_FROM_DEF_FINISH | (-) | Disk 'diskPath' download failed. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE_FROM_DEF_FINISH | (i) | Disk 'diskPath' download completed. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE_FROM_INST_FINISH | (-) | Disk 'diskPath' is not available in the datacenter repository. | APPLIB_ALLOW_MODIFY |
+| DISK | CREATE_FROM_INST_FINISH | (i) | Disk 'diskPath' available in the datacenter repository. | APPLIB_ALLOW_MODIFY |
+| DISK | DELETE | (-) | The disk 'diskLabel' of size diskSize and path 'diskPath' could not be deleted from template 'virtualMachineTemplateName' | APPLIB_ALLOW_MODIFY |
+| DISK | DELETE | (i) | The hard disk resource 'diskId' of diskSizeInMb MB has been deleted from virtual datacenter 'virtualDatacenterName'. | MANAGE_HARD_DISKS |
+| DISK | MODIFY | (i) | Disk 'oldDiskLabel' on virtual machine template'virtualMachineTemplateName' has been modified. | APPLIB_ALLOW_MODIFY |
+| DISK | MODIFY | (i) | Hard disk 'diskPath' on virtual machine 'virtualMachineInfo' is now the primary disk. | MANAGE_HARD_DISKS |
+| DISK | MODIFY | (i) | The hard disk on virtual machine 'virtualMachineInfo' with sequence 'oldDiskSequence' has been modified to sequence 'newDiskSequence' . | MANAGE_HARD_DISKS |
+| DISK | PERSISTENT_DELETE | (-) | The persistent disk 'diskLabel' could not be deleted from template 'virtualMachineTemplateName' | VAPP_CREATE_STATEFUL |
+| DISK | PERSISTENT_DELETE | (i) | Persistent disk 'diskLabelOrPathName' has been deleted. | VAPP_CREATE_STATEFUL |
+| DISK | REPLACE | (i) | Disk 'diskLabelOrPathName' of virtual machine template 'virtualMachineTemplateName' was replaced. | VAPP_CREATE_STATEFUL |
+| DISK | UNAVAILABLE | (!) | Disk 'labelOrPathName' of virtual machine template 'templateName' is not present in the datacenter repository. | VAPP_CREATE_STATEFUL |
+||  h6. Enterprise ||  ||  ||  ||  ||
+| ENTERPRISE | CREATE | (i) | Enterprise 'enterpriseName' has been created. | USERS_MANAGE_ENTERPRISE |
+| ENTERPRISE | DELETE | (i) | Enterprise 'enterpriseName' has been deleted. | USERS_MANAGE_ENTERPRISE |
+| ENTERPRISE | DISABLE_WORKFLOW | (i) | Workflow disabled for enterprise 'enterpriseName'. | USERS_MANAGE_ENTERPRISE |
+| ENTERPRISE | ENABLE_WORKFLOW | (i) | Workflow enabled for enterprise 'enterpriseName'. | USERS_MANAGE_ENTERPRISE |
+| ENTERPRISE | METADATA_DELETE | (i) | Metadata for enterprise 'enterpriseName' has been deleted. | USERS_MANAGE_ENTERPRISE_METADATA |
+| ENTERPRISE | METADATA_MODIFY | (i) | Metadata for enterprise 'enterpriseName' has been modified. | USERS_MANAGE_ENTERPRISE_METADATA |
+| ENTERPRISE | MODIFY | (i) | Enterprise 'oldEnterpriseName' has been modified. | USERS_MANAGE_ENTERPRISE |
+| ENTERPRISE | SERVER_MAIL_DISABLE | (i) | Server mail details disabled for enterprise 'enterpriseName'. | USERS_MANAGE_ENTERPRISE |
+| ENTERPRISE | SERVER_MAIL_ENABLE | (i) | Server mail details enabled for enterprise 'enterpriseName'. | ENTERPRISE_MANAGE_SERVER_MAIL |
+| ENTERPRISE | SERVER_MAIL_UPDATE | (i) | Server mail details update for enterprise 'enterpriseName'. | ENTERPRISE_MANAGE_SERVER_MAIL |
+| ENTERPRISE | TAG_POLICY_COMPLIANCE_CHECK | (i) | Tag policy compliance check executed for enterprise 'enterpriseName' | USERS_MANAGE_ENTERPRISE |
+||  h6. Excluded network ||  ||  ||  ||  ||
+| EXCLUDED_NETWORK | CREATE | (i) | A new network to exclude with name 'networName' has been created in datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+| EXCLUDED_NETWORK | DELETE | (i) | The network to exclude with name 'networkExcludedName' in datacenter 'datacenterName' has been deleted. | PHYS_DC_MANAGE |
+| EXCLUDED_NETWORK | MODIFY | (i) | The network to exclude with name 'networkExcludedOldName' has been modified in datacenter 'datacenterOldName'. | PHYS_DC_MANAGE |
+||  h6. External ip ||  ||  ||  ||  ||
+| EXTERNAL_IP | CREATE | (i) | IP 'ipString' of type 'EXTERNAL' has been created in network 'networkName' of 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| EXTERNAL_IP | CREATE | (i) | numberOfIps IPs of type 'EXTERNAL' have been created in network 'networkName' of 'virtualDatacenterName' - 'ips'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| EXTERNAL_IP | CREATE_BULK | (i) | numberOfIps IPs of type 'EXTERNAL' have been created in network 'networkName' of 'virtualDatacenterName' - 'ips'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| EXTERNAL_IP | DELETE | (i) | External IP 'ipString'  has been deleted from network 'networkName' of 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| EXTERNAL_IP | SYNC_CREATE | (i) | External IP 'ipString' in VLAN 'vlanName' attached to 'virtualMachineInfo' during synchronization. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| EXTERNAL_IP | SYNC_DETACH | (i) | External IP 'ipString' in VLAN 'vlanName' detached from 'virtualMachineInfo' during synchronization. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+||  h6. External network ||  ||  ||  ||  ||
+| EXTERNAL_NETWORK | CREATE | (i) | A new external VLAN with name 'vlanNetworkName' has been created for enterprise 'enterpriseName' in datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| EXTERNAL_NETWORK | DEFAULT | (i) | External VLAN with name 'vlanNetworkName' has been configured as the default in enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| EXTERNAL_NETWORK | GATEWAY_OUT_OF_RANGE | (i) | The old gateway 'ip' of external VLAN cannot be deleted because it is attached to a virtual machine, but it is out of range. | VDC_MANAGE_NETWORK |
+| EXTERNAL_NETWORK | SYNC_CREATE | (i) | A new external VLAN with name 'vlanNetworkName' has been created for enterprise 'enterpriseName'. | VDC_MANAGE_NETWORK, VDC_MANAGE |
+| EXTERNAL_NETWORK | SYNC_DETACH | (i) | The external VLAN with name 'vlanNetworkName' has been detached from the provider (because it does not exist in the provider) for enterprise 'enterpriseName'. | VDC_MANAGE_NETWORK, VDC_MANAGE |
+| EXTERNAL_NETWORK | SYNC_UPDATE | (i) | The providerId of external VLAN 'vlanNetworkName' was updated by synchronization. | VDC_MANAGE |
+||  h6. Firewall policy ||  ||  ||  ||  ||
+| FIREWALL_POLICY | CREATE | (i) | The firewall policy 'firewallPolicyName' has been created. | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | DELETE | (-) | The firewall policy 'firewallPolicyName' could not be deleted with cause - 'cause'. | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | DELETE | (i) | The firewall policy 'firewallPoliyName' has been deleted. | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | MODIFY | (i) | The firewall policy 'firewallPolicyOldName' has been modified - name - 'firewallPolicyName', description - 'firewallPolicyDescription'. | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | RULES_MODIFY | (!) | An error occurred while adding new rules in the firewall policy 'firewallPolicyName'. | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | RULES_MODIFY | (i) | The firewall policy 'firewallPolicyName' rules have changed. | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | RULES_RESTORE | (!) | An error occurred while restoring the previous rules back into the firewall policy 'firewallPolicyName'. Please check them. | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | SYNC | (-) | "firewallPolicyName Cannot determine the target virtual datacenter of firewall 'providerId' with provider ID 'cause' in synchronization. The virtual machines of firewall will not be updated." | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | SYNC | (-) | "firewallPolicyName Cannot determine the target virtual datacenter of firewall 'providerId' with provider ID 'cause' in synchronization. The virtual machines of firewall will not be updated." | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | SYNC_MODIFY | (-) | "firewallPolicyName Cannot determine the target virtual datacenter of firewall 'providerId' with provider ID 'cause' in synchronization. The virtual machines of firewall will not be updated." | MANAGE_FIREWALLS |
+| FIREWALL_POLICY | TAGS_CREATE | (!) | Could not create tags on firewall policy firewallPolicyName in provider. failedTagList | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_CREATE | (-) | Could not create tags tagList on firewall policy firewallPolicyName. errorMessage | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on firewall policy firewallPolicyName and created tags notMaterializeTagList but did not materialize them. | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_DELETE | (!) | Could not remove tags on firewall policy firewallPolicyName from provider. failedUntagList | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_DELETE | (-) | Could not remove tags with keys keyList from firewall policy firewallPolicyName. errorMessage | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_DELETE | (i) | Removed tags with keys keyList from firewall policy firewallPolicyName | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_EDIT | (!) | Could not edit tags on firewall policy firewallPolicyName in provider. failedTagList | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_EDIT | (-) | Could not edit tags with keys tagList on firewall policy firewallPolicyName. errorMessage | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_EDIT | (i) | Edited tags with keys tagList on firewall policy firewallPolicyName | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_GET | (-) | Could not get tags from firewall policy firewallPolicyName. errorMessage | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_GET | (i) | Retrieved tags on firewall policy firewallPolicyName from provider | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_SYNC | (-) | Could not synchronize tags on firewall policy firewallPolicyName | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_SYNC | (i) | Synchronized tags on firewall policy firewallPolicyName | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_UPDATE | (-) | Could not update tags on firewall policy firewallPolicyName | TAGS_MANAGE |
+| FIREWALL_POLICY | TAGS_UPDATE | (i) | Updated tags on firewall policy firewallPolicyName | TAGS_MANAGE |
+||  h6. Global network ||  ||  ||  ||  ||
+| GLOBAL_NETWORK | CREATE | (i) | Global network 'globalNetworkName' has been created in the provider 'providerName'. | MANAGE_GLOBAL_NETWORK |
+| GLOBAL_NETWORK | DELETE | (i) | Global network 'globalNetworkName' has been deleted from the provider 'providerName'. | MANAGE_GLOBAL_NETWORK |
+| GLOBAL_NETWORK | MODIFY | (i) | Global network 'globalNetworkName' has been modified. | MANAGE_GLOBAL_NETWORK |
+| GLOBAL_NETWORK | SYNC_CREATE | (i) | Global network 'globalNetworkName' has been created in the provider 'providerName' during synchronization. | MANAGE_GLOBAL_NETWORK |
+| GLOBAL_NETWORK | SYNC_DELETE | (i) | Global network 'globalNetworkName' has been deleted from the provider 'providerName' during synchronization. | MANAGE_GLOBAL_NETWORK |
+| GLOBAL_NETWORK | SYNC_MODIFY | (i) | Global network 'globalNetworkName' has been modified during synchronization. | MANAGE_GLOBAL_NETWORK |
+||  h6. Hardware profile ||  ||  ||  ||  ||
+| HARDWARE_PROFILE | ALLOW | (i) | Hardware profile 'hardwareProfileName' has been allowed for enterprise 'enterpriseName'. | USERS_MANAGE_ENTERPRISE |
+| HARDWARE_PROFILE | RESTRICT | (i) | Hardware profile 'hardwareProfileName' has been restricted for enterprise 'enterpriseName'. | USERS_MANAGE_ENTERPRISE |
+||  h6. Hardware profile datacenter ||  ||  ||  ||  ||
+| HARDWARE_PROFILE_DATACENTER | CREATE | (i) | Hardware profile 'hardwareProfileName' has been created in datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+| HARDWARE_PROFILE_DATACENTER | DELETE | (i) | Hardware profile 'hardwareProfileName' has been deleted in datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+| HARDWARE_PROFILE_DATACENTER | MODIFY | (i) | Hardware profile 'hardwareProfileName' has been modified in datacenter 'datacenterName'. | PHYS_DC_MANAGE |
+||  h6. Hardware profile family ||  ||  ||  ||  ||
+| HARDWARE_PROFILE_FAMILY | CREATE | (i) | Hardware profile family 'hardwareProfileFamilyName' has been created. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_FAMILY | DELETE | (i) | Hardware profile family 'hardwareProfileFamilyName' has been deleted. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_FAMILY | MODIFY | (i) | Hardware profile family 'hardwareProfileFamilyName' has been modified. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_FAMILY | SYNC_CREATE | (i) | Hardware profile family 'hardwareProfileFamilyName' has been created during synchronization. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_FAMILY | SYNC_MODIFY | (i) | Hardware profile family 'hardwareProfileFamilyName' has been modified during synchronization. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+||  h6. Hardware profile public cloud region ||  ||  ||  ||  ||
+| HARDWARE_PROFILE_PUBLIC_CLOUD_REGION | CREATE | (i) | Hardware profile 'hardwareProfileName' has been created in public cloud region 'datacenterName'. | PCR_MANAGE |
+| HARDWARE_PROFILE_PUBLIC_CLOUD_REGION | DELETE | (i) | Hardware profile 'hardwareProfileName' has been deleted in public cloud region 'datacenterName'. | PCR_MANAGE |
+| HARDWARE_PROFILE_PUBLIC_CLOUD_REGION | MODIFY | (i) | Hardware profile 'hardwareProfileName' has been modified in public cloud region 'datacenterName'. | PCR_MANAGE |
+||  h6. Hardware profile type ||  ||  ||  ||  ||
+| HARDWARE_PROFILE_TYPE | CREATE | (i) | Hardware profile type 'hardwareProfileTypeName' has been created. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_TYPE | DELETE | (i) | Hardware profile type 'hardwareProfileTypeName' has been deleted. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_TYPE | MODIFY | (i) | Hardware profile type 'hardwareProfileTypeName' has been modified. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_TYPE | SYNC_CREATE | (i) | Hardware profile type 'hardwareProfileTypeName' has been created for the provider 'providerName' during synchronization. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_TYPE | SYNC_DELETE | (i) | Hardware profile type 'hardwareProfileTypeName' has been deleted for the provider 'providerName' during synchronization. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+| HARDWARE_PROFILE_TYPE | SYNC_MODIFY | (i) | Hardware profile type 'hardwareProfileTypeName' has been modified for the provider 'providerName' during synchronization. | MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY |
+||  h6. Hard disk ||  ||  ||  ||  ||
+| HARD_DISK | CREATE | (i) | A new hard disk of diskSizeInMb MB has been created in virtual datacenter 'virtualDatacenterName'. | MANAGE_HARD_DISKS |
+| HARD_DISK | DELETE | (i) | The hard disk resource 'diskId' of diskSizeInMb MB has been deleted from virtual datacenter 'virtualDatacenterName'. | MANAGE_HARD_DISKS |
+| HARD_DISK | MODIFY | (i) | Hard disk 'diskPath' on virtual machine 'virtualMachineInfo' is now the primary disk. | MANAGE_HARD_DISKS |
+| HARD_DISK | MODIFY | (i) | The hard disk on virtual machine 'virtualMachineInfo' with sequence 'oldDiskSequence' has been modified to sequence 'newDiskSequence' . | MANAGE_HARD_DISKS |
+| HARD_DISK | MODIFY_PRIMARY | (i) | Hard disk 'diskPath' on virtual machine 'virtualMachineInfo' is now the primary disk. | MANAGE_HARD_DISKS |
+| HARD_DISK | RESIZE | (i) | The hard disk on virtual machine 'virtualMachineInfo' with sequence 'diskSequence' of originalDiskSizeInBytes bytes and tier oldDsTier has been resized to newDiskSizeInBytes bytes and tier newDsTier. | MANAGE_HARD_DISKS |
+||  h6. Health check ||  ||  ||  ||  ||
+| HEALTH_CHECK | CREATE | (i) | Added health check 'healthCheckName' to load balancer 'loadBalancerName' in 'locationName' location for enterprise 'enterpriseName' - protocol 'healthCheckProtocol', path 'healthCheckPath'. | MANAGE_LOADBALANCERS |
+| HEALTH_CHECK | DELETE | (i) | Removed health check 'healthCheckName' from load balancer 'loadBalancerName' in 'locationName' location for enterprise 'enterpriseName'. | MANAGE_LOADBALANCERS |
+| HEALTH_CHECK | MODIFY | (i) | Modified health check 'healthCheckName' of load balancer 'loadBalancerName' in 'locationName' location for enterprise 'enterpriseName' - protocol 'protocol', path 'path'. | MANAGE_LOADBALANCERS |
+||  h6. Layer ||  ||  ||  ||  ||
+| LAYER | CHECK_CAPACITY | (-) | Anti-affinity for layer 'layerName' in VApp 'virtualApplianceName' cannot be honored - 'numberOfPossibleMachines' were available in Datacenter 'datacenterName', Rack 'rackName', but 'numberOfMinRequiredMachines' machines were required. | VAPP_MANAGE_LAYERS |
+||  h6. License ||  ||  ||  ||  ||
+| LICENSE | ADD | (-) | The maximum number of managed cores has been reached. | SYSCONFIG_ALLOW_MODIFY |
+| LICENSE | ADD | (i) | Added license to manage 'numberOfCores' cores. Expires - 'expiration'. | SYSCONFIG_ALLOW_MODIFY |
+| LICENSE | REMOVE | (i) | Removed license with 'numberOfCores' cores and expiration - 'expiration'. | SYSCONFIG_ALLOW_MODIFY |
+||  h6. Load balancer ||  ||  ||  ||  ||
+| LOAD_BALANCER | CREATE | (i) | Added load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | DELETE | (-) | Unable to remove load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | DELETE | (i) | Removed load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | MODIFY | (i) | Load balancer 'oldLoadBalancerName' has been updated. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_CREATE | (-) | Could not synchronize loadbalancer - 'errorMessage'. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_CREATE | (i) | Added load balancer 'loadBalancerName' during refresh. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_DELETE | (-) | Could not remove load balancer 'loadBalancerName' during refresh. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_DELETE | (i) | Removed load balancer 'loadBalancerName' during refresh. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_MODIFY | (-) | Could not synchronize loadbalancer - 'errorMessage'. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_MODIFY | (i) | Load balancer 'loadBalancerName' has been synchronized. | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_VIRTUAL_MACHINES | (-) | Could not remove virtual machines from load balancer 'loadBalancerName'. | ASSIGN_LOADBALANCERS, MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_VIRTUAL_MACHINES | (-) | Could not synchronize virtual machines of load balancer 'loadBalancerName'. | ASSIGN_LOADBALANCERS, MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_VIRTUAL_MACHINES | (i) | Virtual machines of load balancer 'loadBalancerName' have been synchronized. | ASSIGN_LOADBALANCERS, MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_VIRTUAL_MACHINES | (i) | Virtual machines removed from load balancer 'loadBalancerName'. | ASSIGN_LOADBALANCERS, MANAGE_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_VIRTUAL_MACHINES_DELETE | (-) | Could not remove virtual machines from load balancer 'loadBalancerName'. | ASSIGN_LOADBALANCERS |
+| LOAD_BALANCER | SYNCH_VIRTUAL_MACHINES_DELETE | (i) | Virtual machines removed from load balancer 'loadBalancerName'. | ASSIGN_LOADBALANCERS |
+| LOAD_BALANCER | TAGS_CREATE | (!) | Could not create tags on load balancer loadBalancerName in provider. failedTagList | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_CREATE | (-) | Could not create tags tagList on load balancer loadBalancerName. errorMessage | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on load balancer loadBalancerName and created tags notMaterializeTagList but did not materialize them. | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_DELETE | (!) | Could not remove tags on load balancer loadBalancerName from provider. failedUntagList | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_DELETE | (-) | Could not remove tags with keys keyList from load balancer loadBalancerName. errorMessage | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_DELETE | (i) | Removed tags with keys keyList from load balancer loadBalancerName | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_EDIT | (!) | Could not edit tags on load balancer loadBalancerName in provider. failedTagList | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_EDIT | (-) | Could not edit tags with keys tagList on load balancer loadBalancerName. errorMessage | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_EDIT | (i) | Edited tags with keys tagList on load balancer loadBalancerName | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_GET | (-) | Could not get tags from load balancer loadBalancerName. errorMessage | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_GET | (i) | Retrieved tags on load balancer loadBalancerName from provider | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_SYNC | (-) | Could not synchronize tags on load balancer loadBalancerName | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_SYNC | (i) | Synchronized tags on load balancer loadBalancerName | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_UPDATE | (-) | Could not update tags on load balancer loadBalancerName | TAGS_MANAGE |
+| LOAD_BALANCER | TAGS_UPDATE | (i) | Updated tags on load balancer loadBalancerName | TAGS_MANAGE |
+| LOAD_BALANCER | VIRTUAL_MACHINES | (-) | An error occurred while registering virtual machines for load balancer 'loadBalancerName'. The current state of the load balancer or virtual machines could be inconsistent. Please synchronize the load balancer. | ASSIGN_LOADBALANCERS |
+| LOAD_BALANCER | VIRTUAL_MACHINES | (i) | The virtual machines registered to the load balancer 'loadBalancerName' have been updated. | ASSIGN_LOADBALANCERS |
+||  h6. Load balancer address ||  ||  ||  ||  ||
+| LOAD_BALANCER_ADDRESS | CREATE | (i) | Load balancer address created with providerId - 'providerId' endpoint - 'endpoint' | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER_ADDRESS | DELETE | (i) | Load balancer address deleted with providerId - 'loadBalancerAddressProviderId' endpoint - 'loadBalancerAddressEndpoint' | MANAGE_LOADBALANCERS |
+| LOAD_BALANCER_ADDRESS | MODIFY | (i) | Load balancer address updated with providerId - 'providerId' endpoint - 'endpoint' | MANAGE_LOADBALANCERS |
+||  h6. Machine ||  ||  ||  ||  ||
+| MACHINE | CHECK | (!) | Changing state of machine 'machineName' to 'newState'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | CHECK | (!) | Received a notification from an unknown machine. Check database consistency. Machine IP - 'machineIp'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | CHECK_STATE | (!) | Changing state of machine 'machineName' to 'newState'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | CLUSTER_DIFFERENT_RACKS | (-) | Machine 'machineName' is in cluster 'providerId' that already exists in another rack 'rackName'. Changing state of machine to HALTED. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | CREATE | (!) | Could not create machine 'machineName' (IP - 'hypervisorIp') | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | CREATE | (i) | Successfully created machine - 'machineName' (CPU - 'cpu' RAM - 'ram GB' HD - 'hardDiskSize GB' IP - 'hypervisorIp' type - 'hypervisorType') | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | CREATE | (i) | The virtual machine 'virtualMachineInfo' was created successfully. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | DELETE | (-) | Delete of the virtual machine 'virtualMachineInfo' failed | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | DELETE | (i) | Machine 'machineName' (IP - 'hypervisorIp' type - 'hypervisorType' ) deleted. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | DELETE | (i) | The virtual machine 'virtualMachineInfo' was deleted successfully. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | DELETE | (i) | Virtual machines from host 'machineName' that are not managed by the platform have been deleted from the platform database. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | IMPORT_VIRTUAL_MACHINES | (i) | The platform has discovered numberOfDiscoveredVirtualMachines virtual machines on physical machine 'machineName'. notRecoveredVmsMessage. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | INFRASTRUCTURE_CHECK_DATASTORES | (-) | Datastore 'datastoreName' in machine 'machineName' with same rootPath is in use with another UUID. Please update datastore uuid folder mark to the expected UUID. The datastore will be disabled. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | MODIFY | (!) | The machine 'machineName' (IP - 'hypervisorIp') has no IQN in the DB. This could cause problems with external storage capabilities. Please configure this value on the HOST. The new IQN value will be added to the DB in the next background infrastructure check. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | MODIFY | (-) | Virtual machine virtualMachineInfo cannot be reconfigured | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | MODIFY | (i) | Machine 'machineName' (IP - 'hypervisorIp' type - 'hypervisorType' state - 'machineState') modified successfully. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | NICS_REFRESH | (-) | The physical machine with IP 'hypervisorIp' ('mahcineName') has lost its network interface 'netorkInterfaceName'. It was used by virtual machines ('namesOfBrokenVirtualMachines'). These virtual machines are currently not synchronized and it is impossible to recover their vNICs. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | RECOVERING_STATE | (i) | Recovering machine 'machineName' from UNLICENSED state. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | REFRESH_DATASTORES | (!) | The shared datastore 'datastoreName' of machine 'machineName' is already in use in another datacenter. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | SCHEDULER_FREE_PORT | (-) | The maximum number of remote desktop ports has been reached. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | SEND_MAIL | (!) | The email could not be sent to the following virtual machines - failedVirtualMachines, property of virtualMachineOwners. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| MACHINE | UPDATE_RESOURCES | (-) | Unable to update resources on machine 'machineName'. schedulerMessage. | PHYS_DC_MANAGE |
+| MACHINE | VIRTUAL_MACHINE_DELETE | (i) | Virtual machines from host 'machineName' that are not managed by the platform have been deleted from the platform database. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+||  h6. Nat ip ||  ||  ||  ||  ||
+| NAT_IP | CREATE | (i) | NAT IP 'ipString' has been created in network 'networkName' of 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NAT_IP | DELETE | (i) | NAT IP 'ipString' has been deleted from network 'networkName' of 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NAT_IP | PURCHASE | (-) | NAT IP 'ipString' could not be purchased by virtual datacenter 'virtualDatacenterName' with cause - 'cause'. | MANAGE_NATIPS |
+| NAT_IP | PURCHASE | (i) | NAT IP 'ipString' has been purchased by virtual datacenter 'virtualDatacenterName'. | MANAGE_NATIPS |
+| NAT_IP | QUARANTINE | (i) | NAT IP 'ipString' has had its quarantine status updated to 'isQuarantine'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NAT_IP | RELEASE | (i) | NAT IP 'ipString' has been released from virtual datacenter 'virtualDatacenterName'. | MANAGE_NATIPS |
+| NAT_IP | SNAT_NET | (i) | NAT IP 'ipstring' will be used as the default SNAT translated IP in all private networks of virtual datacenter 'virtualDatacenterName'. | MANAGE_NATIPS |
+||  h6. Nat network ||  ||  ||  ||  ||
+| NAT_NETWORK | CREATE | (i) | A new NAT network with name 'networkName' has been created in datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NAT_NETWORK | CREATE | (i) | NAT IPs have been created in network 'networkName' of 'datacenterName' - 'createdIps'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NAT_NETWORK | CREATE_BULK | (i) | NAT IPs have been created in network 'networkName' of 'datacenterName' - 'createdIps'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NAT_NETWORK | DELETE | (i) | The NAT network with name 'networkName' in datacenter 'datacenterName' has been deleted. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+||  h6. Nat rule ||  ||  ||  ||  ||
+| NAT_RULE | CREATE | (i) | Created NAT rule in virtual machine 'virtualMachineInfo' original 'natIp' -'natPortOriginal' translated 'ip' -'natPortTranslated' (snat='isSnat'). | VAPP_CUSTOMISE_SETTINGS |
+| NAT_RULE | DELETE | (i) | Deleted NAT rule in virtual machine 'virtualMachineInfo' original 'natIp' -'natPortOriginal' translated 'ip' -'natPortTranslated' (snat='isSnat'). | VAPP_CUSTOMISE_SETTINGS |
+||  h6. Network service type ||  ||  ||  ||  ||
+| NETWORK_SERVICE_TYPE | CREATE | (i) | A new network service type with name 'networkServiceTypeName' has been created in datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NETWORK_SERVICE_TYPE | DELETE | (i) | Network service type 'networkServiceTypeName' in datacenter 'datacenterName' has been deleted. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| NETWORK_SERVICE_TYPE | MODIFY | (i) | Network service type 'networkServiceTypeName' in datacenter 'datacenterName' has been modified. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+||  h6. Pricing credentials ||  ||  ||  ||  ||
+| PRICING_CREDENTIALS | USAGE_CHECK_DONE | (i) | Usage records successfully processed for enterprise 'enterpriseName' and provider 'providerType' | PCR_MANAGE |
+| PRICING_CREDENTIALS | USAGE_CHECK_FAILED | (-) | Usage records could not be processed for enterprise 'enterpriseName' and provider 'providerType'. errorMessage | PCR_MANAGE |
+| PRICING_CREDENTIALS | USAGE_CHECK_START | (-) | Unable to request billing usage records for enterprise 'enterpriseName' and provider 'providerType' | PCR_MANAGE |
+| PRICING_CREDENTIALS | USAGE_CHECK_START | (i) | Usage records successfully requested for enterprise 'enterpriseName' and provider 'providerType' | PCR_MANAGE |
+||  h6. Pricing template ||  ||  ||  ||  ||
+| PRICING_TEMPLATE | ASSIGN | (i) | Pricing template 'pricingTemplateName' has been associated with enterprise 'enterpriseName'. | PRICING_MANAGE, USERS_MANAGE_ENTERPRISE |
+| PRICING_TEMPLATE | CREATE | (i) | Created pricing template - 'pricingTemplateName'. | PRICING_MANAGE |
+| PRICING_TEMPLATE | DELETE | (i) | Deleted pricing template 'pricingTemplateName'. | PRICING_MANAGE |
+| PRICING_TEMPLATE | MODIFY | (i) | Pricing template 'pricingTemplateName' has been modified ('templatePrices') | PRICING_MANAGE |
+| PRICING_TEMPLATE | MODIFY | (i) | Pricing template 'pricingTemplateName' has been modified for resource 'datacenterName' ('templatePrices') | PRICING_MANAGE |
+| PRICING_TEMPLATE | MODIFY_DC | (i) | Pricing template 'pricingTemplateName' has been modified for resource 'datacenterName' ('templatePrices') | PRICING_MANAGE |
+||  h6. Private ip ||  ||  ||  ||  ||
+| PRIVATE_IP | CREATE | (i) | Private IP 'ipString' has been created in network 'networkName' of virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_IP | CREATE | (i) | numberOfIps private IPs have been created in network 'networkName' of virtual datacenter 'virtualDatacenterName' - 'ips'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_IP | CREATE_BULK | (i) | numberOfIps private IPs have been created in network 'networkName' of virtual datacenter 'virtualDatacenterName' - 'ips'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_IP | DELETE | (i) | Private IP 'ipString' has been deleted from network 'networkName' of virtual datacenter 'virtualDatacenterName'. | VDC_MANAGE_NETWORK |
+| PRIVATE_IP | MODIFY_MAC | (i) | Private IP 'ipString' has changed the MAC to 'newMac'. | UPDATE_MAC_IP |
+| PRIVATE_IP | SYNC_CREATE | (i) | Private IP 'ipString' in VLAN 'vlanName' attached to 'virtualMachineInfo' during synchronization. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PRIVATE_IP | SYNC_DETACH | (i) | Private IP 'ipString' in VLAN 'vlanName' detached from 'virtualMachineInfo' during synchronization. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PRIVATE_IP | SYNC_RESERVED | (i) | Onboarded VM 'virtualMachineInfo' with the IP 'ipString' which is reserved in the platform. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+||  h6. Private network ||  ||  ||  ||  ||
+| PRIVATE_NETWORK | CREATE | (-) | A private VLAN could not be created with cause - 'cause'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_NETWORK | CREATE | (i) | A new private VLAN with name 'vlanNetworkName' has been created in virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_NETWORK | DEFAULT | (i) | A virtual datacenter auto-created private VLAN will be the default in enterprise 'entepriseName'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_NETWORK | DELETE | (i) | The private VLAN with name 'vlanNetworkName' in virtual datacenter 'virtualDatacenterName' has been deleted. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_NETWORK | GATEWAY_OUT_OF_RANGE | (i) | The old gateway 'ip' of private VLAN cannot be deleted because it is attached to a virtual machine, but it is out of range'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_NETWORK | GATEWAY_OVERWRITE | (!) | The private VLAN will use gateway 'gatewayInUse' but request indicates 'requestGateway'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PRIVATE_NETWORK | MODIFY | (i) | The private VLAN with name 'vlanNetworkOldName' has been modified in virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PRIVATE_NETWORK | SYNC_CREATE | (i) | A new private VLAN with name 'vlanName' has been created while synchronizing the virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PRIVATE_NETWORK | SYNC_DETACH | (i) | The private VLAN with name 'vlanNetworkName' has been detached from the provider (because it does not exist in the provider) while synchronizing the virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PRIVATE_NETWORK | SYNC_UPDATE | (i) | The providerId of private VLAN 'vlanNetworkName' was updated by synchronization. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+||  h6. Protection manager ||  ||  ||  ||  ||
+| PROTECTION_MANAGER | CREATE | (i) | Protection manager 'managerName' has been created. | MANAGE_DRAAS_CONFIG |
+| PROTECTION_MANAGER | DELETE | (i) | Protection manager 'managerName' has been deleted. | MANAGE_DRAAS_CONFIG |
+| PROTECTION_MANAGER | MODIFY | (i) | Protection manager 'managerName' has been modified. | MANAGE_DRAAS_CONFIG |
+||  h6. Public cloud credentials ||  ||  ||  ||  ||
+| PUBLIC_CLOUD_CREDENTIALS | CREATE_ACCOUNT | (-) | Public cloud credentials cannot be created for enterprise 'enterpriseName' and type/region 'regionOrType', caused by  - errorMessage. | PCR_MANAGE |
+| PUBLIC_CLOUD_CREDENTIALS | CREATE_ACCOUNT | (i) | Public cloud credentials created for enterprise 'enterpriseName' and type/region 'typeOrRegionName'. | PCR_MANAGE |
+||  h6. Public cloud region ||  ||  ||  ||  ||
+| PUBLIC_CLOUD_REGION | CREATE | (i) | Hardware profile 'hardwareProfileName' has been created in public cloud region 'datacenterName'. | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | CREATE | (i) | Public cloud region 'publicCloudRegionName' has been created in 'regionName' (endpoint). | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | DELETE | (i) | Hardware profile 'hardwareProfileName' has been deleted in public cloud region 'datacenterName'. | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | DELETE | (i) | Public cloud region 'publicCloudRegionName' has been deleted. | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | MODIFY | (i) | Hardware profile 'hardwareProfileName' has been modified in public cloud region 'datacenterName'. | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | MODIFY | (i) | Public cloud region 'oldPublicCloudREgionName' has been modified (Name - newPublicCloudRegionName, Endpoint - 'newPublicCloudRegionEndpoint'). | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | REMOTE_SERVICES_CREATE | (!) | The remote service from public cloud region 'publicCloudRegionName' is down or not configured. | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | REMOTE_SERVICES_CREATE | (i) | Remote services have been successfully added to public cloud region 'publicCloudRegionName'. | PCR_MANAGE |
+| PUBLIC_CLOUD_REGION | SYNC | (-) | Sync 'providerId' failed. errorMessage. | VDC_ENUMERATE |
+| PUBLIC_CLOUD_REGION | SYNC | (i) | A public cloud region synchronization process has been finished for 'publicCloudRegionName'. | VDC_ENUMERATE |
+| PUBLIC_CLOUD_REGION | SYNC | (i) | A public cloud region synchronization process has been started for 'publicCloudRegionName'. | VDC_ENUMERATE |
+| PUBLIC_CLOUD_REGION | SYNC_FINISHED | (i) | A public cloud region synchronization process has been finished for 'publicCloudRegionName'. | VDC_ENUMERATE |
+| PUBLIC_CLOUD_REGION | SYNC_START | (i) | A public cloud region synchronization process has been started for 'publicCloudRegionName'. | VDC_ENUMERATE |
+||  h6. Public ip ||  ||  ||  ||  ||
+| PUBLIC_IP | CREATE | (i) | Floating IP 'ipString' has been created in location 'locationName' for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE | (i) | Floating IP 'ipString' has been imported into location 'locatioName' for enterprise 'enterpriseName' but it is not available for use. It is probably already attached to a VM in the cloud provider. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE | (i) | Floating IP 'ipString' has been imported into location 'locatioName' for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE | (i) | IP 'ipString' of type 'PUBLIC' has been created in network 'networkName' of 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE | (i) | numberOfIps IPs of type 'PUBLIC' have been created in network 'networkName' of 'virtualDatacenterName' - 'ips'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE_BULK | (i) | numberOfIps IPs of type 'PUBLIC' have been created in network 'networkName' of 'virtualDatacenterName' - 'ips'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE_FLOATINGIP | (i) | Floating IP 'ipString' has been created in location 'locationName' for enterprise 'enterpriseName'. | MANAGE_FLOATINGIPS, PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE_IMPORT_FLOATINGIP | (i) | Floating IP 'ipString' has been imported into location 'locatioName' for enterprise 'enterpriseName'. | MANAGE_FLOATINGIPS, PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | CREATE_IMPORT_UNAVAILABLE_FLOATINGIP | (i) | Floating IP 'ipString' has been imported into location 'locatioName' for enterprise 'enterpriseName' but it is not available for use. It is probably already attached to a VM in the cloud provider. | MANAGE_FLOATINGIPS, PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | DELETE | (i) | Public IP 'ipString'  has been deleted from network 'networkName' of 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | MODIFY_IMPORT_FLOATINGIP | (i) | Floating IP 'ipString' has changed the location from 'oldLocationName' to 'newLocationName' and enterprise from 'oldEnterpriseName' to 'newEnterpriseName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | PURCHASE | (i) | Public IP 'ipString' has been purchased by virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | RELEASE | (-) | Public IP 'ipString' could not be released with cause - 'cause'. | MANAGE_PUBLICIPS , PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | RELEASE | (i) | Floating IP 'ipString' has been released and deleted from location 'locationName' for enterprise 'enterpriseName'. | MANAGE_PUBLICIPS , PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | RELEASE | (i) | Floating IP 'ipString' has been released and deleted from location 'locationNamr' for enterprise 'enterpriseName'. | MANAGE_PUBLICIPS , PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | RELEASE | (i) | Public IP 'ipString' has been released from virtual datacenter 'virtualDatacenterName'. | MANAGE_PUBLICIPS , PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | RELEASE_FLOATINGIP | (i) | Floating IP 'ipString' has been released and deleted from location 'locationName' for enterprise 'enterpriseName'. | MANAGE_FLOATINGIPS, PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_IP | RELEASE_IMPORT_FLOATINGIP | (i) | Floating IP 'ipString' has been released and deleted from location 'locationNamr' for enterprise 'enterpriseName'. | MANAGE_FLOATINGIPS |
+||  h6. Public network ||  ||  ||  ||  ||
+| PUBLIC_NETWORK | CREATE | (i) | A new 'networkType' VLAN with name 'networkName' has been created in datacenter 'datacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_NETWORK | DELETE | (i) | The 'vlanNetworkType' VLAN with name 'vlanNetworkName' in datacenter 'datacenterName' has been deleted. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| PUBLIC_NETWORK | GATEWAY_OUT_OF_RANGE | (i) | The old gateway 'oldGateway' of public VLAN cannot be deleted because it is attached to a virtual machine, but it is out of range'. | PHYS_DC_ALLOW_MODIFY_NETWORK, VDC_MANAGE_NETWORK |
+| PUBLIC_NETWORK | MODIFY | (i) | The 'vlanNetworkType' VLAN with name 'vlanNetworkName' in datacenter 'datacenterName' has been modified. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+||  h6. Rack ||  ||  ||  ||  ||
+| RACK | CREATE | (i) | Rack 'rackName' has been created. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| RACK | DELETE | (i) | Rack 'rackName' deleted. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| RACK | MODIFY | (i) | Rack 'oldRackName' has been modified to (Name - 'rackName', Short description - 'rackShortDescription') | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| RACK | SCHEDULER_FREE_VLAN | (-) | The maximum number of VLAN tags has been reached. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+||  h6. Remote service ||  ||  ||  ||  ||
+| REMOTE_SERVICE | CHECK | (-) | An error occurred while checking remote service type 'remoteServiceType' with UUID 'remoteServiceUUID'. | PHYS_DC_MANAGE |
+| REMOTE_SERVICE | CREATE | (i) | 'remoteServiceType' created at 'remoteServiceUri'. | PCR_MANAGE, PHYS_DC_MANAGE |
+| REMOTE_SERVICE | DELETE | (i) | 'remoteServiceType' (remoteServiceUri) deleted. | PCR_MANAGE, PHYS_DC_MANAGE |
+| REMOTE_SERVICE | MODIFY | (i) | 'remoteServiceType' updated. | PCR_MANAGE, PHYS_DC_MANAGE |
+||  h6. Resource group ||  ||  ||  ||  ||
+| RESOURCE_GROUP | CREATE | (i) | Resource group 'name' has been created in region 'region' for provider 'provider' (ProviderId - 'providerId') | PCR_MANAGE, PHYS_DC_MANAGE |
+| RESOURCE_GROUP | DELETE | (-) | Resource group 'name' could not be deleted with cause - 'cause'. | DELETE_RESOURCE_GROUP |
+| RESOURCE_GROUP | DELETE | (i) | Resource group 'name' has been deleted. | DELETE_RESOURCE_GROUP |
+| RESOURCE_GROUP | MODIFY | (i) | Resource group 'name' has been modified to 'newName' for provider 'provider' (ProviderId - 'providerId'). | DELETE_RESOURCE_GROUP |
+| RESOURCE_GROUP | SYNC_CREATE | (i) | Resource group 'name' created during synchronization in region 'region' for provider 'provider' (ProviderId - 'providerId') | MANAGE_RESOURCE_GROUP  |
+| RESOURCE_GROUP | SYNC_DELETE | (i) | Resource group 'name' deleted during synchronization (ProviderId - 'providerId') | MANAGE_RESOURCE_GROUP  |
+||  h6. Role ||  ||  ||  ||  ||
+| ROLE | CREATE | (i) | Created role 'roleName' (Enterprise - 'enterpriseName') | USERS_MANAGE_ROLES |
+| ROLE | DELETE | (i) | Deleted role 'roleName'. | USERS_MANAGE_ROLES |
+| ROLE | MODIFY | (i) | Role 'oldRoleName' of enterprise 'oldRoleEnterprise', has been modified (Name - 'newRoleName', Enterprise - 'newRoleEnterprise', Privileges added - 'addedPrivileges', Privileges deleted - 'removedPrivileges') | USERS_MANAGE_ROLES |
+||  h6. Routing rule ||  ||  ||  ||  ||
+| ROUTING_RULE | CREATE | (i) | Added routing rule 'portIn' -> 'portOut' to load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+| ROUTING_RULE | DELETE | (i) | Removed routing rule 'portIn' -> 'portOut' from load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+| ROUTING_RULE | MODIFY | (i) | Modified routing rule 'portIn' -> 'portOut' of load balancer 'loadBalancerName'. | MANAGE_LOADBALANCERS |
+||  h6. Rules ||  ||  ||  ||  ||
+| RULES | APPLY | (i) | Allocation rules have been applied. | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+| RULES | LOADBALANCE_APPLY | (i) | Load balance allocation rule of 'fitPolicyRuleName' type has been applied. | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+| RULES | LOADBALANCE_DELETE | (i) | Load balance allocation rule has been removed. | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+| RULES | LOADLEVEL_APPLY | (i) | Load level rule has been applied. | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+| RULES | LOADLEVEL_CPU_EXCEEDED | (-) | message | VAPP_DEPLOY_UNDEPLOY |
+| RULES | LOADLEVEL_DATASTORE_EXCEEDED | (-) | message | VAPP_DEPLOY_UNDEPLOY |
+| RULES | LOADLEVEL_DELETE | (i) | Load level rule has been removed. | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+| RULES | LOADLEVEL_RAM_EXCEEDED | (-) | message | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+| RULES | RESTRICTSHARED_APPLY | (i) | Restrict shared server allocation rule between enterprise 'enterpriseOneName' and 'enterpriseTwoName' has been applied. | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+| RULES | RESTRICTSHARED_DELETE | (i) | Restrict shared server allocation rule between enterprise 'enterpriseOneName' and 'enterpriseTwoName' has been removed. | PHYS_DC_ALLOW_MODIFY_ALLOCATION |
+||  h6. Scaling group ||  ||  ||  ||  ||
+| SCALING_GROUP | CAPACITY_ADJUSTED | (i) | Capacity of scaling group 'scalingGroupName' has been adjusted by 'adjustmentString' instances in virtual appliance 'virtualApplianceName' | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | CREATE | (i) | Scaling group 'scalingGroupName' created in virtual appliance 'virtualApplianceName' with master virtual machine mastervirtualMachineInfo | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | DELETE | (i) | Scaling group 'scalingGroupName' deleted in virtual appliance 'virtualApplianceName' | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | END_MAINTENANCE | (i) | Scaling group 'scalingGroupName' exited from maintenance mode in virtual appliance 'virtualApplianceName' | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | MODIFY | (i) | Scaling group 'scalingGroupName' modified in virtual appliance 'virtualApplianceName' | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | MOVE_TO_VAPP | (i) | Scaling group 'scalingGroupName' from virtual appliance 'sourceVirtualApplianceName' has moved to virtual appliance 'targetVirtualApplianceName'. | VAPP_DEPLOY_UNDEPLOY |
+| SCALING_GROUP | NO_RULES_SCALE_IN | (!) | No rules to scale in scaling group 'scalingGroupName'. Reason - reason | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | NO_RULES_SCALE_OUT | (!) | No rules to scale out scaling group 'scalingGroupName'. Reason - reason | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | SCALE_IN | (i) | Scaling group 'scalingGroupName' scaled in in virtual appliance 'virtualApplianceName' | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | SCALE_OUT | (i) | Scaling group 'scalingGroupName' scaled out in virtual appliance 'virtualApplianceName' | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | START_MAINTENANCE | (i) | Scaling group 'scalingGroupName' entered into maintenance mode in virtual appliance 'virtualApplianceName' | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | TAGS_CREATE | (!) | Could not create tags on scaling group scalingGroupName in provider. failedTagList | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | TAGS_CREATE | (-) | Could not create tags tagList on scaling group scalingGroupName. errorMessage | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on scaling group scalingGroupName and created tags notMaterializeTagList but did not materialize them. | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | TAGS_DELETE | (!) | Could not remove tags on scaling group scalingGroupName from provider. failedUntagList | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_DELETE | (-) | Could not remove tags with keys keyList from scaling group scalingGroupName. errorMessage | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_DELETE | (i) | Removed tags with keys keyList from scaling group scalingGroupName | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_EDIT | (!) | Could not edit tags on scaling group scalingGroupName in provider. failedTagList | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_EDIT | (-) | Could not edit tags with keys tagList on scaling group scalingGroupName. errorMessage | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_EDIT | (i) | Edited tags with keys tagList on scaling group scalingGroupName | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_GET | (-) | Could not get tags from scaling group scalingGroupName. errorMessage | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_GET | (i) | Retrieved tags on scaling group scalingGroupName from provider | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_SYNC | (-) | Could not synchronize tags on scaling group scalingGroupName | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_SYNC | (i) | Synchronized tags on scaling group scalingGroupName | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_UPDATE | (-) | Could not update tags on scaling group scalingGroupName | TAGS_MANAGE |
+| SCALING_GROUP | TAGS_UPDATE | (i) | Updated tags on scaling group scalingGroupName | TAGS_MANAGE |
+| SCALING_GROUP | UNABLE_TO_CLONE_MASTER_VM | (-) | Unable to clone virtual machine in scaling group 'scalingGroupName' in virtual appliance 'virtualApplianceName' - errorMessage | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | UNABLE_TO_DEPLOY_CLONED_VM | (-) | Unable to deploy cloned virtual machine virtualMachineInfo in scaling group 'scalingGroupName' in virtual appliance 'virtualApplianceName' - errorMessage | MANAGE_SCALING_GROUPS |
+| SCALING_GROUP | UNABLE_TO_UNDEPLOY_VM | (-) | Unable to deploy virtual machine virtualMachineInfo in scaling group 'scalingGroupName' in virtual appliance 'virtualApplianceName' - errorMessage | MANAGE_SCALING_GROUPS |
+||  h6. Scope ||  ||  ||  ||  ||
+| SCOPE | CREATE | (i) | Created scope with name 'scopeName'. | USERS_MANAGE_SCOPES |
+| SCOPE | DELETE | (i) | Scope with name 'scopeName' has been deleted. | USERS_MANAGE_SCOPES |
+| SCOPE | MODIFY | (i) | Scope with name 'scopeName' has been modified. | USERS_MANAGE_SCOPES |
+||  h6. Service action result ||  ||  ||  ||  ||
+| SERVICE_ACTION_RESULT | FINISH | (-) | Failed result available for action 'action' in service 'serviceConfName' with context 'contextEntityTypeAndName' | USERS_MANAGE_SCOPES |
+| SERVICE_ACTION_RESULT | FINISH | (i) | Service result available for action 'action' in service 'serviceConfName' with context 'contextEntityTypeAndName' | USERS_MANAGE_SCOPES |
+||  h6. Service conf ||  ||  ||  ||  ||
+| SERVICE_CONF | CREATE | (i) | Service 'serviceConfName' created for 'entityTypeAndName', parent 'parentName'. Has state 'hasState' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | DELETE | (i) | Service 'serviceConfName' with owner 'entityTypeAndName' deleted | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | PARAM_CREATE | (i) | Service 'serviceConfName' with owner 'entityTypeAndName' added parameter 'parameterName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | PARAM_DELETE | (i) | Service 'serviceConfName' with owner 'entityTypeAndName' deleted parameter 'parameterName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | PARAM_UPDATE | (i) | Service 'serviceConfName' with owner 'entityTypeAndName' updated parameter 'parameterName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPDATE | (i) | Service 'serviceConfName' with owner 'entityTypeAndName' updated | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPGRADE | (!) | Schema parameter 'paramName' upgrade affects service 'serviceConfName' in 'entityTypeAndName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPGRADE | (!) | Schema upgrade affects parameter 'paramName' of service 'serviceConfName' in 'entityTypeAndName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPGRADE | (!) | Schema upgrade needs to remove incompatible parameter 'paramName' of service 'serviceConfName' in 'entityTypeAndName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPGRADE | (-) | Schema parameter 'paramName' upgrade affects service 'serviceConfName' in 'entityTypeAndName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPGRADE | (i) | Schema upgrade affects service 'serviceConfName' in 'entityTypeAndName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPGRADE_EXTRACTOR | (!) | Schema upgrade affects parameter 'paramName' of service 'serviceConfName' in 'entityTypeAndName' | USERS_MANAGE_SCOPES |
+| SERVICE_CONF | UPGRADE_REMOVE_PARAM | (!) | Schema upgrade needs to remove incompatible parameter 'paramName' of service 'serviceConfName' in 'entityTypeAndName' | USERS_MANAGE_SCOPES |
+||  h6. Service schema ||  ||  ||  ||  ||
+| SERVICE_SCHEMA | ADDED | (i) | Service Schema 'serviceSchemaName' added | USERS_MANAGE_SCOPES |
+| SERVICE_SCHEMA | DELETED | (i) | Service Schema 'serviceSchemaName' deleted | USERS_MANAGE_SCOPES |
+| SERVICE_SCHEMA | UPGRADE | (!) | Service Schema 'serviceSchemaName' incompatible changes 'incompatibleChanges' | USERS_MANAGE_SCOPES |
+| SERVICE_SCHEMA | UPGRADE | (-) | Service Schema 'serviceSchemaName' cannot be upgraded | USERS_MANAGE_SCOPES |
+| SERVICE_SCHEMA | UPGRADE | (i) | Service Schema 'serviceSchemaName' compatible changes 'compatibleChanges' | USERS_MANAGE_SCOPES |
+||  h6. Service state ||  ||  ||  ||  ||
+| SERVICE_STATE | CHECK | (-) | Failed update in service state of 'creationServiceConfName' (and related) | USERS_MANAGE_SCOPES |
+| SERVICE_STATE | CHECK | (i) | Service state of 'creationServiceConfName' (and related) updated from 'from' to 'to' | USERS_MANAGE_SCOPES |
+| SERVICE_STATE | CREATE | (i) | Service state of 'creationServiceConfName' created | USERS_MANAGE_SCOPES |
+||  h6. Snapshot ||  ||  ||  ||  ||
+| SNAPSHOT | DELETE | (-) | Could not delete the snapshot snapshotName for the Virtual machine virtualMachineName. errorMessage | MANAGE_SNAPSHOT |
+| SNAPSHOT | DELETE | (i) | The snapshot snapshotName for the Virtual Machine virtualMachineName was successfully deleted. | MANAGE_SNAPSHOT |
+| SNAPSHOT | REVERT | (-) | Could not revert the Virtual machine snapshotName to snapshot virtualMachineName. errorMessage | MANAGE_SNAPSHOT |
+| SNAPSHOT | REVERT | (i) | The Virtual Machine snapshotName was successfully reverted to snapshot virtualMachineName. | MANAGE_SNAPSHOT |
+| SNAPSHOT | TAKE | (-) | Could not take the snapshot snapshotName for the Virtual machine virtualMachineName. errorMessage | MANAGE_SNAPSHOT |
+| SNAPSHOT | TAKE | (i) | The snapshot snapshotName for the Virtual Machine virtualMachineName was successfully taken. | MANAGE_SNAPSHOT |
+||  h6. Storage device ||  ||  ||  ||  ||
+| STORAGE_DEVICE | CREATE | (i) | Storage device 'storageDeciceName' has been created. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+| STORAGE_DEVICE | DELETE | (i) | Deleted storage device 'storageDeviceName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+| STORAGE_DEVICE | INITIATOR_ADD | (-) | Unable to create the initiator mapping for initiator 'iscsiInitiator' and volume 'volumeName'. | VAPP_CREATE_STATEFUL |
+| STORAGE_DEVICE | INITIATOR_ADD | (i) | Added initiator to the target storage technology 'iscsiInitiator' and volume 'volumeName'. | VAPP_CREATE_STATEFUL |
+| STORAGE_DEVICE | MODIFY | (i) | Storage device 'storageDeviceOldName' has been modified. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+||  h6. Storage pool ||  ||  ||  ||  ||
+| STORAGE_POOL | CREATE | (i) | Created storage pool 'storagePoolName' on device 'deviceName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+| STORAGE_POOL | DELETE | (i) | Deleted storage pool 'storagePoolName' on device 'storegaPoolDeviceName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+| STORAGE_POOL | MODIFY | (i) | Storage pool 'storagePoolName' moved to tier 'oldTierName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+||  h6. Subnet ||  ||  ||  ||  ||
+| SUBNET | CREATE | (i) | Subnet 'name' has been created in the global network 'globalNetworkName'. | VDC_ENUMERATE |
+| SUBNET | DELETE | (i) | Subnet 'name' has been deleted from the global network 'globalNetworkName'. | VDC_ENUMERATE |
+| SUBNET | MODIFY | (i) | Subnet 'name' from the global network 'globalNetworkName' has been modified. | VDC_ENUMERATE |
+| SUBNET | SYNC_CREATE | (i) | Subnet 'name' created during synchronization of the global network 'globalNetworkName'. | VDC_ENUMERATE |
+| SUBNET | SYNC_DELETE | (i) | Subnet 'name' deleted during synchronization of the global network 'globalNetworkName'. | VDC_ENUMERATE |
+| SUBNET | SYNC_MODIFY | (i) | Subnet 'name' modified during synchronization of the global network 'globalNetworkName'. | VDC_ENUMERATE |
+||  h6. Subnet ip ||  ||  ||  ||  ||
+| SUBNET_IP | CREATE | (i) | Subnet IP 'ipAddress' has been created in the subnet 'subnetName'. | VDC_ENUMERATE |
+| SUBNET_IP | CREATE | (i) | numberOfIps subnet IPs have been created in subnet 'subnetName'  - 'ips'. | VDC_ENUMERATE |
+| SUBNET_IP | CREATE_BULK | (i) | numberOfIps subnet IPs have been created in subnet 'subnetName'  - 'ips'. | VDC_ENUMERATE |
+| SUBNET_IP | DELETE | (i) | Subnet IP'ipAddress' has been deleted from the subnet 'subnetName'. | VDC_ENUMERATE |
+| SUBNET_IP | SYNC_CREATE | (i) | Subnet IP 'ipAddress' created in the subnet 'subnetName' during synchronization. | VDC_ENUMERATE |
+| SUBNET_IP | SYNC_DETACH | (i) | Subnet IP 'ipAddress' in subnet 'subnetName' detached from 'virtualMachineInfo' during synchronization. | VDC_ENUMERATE |
+| SUBNET_IP | SYNC_MODIFY | (i) | Subnet IP 'ipAddress' from the subnet 'subnetName' has been modified during synchronization'. | VDC_ENUMERATE |
+||  h6. Tag policy ||  ||  ||  ||  ||
+| TAG_POLICY | CREATE | (i) | Tag policy 'tagPolicyName' has been created on enterprise 'enterpriseName' | TAG_POLICIES_MANAGE |
+| TAG_POLICY | DELETE | (i) | Tag policy 'tagPolicyName' of enterprise 'enterpriseName' has been deleted | TAG_POLICIES_MANAGE |
+| TAG_POLICY | MODIFY | (i) | Tag policy 'tagPolicyName' of enterprise 'enterpriseName' has been modified | TAG_POLICIES_MANAGE |
+||  h6. Target group ||  ||  ||  ||  ||
+| TARGET_GROUP | CREATE | (-) | Target group 'targetGroupName' could not be created. errorMessage | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | CREATE | (i) | Added target group 'targetGroupName'. | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | DELETE | (-) | Target group 'targetGroupName' could not be deleted. errorMessage | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | DELETE | (i) | Removed target group 'targetGroupName'. | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | MODIFY | (-) | Target group 'targetGroupName' could not be updated. errorMessage | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | MODIFY | (i) | Target group 'targetGroupName' has been updated. | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | SYNC_CREATE | (i) | Added target group 'targetGroupName' during refresh. | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | SYNC_DELETE | (i) | Removed target group 'targetGroupName' during refresh. | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | SYNC_MODIFY | (i) | Target group 'targetGroupName' has been synchronized. | MANAGE_LOADBALANCERS |
+| TARGET_GROUP | TAGS_CREATE | (!) | Could not create tags on target group targetGroupName in provider. failedTagList | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_CREATE | (-) | Could not create tags tagList on target group targetGroupName. errorMessage | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on target group scalingGroupName and created tags notMaterializeTagList but did not materialize them. | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_DELETE | (!) | Could not remove tags on target group targetGroupName from provider. failedUntagList | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_DELETE | (-) | Could not remove tags with keys keyList from target group targetGroupName. errorMessage | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_DELETE | (i) | Removed tags with keys keyList from target group targetGroupName | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_EDIT | (!) | Could not edit tags on target group targetGroupName in provider. failedTagList | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_EDIT | (-) | Could not edit tags with keys tagList on target group targetGroupName. errorMessage | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_EDIT | (i) | Edited tags with keys tagList on target group targetGroupName | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_GET | (-) | Could not get tags from target group targetGroupName. errorMessage | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_GET | (i) | Retrieved tags on target group targetGroupName from provider | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_SYNC | (-) | Could not synchronize tags on target group targetGroupName | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_SYNC | (i) | Synchronized tags on target group targetGroupName | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_UPDATE | (-) | Could not update tags on target group targetGroupName | TAGS_MANAGE |
+| TARGET_GROUP | TAGS_UPDATE | (i) | Updated tags on target group targetGroupName | TAGS_MANAGE |
+||  h6. Task ||  ||  ||  ||  ||
+| TASK | DEPLOY_CANCEL | (i) | Deploy task 'taskId'  (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow cancellation was successful (custom message - 'message'). | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| TASK | DEPLOY_CONTINUE | (-) | Deploy task 'taskId' (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow continuation failed (custom message - 'message'). | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| TASK | DEPLOY_CONTINUE | (i) | Deploy task 'taskId'  (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow continuation was successful (custom message - 'message'). | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| TASK | FIND | (-) | Task 'taskId' not found. | AUTHENTICATED |
+| TASK | RECONFIGURE_CANCEL | (-) | Reconfigure task 'taskId' (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow cancellation failed (custom message - 'message'). | VAPP_CUSTOMISE_SETTINGS, WORKFLOW_OVERRIDE |
+| TASK | RECONFIGURE_CANCEL | (i) | Reconfigure task 'taskId'  (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow cancellation was successful (custom message - 'message'). | VAPP_CUSTOMISE_SETTINGS, WORKFLOW_OVERRIDE |
+| TASK | RECONFIGURE_CONTINUE | (-) | Reconfigure task 'taskId' (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow continuation failed (custom message - 'message'). | VAPP_CUSTOMISE_SETTINGS, WORKFLOW_OVERRIDE |
+| TASK | RECONFIGURE_CONTINUE | (i) | Reconfigure task 'taskId'  (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow continuation was successful (custom message - 'message'). | VAPP_CUSTOMISE_SETTINGS, WORKFLOW_OVERRIDE |
+| TASK | UNDEPLOY_CANCEL | (-) | Undeploy task 'taskId' (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow cancellation failed (custom message - 'message'). | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| TASK | UNDEPLOY_CANCEL | (i) | Undeploy task 'taskId' (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName')  workflow cancellation was successful (custom message - 'message'). | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| TASK | UNDEPLOY_CONTINUE | (-) | Undeploy task 'taskId' (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName') workflow continuation failed (custom message - 'message'). | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| TASK | UNDEPLOY_CONTINUE | (i) | Undeploy task 'taskId' (virtual machine 'virtualMachineInfo' ('enterpriseName', virtual appliance 'virtualApplianceName', virtual datacenter 'virtualDatacenterName'), datacenter 'datacenterName')  workflow continuation was successful (custom message - 'message'). | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+||  h6. Template definition list ||  ||  ||  ||  ||
+| TEMPLATE_DEFINITION_LIST | CREATE | (!) | Template definition list 'templateDefinitionListName' cannot be validated - 'validationErrors' in template with name 'templateDefinitionName'. | APPLIB_ALLOW_MODIFY |
+| TEMPLATE_DEFINITION_LIST | DELETE | (i) | Removing OVF package list 'templateDefinitionListName'. | APPLIB_ALLOW_MODIFY |
+| TEMPLATE_DEFINITION_LIST | MODIFY | (i) | Template definition list 'oldTemplateDefinitionListName' updated. | APPLIB_ALLOW_MODIFY |
+||  h6. Tier ||  ||  ||  ||  ||
+| TIER | ALLOW | (i) | Datastore tier 'datastoreTierName' has been allowed for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+| TIER | ALLOW | (i) | Storage tier 'tierName' has been allowed for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+| TIER | RESTRICT | (i) | Datastore tier 'datastoreTierName' has been restricted for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+| TIER | RESTRICT | (i) | Storage tier 'tierName' has been restricted for enterprise 'enterpriseName'. | PHYS_DC_ALLOW_MODIFY_STORAGE |
+||  h6. User ||  ||  ||  ||  ||
+| USER | CREATE | (i) | User 'userNick' has been created (Enterprise - 'enterpriseName' Name - 'userName' Surname - 'userSurname' Role - 'roleName') | USERS_MANAGE_USERS |
+| USER | CREATE | (i) | User 'userNick' with email 'email' has created a new user in the provider 'provider' for the enterprise 'enterpriseName'. | USERS_MANAGE_USERS |
+| USER | CREATE_IN_PROVIDER | (i) | User 'userNick' with email 'email' has created a new user in the provider 'provider' for the enterprise 'enterpriseName'. | USERS_MANAGE_USERS |
+| USER | DELETE | (-) | User 'userName' could not be deleted. Users with role 'roleName' can only be deleted by users with the same role. | USERS_MANAGE_USERS |
+| USER | DELETE | (i) | User 'userName' has been deleted (Enterprise - 'enterpriseName' Name - 'userName2' Surname - 'userSurname' Role - 'roleName') | USERS_MANAGE_USERS |
+| USER | DISABLE_TWO_FACTOR | (i) | Disabled two-factor authentication on login for user -  'userNick'. | USERS_MANAGE_USERS |
+| USER | ENABLE_TWO_FACTOR | (i) | Enabled two-factor authentication on login for user -  'userNick'. | USERS_MANAGE_USERS |
+| USER | FIRST_LOGIN | (i) | Enabled password reset on login for user -  'userNick'. | USERS_MANAGE_USERS |
+| USER | LOGIN | (i) | User 'userNick' logged in. | AUTHENTICATED |
+| USER | LOGOUT | (i) | User 'userNick' logged out. | AUTHENTICATED |
+| USER | METADATA_DELETE | (i) | Metadata for user 'userName' has been deleted. | USERS_MANAGE_USERS_METADATA |
+| USER | METADATA_MODIFY | (i) | Metadata for user 'userName' has been modified. | USERS_MANAGE_USERS_METADATA |
+| USER | MODIFY | (-) | User 'userName' could not be modified. Users with role 'roleName' can only be modified by users with the same role. | ENTERPRISE_ADMINISTER_ALL, USERS_MANAGE_USERS |
+| USER | MODIFY | (i) | User 'oldUserName' has been modified (Enterprise - 'enterpriseName' Name - 'currentUserName' Surname - 'currentUserSurname' Role - 'roleName') | ENTERPRISE_ADMINISTER_ALL, USERS_MANAGE_USERS |
+| USER | RESET_PSW | (i) | User 'userNick' has requested a password reset. | USERS_MANAGE_USERS |
+||  h6. Virtual appliance ||  ||  ||  ||  ||
+| VIRTUAL_APPLIANCE | COPY | (-) | Virtual appliance 'virtualApplianceName', cannot be copied. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | COPY | (i) | Virtual appliance 'sourceVirtualApplianceName' successfully copied from virtual datacenter 'sourceVirtualDatacenterName' to virtual datacenter 'targetVirtualDatacenterName' with name 'targetVirtualApplianceName'. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | CREATE | (-) | Unable to create virtual appliance | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | CREATE | (i) | Virtual appliance 'virtualApplianceName' has been created. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | DELETE | (i) | Delete of the virtual appliance 'virtualApplianceName' succeeded. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | DEPLOY | (-) | Deploy of the virtual appliance 'virtualApplianceName' failed. | VAPP_DEPLOY_UNDEPLOY, VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | DEPLOY | (i) | Virtual appliance 'virtualAppliancename' is being deployed. | VAPP_DEPLOY_UNDEPLOY, VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | MODIFY | (i) | Virtual appliance 'virtualApplianceName' has been modified. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | MOVE | (-) | Virtual appliance 'virtualApplianceName', cannot be moved. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | MOVE | (i) | Virtual appliance 'virtualApplianceSourceName' successfully moved from virtual datacenter 'virtualDatacenterSourceName' to virtual datacenter 'virtualDatacenterTargetName' with name 'virtualApplianceTargetName'. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | TAGS_CREATE | (!) | Could not create tags on virtual appliance virtualApplianceName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_CREATE | (-) | Could not create tags tagList on virtual appliance virtualApplianceName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on virtual appliance virtualApplianceName and created tags notMaterializeTagList but did not materialize them. | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_DELETE | (!) | Could not remove tags on virtual appliance virtualApplianceName from provider. failedUntagList | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_DELETE | (-) | Could not remove tags with keys keyList from virtual appliance virtualApplianceName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_DELETE | (i) | Removed tags with keys keyList from virtual appliance virtualApplianceName | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_EDIT | (!) | Could not edit tags on virtual appliance virtualApplianceName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_EDIT | (-) | Could not edit tags with keys tagList on virtual appliance virtualApplianceName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_EDIT | (i) | Edited tags with keys tagList on virtual appliance virtualApplianceName | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_GET | (-) | Could not get tags from virtual appliance virtualApplianceName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_GET | (i) | Retrieved tags on virtual appliance virtualApplianceName from provider | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_SYNC | (-) | Could not synchronize tags on virtual appliance virtualApplianceName | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_SYNC | (i) | Synchronized tags on virtual appliance virtualApplianceName | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_UPDATE | (-) | Could not update tags on virtual appliance virtualApplianceName | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | TAGS_UPDATE | (i) | Updated tags on virtual appliance virtualApplianceName | TAGS_MANAGE |
+| VIRTUAL_APPLIANCE | UNDEPLOY | (i) | Virtual appliance 'virtualApplianceName' is being undeployed. | VAPP_DEPLOY_UNDEPLOY, VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE | WORKFLOW_DEPLOY_BATCH | (-) | Virtual appliance 'virtualApplianceName' deploy workflow webhook request for task 'taskId' failed. | VAPP_DEPLOY_UNDEPLOY, VDC_MANAGE_VAPP, WORKFLOW_OVERRIDE |
+| VIRTUAL_APPLIANCE | WORKFLOW_DEPLOY_BATCH | (i) | Virtual appliance 'virtualApplianceName' deploy workflow webhook sent successfully. | VAPP_DEPLOY_UNDEPLOY, VDC_MANAGE_VAPP, WORKFLOW_OVERRIDE |
+||  h6. Virtual appliance spec ||  ||  ||  ||  ||
+| VIRTUAL_APPLIANCE_SPEC | CREATE | (i) | New spec version 'virtualApplianceSpecName' has been created from virtual appliance 'virtualApplianceName'. | MANAGE_VAPP_SPEC |
+| VIRTUAL_APPLIANCE_SPEC | CREATE | (i) | Spec 'virtualApplianceSpecName' has been created from virtual appliance 'virtualApplianceName'. | MANAGE_VAPP_SPEC |
+| VIRTUAL_APPLIANCE_SPEC | CREATE_VERSION | (i) | New spec version 'virtualApplianceSpecName' has been created from virtual appliance 'virtualApplianceName'. | MANAGE_VAPP_SPEC |
+| VIRTUAL_APPLIANCE_SPEC | DELETE | (i) | Removed spec 'virtualApplianceSpecName' of enterprise 'enterpriseName'. | MANAGE_VAPP_SPEC |
+| VIRTUAL_APPLIANCE_SPEC | MATERIALIZE | (-) | Failed to create virtual appliance 'vappName'. Error processing task 'taskType'. Failed job 'jobType'. Error - 'errorMessage'. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | MATERIALIZE | (i) | Task 'taskType' finished successfully. Virtual appliance 'vappName' was correctly configured. | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | MODIFY | (i) | Spec 'virtualApplianceSpecName' has been modified. | MANAGE_VAPP_SPEC |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_EXTERNAL_NETWORK | (-) | The external VLAN with ID 'vlanId' in datacenter 'datacenterName' for enterprise 'entepriseName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_FIREWALL | (-) | The firewall policy with ID 'firewallId' in virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_FLOATING_IP | (-) | The floating IP 'publicIpId' in virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_LOAD_BALANCER | (-) | The load balancer with ID 'loadBalancerId' in virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_PRIVATE_NETWORK | (-) | The private VLAN with ID 'privateNetworkId' in virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_PUBLIC_IP | (-) | The public IP 'publicIpId' in virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_TARGET_GROUP | (-) | The target group with ID 'targetGroupId' in virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_VIRTUAL_MACHINE | (-) | The virtual machine with ID 'virtualMachineId' in virtual appliance 'virtualApplianceName' and virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | ROLLBACK_VOLUME | (-) | The volume with ID 'volumeId' in virtual datacenter 'virtualDatacenterName' could not be rolled back. Error - 'errorMessage' | VDC_MANAGE_VAPP |
+| VIRTUAL_APPLIANCE_SPEC | SET_DEFAULT | (i) | Spec 'virtualApplianceSpecName' has been set as default. | MANAGE_VAPP_SPEC |
+||  h6. Virtual datacenter ||  ||  ||  ||  ||
+| VIRTUAL_DATACENTER | CREATE | (-) | Virtual datacenter could not be created with cause - 'cause'. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | CREATE | (i) | Virtual datacenter 'virtualDatacenterName' has been created. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | DELETE | (-) | Virtual datacenter 'virtualDatacenterName' could not be deleted with cause - 'cause'. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | DELETE | (i) | Virtual datacenter 'virtualDatacenterName' has been deleted. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | FIREWALL_DEFAULT | (i) | Firewall with name 'firewallName' has been configured as the default in virtual datacenter 'virtualDatacenterName'. | MANAGE_DEFAULT_FIREWALL |
+| VIRTUAL_DATACENTER | MODIFY | (i) | Virtual datacenter 'virtualDatacenterName' has been modified. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | NETWORK_DEFAULT | (i) | 'vlanType' VLAN with name 'vlanName' has been configured as the default in virtual datacenter 'virtualDatacenterName'. | VDC_MANAGE_NETWORK, VDC_MANAGE |
+| VIRTUAL_DATACENTER | REMOVE_FIREWALL_DEFAULT | (i) | Firewall with name 'firewallName' has been removed as the default in virtual datacenter 'virtualDatacenterName'. | MANAGE_DEFAULT_FIREWALL |
+| VIRTUAL_DATACENTER | SCHEDULER_BEST_TARGET | (-) | No rack can be selected because all racks have more than the maximum allowed number of VLANs. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_DATACENTER | SYNC | (-) | Sync 'vdcId' failed. errorMessage. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | SYNC | (i) | A virtual datacenter synchronization process has been finished for 'virtualDatacenterName' from 'locationName'. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | SYNC | (i) | A virtual datacenter synchronization process has been started for 'virtualDatacenterName' from 'locationName'. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | SYNC_FINISHED | (i) | A virtual datacenter synchronization process has been finished for 'virtualDatacenterName' from 'locationName'. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | SYNC_START | (i) | A virtual datacenter synchronization process has been started for 'virtualDatacenterName' from 'locationName'. | VDC_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_CREATE | (!) | Could not create tags on virtual datacenter virtualDatacenterName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_CREATE | (-) | Could not create tags tagList on virtual datacenter virtualDatacenterName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on virtual datacenter virtualDatacenterName and created tags notMaterializeTagList but did not materialize them. | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_DELETE | (!) | Could not remove tags on virtual datacenter virtualDatacenterName from provider. failedUntagList | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_DELETE | (-) | Could not remove tags with keys keyList from virtual datacenter virtualDatacenterName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_DELETE | (i) | Removed tags with keys keyList from virtual datacenter virtualDatacenterName | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_EDIT | (!) | Could not edit tags on virtual datacenter virtualDatacenterName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_EDIT | (-) | Could not edit tags with keys tagList on virtual datacenter virtualDatacenterName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_EDIT | (i) | Edited tags with keys tagList on virtual datacenter virtualDatacenterName | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_GET | (-) | Could not get tags from virtual datacenter virtualDatacenterName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_GET | (i) | Retrieved tags on virtual datacenter virtualDatacenterName from provider | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_SYNC | (-) | Could not synchronize tags on virtual datacenter virtualDatacenterName | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_SYNC | (i) | Synchronized tags on virtual datacenter virtualDatacenterName | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_UPDATE | (-) | Could not update tags on virtual datacenter virtualDatacenterName | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | TAGS_UPDATE | (i) | Updated tags on virtual datacenter virtualDatacenterName | TAGS_MANAGE |
+| VIRTUAL_DATACENTER | UPDATE_TYPE | (!) | VirtualDatacenter 'virtualDatacenterName' changed type based on existing virtual machines from 'oldHypervisorType' to 'currentHypervisorType'. | VDC_MANAGE |
+||  h6. Virtual image conversion ||  ||  ||  ||  ||
+| VIRTUAL_IMAGE_CONVERSION | AVAILABLE | (i) | Virtual machine template conversion at 'virtualImageConversionTargetPath' is available again. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION | (-) | Could not send the conversion for ('templateName' to 'templateDiskFormatType') to the BPM. Check connection and configuration. The conversion will be skipped. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION | (-) | Failed to create conversion of instance template 'templateName'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION | (-) | Failed while converting the virtual machine template 'templateName' from disk format 'sourceFormat' to 'targetFormat'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION | (i) | Conversion created of instance template 'templateName'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION | (i) | Conversion from disk format 'sourceFormat' to 'targetFormat' finished successfully for template 'templateName'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION | (i) | Task (task ID 'taskId') queued successfully in the conversion manager. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION_FINISH | (-) | Failed while converting the virtual machine template 'templateName' from disk format 'sourceFormat' to 'targetFormat'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION_FINISH | (i) | Conversion from disk format 'sourceFormat' to 'targetFormat' finished successfully for template 'templateName'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION_INSTANCE_FINISH | (-) | Failed to create conversion of instance template 'templateName'. | APPLIB_ALLOW_MODIFY, VAPP_CREATE_INSTANCE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION_INSTANCE_FINISH | (i) | Conversion created of instance template 'templateName'. | APPLIB_ALLOW_MODIFY, VAPP_CREATE_INSTANCE |
+| VIRTUAL_IMAGE_CONVERSION | CONVERSION_TASK_ENQUEUE | (i) | Task (task ID 'taskId') queued successfully in the conversion manager. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_IMAGE_CONVERSION | UNAVAILABLE | (!) | Virtual machine template conversion at 'virtualImageConversionTargetPath' is not present in the datacenter repository. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_IMAGE_CONVERSION | UNAVAILABLE | (i) | Virtual machine template conversion at 'virtualImageConversionTargetPath' is not present in the datacenter repository. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+||  h6. Virtual machine ||  ||  ||  ||  ||
+| VIRTUAL_MACHINE | ADD_BACKUP_POLICY | (i) | The backup policy 'backupPolicyName' has been successfully added to the virtual machine 'virtualMachineInfo'. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | ALLOCATE_HD | (!) | The hard disk 'hardDiskId' cannot be attached to controller 'controllerType', will use 'defaultControllerType'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | ALLOCATE_HD | (i) | The hard disk resource of 'diskSizeInMB' MB has been assigned to virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | ALLOCATE_NICS | (-) | Cannot add more NICs to virtual machine 'virtualMachineInfo'. NIC limit - 'numberOfNicsPerVirtualMachine', Current NICs - numberOfCurrentNics, Requested NICs - numberOfRequestedNics. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | ALLOCATE_NICS | (i) | Virtual machine 'virtualMachineInfo' has attached the NIC associated with IP Address 'ipString' in VLAN 'networkName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | ALLOCATE_VOLUME | (i) | Volume 'volumeName' of volumeSizeInMb MB has been attached to virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | ASYNC_HANDLER_RESPONSE | (-) | Error processing task 'taskType' in handler 'handlerName'. Error - 'errorMessage'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | BACKUP_FINISH | (-) | The backup backupId has failed for virtual machine virtualMachineInfo - errorMessage. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | BACKUP_FINISH | (i) | The backup backupId has successfully finished for virtual machine virtualMachineInfo. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | BACKUP_WITH_REPLICATION_FINISH | (-) | The backup with replication backupId has failed for virtual machine virtualMachineInfo - errorMessage. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | BACKUP_WITH_REPLICATION_FINISH | (i) | The backup with replication backupId has successfully finished for virtual machine virtualMachineInfo. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | CAPTURE | (!) | Could not import virtual machine with name 'virtualMachineInfo' to virtual datacenter 'targetVirtualDatacenterNamr' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CAPTURE | (!) | Failed to update DHCP for imported virtual machine 'virtualMachineId' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CAPTURE | (-) | Failed to update DHCP for imported virtual machine 'virtualMachineId' (task 'taskId', job 'jobId' type 'jobType') | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CAPTURE | (i) | DHCP updated after import virtual machine 'virtualMachineId' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CAPTURE | (i) | The imported virtual machine 'virtualMachineInfo' has been successfully captured from the hypervisor 'hypervisorName' ('hypervisorIp' - 'hypervisorType') into the virtual appliance 'virtualApplianceName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CAPTURE_DHCP | (!) | Failed to update DHCP for imported virtual machine 'virtualMachineId' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CAPTURE_DHCP | (-) | Failed to update DHCP for imported virtual machine 'virtualMachineId' (task 'taskId', job 'jobId' type 'jobType') | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CAPTURE_DHCP | (i) | DHCP updated after import virtual machine 'virtualMachineId' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | CHEF_CONNECT | (-) | Could not connect to the Chef server at 'chefEndpoint'. Please check that the Chef server is running. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | CHEF_RUNLIST_DELETE | (i) | Removed run list element 'removedChefElementName' because it no longer exists on the Chef Server. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | CHEF_RUNLIST_UPDATE | (!) | The node does not exist on the Chef Server. If the virtual machine is bootstrapping, please wait until the process completes. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | CLONE | (-) | Unable to clone virtual machine 'virtualMachineInfo' from virtual appliance 'virtualApplianceName' - errorMessage. | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | CLONE | (i) | The virtual machine 'virtualMachineInfo' from virtual appliance 'virtualApplianceName' was cloned successfully as virtual machine 'clonedvirtualMachineInfo' | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | CREATE | (i) | The virtual machine 'virtualMachineInfo' was created successfully. | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | DEALLOCATE_FIREWALL | (i) | Firewall policy 'firewallName' has been detached from virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEALLOCATE_HD | (i) | The hard disk resource of diskSizeInMb MB has been released from virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEALLOCATE_LOADBALANCER | (i) | Load balancer 'loadbalancerName' has been detached from virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEALLOCATE_NICS | (i) | Virtual machine 'virtualMachineInfo' has released the NIC associated with IP Address 'ipString' in VLAN 'networkName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEALLOCATE_VOLUME | (i) | Volume 'volumeName' of volumeSizeInMb MB has been detached from virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_AVAILSET_CHANGED | (!) | Availability set 'oldAvailSetName' of virtual machine 'virtualMachineInfo' has been removed. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_AVAILSET_CHANGED | (i) | Availability set of virtual machine 'virtualMachineInfo' has been changed from 'oldAvailSetName' to 'newAvailSetName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_AVAILZONE_CHANGED | (i) | Availability zone of virtual machine 'virtualMachineInfo' has been changed from 'oldAvailSetName' to 'newAvailSetName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_CORES_PER_SOCKET_CHANGED | (i) | Cores per socket of virtual machine 'name' has been changed from 'valueOf' to 'valueOf2'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_CPU_CHANGED | (i) | CPU of virtual machine 'virtualMachineInfo' has been changed from 'oldCPUAmount' to 'newCPUAmount'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_DATASTORE_CHANGED | (i) | Datastore of virtual machine 'virtualMachineInfo' has been changed from 'oldDatastore' to 'newDatastore'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_DISK_ADDED | (i) | New disk 'diskId' detected and attached to virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_DISK_REMOVED | (i) | Disk 'diskUrl' detached from virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_DISK_RESIZE | (i) | Disk 'diskUrl' in virtual machine 'virtualMachineInfo' resized from 'oldSize' MB (oldTier) to 'newTier' MB (newSize). | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_FLOATINGIP_ADDED | (i) | New floating IP 'floatingIp' detected and attached to virtual machine 'virtualMachineInfo'. | MANAGE_FLOATINGIPS, VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_PROFILE_CHANGED | (i) | Hardware profile of virtual machine 'virtualMachineInfo' has been changed from 'oldHardwareProfileName' to 'newHardwareProfileName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_RAM_CHANGED | (i) | RAM of virtual machine 'virtualMachineInfo' has been changed from 'oldRamAmount' to 'newRamAmount'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_RESOURCE_GROUP_CHANGED | (i) | Resource group of virtual machine 'virtualMachineInfo' has been changed from 'oldName' to 'newName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_TAG_CONFLICT | (!) | Virtual machine 'virtualMachineInfo' is using an IP with MAC 'mac' and Abiquo VLAN tag 'vlanTag' but in the cloud node it is 'vlanTagInHypervisor'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_VOLUME_ADDED | (i) | New volume 'volumeId' detected and attached to virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_VOLUME_REMOVED | (i) | Volume 'volumeUrl' detached from virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DEFINITION_SYNCER_VOLUME_REPLACED | (!) | Volume 'volumeId' replaced by disk 'diskUrl' in virtual machine 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | DELETE | (-) | Delete of the virtual machine 'virtualMachineInfo' failed | VAPP_DELETE_UNKNOWN_VM, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | DELETE | (i) | The virtual machine 'virtualMachineInfo' was deleted successfully. | VAPP_DELETE_UNKNOWN_VM, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | DELETE | (i) | Virtual machines from host 'machineName' that are not managed by the platform have been deleted from the platform database. | VAPP_DELETE_UNKNOWN_VM, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | DEPLOY | (!) | The virtual machine 'virtualMachineInfo' has a FQDN defined ('virtualMachineFqdn') but the template is not ready to be customized. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY | (-) | Could not deploy the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY | (-) | Could not deploy the virtual machine 'virtualMachineInfo' - 'errorMessageFromPlugin'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY | (-) | Deploy (task ID 'taskId') on virtual machine 'virtualMachineInfo' failed on hypervisor 'machineOrRegionName' ('hypervisorFriendlyName') at IP 'hypervisorIpOrRegionEndpoint'. errorMessage | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY | (i) | Deploy on virtual machine 'virtualMachineInfo' completed. Scheduled in hypervisor 'machineNameOrRegionName' ('pluginType') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY | (i) | The deploy of the virtual machine 'virtualMachineInfo' was successfully queued in the virtual factory. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY_FINISH | (-) | Deploy (task ID 'taskId') on virtual machine 'virtualMachineInfo' failed on hypervisor 'machineOrRegionName' ('hypervisorFriendlyName') at IP 'hypervisorIpOrRegionEndpoint'. errorMessage | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY_FINISH | (i) | Deploy on virtual machine 'virtualMachineInfo' completed. Scheduled in hypervisor 'machineNameOrRegionName' ('pluginType') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DEPLOY_SYSTEM | (-) | Could not deploy the virtual machine 'virtualMachineInfo' - 'errorMessageFromPlugin'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | DRPROTECT | (-) | Could not protect the virtual machine virtualMachineName ('virtualMachineId') in disaster recovery. 'errorMessage'. | VM_MANAGE_DRAAS |
+| VIRTUAL_MACHINE | DRPROTECT | (i) | The virtual machine virtualMachineName ('virtualMachineId') was protected in disaster recovery. | VM_MANAGE_DRAAS |
+| VIRTUAL_MACHINE | DRUNPROTECT | (-) | Could not unprotect the virtual machine virtualMachineName ('virtualMachineId'). 'errorMessage'. | VM_MANAGE_DRAAS |
+| VIRTUAL_MACHINE | DRUNPROTECT | (i) | The virtual machine virtualMachineName ('virtualMachineId') was unprotected in disaster recovery. | VM_MANAGE_DRAAS |
+| VIRTUAL_MACHINE | FIREWALL_POLICY | (i) | Firewall policies on virtual machine 'virtualMachineInfo' have changed. | ASSIGN_FIREWALLS |
+| VIRTUAL_MACHINE | GUEST_PASSWORD_EMAIL | (!) | The owner of the virtual machine 'virtualMachineInfo' does not have an email address configured. The email with the password cannot be sent. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | GUEST_PASSWORD_SMS | (!) | The owner of the virtual machine 'virtualMachineInfo' does not have a phone number configured. The SMS with the password cannot be sent. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | GUEST_SETUP | (!) | The guest setup mechanism defined in the template is not supported by this hypervisor / cloud provider - 'virtualMachineInfo'. On virtual machine 'guestSetupName'. | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | GUEST_SETUP | (i) | Using guest setup  - 'virtualMachineInfo' in virtual machine 'guestSetupName'. | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | IMPORT | (!) | Could not synchronize virtual machine 'virtualMachineInfo' from hypervisor 'fromHypervisor' because is running on hypervisor 'runningOnHypervisor' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | IMPORT | (i) | Virtual machine 'virtualMachineInfo' has been imported from hypervisor 'machineNameOrRegionName' (hypervisorIpOrRegionEndpoint). | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | INITIATOR_MAPPING | (-) | Could not add the mappings for virtual machine UUID 'virtualMachineUuid' name 'virtualMachineInfo'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | INSTANCE_CONVERSION_MASTER_START | (-) | Failed to queue conversion to master format for the instance of virtual machine 'virtualMachineInfo'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_CONVERSION_MASTER_START | (i) | Conversion to master format queued for instance template 'instanceTemplateName'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_CONVERSION_START | (-) | Failed to queue conversions for the instance template 'instanceTemplateName'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_CONVERSION_START | (i) | Conversions queued for the instance template 'instanceTemplateName'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_DISK_COPY | (-) | Failed to copy disk of virtual machine 'virtualMachineInfo'. errorMessage. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_DISK_COPY | (i) | Completed copy of disk of virtual machine 'virtualMachineInfo'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_DUMP_VOLUME | (-) | Failed to dump volume for persistent virtual machine 'virtualMachineInfo'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_DUMP_VOLUME | (i) | Completed dump to volume of persistent virtual machine 'virtualMachineInfo'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_FINISH | (-) | Instance (task ID 'taskId') failed on virtual machine ID 'virtualMachineId' ('virtualMachineInfo') on hypervisor 'machineOrRegionName' ('hypervisorFriendlyName') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_FINISH | (i) | Completed instance (task ID 'taskId') on virtual machine ID 'virtualMachineId' ('virtualMachineInfo') on hypervisor 'machineOrRegionName' ('hypervisorFriendlyName') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_START | (-) | Could not create an instance of the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | INSTANCE_TEMPLATE_CREATE | (i) | Inserted template 'instanceTemplateName' for the instance of virtual machine 'virtualMachineInfo'. | VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE | METADATA_MODIFIED | (i) | Backup configuration for virtual machine 'virtualMachineInfo' has been modified. | VAPP_DEFINE_BACKUP_INFO, VAPP_MANAGE_BACKUP_DISKS |
+| VIRTUAL_MACHINE | MODIFY | (-) | Virtual machine virtualMachineInfo cannot be reconfigured | VAPP_CUSTOMISE_SETTINGS, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | MOVE_TO_VAPP | (i) | The Virtual Machine 'virtualMachineInfo' from virtual appliance 'sourceVirtualAppliance' has moved to virtual appliance 'targetVirtualAppliance'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | PAUSE | (-) | Could not pause the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | POWEROFF | (-) | Could not power off the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | POWERON | (-) | Could not power on the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | PROTECT | (i) | The virtual machine virtualMachineInfo ('virtualMachineId') was protected by 'userCompleteName' with cause - 'cause'. | VM_PROTECT_ACTION |
+| VIRTUAL_MACHINE | RECONFIGURE | (!) | Reconfigure (task ID 'taskId') failed on virtual machine 'virtualMachineInfo'. The virtual machine is in state OFF. Hypervisor 'machineNameOrRegionName' ('pluginType') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | RECONFIGURE | (!) | The Virtual Machine 'virtualMachineInfo' has two NICs using IPs in the same VLAN. VLAN - 'networkName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | RECONFIGURE | (-) | Could not reconfigure the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | RECONFIGURE | (-) | Could not reconfigure the virtual machine 'virtualMachineInfo' - 'errorMessageFromPlugin'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | RECONFIGURE | (i) | The virtual machine 'virtualMachineInfo' has been reconfigured successfully. extraReconfigureMessage | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | RECONFIGURE_SYSTEM | (-) | Could not reconfigure the virtual machine 'virtualMachineInfo' - 'errorMessageFromPlugin'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | RECONFIGURE_TWO_NICS_SAME_VLAN | (!) | The Virtual Machine 'virtualMachineInfo' has two NICs using IPs in the same VLAN. VLAN - 'networkName'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | REFRESH | (!) | Refresh resources (task ID 'taskId') operation on virtual machine 'virtualMachineInfo' failed. On hypervisor 'machineOrRegionName' ('hypervisorType') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | REFRESH | (!) | Virtual factory task 'taskId' on virtual machine ID 'virtualMachineId' ('virtualMachineInfo') failed on the platform | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | REFRESH | (-) | Could not refresh resources of virtual machine 'virtualMachineInfo' - 'errorMessagePlugin'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | REFRESH | (i) | Resources of virtual machine 'virtualMachineInfo' have been refreshed. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | REFRESH_RESOURCES | (!) | Refresh resources (task ID 'taskId') operation on virtual machine 'virtualMachineInfo' failed. On hypervisor 'machineOrRegionName' ('hypervisorType') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | REFRESH_RESOURCES | (-) | Could not refresh resources of virtual machine 'virtualMachineInfo' - 'errorMessagePlugin'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | REFRESH_RESOURCES | (i) | Resources of virtual machine 'virtualMachineInfo' have been refreshed. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | RELEASE | (i) | The captured virtual machine 'virtualMachineInfo' has been successfully released from the virtual appliance 'virtualApplianceName' of the virtual datacenter 'virtualDatacenterName'. It is now available again as an imported virtual machine on the hypervisor 'machineNameOrRegionName' ('hypervisorIpOrRegionEndpoint' - 'hypervisorType'). | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | REMOVE_BACKUP_POLICY | (i) | The backup policy 'backupPolicyName' has been successfully removed from the virtual machine 'virtualMachineInfo'. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | REQUEST_ACCESS | (i) | User 'userNick' request access to virtual machine 'virtualMachineInfo' in enterprise 'enterpriseName'. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | REQUEST_BACKUP | (i) | A backup has been requested for virtual machine virtualMachineInfo. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | REQUEST_BACKUP | (i) | A backup with replication has been requested for virtual machine virtualMachineInfo. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | REQUEST_BACKUP_WITH_REPLICATION | (i) | A backup with replication has been requested for virtual machine virtualMachineInfo. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | RESET | (!) | The virtual machine 'virtualMachineInfo' does not have initial guest password. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | RESET | (-) | Could not reset the password of the virtual machine 'virtualMachineInfo' - 'cause'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | RESET | (-) | Could not reset the state of the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | RESET | (i) | The guest password of the virtual machine 'virtualMachineInfo' has been reset. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | RESET_GUEST_PASSWORD | (!) | The virtual machine 'virtualMachineInfo' does not have initial guest password. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | RESET_GUEST_PASSWORD | (-) | Could not reset the password of the virtual machine 'virtualMachineInfo' - 'cause'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | RESET_GUEST_PASSWORD | (i) | The guest password of the virtual machine 'virtualMachineInfo' has been reset. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | RESTORE_BACKUP | (i) | Restore requested for backup with ID 'backupProviderId' name 'backUpName' , date 'backupDate', size 'backupSize', type 'backupType'. | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | RESTORE_FINISH | (-) | The virtual machine 'virtualMachineInfo' cannot be restored from backup backupId with cause - errorMessage. | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | RESTORE_FINISH | (i) | The virtual machine 'virtualMachineInfo' has been successfully restored from backup backupId. | VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | RESUME | (-) | Could not resume the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | SCHEDULE | (!) | No machine could be selected on rack 'rackName' - 'cause' | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | SCHEDULE | (-) | The scheduled backup backupId has failed for virtual machine virtualMachineInfo. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | SCHEDULE | (-) | There are not enough resources to deploy the virtual machine 'virtualMachineInfo'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | SCHEDULE | (-) | There are not enough resources to deploy the virtual machine - 'errorMessage'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | SCHEDULE | (-) | Unable to schedule virtual machine virtualMachineInfo due to datastore scheduling error | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | SCHEDULE | (i) | The scheduled backup backupId has successfully finished for virtual machine virtualMachineInfo. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | SCHEDULED_BACKUP | (-) | The scheduled backup backupId has failed for virtual machine virtualMachineInfo. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | SCHEDULED_BACKUP | (i) | The scheduled backup backupId has successfully finished for virtual machine virtualMachineInfo. | VAPP_MANAGE_BACKUP |
+| VIRTUAL_MACHINE | SCHEDULER | (!) | No machine could be selected on rack 'rackName' - 'cause' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | SCHEDULER | (-) | There are not enough resources to deploy the virtual machine - 'errorMessage'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | SCHEDULER | (-) | Unable to schedule virtual machine virtualMachineInfo due to datastore scheduling error | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | SCHEDULER_DATASTORE | (-) | Unable to schedule virtual machine virtualMachineInfo due to datastore scheduling error | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | SCHEDULER_FIRST_CANDIDATES | (!) | No machine could be selected on rack 'rackName' - 'cause' | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | SHUTDOWN | (-) | Could not shut down the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | STATE | (!) | Change state task ID 'taskId' on virtual machine name 'virtualMachineInfo' ('virtualMachineId') failed on hypervisor 'machineNameOrRegionName' ('pluginTypeName') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | STATE | (-) | The operation to apply the state of the virtual machine 'virtualMachineInfo' failed. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | STATE | (i) | Change state task ID 'taskId' on virtual machine name 'virtualMachineInfo' ('virtualMachineId') done on hypervisor 'machineNameOrRegionName' ('pluginTypeName') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_PERFORM_ACTIONS |
+| VIRTUAL_MACHINE | STATE | (i) | The operation to apply the state of the virtual machine 'virtualMachineInfo' in the hypervisor was successfully queued in the virtual factory. The virtual machine is now locked. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | STATE_CHANGE | (!) | Change state task ID 'taskId' on virtual machine name 'virtualMachineInfo' ('virtualMachineId') failed on hypervisor 'machineNameOrRegionName' ('pluginTypeName') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | STATE_CHANGE | (i) | Change state task ID 'taskId' on virtual machine name 'virtualMachineInfo' ('virtualMachineId') done on hypervisor 'machineNameOrRegionName' ('pluginTypeName') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | STORE_RUNLIST | (-) | The run list for the Chef node 'virtualMachineInfo' could not be updated. Please verify that the 'abiquo' client on the Chef server has the appropriate permissions to perform this task. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | STORE_RUNLIST | (i) | The run list for the Chef node 'virtualMachineInfo' has been updated with chefRunListSize recipes. | VAPP_CUSTOMISE_SETTINGS |
+| VIRTUAL_MACHINE | SYNC_CREATE | (!) | The virtual machine 'virtualMachineInfo' has been imported from 'locationName' into the virtual datacenter 'virtualDatacenterName'. Be aware that it is using a hardware profile that is not recommended for the template 'virtualMachineTemplateName'. | VDC_MANAGE |
+| VIRTUAL_MACHINE | SYNC_CREATE | (i) | The virtual machine 'virtualMachineInfo' has been imported from 'locationName' into the virtual datacenter 'virtualDatacenterName'. | VDC_MANAGE |
+| VIRTUAL_MACHINE | SYNC_CREATE_HP_NOT_RECOMMENDED | (!) | The virtual machine 'virtualMachineInfo' has been imported from 'locationName' into the virtual datacenter 'virtualDatacenterName'. Be aware that it is using a hardware profile that is not recommended for the template 'virtualMachineTemplateName'. | VDC_MANAGE |
+| VIRTUAL_MACHINE | SYNC_UPDATE_VM_IDENTIFIER | (i) | Update virtual machine identifier with name 'virtualMachineLabel' and label 'virtualMachineInfo'. | VDC_MANAGE |
+| VIRTUAL_MACHINE | TAGS_CREATE | (!) | Could not create tags on virtual machine virtualMachineName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_CREATE | (-) | Could not create tags tagList on virtual machine virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on virtual machine virtualMachineName and created tags notMaterializeTagList but did not materialize them. | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_DELETE | (!) | Could not remove tags on virtual machine virtualMachineName from provider. failedUntagList | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_DELETE | (-) | Could not remove tags with keys keyList from virtual machine virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_DELETE | (i) | Removed tags with keys keyList from virtual machine virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_EDIT | (!) | Could not edit tags on virtual machine virtualMachineName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_EDIT | (-) | Could not edit tags with keys tagList on virtual machine virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_EDIT | (i) | Edited tags with keys tagList on virtual machine virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_GET | (-) | Could not get tags from virtual machine virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_GET | (i) | Retrieved tags on virtual machine virtualMachineName from provider | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_SYNC | (-) | Could not synchronize tags on virtual machine virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_SYNC | (i) | Synchronized tags on virtual machine virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_UPDATE | (-) | Could not update tags on virtual machine virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TAGS_UPDATE | (i) | Updated tags on virtual machine virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE | TRACE_NOTIFICATION | (!) | notification | VAPP_CUSTOMISE_SETTINGS, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | TRACE_NOTIFICATION | (-) | notification | VAPP_CUSTOMISE_SETTINGS, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | TRACE_NOTIFICATION | (i) | notification | VAPP_CUSTOMISE_SETTINGS, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | UNDEPLOY | (-) | Could not undeploy the virtual machine 'virtualMachineInfo' - 'errorMessage'. | VAPP_CUSTOMISE_SETTINGS, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | UNDEPLOY | (-) | Could not undeploy the virtual machine 'virtualMachineInfo' - 'errorMessagePlugin'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | UNDEPLOY | (-) | Undeploy of virtual machine ID 'taskId' and owner 'virtualMachineId' failed on the platform. Aborted the task created at 'taskTimestamp'. Successfully updated virtual machine state to UNKNOWN. | VAPP_CUSTOMISE_SETTINGS, VDC_MANAGE_VAPP |
+| VIRTUAL_MACHINE | UNDEPLOY | (i) | The undeploy of the virtual machine 'virtualMachineInfo' was successfully queued in the virtual factory. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | UNDEPLOY | (i) | The virtual machine 'virtualMachineInfo' with task ID 'taskId' was undeployed successfully in the virtual factory on hypervisor 'machineNameOrRegionName' ('pluginType') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | UNDEPLOY_FINISH | (-) | Undeploy of virtual machine ID 'taskId' and owner 'virtualMachineId' failed on the platform. Aborted the task created at 'taskTimestamp'. Successfully updated virtual machine state to UNKNOWN. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | UNDEPLOY_FINISH | (i) | The virtual machine 'virtualMachineInfo' with task ID 'taskId' was undeployed successfully in the virtual factory on hypervisor 'machineNameOrRegionName' ('pluginType') at IP 'hypervisorIpOrRegionEndpoint'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | UNDEPLOY_SYSTEM | (-) | Could not undeploy the virtual machine 'virtualMachineInfo' - 'errorMessagePlugin'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | UNPROTECT | (i) | The virtual machine virtualMachineInfo ('virtualMachineId') was unprotected by 'userCompleteName'. | VM_PROTECT_ACTION |
+| VIRTUAL_MACHINE | VALIDATE | (-) | Could not validate the virtual machine definition 'virtualMachineInfo' - 'message'. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | VSM_CHANGE_STATE | (i) | State of virtual machine 'virtualMachineInfo' updated to 'stateName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | VSM_VM_DESTROYED | (i) | Deleted virtual machine 'virtualMachineInfo'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | VSM_VM_MOVED | (!) | New datastore 'newDatastorePath' added in physical machine 'machineName' while processing MOVE event on virtual machine 'virtualMachineInfo'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | VSM_VM_MOVED | (-) | Error processing MOVE event on virtual machine 'virtualMachineInfo'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | VSM_VM_MOVED | (i) | Virtual machine 'virtualMachineInfo' moved from source machine 'sourceMachine' to machine 'targetMachine'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | VSM_VM_RETRIEVE | (-) | Error processing MOVE event on virtual machine 'virtualMachineInfo'. VM was not found on the destination physical machine 'targetMachineName'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | VSM_VM_UNSUBSCRIBE | (-) | Unable to unsubscribe virtual machine 'virtualMachineInfo'. | PHYS_DC_ALLOW_MODIFY_SERVERS |
+| VIRTUAL_MACHINE | WORKFLOW_DEPLOY_SEND | (-) | Virtual machine 'virtualMachineInfo' workflow undeploy webhook request  for task 'taskId' failed. | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| VIRTUAL_MACHINE | WORKFLOW_DEPLOY_SEND | (i) | Virtual machine 'virtualMachineInfo' workflow deploy webhook for task 'taskId' sent successfully. | VAPP_DEPLOY_UNDEPLOY, WORKFLOW_OVERRIDE |
+| VIRTUAL_MACHINE | WORKFLOW_RECONFIGURE_SEND | (-) | Virtual machine 'virtualMachineInfo' workflow undeploy webhook request for task 'taskId' failed. | VAPP_CUSTOMISE_SETTINGS, WORKFLOW_OVERRIDE |
+| VIRTUAL_MACHINE | WORKFLOW_RECONFIGURE_SEND | (i) | Virtual machine 'virtualMachineInfo' workflow reconfigure webhook for task 'taskId' sent successfully. | VAPP_CUSTOMISE_SETTINGS, WORKFLOW_OVERRIDE |
+| VIRTUAL_MACHINE | WORKFLOW_UNDEPLOY_SEND | (-) | Virtual machine 'virtualMachineInfo' workflow undeploy webhook request for task 'taskId' failed. | VAPP_DEPLOY_UNDEPLOY |
+| VIRTUAL_MACHINE | WORKFLOW_UNDEPLOY_SEND | (i) | Virtual machine 'virtualMachineInfo' workflow undeploy webhook for task 'taskId' sent successfully. | VAPP_DEPLOY_UNDEPLOY |
+||  h6. Virtual machine template ||  ||  ||  ||  ||
+| VIRTUAL_MACHINE_TEMPLATE | AVAILABLE | (i) | Virtual machine template 'virtualMachineTemplateName' available again. | APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATED_IN_REPO | (-) | Cannot process virtual machine template 'virtualMachineTemplateName'creation event in datacenter repository 'repositoryUrl'. | APPLIB_ALLOW_MODIFY, APPLIB_MANAGE_REPOSITORY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATED_IN_REPO | (i) | New virtual machine template 'virtualMachineTemplateName' added to datacenter repository 'repositoryUrl'. | APPLIB_ALLOW_MODIFY, APPLIB_MANAGE_REPOSITORY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_DEF_FINISH | (-) | Virtual machine template 'virtualMachineTemplateName' download failed. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_DEF_FINISH | (i) | Virtual machine template 'virtualMachineTemplateName' download completed. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_DEF_START | (-) | Failed to download virtual machine template from template definition URL 'templateDefinitionUrl' into datacenter 'datacenterName'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_DEF_START | (i) | Requested download of the virtual machine template 'templateName' from template definition URL 'templateDefinitionUrl' into datacenter repository path 'dataqcenterRepositoryUrl'. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_INST_FINISH | (-) | Virtual machine template 'virtualMachineTemplateName' is not available in the datacenter repository. | APPLIB_ALLOW_MODIFY, VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_INST_FINISH | (i) | Virtual machine template 'virtualMachineTemplateName' available in the datacenter repository. | APPLIB_ALLOW_MODIFY, VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_INST_START | (-) | Requested disks 'diskLabels' from virtual machine template 'virtualMachineTemplateName' are not available in datacenter 'datacenterName' repository. | APPLIB_ALLOW_MODIFY, VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE_TEMPLATE | CREATE_FROM_INST_START | (i) | Requested new disks - 'diskLabels' from virtual machine template 'templateName' in datacenter repository. | APPLIB_ALLOW_MODIFY, VAPP_CREATE_INSTANCE |
+| VIRTUAL_MACHINE_TEMPLATE | DELETE | (i) | Virtual machine template 'virtualMachineTemplateName' has been deleted. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | DISK_COPY_FROM_TEMPLATE_FINISH | (-) | Virtual machine template virtualMachineTemplateName copy failed | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | DISK_COPY_FROM_TEMPLATE_FINISH | (i) | Disk copy completed for virtual machine template 'virtualMachineTemplateName'. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | EXPORT_TASK_ENQUEUE | (i) | Task ID 'taskId' queued successfully in the conversion manager. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | IMPORTED_IN_REPO | (-) | Cannot process virtual machine template imported event for 'templateName' in datacenter repository 'repositoryUrl'. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | IMPORTED_IN_REPO | (i) | New virtual machine template 'templateName' added to datacenter repository 'repositoryUrl'. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | METADATA_DELETE | (i) | Metadata for virtual machine template 'virtualMachineTemplateName' has been deleted. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | METADATA_MODIFY | (i) | Metadata for virtual machine template 'virtualMachineTemplateName' has been modified. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | MODIFY | (!) | "Datastore tier 'dsTierName' has been removed from the recommended list for virtual machine template 'virtualMachineTemplateName'. Be aware that there are virtual machines using it. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | MODIFY | (!) | "Hardware profile 'hardwareProfileName' has been removed from the recommended list for virtual machine template 'virtualMachineTemplateName'. Be aware that there are virtual machines using it. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | MODIFY | (i) | Virtual machine template 'virtualMachineTemplateOldName' has been updated. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | MODIFY_RECOMMENDED_DS_TIER | (!) | "Datastore tier 'dsTierName' has been removed from the recommended list for virtual machine template 'virtualMachineTemplateName'. Be aware that there are virtual machines using it. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | MODIFY_RECOMMENDED_HP | (!) | "Hardware profile 'hardwareProfileName' has been removed from the recommended list for virtual machine template 'virtualMachineTemplateName'. Be aware that there are virtual machines using it. | APPLIB_ALLOW_MODIFY |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_DELETE | (i) | Persistent virtual machine template 'virtualMachineTemplateName' has been deleted. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_DUMP_FINISH | (-) | Volume dump failed for persistent virtual machine template 'templateName'. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_DUMP_FINISH | (i) | Volume dump successfully completed for persistent virtual machine template 'templateName'. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_DUMP_START | (-) | Could not get the initiator of the BPM machine - errorMessage. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_FINISH | (i) | Persistent process finished for virtual machine template 'templateName'. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_MODIFY | (i) | Persistent virtual machine template 'virtualMachineTemplateOldName' has been updated. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_RAW_CREATE | (-) | Dumps pending from raw conversion of template 'templateName' have failed. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_RAW_CREATE | (i) | Raw conversion finished successfully for virtual machine template 'templateName'. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_START | (i) | Persistent process started for template 'masterVirtualMachineTemplateName' with new name 'persistentVirtualMachineTemplateName'. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_TASK_ENQUEUE | (i) | Task ID 'taskId' queued successfully in the conversion manager. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_VOLUME_ASSIGN | (-) | The selected volume is not large enough to hold the persistent virtual machine template. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_VOLUME_ASSIGN | (i) | Using the selected volume 'persistentVolumeName' to hold the persistent virtual machine template. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | PERSISTENT_VOLUME_CREATE | (i) | Persistent volume created successfully for virtual machine template 'virtualMachineTemplateName' in virtual datacenter 'virtualDatacenterName'. | VAPP_CREATE_STATEFUL |
+| VIRTUAL_MACHINE_TEMPLATE | SYNCH_AS_IMPORTED | (!) | New virtual machine template 'virtualMachineTemplateName' ('virtualMachineTemplateProviderId') added as imported because it is no longer available to use. | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_CREATE | (!) | Could not create tags on virtual machine template virtualMachineName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_CREATE | (-) | Could not create tags tagList on virtual machine template virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_CREATE | (i) | Created and materialized tags materializedTagList on virtual machine template virtualMachineName and created tags notMaterializeTagList but did not materialize them. | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_DELETE | (!) | Could not remove tags on virtual machine template virtualMachineName from provider. failedUntagList | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_DELETE | (-) | Could not remove tags with keys keyList from virtual machine template virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_DELETE | (i) | Removed tags with keys keyList from virtual machine template virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_EDIT | (!) | Could not edit tags on virtual machine template virtualMachineName in provider. failedTagList | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_EDIT | (-) | Could not edit tags with keys tagList on virtual machine template virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_EDIT | (i) | Edited tags with keys tagList on virtual machine template virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_GET | (-) | Could not get tags from virtual machine template virtualMachineName. errorMessage | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_GET | (i) | Retrieved tags on virtual machine template virtualMachineName from provider | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_SYNC | (-) | Could not synchronize tags on virtual machine template virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_SYNC | (i) | Synchronized tags on virtual machine template virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_UPDATE | (-) | Could not update tags on virtual machine template virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | TAGS_UPDATE | (i) | Updated tags on virtual machine template virtualMachineName | TAGS_MANAGE |
+| VIRTUAL_MACHINE_TEMPLATE | UNAVAILABLE | (!) | Virtual machine template 'virtualMachineTemplateName' is not present in the datacenter repository. | APPLIB_ALLOW_MODIFY, APPLIB_UPLOAD_IMAGE |
+||  h6. Vlan tag ||  ||  ||  ||  ||
+| VLAN_TAG | ASSIGN | (i) | VLAN tag 'vlanTag' has been assigned to VLAN network 'vlanName' from virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+| VLAN_TAG | UNASSIGN | (i) | VLAN tag 'vlanTag' has been unassigned from VLAN network 'vlanName' from virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_NETWORK |
+||  h6. Volume ||  ||  ||  ||  ||
+| VOLUME | CREATE | (i) | Created volume 'volumeName' of size sizeInMb MB. | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VOLUME | CREATE | (i) | Persistent volume created successfully for virtual machine template 'virtualMachineTemplateName' in virtual datacenter 'virtualDatacenterName'. | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VOLUME | DELETE | (!) | Volume 'volumeManagementName' could not be physically deleted from the target storage device - 'message' | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VOLUME | DELETE | (-) | Volume 'volumeManagementName' could not be deleted. | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VOLUME | DELETE | (i) | Deleted volume 'volumeManagementName'. | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VOLUME | MODIFY | (i) | Volume 'volumeManagementName' modified. | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VOLUME | MOVE | (i) | Volume 'volumeManagementName' of volumeSizeInMb MB has been moved from enterprise 'oldEnterpriseName' to enterprise 'newEnterpriseName'. | VDC_MANAGE_STORAGE |
+| VOLUME | MOVE | (i) | Volume 'volumeManagementName' of volumeSizeInMb MB has been moved to virtual datacenter 'virtualDatacenterName'. | VDC_MANAGE_STORAGE |
+| VOLUME | MOVE_ENTERPRISE | (i) | Volume 'volumeManagementName' of volumeSizeInMb MB has been moved from enterprise 'oldEnterpriseName' to enterprise 'newEnterpriseName'. | VDC_MANAGE_STORAGE |
+| VOLUME | RESIZE | (i) | Volume 'volumeManagementName' resized from volumeOldSizeInMb MB (oldTier) to volumeNewSizeInMb MB (newTier). | PHYS_DC_ALLOW_MODIFY_STORAGE, VDC_MANAGE_STORAGE |
+| VOLUME | SYNC_CREATE | (i) | Volume 'volumeName' of size sizeInMb MB created in synchronization. | VDC_MANAGE_STORAGE |
+| VOLUME | SYNC_DELETE | (i) | Volume 'volumeManagementName' deleted in synchronization. | VDC_MANAGE_STORAGE |
+| VOLUME | SYNC_RESIZE | (i) | Volume 'volumeManagementName' resized in synchronization from volumeOldSizeInMb MB (oldTier) to volumeNewSizeInMb MB (newTier). | VDC_MANAGE_STORAGE |
+||  h6. Vpn ipsec ||  ||  ||  ||  ||
+| VPN_IPSEC | CREATE | (-) | VPN IPSec 'ipSecVPNName' could not be created with cause - 'cause'. | MANAGE_VPN |
+| VPN_IPSEC | CREATE | (i) | VPN IPSec 'ipSecVPNName' created in virtual datacenter 'virtualDatacenterName'. | MANAGE_VPN |
+| VPN_IPSEC | DELETE | (-) | VPN IPSec 'ipSecVPNName' could not be deleted with cause - cause. | MANAGE_VPN |
+| VPN_IPSEC | DELETE | (i) | VPN IPSec 'ipSecVPNName' has been deleted. | MANAGE_VPN |
+| VPN_IPSEC | UPDATE | (-) | VPN IPSec 'ipSecVPNName' could not be updated with cause - cause. | MANAGE_VPN |
+| VPN_IPSEC | UPDATE | (i) | VPN IPSec 'oldVPNName' has been updated (new name 'newVPNName'). | MANAGE_VPN |
+||  h6. Workload ||  ||  ||  ||  ||
+| WORKLOAD | HARD_LIMIT_EXCEEDED | (-) | traceMessage | VAPP_DEPLOY_UNDEPLOY |
+| WORKLOAD | HARD_LIMIT_EXCEEDED | (-) | traceMessage | VAPP_DEPLOY_UNDEPLOY |
+| WORKLOAD | HARD_LIMIT_EXCEEDED_SYSTEM | (-) | traceMessage | EVENTLOG_VIEW_ALL |
+| WORKLOAD | SOFT_LIMIT_EXCEEDED | (!) | traceMessage | VAPP_DEPLOY_UNDEPLOY |
+| WORKLOAD | SOFT_LIMIT_EXCEEDED | (!) | traceMessage | VAPP_DEPLOY_UNDEPLOY |
+| WORKLOAD | SOFT_LIMIT_EXCEEDED_SYSTEM | (!) | traceMessage | EVENTLOG_VIEW_ALL |

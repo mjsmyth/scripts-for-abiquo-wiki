@@ -1,0 +1,4071 @@
+    <table class="wrapped"><colgroup><col /><col /><col /><col /><col /><col /><col /><col /><col /></colgroup>
+      <tbody>
+        <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>﻿Home privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>List enterprises within scope</td>
+          <td>ENTERPRISE_ENUMERATE</td>
+          <td>This privilege allows a user to view the list of enterprises within scope and to view statistics for those enterprises</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Allow user to switch enterprise</td>
+          <td>ENTERPRISE_ADMINISTER_ALL</td>
+          <td>This privilege allows a user to change to another enterprise, in order to administer it, by clicking the switch user button in the Enterprises list</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Display enterprise statistics</td>
+          <td>ENTERPRISE_RESOURCE_SUMMARY_ENT</td>
+          <td>This privilege allows a user to filter statistics by enterprise to display the resources used by an enterprise in the enterprise resources panel</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Display enterprise limits in statistics</td>
+          <td>ENTERPRISE_SHOW_STATS_LIMITS</td>
+          <td>This privilege allows a user to view enterprise limits in addition to resources used in the enterprise resources panel if the user has the Display enterprise statistics privilege</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>View bills</td>
+          <td>BILLS_VIEW</td>
+          <td>This privilege allows a user to view bills and related widgets</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage bills</td>
+          <td>BILLS_MANAGE</td>
+          <td>This privilege allows a user to manage bills</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Services (XaaS) privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Use default services</td>
+          <td>XAAS_USE_DEFAULT</td>
+          <td>This privilege allows a user to use default services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage default services</td>
+          <td>XAAS_MANAGE_DEFAULT</td>
+          <td>This privilege allows a user to manage default services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use enterprise services</td>
+          <td>XAAS_USE_ENTERPRISE</td>
+          <td>This privilege allows a user to use enterprise services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage enterprise services</td>
+          <td>XAAS_MANAGE_ENTERPRISE</td>
+          <td>This privilege allows a user to manage enterprise services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use user services</td>
+          <td>XAAS_USE_USER</td>
+          <td>This privilege allows a user to use user services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage user services</td>
+          <td>XAAS_MANAGE_USER</td>
+          <td>This privilege allows a user to manage user services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use datacenter services</td>
+          <td>XAAS_USE_DATACENTER</td>
+          <td>This privilege allows a user to use datacenter services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage datacenter services</td>
+          <td>XAAS_MANAGE_DATACENTER</td>
+          <td>This privilege allows a user to manage datacenter services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use public cloud region services</td>
+          <td>XAAS_USE_PUBLIC_CLOUD_REGION</td>
+          <td>This privilege allows a user to use public cloud region services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage public cloud region services</td>
+          <td>XAAS_MANAGE_PUBLIC_CLOUD_REGION</td>
+          <td>This privilege allows a user to manage public cloud region services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use location services</td>
+          <td>XAAS_USE_LOCATION</td>
+          <td>This privilege allows a user to use location services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage location services</td>
+          <td>XAAS_MANAGE_LOCATION</td>
+          <td>This privilege allows a user to manage location services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use virtual datacenter services</td>
+          <td>XAAS_USE_VIRTUAL_DATACENTER</td>
+          <td>This privilege allows a user to use virtual datacenter services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual datacenter services</td>
+          <td>XAAS_MANAGE_VIRTUAL_DATACENTER</td>
+          <td>This privilege allows a user to manage virtual datacenter services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use virtual appliance services</td>
+          <td>XAAS_USE_VIRTUAL_APPLIANCE</td>
+          <td>This privilege allows a user to use virtual appliance services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual appliance services</td>
+          <td>XAAS_MANAGE_VIRTUAL_APPLIANCE</td>
+          <td>This privilege allows a user to manage virtual appliance services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Use virtual machine services</td>
+          <td>XAAS_USE_VIRTUAL_MACHINE</td>
+          <td>This privilege allows a user to use virtual machine services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine services</td>
+          <td>XAAS_MANAGE_VIRTUAL_MACHINE</td>
+          <td>This privilege allows a user to manage virtual machine services</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Run actions on usable services</td>
+          <td>XAAS_EXECUTE</td>
+          <td>This privilege allows a user to run actions on the services they can use</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Infrastructure privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Access infrastructure view and private DCs</td>
+          <td>PHYS_DC_ENUMERATE</td>
+          <td>This privilege allows a user to access the Infrastructure view and list the physical datacenters</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Display resource usage panel</td>
+          <td>PHYS_DC_RETRIEVE_RESOURCE_USAGE</td>
+          <td>This privilege allows a user to view the resource usage panel in the Infrastructure view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage datacenter</td>
+          <td>PHYS_DC_MANAGE</td>
+          <td>This privilege allows a user to manage datacenters (add, edit and delete). Without it, the datacenter&#x27;s properties will be read only</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>View datacenter details</td>
+          <td>PHYS_DC_RETRIEVE_DETAILS</td>
+          <td>This privilege allows a user to go inside a datacenter and view its details (racks, physical machines, networks, storage and allocation rules)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage datacenter infrastructure elements</td>
+          <td>PHYS_DC_ALLOW_MODIFY_SERVERS</td>
+          <td>This privilege allows a user to manage infrastructure elements (add, edit and delete racks and physical machines)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage network elements</td>
+          <td>PHYS_DC_ALLOW_MODIFY_NETWORK</td>
+          <td>This privilege allows a user to manage network elements (add, edit and delete public networks)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage storage elements</td>
+          <td>PHYS_DC_ALLOW_MODIFY_STORAGE</td>
+          <td>This privilege allows a user to manage storage elements (add, edit and delete storage devices, pools, tiers and volumes)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage allocation rules</td>
+          <td>PHYS_DC_ALLOW_MODIFY_ALLOCATION</td>
+          <td>This privilege allows a user to manage allocation rules (add and delete rules)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage datacenter backup configuration</td>
+          <td>PHYS_DC_ALLOW_BACKUP_CONFIG</td>
+          <td>This privilege allows a user to manage backup configuration at datacenter level</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage devices</td>
+          <td>MANAGE_DEVICES</td>
+          <td>This privilege allows a user to setup networking devices (Neutron)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage public cloud regions</td>
+          <td>PCR_MANAGE</td>
+          <td>This privilege allows a user to manage public cloud regions (add, edit and delete). Without it, the public cloud region&#x27;s properties will be read only</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access infrastructure view and PCRs</td>
+          <td>PCR_ENUMERATE</td>
+          <td>This privilege allows a user to access the Infrastructure view and list the public cloud regions</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>View public cloud region details</td>
+          <td>PCR_RETRIEVE_DETAILS</td>
+          <td>This privilege allows a user to go inside a public cloud region and view its details (virtual machines and hardware profiles)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage hardware profile types and family</td>
+          <td>MANAGE_HARDWARE_PROFILE_TYPE_AND_FAMILY</td>
+          <td>This privilege allows the user to manage hardware profile types and family (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>View and manage protection managers</td>
+          <td>MANAGE_DRAAS_CONFIG</td>
+          <td>This privilege allows the user to manage protection managers for disaster recovery (create, edit, and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Virtual datacenters privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Access virtual datacenters view</td>
+          <td>VDC_ENUMERATE</td>
+          <td>This privilege allows a user to access the Virtual Datacenters view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual datacenters</td>
+          <td>VDC_MANAGE</td>
+          <td>This privilege allows a user to manage virtual datacenters (add, edit and delete). Without it, the virtual datacenter details are read only</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual appliances</td>
+          <td>VDC_MANAGE_VAPP</td>
+          <td>This privilege allows a user to manage virtual appliances (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual network elements</td>
+          <td>VDC_MANAGE_NETWORK</td>
+          <td>This privilege allows a user to manage private and public networks (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual storage elements</td>
+          <td>VDC_MANAGE_STORAGE</td>
+          <td>This privilege allows a user to manage storage volumes (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage floating IPs</td>
+          <td>MANAGE_FLOATINGIPS</td>
+          <td>This privilege allows a user to manage floating IPs (add and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage firewalls</td>
+          <td>MANAGE_FIREWALLS</td>
+          <td>This privilege allows a user to manage firewalls (add, edit and delete) for virtual datacenters</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage load balancers</td>
+          <td>MANAGE_LOADBALANCERS</td>
+          <td>This privilege allows a user to manage load balancers (add, edit and delete) for virtual datacenters</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual storage controller</td>
+          <td>VDC_MANAGE_STORAGE_CONTROLLER</td>
+          <td>This privilege allows a user to manage the controller of storage volumes</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage public IPs</td>
+          <td>MANAGE_PUBLICIPS</td>
+          <td>This privilege allows a user to manage public IPs for private virtual datacenters</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Modify allocation when attaching a disk</td>
+          <td>VDC_MANAGE_STORAGE_DISK_ALLOCATION</td>
+          <td>This privilege allows a user to modify the allocation of disks before they are deployed to the hypervisor and specify allocation when attaching a new disk and it is not possible once the VM is deployed (disk already created/copied)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage NAT IPs</td>
+          <td>MANAGE_NATIPS</td>
+          <td>This privilege allows a user to manage NAT IPs for private virtual datacenters</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage VPNs</td>
+          <td>MANAGE_VPN</td>
+          <td>This privilege allows a user to manage VPNs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage classic firewalls</td>
+          <td>MANAGE_CLASSIC_FIREWALLS</td>
+          <td>This privilege allows a user to manage classic firewalls (edit and delete) for devices</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage private IP reservations</td>
+          <td>MANAGE_PRIVATEIP_RESERVATION</td>
+          <td>This privilege allows a user to manage private IP reservations</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage default virtual datacenter firewall</td>
+          <td>MANAGE_DEFAULT_FIREWALL</td>
+          <td>This privilege allows a user to define a default virtual datacenter firewall</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage enterprise datacenter default roles</td>
+          <td>VDC_MANAGE_DEFAULT_ROLE</td>
+          <td>This privilege allows a user to manage enterprise datacenter default roles (creation/edition)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access public network tab</td>
+          <td>VDC_VIEW_PUBLIC_NETWORK</td>
+          <td>This privilege gives the user access to public network resources in virtual infrastructure</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage public network elements</td>
+          <td>VDC_MANAGE_PUBLIC_NETWORK</td>
+          <td>This privilege allows a user to manage public network resources in virtual infrastructure</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access external network tab</td>
+          <td>VDC_VIEW_EXTERNAL_NETWORK</td>
+          <td>This privilege gives the user access to external network resources in virtual infrastructure</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage external network elements</td>
+          <td>VDC_MANAGE_EXTERNAL_NETWORK</td>
+          <td>This privilege allows a user to manage external network resources in virtual infrastructure</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage availability sets</td>
+          <td>MANAGE_AVAILABILITY_SET</td>
+          <td>This privilege allows a user to manage availability sets (add and delete) for virtual datacenters</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Assign availability set to VM</td>
+          <td>ASSIGN_AVAILABILITY_SET</td>
+          <td>This privilege allows a user to assign availability sets to virtual machine (create and edit VM)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage the bandwidth limit for NAT</td>
+          <td>MANAGE_BANDWIDTHLIMIT_NAT</td>
+          <td>This privilege allows a user to manage the bandwidth limit for NAT</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage the bandwidth limit for public IPs</td>
+          <td>MANAGE_BANDWIDTHLIMIT_PUBLIC</td>
+          <td>This privilege allows a user to manage the bandwidth limit for public IPs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage resource groups</td>
+          <td>MANAGE_RESOURCE_GROUP</td>
+          <td>This privilege allows a user to create resource groups</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Delete resource groups</td>
+          <td>DELETE_RESOURCE_GROUP</td>
+          <td>This privilege allows a user to delete resource groups</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage global networks</td>
+          <td>MANAGE_GLOBAL_NETWORK</td>
+          <td>This privilege allows a user to manage global networks</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Update private MAC IP</td>
+          <td>UPDATE_MAC_IP</td>
+          <td>This privilege allows a user to update private MAC IP</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Virtual appliances privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Edit virtual appliance details</td>
+          <td>VAPP_CUSTOMISE_SETTINGS</td>
+          <td>This privilege allows a user to edit virtual appliance details (name, CPUs, etc.), go inside virtual appliances and view their details</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Deploy and undeploy virtual appliances</td>
+          <td>VAPP_DEPLOY_UNDEPLOY</td>
+          <td>This privilege allows a user to deploy/undeploy virtual appliances</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Perform virtual machine actions</td>
+          <td>VAPP_PERFORM_ACTIONS</td>
+          <td>This privilege allows a user to perform virtual machine actions (power on/off, pause, reboot, remote access)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage persistent templates</td>
+          <td>VAPP_CREATE_STATEFUL</td>
+          <td>This privilege allows a user to manage persistent virtual machine templates (create in VApp; create, edit and delete in virtual datacenter)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Create instance</td>
+          <td>VAPP_CREATE_INSTANCE</td>
+          <td>This privilege allows a user to create instance templates of a virtual machine within a virtual appliance</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine hard disks</td>
+          <td>MANAGE_HARD_DISKS</td>
+          <td>This privilege allows a user to access the virtual machine hard disk tab and manage hard disks (add and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage layers</td>
+          <td>VAPP_MANAGE_LAYERS</td>
+          <td>This privilege allows a user to manage anti-affinity layers in virtual appliances (create, edit and delete layers)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine backup configuration</td>
+          <td>VAPP_MANAGE_BACKUP</td>
+          <td>This privilege allows a user to access the backup configuration at virtual machine level and set the backup type and contents</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine backup schedule</td>
+          <td>VAPP_DEFINE_BACKUP_INFO</td>
+          <td>This privilege allows a user to specify an additional option for backup configuration by setting backup dates and times</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage workflow tasks</td>
+          <td>WORKFLOW_OVERRIDE</td>
+          <td>This privilege allows a user to start or cancel queued tasks if workflow is enabled</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Delete unknown virtual machines</td>
+          <td>VAPP_DELETE_UNKNOWN_VM</td>
+          <td>This privilege allows a user to delete virtual machines in unknown state</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Assign firewalls to virtual machines</td>
+          <td>ASSIGN_FIREWALLS</td>
+          <td>This privilege allows a user to assign already created firewalls to virtual machines</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access persistent templates view</td>
+          <td>VAPP_STATEFUL_VIEW</td>
+          <td>This privilege allows a user to access the persistent virtual machine templates view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine backup disks</td>
+          <td>VAPP_MANAGE_BACKUP_DISKS</td>
+          <td>This privilege allows a user to specify disks and disk backup types (snapshot and complete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Assign load balancers</td>
+          <td>ASSIGN_LOADBALANCERS</td>
+          <td>This privilege allows a user to assign load balancers</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine metrics</td>
+          <td>USERS_ENABLE_DISABLE_VM_METRICS</td>
+          <td>This privilege allows a user to activate monitoring of virtual machines</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access metrics</td>
+          <td>USERS_SHOW_METRICS</td>
+          <td>This privilege allows a user to manage monitoring</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Restore virtual machine backups</td>
+          <td>VAPP_RESTORE_BACKUP</td>
+          <td>This privilege allows a user to restore virtual machine backups</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Protect/unprotect virtual machines</td>
+          <td>VM_PROTECT_ACTION</td>
+          <td>This privilege allows a user to protect/unprotect a virtual machine</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Consume virtual appliance specs</td>
+          <td>CONSUME_VAPP_SPEC</td>
+          <td>This privilege allows a user to consume virtual appliance specs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Override virtual machine constraints</td>
+          <td>VM_EXCEED_CPU_RAM</td>
+          <td>This privilege allows a user to modify virtual machine CPU and RAM to values outside the maximum and minimum values defined in the virtual machine template</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Edit virtual machine details</td>
+          <td>VM_EDIT_CPU_RAM</td>
+          <td>This privilege allows a user to edit virtual machine details (CPU and RAM)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Retrieve default template credentials</td>
+          <td>VM_CHECK_USER_PASSWORD</td>
+          <td>This privilege allows a user to retrieve the default user and password of a template</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Relocate a VM to a compatible host</td>
+          <td>VM_RELOCATE</td>
+          <td>This privilege allows a user to relocate a VM to a compatible host</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage workflow for scaling groups</td>
+          <td>SCALING_GROUP_MANAGE_WORKFLOW</td>
+          <td>This privilege allows a user to enable or disable workflow for scaling groups.</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Attach NICs in restricted networks to VMs</td>
+          <td>VM_ATTACH_NIC</td>
+          <td>This privilege allows a user to attach NICs in restricted networks</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Detach NICs in restricted networks from VMs</td>
+          <td>VM_DETACH_NIC</td>
+          <td>This privilege allows a user to detach NICs in restricted networks</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage scaling groups</td>
+          <td>MANAGE_SCALING_GROUPS</td>
+          <td>This privilege allows a user to manage scaling groups (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine ISO disks</td>
+          <td>MANAGE_ISO</td>
+          <td>This privilege allows a user to manage ISO disks in virtual machines (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage restricted VApps and VMs</td>
+          <td>VAPP_RESTRICTED_MANAGE</td>
+          <td>This privilege allows a user to manage restricted VApps and VMs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>View restricted VApps and VMs</td>
+          <td>VAPP_RESTRICTED_VIEW</td>
+          <td>This privilege allows a user to view restricted VApps and VMs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Restrict VM</td>
+          <td>VM_RESTRICT</td>
+          <td>This privilege allows a user to restrict VMs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Move VMs</td>
+          <td>MANAGE_MOVE_VM</td>
+          <td>This privilege allows a user to move VMs between VDCs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Retrieve virtual machine initial password</td>
+          <td>VM_RETRIEVE_INITIAL_PASSWORD</td>
+          <td>This privilege allows a user to retrieve the initial password of a virtual machine</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Assign public IPs to VMs</td>
+          <td>VM_ASSIGN_PUBLIC_IP</td>
+          <td>This privilege allows a user to assign public IPs to VMs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Assign external IPs to VMs</td>
+          <td>VM_ASSIGN_EXTERNAL_IP</td>
+          <td>This privilege allows a user to assign external IPs to VMs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Reset VM guest password</td>
+          <td>VM_RESET_GUEST_PASSWORD</td>
+          <td>This privilege allows a user to reset the initial password of a virtual machine</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage VM disaster recovery protection</td>
+          <td>VM_MANAGE_DRAAS</td>
+          <td>This privilege allows a user to enable or disable disaster recovery protection for VMs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage VM snapshots</td>
+          <td>MANAGE_SNAPSHOT</td>
+          <td>This privilege allows a user to create, delete, and revert VM snapshots</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>View enterprise snapshots list</td>
+          <td>VIEW_ENTERPRISE_SNAPSHOTS_LIST</td>
+          <td>This privilege allows a user to view the enterprise’s VM snapshots list</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage snapshot auto delete function</td>
+          <td>USERS_ENABLE_DISABLE_SNAPSHOT_AUTODELETE</td>
+          <td>This privilege allows a user to enable snapshot auto deletion</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage snapshot auto delete expiration date</td>
+          <td>USERS_MANAGE_SNAPSHOT_AUTODELETE</td>
+          <td>This privilege allows a user to specify the snapshot auto deletion expire date</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Catalogue privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Access Catalogue view</td>
+          <td>APPLIB_VIEW</td>
+          <td>This privilege allows a user to access the Catalogue view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage VM templates from Catalogue</td>
+          <td>APPLIB_ALLOW_MODIFY</td>
+          <td>This privilege allows a user to view the Catalogue contents, modify virtual machine templates (download from remote repositories, edit and delete) and promote instances</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Upload virtual machine template</td>
+          <td>APPLIB_UPLOAD_IMAGE</td>
+          <td>This privilege allows a user to upload virtual machine templates from a local file into the Catalogue</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage repository</td>
+          <td>APPLIB_MANAGE_REPOSITORY</td>
+          <td>This privilege allows a user to manage repositories (add and delete repositories)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Download virtual machine template</td>
+          <td>APPLIB_DOWNLOAD_IMAGE</td>
+          <td>This privilege allows a user to download virtual machine templates from the Catalogue to their hard disk</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage VM template categories</td>
+          <td>APPLIB_MANAGE_CATEGORIES</td>
+          <td>This privilege allows a user to manage categories of virtual machine templates that belong to their enterprise (add and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage VM template global categories</td>
+          <td>APPLIB_MANAGE_GLOBAL_CATEGORIES</td>
+          <td>This privilege allows a user to manage categories of virtual machine templates that are common and available to all enterprises (add and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Display datacenter capacity and free space</td>
+          <td>APPLIB_SHOW_DC_CAPACITY</td>
+          <td>This privilege allows a user to view the capacity and remaining space of a datacenter</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Export a virtual machine template to datacenter</td>
+          <td>APPLIB_EXPORT_TO_PRIVATE</td>
+          <td>This privilege allows a user to export a virtual machine template to another private datacenter.</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Export a virtual machine template to public cloud region</td>
+          <td>APPLIB_EXPORT_TO_PUBLIC</td>
+          <td>This privilege allows a user to export a virtual machine template to another public cloud region.</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual appliance specs</td>
+          <td>MANAGE_VAPP_SPEC</td>
+          <td>This privilege allows a user to manage virtual appliance specs (add and edit)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Download VM templates from remote repository</td>
+          <td>APPLIB_DOWNLOAD_FROM_REMOTE_REPOSITORY</td>
+          <td>This privilege allows a user to download virtual machine templates from remote repositories</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Specify allocation of template disks</td>
+          <td>APPLIB_DISK_ALLOCATION</td>
+          <td>This privilege allows a user to specify the allocation of template disks</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Accept virtual machine template terms of use</td>
+          <td>APPLIB_ACCEPT_IMAGE_TERMS</td>
+          <td>This privilege allows a user to accept virtual machine template terms of use</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Users privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Access Users view</td>
+          <td>USERS_VIEW</td>
+          <td>This privilege allows a user to access the Users view </td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage enterprises</td>
+          <td>USERS_MANAGE_ENTERPRISE</td>
+          <td>This privilege allows a user to manage enterprises (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage users</td>
+          <td>USERS_MANAGE_USERS</td>
+          <td>This privilege allows a user to manage users (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage users of all enterprises</td>
+          <td>USERS_MANAGE_OTHER_ENTERPRISES</td>
+          <td>This privilege allows a user to manage users of more than one enterprise and move users between enterprises. Without it, the Enterprise list is not shown in Users view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>No VDC restriction</td>
+          <td>USERS_PROHIBIT_VDC_RESTRICTION</td>
+          <td>Normally a user within an enterprise can have a list of VDCs assigned and these will be the only VDCs that they will be able to see. Setting this privilege exempts a user from having their VDC list restricted and they will be able to see all VDCs in their enterprise</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access Roles and Scope screens</td>
+          <td>USERS_VIEW_PRIVILEGES</td>
+          <td>This privilege allows a user to access the Roles and Scopes screen</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage roles</td>
+          <td>USERS_MANAGE_ROLES</td>
+          <td>This privilege allows a user to manage roles (add, edit and delete roles; modify privileges assigned to roles; assign scopes to roles)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Associate role with enterprise</td>
+          <td>USERS_MANAGE_ROLES_OTHER_ENTERPRISES</td>
+          <td>This privilege allows a user to associate a role with any enterprise</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage global role</td>
+          <td>USERS_MANAGE_SYSTEM_ROLES</td>
+          <td>This privilege allows a user to manage roles that are common and available to all enterprises, rather than being constrained to a single enterprise</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Display connected users</td>
+          <td>USERS_ENUMERATE_CONNECTED</td>
+          <td>This privilege allows a user to display connected users</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Define enterprise manager</td>
+          <td>USERS_DEFINE_AS_MANAGER</td>
+          <td>This privilege defines a user as an enterprise manager. Enterprise managers receive physical machine notification emails</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage Chef enterprises</td>
+          <td>USERS_MANAGE_CHEF_ENTERPRISE</td>
+          <td>This privilege allows a user to enable and manage Chef for enterprises</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage scopes</td>
+          <td>USERS_MANAGE_SCOPES</td>
+          <td>This privilege allows a user to manage scopes (add, edit and delete scopes)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage enterprise reserved servers</td>
+          <td>USERS_MANAGE_RESERVED_MACHINES</td>
+          <td>This privilege allows a user to manage reserved servers at enterprise level</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Modify enterprise theme</td>
+          <td>USERS_MANAGE_ENTERPRISE_BRANDING</td>
+          <td>This privilege allows a user to manage enterprise branding (select a specific theme for an enterprise)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Allow user to push own metrics</td>
+          <td>USERS_PUSH_METRICS</td>
+          <td>This privilege allows a user to push their own metrics</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage provider credentials</td>
+          <td>USERS_MANAGE_CREDENTIALS</td>
+          <td>This privilege allows a user to manage provider credentials (add and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage user applications</td>
+          <td>USERS_MANAGE_APPLICATIONS</td>
+          <td>This privilege allows a user to manage applications (add and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage reseller enterprises</td>
+          <td>ENTERPRISE_MANAGE_RESELLER</td>
+          <td>This privilege allows a user to manage resellers</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage key node enterprises</td>
+          <td>ENTERPRISE_MANAGE_KEY_NODE</td>
+          <td>This privilege allows a user to manage aggregation nodes</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage enterprise properties</td>
+          <td>ENTERPRISE_MANAGE_PROPERTIES</td>
+          <td>This privilege allows a user to manage enterprise properties</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage user allowed CIDRs</td>
+          <td>MANAGE_USER_CIDR_ACCESS</td>
+          <td>This privilege allows a user to manage allowed CIDRs for users</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual datacenter roles</td>
+          <td>USERS_MANAGE_VDC_ROLES</td>
+          <td>This privilege allows a user to manage virtual datacenter roles (select default role, define user exceptions)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access budgets section</td>
+          <td>BUDGET_VIEW</td>
+          <td>This privilege allows a user to access the budgets section</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage budgets</td>
+          <td>BUDGET_MANAGE</td>
+          <td>This privilege allows a user to manage budgets (create, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage role and scope allowed CIDRs</td>
+          <td>MANAGE_ROLE_AND_SCOPE_CIDR_ACCESS</td>
+          <td>This privilege allows a user to manage allowed CIDRs for roles and scopes</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage mail server for reseller</td>
+          <td>ENTERPRISE_MANAGE_SERVER_MAIL</td>
+          <td>This privilege allows a user to manage server mail for resellers</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage user creation in provider</td>
+          <td>ENTERPRISE_CREATE_USER_IN_PROVIDER</td>
+          <td>This privilege allows a user to manage user creation in a provider (in credentials list)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access user metadata (dashboards)</td>
+          <td>USERS_VIEW_USERS_METADATA</td>
+          <td>This privilege allows a user to access users metadata (dashboards)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage user metadata (dashboards)</td>
+          <td>USERS_MANAGE_USERS_METADATA</td>
+          <td>This privilege allows a user to manage users metadata (dashboards)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access enterprise metadata (dashboards)</td>
+          <td>USERS_VIEW_ENTERPRISE_METADATA</td>
+          <td>This privilege allows a user to access enterprise metadata (dashboards)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage enterprise metadata (dashboards)</td>
+          <td>USERS_MANAGE_ENTERPRISE_METADATA</td>
+          <td>This privilege allows a user to manage enterprise metadata (dashboards)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Pricing privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Access Pricing view</td>
+          <td>PRICING_VIEW</td>
+          <td>This privilege allows a user to access the Pricing view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage pricing</td>
+          <td>PRICING_MANAGE</td>
+          <td>This privilege allows a user to manage pricing components (add, edit and delete currencies, pricing models and extra charges)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage pricing credentials</td>
+          <td>MANAGE_PRICING_CREDENTIALS</td>
+          <td>This privilege allows a user to manage pricing credentials</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Generate billing</td>
+          <td>RUN_BILLING</td>
+          <td>This privilege allows a user to generate billings</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage hardware profile extra charges</td>
+          <td>COST_CODE_MANAGE_HARDWARE_PROFILE</td>
+          <td>This privilege allows a user to manage hardware profile extra charges</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine extra charges</td>
+          <td>COST_CODE_MANAGE_VIRTUAL_MACHINE</td>
+          <td>This privilege allows a user to manage virtual machine extra charges</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage virtual machine template extra charges</td>
+          <td>COST_CODE_MANAGE_VIRTUAL_MACHINE_TEMPLATE</td>
+          <td>This privilege allows a user to manage virtual machine template extra charges</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Events privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Display all events for current enterprise</td>
+          <td>EVENTLOG_VIEW_ENTERPRISE</td>
+          <td>This privilege allows a user to display all events related to the current enterprise</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+          		
+          <p>X</p>
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Display all events</td>
+          <td>EVENTLOG_VIEW_ALL</td>
+          <td>This privilege allows a user to display all events</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>Control privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Access alarms section</td>
+          <td>USERS_VIEW_ALARMS</td>
+          <td>This privilege allows a user to access the alarms sections</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage alarms</td>
+          <td>USERS_MANAGE_ALARMS</td>
+          <td>This privilege allows a user to manage alarms (create, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access alerts section</td>
+          <td>USERS_VIEW_ALERTS</td>
+          <td>This privilege allows a user to access the alerts sections</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage alerts</td>
+          <td>USERS_MANAGE_ALERTS</td>
+          <td>This privilege allows a user to manage alerts (create, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access action plans, schedule and alert trigger tabs</td>
+          <td>ACTION_PLAN_VIEW</td>
+          <td>This privilege allows a user to access the Action plans, the Schedule and Alert trigger tabs</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage action plans and task schedules</td>
+          <td>ACTION_PLAN_MANAGE</td>
+          <td>This privilege allows a user to manage action plans, schedule and alert triggers</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>View enterprise hierarchy</td>
+          <td>ENTERPRISE_VIEW_HIERARCHY</td>
+          <td>This privilege allows the user to display the enterprises in a hierarchy</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access resource tags tabs and resource tags management view</td>
+          <td>TAGS_VIEW</td>
+          <td>This privilege allows the user to display the Tags tab of resources and the Tags management view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage tags for compatible resources</td>
+          <td>TAGS_MANAGE</td>
+          <td>This privilege allows the user to manage tags for compatible resources (add, edit, synchronize and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Access tag policies view</td>
+          <td>TAG_POLICIES_VIEW</td>
+          <td>This privilege allows the user to display tag policies view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage tag policies</td>
+          <td>TAG_POLICIES_MANAGE</td>
+          <td>This privilege allows the user to manage tag policies (add, edit and delete)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+              <tr>
+          <td class="highlight-blue" data-highlight-colour="blue">
+            <h6>System configuration privileges</h6>
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+          <td class="highlight-blue" data-highlight-colour="blue">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>
+            <p>GUI Label <span style="color: rgb(239,239,239);">_________________</span></p>
+          </th>
+          <th>
+            <p>Application Tag</p>
+          </th>
+          <th>
+            <p>Privilege<span style="color: rgb(239,239,239);">____________________________________</span></p>
+          </th>
+          <th class="highlight-red" data-highlight-colour="red"><p>Cloud Admin</p></th>
+          <th class="highlight-yellow" data-highlight-colour="yellow"><p>Ent Admin</p></th>
+          <th class="highlight-green" data-highlight-colour="green"><p>Ent User</p></th>
+          <th class="highlight-blue" data-highlight-colour="blue"><p>Ent Viewer</p></th>
+          <th><p>Info</p></th>
+        </tr> 
+          
+        <tr>
+          <td>Access Configuration view</td>
+          <td>SYSCONFIG_VIEW</td>
+          <td>This privilege allows a user to access the Configuration view</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Modify configuration data</td>
+          <td>SYSCONFIG_ALLOW_MODIFY</td>
+          <td>This privilege allows a user to edit all system-wide configuration settings</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Allow access to reports</td>
+          <td>SYSCONFIG_SHOW_REPORTS</td>
+          <td>This privilege allows a user to access external reports by clicking the Reports button. The button will only be visible if the &#x27;Reports URL&#x27; system property is not empty (Configuration -&gt; System Properties -&gt; General -&gt; Reports URL)</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+  
+        <tr>
+          <td>Manage default dashboards</td>
+          <td>SYSCONFIG_MANAGE_DEFAULT_DASHBOARDS</td>
+          <td>This privilege allows a user to manage default dashboards</td>
+          <td class="highlight-red" data-highlight-colour="red">
+          		
+          <p>X</p>
+          </td>
+          <td class="highlight-yellow" data-highlight-colour="yellow">
+                    &nbsp;
+          </td>
+          <td class="highlight-green" data-highlight-colour="green">
+                    &nbsp;
+          </td>
+          <td class="highlight-blue" data-highlight-colour="blue">
+                    &nbsp;
+          </td>
+            <td> </td>
+        </tr>
+         
+      </tbody>
+    </table>

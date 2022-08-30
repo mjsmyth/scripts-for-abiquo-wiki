@@ -1,0 +1,1899 @@
+|| Internal Message ID {color:#efefef}__________________{color}|| Message {color:#efefef}____________________________________________________________{color} ||
+|| h6. Status codes ||  ||
+| 400-BAD-REQUEST | Request not valid |
+| 401-UNAUTHORIZED | This request requires user authentication |
+| 403-FORBIDDEN | Access denied |
+| 404-NOT-FOUND | The requested resource does not exist |
+| 405-METHOD-NOT-ALLOWED | The resource does not expose this method |
+| 406-NOT-ACCEPTABLE | Invalid version parameter for 'Accept' header |
+| 409-CONFLICT | Conflict |
+| 409-CONFLICT-NotImpemented | Not Implemented |
+| 409-CONFLICT-StaleObject | Another request has updated this entity |
+| 412-PRECONDITION-FAILED | Error releasing resources on the hypervisor |
+| 412-PRECONDITION-FAILED-HEADER | Header 'X\-abiquo\-version' is mandatory |
+| 415-UNSUPPORTED-MEDIA-TYPE | The Abiquo API currently only supports application/XML Media Type |
+| 415-UNSUPPORTED-MEDIA-TYPE-VERSION | Invalid 'Content\-type' version |
+| 500-INTERNAL-SERVER-ERROR | Unexpected exception |
+| 503-SERVICE-UNAVAILABLE | Service unavailable: try again in a few moments |
+| 503-SERVICE-UNAVAILABLE_PERSISTENT | Service unavailable: try again in a few moments |
+|| h6. Abstract datastore tiers ||  ||
+| ABS-DSTIER-0 | The requested abstract datastore tier does not exist |
+| ABS-DSTIER-1 | The name of the abstract datastore tier must be unique |
+| ABS-DSTIER-2 | Cannot delete an abstract datastore tier used by datastore tiers |
+|| h6. Action plans ||  ||
+| AP-0 | The requested action plan does not exist |
+| AP-1 | The requested action plan task has an unexpected type |
+| AP-2 | The extra data of the requested action plan task refers to a different action plan |
+| AP-3 | Failed while executing action plan |
+| AP-4 | The given action plan is null |
+| AP-5 | The action plan entry collection is empty |
+| AP-6 | The collection of entries in the action plan contains non\-unique sequences |
+| AP-7 | The collection of entries in the action plan contains null elements |
+| AP-8 | All entries in the action plan have been executed |
+| AP-9 | Unknown action plan entry type |
+| AP-10 | The supplied entry parameter for the action plan is not valid |
+| AP-11 | The supplied entry sequence for the action plan is not valid |
+| AP-12 | The supplied entry for the action plan requires a virtual machine link |
+| AP-13 | The supplied entry for the action plan requires a scaling group link |
+| AP-14 | Unable to unschedule the action plan |
+| AP-15 | The schedule for the action plan already exists |
+| AP-16 | Unable to schedule the action plan |
+| AP-17 | The requested schedule for the action plan does not exist |
+| AP-18 | Unable to reschedule action plan |
+| AP-19 | Duplicated trigger for alert and action plan |
+| AP-20 | The requested alert trigger for the action plan does not exist |
+| AP-21 | The action to set a hardware profile is not allowed for virtual machines without hardware profile support |
+| AP-22 | The action to reconfigure RAM or CPU is not allowed for virtual machines using hardware profiles |
+| AP-23 | The supplied entry for the action plan is not valid |
+| AP-24 | Action plan entry configuration does not have the required links |
+| AP-25 | Action plan entry requires configuration |
+| AP-26 | Action plan entry configuration does not match the JSON schema |
+| AP-27 | Instance action requires a name |
+| AP-28 | Instance action requires a valid name |
+| AP-29 | Invalid disk sequence for instance action |
+| AP-30 | Send email action requires a nonempty subject |
+| AP-31 | Send email action requires a nonempty body |
+| AP-32 | Send email action requires a nonempty list of addresses |
+| AP-33 | Unable to parse action plan entry configuration from database |
+| AP-34 | Unable to validate the action plan entry against the JSON schema |
+| AP-35 | I/O error while validating the action plan entry against the JSON schema |
+| AP-36 | Send webhook action requires a nonempty endpoint |
+| AP-37 | Send webhook action requires a nonempty and valid HTTP method |
+| AP-38 | Send webhook action requires a nonempty expected response HTTP status code |
+| AP-39 | Send webhook action requires a well\-formed endpoint |
+| AP-40 | The supplied entry for the action plan requires a virtual machine link or a tag filter |
+| AP-41 | The supplied entry for the action plan requires a scaling group link or a tag filter |
+| AP-42 | Unable to read TagFilter as JSON from database |
+| AP-43 | Unable to apply operation action plan is in execution |
+| AP-44 | Action plan entry does not allow execution based on tag filtering |
+|| h6. Address range ||  ||
+| AR-1 | The address range does not exist |
+| AR-2 | The supplied address range already exists |
+| AR-3 | Invalid address range |
+| AR-4 | Blocked address range cannot be deleted |
+| AR-5 | Cannot delete the requested address range, there are private networks using the requested address range |
+| AR-6 | Need credentials to perform this action |
+| AR-7 | The address range does not contain the private network |
+|| h6. Allocation and shared server rules ||  ||
+| RULE-1 | The requested restrict shared server rule does not exist |
+| RULE-2 | The requested load balance rule does not exist |
+| RULE-3 | The requested load level rule does not exist |
+| RULE-4 | At least one load balance rule is required |
+| RULE-5 | Expected one link with the rel attribute with possible values (datacenter/rack/machine/cluster) |
+| RULE-6 | The allocation type indicated is null or invalid |
+| RULE-7 | Duplicate rule for the same set of infrastructure elements. Please check and remove existing rules first. |
+| RULE-8 | The storage percentage indicated is null or invalid |
+| RULE-9 | Expected one link with the rel attribute with possible values (datacenter/datastoretier/datastore) |
+| RULE-10 | The required CPU resources exceed the capacity allowed by the servers |
+| RULE-11 | The required RAM resources exceed the capacity allowed by the servers |
+| RULE-12 | The required hard disk exceeds the capacity allowed by the servers |
+|| h6. Allocator ||  ||
+| ALLOC-0 | There are not enough resources to create the virtual machine |
+| ALLOC-1 | Cannot make the requested changes to the virtual machine because there are not enough free resources on the host machine. Please contact the Administrator. |
+| ALLOC-2 | There are not enough VLAN tags available |
+|| h6. Appliance manager ||  ||
+| AM-0 | Failed appliance manager communication |
+| AM-1 | Timeout during appliance manager communication |
+| AM-2 | AM service unavailable; please check the URL of the service. |
+| AM-3 | Failed appliance manager request. It is possible that the repositoryLocation property is not correct, NFS is not available or NFS privileges do not allow access to the server. |
+| AM-4 | Template file was not found. It is possible that the repository is not properly refreshed; request a refresh or wait for the periodic repository check. |
+|| h6. Async task ||  ||
+| ASYNC-TASK-1 | Unable to enqueue async task |
+| ASYNC-TASK-2 | Unable to operate with a Taskable related to a task in progress |
+|| h6. Asynchronous task ||  ||
+| ASYNC-TASK-1 | Unable to enqueue async task |
+| ASYNC-TASK-2 | Unable to operate with a Taskable related to a task in progress |
+|| h6. Availability set ||  ||
+| AVSET-1 | The availability set does not exist |
+| AVSET-2 | The availability set cannot be deleted. Before deleting an availability set please ensure that it does not contain any VMs |
+| AVSET-3 | Need credentials to perform this action |
+| AVSET-4 | The provided availability set link is invalid |
+| AVSET-5 | The given availability set is not compatible with the given virtual datacenter |
+| AVSET-6 | The availability set is being used by virtual machines and cannot be modified |
+| AVSET-7 | When editing an  availability set, you may only change the virtual datacenter |
+| AVSET-8 | Name, fault domains, and update domains are required |
+| AVSET-9 | There is already an availability set with the same name |
+|| h6. Availability zones ||  ||
+| AVZONE-1 | The availability zone does not exist |
+| AVZONE-2 | The availability zone link is not valid |
+| AVZONE-4 | Need credentials to perform this action |
+| AVZONE-5 | Availability zone does not have a providerId (it has been deleted in the provider) so cannot perform the current action |
+| AVZONE-6 | Cannot modify availability zone |
+|| h6. Backup ||  ||
+| BC-1 | The requested backup template does not exist |
+| BC-2 | A backup with the requested template already exists |
+| BC-3 | The requested backup datacenter does not exist |
+| BC-4 | The requested backup attribute does not exist |
+| BC-5 | Some backup type values are wrong. Check that all type values are correctly spelled and written in lower\-case letters |
+| BC-6 | Some of the requested options are not enabled |
+| BC-7 | Some backup weekdays are wrong |
+| BC-8 | Some of the requested periods are wrong |
+| BC-9 | Paths can only be requested for filesystem backup type |
+| BC-10 | Disks can only be requested for complete or snapshot backup type |
+| BC-11 | Time value not supplied for '%s' |
+| BC-12 | Invalid time for '%s'. Time format should be HH:mm:ss Z |
+| BC-13 | Invalid date for '%s'. Date format should be yyyy/MM/dd HH:mm:ss Z |
+| BC-14 | Missing backup values |
+| BC-15 | Valid status values are: done, progress, failed |
+| BC-16 | Accepted values for hours backup are 0 to 24. E.g., every 5 hours |
+| BC-17 | Invalid values for disks. Provide a list of disks |
+| BC-18 | Invalid values for paths. Provide a list of paths |
+| BC-19 | Weekly planned backup requires a day to be selected |
+| BC-20 | No backup has been made with the ID provided in the restore request |
+| BC-22 | A backup with the given ID has been found but its state should correspond to done or completed in order to restore it |
+| BC-23 | The requested backup policy does not exist |
+| BC-24 | The backup policy code is duplicated in this datacenter |
+| BC-25 | Cannot delete the backup policy '%s' because there are already virtual machines with that policy assigned |
+| BC-26 | The backup policy cannot be edited if the virtual machine is deployed |
+| BC-27 | Cannot select multiple backup policies |
+| BC-28 | Invalid day of week specified |
+| BC-29 | Cannot update the backup configurations of the backup policy because there are already virtual machines with that policy assigned |
+| BC-30 | Backup type/subtype must be unique for each policy. |
+| BC-31 | The replication value must be 'true' or 'false' |
+| BC-32 | Backup configuration was not found in the given policy |
+| BC-33 | Backup type and subtype are required for a backup configuration |
+| BC-34 | Missing backup policy link |
+| BC-35 | Backup manager does not allow changes to the backup configuration of the virtual machine in the current state |
+| BC-36 | Backup configuration cannot be modified while the virtual machine is deployed |
+| BC-37 | Backup result not found |
+| BC-38 | Backup plugin not loaded |
+| BC-39 | A backup manager already exists for this datacenter |
+| BC-40 | Backup manager not found |
+| BC-41 | No backup result found with the given id |
+| BC-42 | The virtual machine must be deployed in order to request an on demand backup |
+| BC-43 | The virtual machine must be deployed in order to request a restore |
+| BC-44 | The virtual machine must be powered off in order to request a restore |
+| BC-45 | The backup provider does not allow configuration at deploy action, reconfigure the virtual machine to add the backup |
+| BC-46 | The operation on demand backup is not supported by this backup plugin |
+|| h6. Billing ||  ||
+| BILLING-1 | You must specify a start date in order to specify an end date |
+| BILLING-2 | Billing components are not correct. Billing execution was skipped |
+| BILLING-3 | Billing for non\-reseller enterprises containing pricing credentials cannot be filtered by enterprise |
+| BILLING-4 | Billing enterprise filter contains enterprises that do not belong to the reseller hierarchy |
+| BILLING-5 | Billing job creation failed |
+| BILLING-6 | One or more enterprises specified in the filter do not have public cloud credentials for the same provider as the pricing credentials |
+| BILLING-7 | Not allowed to run the daily billing process again for these pricing credentials |
+|| h6. Billing records ||  ||
+| BILL_REGISTER-0 | The bill register for the given date, enterprise, and provider already exists |
+| BILL_REGISTER-1 | The requested bill register does not exist |
+| BILL_REGISTER-2 | All the bill registers must be from the same billing period |
+| BILL_REGISTER-3 | The bill register for a day must be inside the specified period |
+| BILL_REGISTER-4 | Cannot insert a bill register for a consolidated bill |
+| BILL_REGISTER-5 | Cannot insert bill registers because the previous amount is higher than the current amount. |
+| BILL_REGISTER-6 | Invalid request. A bill period is necessary. |
+|| h6. Bills ||  ||
+| BILL-0 | Invalid provider |
+| BILL-1 | The end date must be after the start date |
+| BILL-3 | A bill for this period already exists |
+| BILL-4 | The requested bill does not exist |
+| BILL-5 | Invalid date |
+| BILL-6 | Invalid request. At least one category should be specified |
+| BILL-7 | Invalid request. This endpoint does not allow you to insert categorized bills |
+| BILL-8 | Cannot process billings result file |
+| BILL-9 | The bill for the given date, enterprise, and provider already exists |
+| BILL-10 | Invalid request. At least one usageType should be specified for each category |
+|| h6. Category ||  ||
+| CATEGORY-1 | The requested category does not exist |
+| CATEGORY-2 | A category with this name already exists. |
+| CATEGORY-3 | This category cannot be deleted |
+| CATEGORY-4 | Invalid category identifier in the category link |
+| CATEGORY-5 | Category name cannot be null |
+| CATEGORY-6 | Cannot move a local category to another enterprise. |
+| CATEGORY-7 | Current user does not have enough privileges to create a global category. |
+| CATEGORY-8 | Cannot change a global category to a local category. |
+| CATEGORY-9 | Current user does not have enough privileges to remove this category. |
+| CATEGORY-10 | Cannot share the VM template because it is in a local category |
+| CATEGORY-11 | Cannot change the category to a local one if the VM template is shared |
+| CATEGORY-12 | Current user does not have enough privileges to modify a local category. |
+|| h6. Check edit  ||  ||
+| EDIT-01 | This method requires the virtual machine to be deployed on a target hypervisor |
+|| h6. Chef ||  ||
+| CHEF-0 | Could not get the list of available recipes for the enterprise |
+| CHEF-1 | Could not get the list of available Chef roles for the enterprise |
+| CHEF-2 | An unexpected error occurred while connecting to the Chef server. Please contact the Administrator. |
+| CHEF-3 | The node does not exist on the Chef Server. If the virtual machine is bootstrapping, please wait until the process completes. |
+| CHEF-4 | The given runlist element does not exist on the Chef Server |
+| CHEF-5 | The node could not be updated on the Chef Server. Please contact the Administrator. |
+| CHEF-6 | Could not connect to the Chef server. Please contact the Administrator |
+| CHEF-7 | Could not connect to the Chef server with the given Admin data. Please verify the credentials |
+| CHEF-8 | The enterprise is not configured to use Chef |
+| CHEF-9 | The virtual machine cannot use Chef. Please check that the template is Chef enabled and the Enterprise can use Chef |
+| CHEF-10 | The validator certificate supplied is not a valid private key. Please verify the key format |
+| CHEF-11 | The admin certificate supplied is not a valid private key. Please verify the key format |
+| CHEF-12 | The Chef server URL supplied is malformed |
+| CHEF-13 | The validator client supplied does not exist |
+| CHEF-14 | Could not connect to the Chef server to perform the request. Please check that the client has the appropriate permissions to perform the task |
+| CHEF-15 | The supplied Chef attributes are not valid JSON |
+|| h6. Classic firewall rules ||  ||
+| CLASSIC-FIREWALL-RULE-1 | The classic firewall was not found |
+| CLASSIC-FIREWALL-RULE-2 | The classic firewall rule was not found in the expected sequence. Try to synchronize. |
+| CLASSIC-FIREWALL-RULE-3 | Source and Destination ports should be positive integers. Range can only be supplied when port is supplied and it should be greater |
+| CLASSIC-FIREWALL-RULE-4 | Cannot edit the sequence, use the reorder action |
+| CLASSIC-FIREWALL-RULE-5 | Cannot specify a noncontiguous sequence |
+| CLASSIC-FIREWALL-RULE-6 | Cannot reorder in the current sequence |
+|| h6. Classic firewalls ||  ||
+| CLASSIC-FIREWALL-1 | The classic firewall was not found |
+| CLASSIC-FIREWALL-2 | Need credentials to perform this action |
+| CLASSIC-FIREWALL-3 | Operation not supported by the device |
+| CLASSIC-FIREWALL-4 | The classic firewall does not have any rules |
+| CLASSIC-FIREWALL-5 | The classic firewall has rules with sequences that are not contiguous |
+| CLASSIC-FIREWALL-6 | The classic firewall has another operation in progress, please wait |
+|| h6. Cloud nodes ||  ||
+| CLOUDNODE-1 | The requested cloud node UID does not exist |
+|| h6. Cloud provider proxy ||  ||
+| CPP-0 | Remote service unavailable; check the URL of the service. |
+| CPP-1 | Remote service not found |
+|| h6. Cluster ||  ||
+| CLUSTER-0 | The requested cluster does not exist |
+| CLUSTER-1 | Cluster already exists in another rack |
+|| h6. Controller ||  ||
+| ED-1 | Cannot attach more than 4 disks to an IDE controller |
+|| h6. Conversion ||  ||
+| CONVERSION-0 | Invalid DiskFormat for the conversion; allowed values: RAW, VMDK_STREAM_OPTIMIZED, VMDK_FLAT, VMDK_SPARSE, VHD_FLAT, VHD_SPARSE, VDI_FLAT, VDI_SPARSE, QCOW2_FLAT, QCOW2_SPARSE |
+| CONVERSION-1 | The requested conversion does not exist |
+| CONVERSION-2 | The requested conversion already exists for the given virtual machine template and disk format |
+| CONVERSION-3 | The requested conversion format is the same as the base format of the virtual machine template |
+| CONVERSION-4 | Could not restart the requested conversion because it had not failed |
+| CONVERSION-5 | Conversion state is QUEUED but it does not have an associated task; try deleting the conversion before retrying. |
+| CONVERSION-6 | Failed to send conversion of template. |
+| CONVERSION-8 | Cannot request a conversion of an empty disk. |
+| CONVERSION-9 | Cannot request a conversion with the current source disk format |
+| CONVERSION-10 | Cannot request a conversion with the requested target disk format |
+|| h6. Cost code ||  ||
+| COSTCODE-0 | The requested cost code does not exist |
+| COSTCODE-1 | Missing cost code parameter |
+| COSTCODE-2 | Duplicate name for cost code |
+| COSTCODE-3 | Cost code name is required |
+| COSTCODE-4 | Cost code description is required |
+| COSTCODE-5 | Cost code name: maximum length is 20 characters |
+| COSTCODE-6 | Cost code description: maximum length is 100 characters |
+| COSTCODE-7 | Cost code cannot be deleted because it is assigned to one or more virtual machine templates |
+| COSTCODE-8 | Missing cost code link |
+| COSTCODE-9 | The cost code is used by hardware profile/s and cannot be deleted |
+| COSTCODE-10 | Cost code type is required |
+| COSTCODE-11 | Cost code type cannot be modified |
+| COSTCODE-12 | Cost code type does not match the entity to which is attached |
+| COSTCODE-13 | Cannot remove a cost code in a virtual machine with type HP or TEMPLATE |
+| COSTCODE-14 | Cost code unit is required |
+| COSTCODE-15 | Cost code users cannot be negative |
+| COSTCODE-16 | Cost code cannot be deleted because it is assigned to one or more virtual machines |
+| COSTCODE-17 | The selected Cost code unit and type are not compatible |
+| COSTCODE-18 | Not enought privileges to edit the costcodes from this entity |
+|| h6. Cost usage ||  ||
+| COST-USAGE-0 | The validation has failed because of missing usage data. Try to regenerate it or contact your administrator for more details. |
+| COST-USAGE-1 | The price by intervals has not been defined. It should be defined and the last interval should have no maximum number of VMs. |
+|| h6. Currency ||  ||
+| CURRENCY-0 | The requested currency does not exist |
+| CURRENCY-1 | At least one currency is required |
+| CURRENCY-2 | Duplicate name for currency |
+| CURRENCY-3 | Cannot remove currency associated with a pricing model |
+| CURRENCY-4 | Currency name is required |
+| CURRENCY-5 | Currency symbol is required |
+| CURRENCY-6 | Currency name: maximum length is 20 characters |
+| CURRENCY-7 | Currency symbol: maximum length is 10 characters |
+| CURRENCY-8 | Currency digit: maximum value is 9 |
+| CURRENCY-9 | Missing currency link |
+|| h6. DHCP option ||  ||
+| DHCP_OPTION-0 | The requested DHCP option does not exist |
+| DHCP_OPTION-12 | Missing DHCP option parameter |
+|| h6. DVD ||  ||
+| DVD-1 | The requested DVD does not exist |
+| DVD-2 | Virtual machine template link with rel 'image' is mandatory |
+|| h6. Database ||  ||
+| DB-0 | Another request has updated this entity. Try again in a few moments |
+| DB-1 | Deadlock found when trying to get lock. Try again in a few moments |
+|| h6. Datacenter ||  ||
+| DC-0 | The requested datacenter does not exist |
+| DC-3 | There is already a datacenter with that name |
+| DC-4 | The current enterprise cannot use this datacenter |
+| DC-5 | Cannot delete datacenter with storage devices associated |
+| DC-6 | Cannot delete datacenter with virtual datacenters associated |
+| DC-7 | Datacenter queues are not configured (check the BPM and virtual factory remote services) |
+| DC-8 | Missing datacenter link |
+| DC-9 | Invalid datacenter link |
+| DC-10 | There are not enough resources available in the datacenter. Try again in a few minutes and if the error persists, please contact your System Administrator. |
+| DC-11 | Cannot delete datacenter with devices associated |
+| DC-12 | Cannot modify the datacenter name because the backup manager requires it for internal configuration |
+|| h6. Datacenter hardware profile ||  ||
+| PROFILEDC-0 | Hardware profile name must be unique for each datacenter |
+| PROFILEDC-1 | Hardware profile with same combination of CPU/RAM/COSTCODE or  dynamic fields already exists for this datacenter |
+| PROFILEDC-2 | The requested hardware profile does not exist in this datacenter |
+| PROFILEDC-3 | Cannot delete a datacenter hardware profile that is being used by virtual machines |
+| PROFILEDC-4 | Cannot update a datacenter hardware profile that is being used by virtual machines |
+| PROFILEDC-5 | Create hardware profile is not supported for the public cloud region |
+| PROFILEDC-6 | Update hardware profile is not supported for the public cloud region |
+| PROFILEDC-7 | Delete hardware profile is not supported for the public cloud region |
+| PROFILEDC-8 | Hardware profile synchronization is not supported for the public cloud region |
+|| h6. Datacenter repository ||  ||
+| DATACENTER-REPOSITORY-NOT-CREATED | Datacenter repository not configured; check the appliance manager of the datacenter. Contact your Infrastructure Administrator |
+|| h6. Datastore ||  ||
+| DATASTORE-0 | The requested datastore does not exist |
+| DATASTORE-4 | Duplicate name for the datastore |
+| DATASTORE-5 | Duplicate root path for the datastore |
+| DATASTORE-6 | Duplicate directory path for the datastore |
+| DATASTORE-7 | The datastore is not assigned to that machine |
+| DATASTORE-8 | Missing datastore link |
+| DATASTORE-9 | Invalid datastore link |
+| DATASTORE-10 | The datastore cannot be enabled because it no longer exists on the target machine |
+| DATASTORE-11 | The datastore is not assigned to that datastore tier |
+| DATASTORE-12 | The shared datastore is already in use in another datacenter |
+| DATASTORE-13 | Datastore with same rootPath is in use with another UUID. Please update datastore uuid folder mark to the expected UUID |
+|| h6. Datastore tiers ||  ||
+| DSTIER-0 | The requested datastore tier does not exist |
+| DSTIER-1 | The datastore tier cannot be deleted because it is the default datastore tier of the datacenter |
+| DSTIER-2 | Cannot modify the datastore tier of a datastore with deployed virtual machines |
+| DSTIER-3 | Cannot delete the datastore tier with deployed virtual machines |
+| DSTIER-4 | Invalid datastore tier link |
+| DSTIER-5 | The datacenter must have a default datastore tier |
+| DSTIER-6 | Cannot modify the datastore tier from a deployed disk |
+| DSTIER-7 | The name of the datastore tier must be unique by datacenter |
+| DSTIER-8 | Cannot deploy '%s' with any disk without enabled datastore tiers |
+| DSTIER-9 | The original enterprise is not allowed to use the given tier |
+| DSTIER-10 | Missing link to datastore tier |
+| DSTIER-11 | Missing link to abstract datastore tier, which is mandatory |
+|| h6. Device type ||  ||
+| DEVICETYPE-1 | The device type does not exist |
+| DEVICETYPE-2 | Missing device type link |
+|| h6. Disaster recovery ||  ||
+| DR-1 | Virtual machine not found in protection manager |
+| DR-2 | Protection manager not found |
+| DR-3 | The selected protection manager cannot be deleted until all its virtual machines are unprotected |
+| DR-4 | Protection manager cannot be deleted while it is assigned to another protection manager as the recovery protection manager |
+| DR-5 | A protection manager with these connection details already exists |
+| DR-6 | DRaaS plugin not loaded |
+| DR-7 | Virtual machine is already protected by the protection manager |
+| DR-8 | Cannot find the internal protection group used by the virtual appliance |
+| DR-9 | Cannot undeploy a virtual machine protected by a protection manager |
+| DR-10 | Cannot retrieve the provider ID of the protection manager |
+| DR-11 | Could not complete virtual machine protection after a successful provider call |
+| DR-12 | Cannot protect a new virtual machine until the current virtual machine protection process ends |
+| DR-13 | A protection group for the virtual appliance already exists |
+| DR-14 | A protection manager requires a name |
+| DR-15 | A protection manager requires connection details |
+| DR-16 | A protection manager requires at least one available datacenter |
+| DR-17 | A protected virtual machine cannot be moved |
+|| h6. Disks ||  ||
+| DISK-1 | Missing disk link |
+| DISK-2 | Invalid disk link |
+| DISK-3 | Disk not found |
+| DISK-4 | Disk invalid sequence |
+| DISK-5 | Invalid empty disk. Path, diskFileSize and diskFormatType are not allowed |
+| DISK-6 | Cannot modify disk sequence. Edit the virtual machine template. |
+| DISK-7 | Cannot copy empty disk. |
+| DISK-8 | Invalid disk format type. |
+|| h6. Enterprise ||  ||
+| EN-0 | The requested enterprise does not exist |
+| ENTERPRISE-4 | Duplicate name for an enterprise |
+| ENTERPRISE-5 | Cannot delete enterprise with virtual datacenters associated |
+| ENTERPRISE-6 | Cannot delete the current user's enterprise |
+| ENTERPRISE-7 | Enterprise name cannot be empty |
+| ENTERPRISE-8 | Missing enterprise link |
+| ENTERPRISE-9 | Cannot delete enterprise because some users have roles that cannot be deleted, please change their enterprise before continuing |
+| ENTERPRISE-10 | The enterprise does not have permission to use the requested datacenter |
+| ENTERPRISE-11 | Invalid enterprise identifier in the enterprise link |
+| ENTERPRISE-12 | Missing link to the pricing template |
+| ENTERPRISE-13 | Missing pricing template parameter |
+| ENTERPRISE-14 | You do not have enough privileges to configure the Chef properties |
+| ENTERPRISE-15 | You do not have enough privileges to set the enterprise theme |
+| ENTERPRISE-16 | The enterprise does not have permission to use the requested datastore tier |
+| ENTERPRISE-17 | Cannot delete the enterprise or remove its access to the cloud location because it has firewalls |
+| ENTERPRISE-18 | Cannot delete the enterprise or remove its access to the cloud location because it has load balancers |
+| ENTERPRISE-19 | Cannot delete the enterprise or remove its access to the cloud location because it has floating IPs |
+| ENTERPRISE-20 | Cannot set the enterprise as a reseller for this scope because it already has a reseller. |
+| ENTERPRISE-21 | Cannot set the enterprise as a key node for this scope because it already has a key node. |
+| ENTERPRISE-22 | This action can only be performed on a reseller enterprise. |
+| ENTERPRISE-23 | This action can only be performed on a key node enterprise. |
+| ENTERPRISE-24 | Missing reseller link |
+| ENTERPRISE-25 | Missing key node link |
+| ENTERPRISE-26 | The request cannot contain more than one key node link |
+| ENTERPRISE-27 | Cannot delete the enterprise or remove its access to the cloud location because it has availability sets |
+| ENTERPRISE-28 | Server mail details can be edit only for reseller enterprise. |
+| ENTERPRISE-29 | All server mail details are required. |
+| ENTERPRISE-30 | Cannot delete the enterprise because it has resource groups |
+| ENTERPRISE-31 | Cannot delete the enterprise because it has global networks |
+| ENTERPRISE-32 | Cannot delete the enterprise because it has subnets |
+| ENTERPRISE-33 | Cannot delete the enterprise because it has target groups |
+| ENTERPRISE-34 | Cannot exist a reseller enterprise under a keynode hierarchy |
+|| h6. Enterprise properties ||  ||
+| ENPROP-0 | The requested enterprise properties do not exist |
+| ENPROP-1 | Enterprise properties are required |
+| ENPROP-2 | Invalid property key. A hidden property could be using the same key. |
+| ENPROP-3 | The property key is required |
+| ENPROP-4 | Multiple values for enterprise property filtering |
+| ENPROP-5 | Invalid enterprise property |
+|| h6. Events ||  ||
+| EVENT-0 | This event does not exist |
+| EVENT-1 | Query parameters dates are expected to use ISO 8601 format (ex: 2011\-12\-03T10:15:30Z). |
+|| h6. Excluded network ||  ||
+| EXCLUDEDNETWORK-0 | The requested excluded network does not exist |
+| EXCLUDEDNETWORK-1 | Address attribute is required |
+| EXCLUDEDNETWORK-2 | Mask attribute is required and must be equal or greater than 0 |
+| EXCLUDEDNETWORK-3 | The network does not match the mask. Check your request |
+| EXCLUDEDNETWORK-4 | IP format is invalid |
+| EXCLUDEDNETWORK-5 | IPv6 networks can have a netmask of 64, 56 or 48 |
+| EXCLUDEDNETWORK-6 | The range to exclude is already in use by another existing network |
+| EXCLUDEDNETWORK-7 | Name attribute is required |
+|| h6. External scope ||  ||
+| EXTERNAL_SCOPE-1 | There are multiple entries for the requested scope |
+|| h6. Firewall ||  ||
+| FIREWALLPOLICY-1 | The name is required |
+| FIREWALLPOLICY-2 | The description is required |
+| FIREWALLPOLICY-5 | The requested firewall policy does not exist |
+| FIREWALLPOLICY-6 | The firewall policy is being used by virtual machines and/or load balancers and cannot be modified |
+| FIREWALLPOLICY-7 | Virtual machines cannot be attached to the firewall policy in the provider. Ensure the firewall policy is properly created |
+| FIREWALLPOLICY-8 | An unexpected error occurred while assigning virtual machines to the load balancer |
+| FIREWALLPOLICY-9 | Cannot find the default firewall. Please synchronize virtual datacenter |
+| FIREWALLPOLICY-10 | Only a firewall assigned to the virtual datacenter can be set as the default |
+| FIREWALLPOLICY-11 | A default firewall is required |
+| FIREWALLPOLICY-12 | Cannot determine the target virtual datacenter of firewall '%s' in synchronization. The virtual datacenter of the local firewall will be kept. The virtual machines of firewall will not be updated. |
+| FIREWALLPOLICY-13 | Use global firewall endpoint to manage firewalls belonging to a global network |
+| FIREWALLPOLICY-14 | Firewall policy requires source or target definitions at rule level. |
+| FIREWALLPOLICY-15 | Direction in global firewall policy is required. |
+| FIREWALLPOLICY-16 | Firewall policy can be egress or ingress. Complete either targets for egress or sources for ingress only |
+| FIREWALLPOLICY-17 | The firewall policy has a vdc assigned and is being used by virtual machines and/or load balancers and cannot be modified |
+| FIREWALLRULE-1 | The protocol is required |
+| FIREWALLRULE-2 | The port field for the start of the port range is required |
+| FIREWALLRULE-3 | The port field for the end of the port range is required |
+| FIREWALLRULE-4 | The targets list is required for an egress rule or the sources list for an ingress rule |
+| FIREWALLRULE-5 | Firewall rule can be egress or ingress but not both. Complete either targets or sources only |
+| FIREWALLRULE-6 | Global Firewall rule does not support and end of range you should specify a range in ports field |
+| FIREWALLRULE-7 | Global Firewall rule does not support specify source or target in rule, you should specify at firewall policy level |
+|| h6. Floating IPs ||  ||
+| FLOATINGIP-1 | The floating IP does not exist |
+| FLOATINGIP-2 | The floating IP is currently used by a virtual machine. It cannot be released |
+| FLOATINGIP-3 | Cannot create a floating IP in the given location |
+|| h6. Generic ||  ||
+| GEN-0 | Malformed URI |
+| GEN-1 | Identifier cannot be 0 |
+| GEN-2 | Invalid XML document; please ensure all mandatory fields are correct |
+| GEN-3 | Invalid XML document |
+| GEN-4 | Not enough permissions to perform this action |
+| GEN-5 | Invalid credentials |
+| GEN-6 | Invalid link reference |
+| GEN-7 | The property 'name' must not have whitespace at the beginning or the end |
+| GEN-8 | The property 'symbol' must not have whitespace at the beginning or the end |
+| GEN-9 | The property 'description' must not have whitespace at the beginning or the end |
+| GEN-10 | Identifier is required |
+| GEN-11 | The identifier field cannot be used to create entities |
+| GEN-12 | Invalid private network type |
+| GEN-13 | Unexpected error |
+| GEN-14 | The operation could not be performed. Please contact your System Administrator |
+| GEN-15 | Not enough privileges to perform this operation |
+| GEN-16 | The ID parameter is different from the entity ID |
+| GEN-17 | The plugin type was not found |
+| GEN-18 | The requested operation is not supported by the hypervisor plugin |
+| GEN-19 | The supplied connection is not valid for the hypervisor plugin |
+| GEN-20 | The requested virtual machine definition cannot be applied by the hypervisor plugin |
+| GEN-21 | The requested plugin is not a cloud provider plugin type |
+| GEN-22 | Query parameters are invalid or a required query parameter is missing |
+| GEN-23 | The operation requires authentication to the provider and the X\-Abiquo\-PCR\-Identity, X\-Abiquo\-PCR\-Credential and X\-Abiquo\-PCR\-Endpoint headers must be set |
+| GEN-24 | The requested disk controller is not supported by the hypervisor plugin |
+| GEN-25 | The current hypervisor plugin does not support ISO format |
+| GEN-26 | Plugin operation requires enterprise properties |
+| GEN-27 | Cannot create VPC, use synchronize |
+| GEN-28 | Cannot create Network, use synchronize |
+| GEN-30 | Cannot create Firewall, use synchronize |
+| GEN-31 | Cannot create LoadBalancer, use synchronize |
+| GEN-32 | Invalid pricing credentials |
+|| h6. Global networks ||  ||
+| GLOBALNETWORK-1 | The global network does not exist |
+| GLOBALNETWORK-2 | Cannot delete a global network that is being used by subnets |
+| GLOBALNETWORK-3 | The global network link is required |
+| GLOBALNETWORK-4 | Cannot delete a global network that contains non\-ephemeral IPs |
+| GLOBALNETWORK-5 | There is already a global network with the same name |
+|| h6. Hard disk ||  ||
+| HD-1 | The requested hard disk does not exist |
+| HD-2 | Disk 0 is the system disk and cannot be deleted from the virtual machine |
+| HD-3 | Invalid disk size. |
+| HD-4 | Cannot perform this action because the hard disk is currently attached to a virtual machine |
+| HD-5 | Invalid link to the hard disk to attach |
+| HD-6 | Invalid virtual datacenter in the link to the volume to attach |
+| HD-7 | Cannot create a hard disk because this feature is not available for this hypervisor |
+| HD-8 | The size of the hard disk cannot be reduced |
+| HD-9 | Cannot perform this action because hard disk resize is not available for this hypervisor |
+| HD-10 | Invalid hard disk attachment sequence number |
+| HD-11 | Cannot perform this action because the hard disk is not attached to a virtual machine |
+| HD-12 | The hard disk cannot be edited because it is being used by a virtual machine |
+| HD-13 | The hard disk cannot be resized because the virtual machine is not deployed |
+| HD-14 | It's only possible to create a new hard disk from an ISO disk |
+| HD-15 | Only the IDE or SATA disk controller type is supported for the ISO disk format type |
+| HD-16 | The hard disk cannot be resized because it is using the ISO disk format type |
+| HD-17 | Cannot modify sequence 0; use virtual machine edit to reorder attached disks |
+| HD-18 | The hard disk cannot be resized because the virtual machine is not deployed. It looks like the virtual machine was deployed, then the disk resized and now it is attempting to redeploy. Please set the HD required size to the original (specified in the template) |
+| HD-19 | Allocation is not supported in the target hypervisor type |
+| HD-20 | Cannot change disk allocation in an already deployed disk |
+| HD-21 | Cannot edit disk allocation |
+|| h6. Hardware profile ||  ||
+| PROFILE-0 | Duplicate name for hardware profile |
+| PROFILE-1 | The requested hardware profile does not exist |
+| PROFILE-2 | Cannot create the hardware profile because the requested datacenter is a public datacenter |
+| PROFILE-3 | Invalid link to the hardware profile; cannot get profile values |
+| PROFILE-5 | Missing hardware profile link |
+| PROFILE-6 | Inactive hardware profile. Select another one. |
+| PROFILE-7 | CPU/RAM/CoresPerSocket values do not match hardware profile |
+| PROFILE-9 | CPU/RAM values cannot be empty for not dynamic fields of CPU/RAM |
+| PROFILE-10 | CPU/RAM have invalid values |
+|| h6. Hardware profile family ||  ||
+| HPFAMILY-0 | The hardware profile family does not exist |
+| HPFAMILY-1 | There is already a hardware profile family with the same name |
+| HPFAMILY-2 | Cannot delete hardware profile family with hardware profile types assigned |
+| HPFAMILY-3 | Cannot update hardware profile family retrieved from a provider |
+|| h6. Hardware profile type ||  ||
+| HPTYPE-0 | The hardware profile type does not exist |
+| HPTYPE-1 | There is already a hardware profile type with the same name |
+| HPTYPE-2 | Cannot delete hardware profile type with hardware profiles assigned |
+| HPTYPE-3 | Cannot delete hardware profile type retrieved from a provider |
+| HPTYPE-4 | Cannot update hardware profile type retrieved from a provider |
+| HPTYPE-5 | The hardware profile type does not belong to the family |
+| HPTYPE-6 | Cannot create hardware profile type on a hardware profile family retrieved from a provider |
+|| h6. Hypervisor plugin ||  ||
+| HYP-01 | Unable to connect; invalid hypervisor location (IP or port) |
+|| h6. IDE controller ||  ||
+| ED-1 | Cannot attach more than 4 disks to an IDE controller |
+| EDIT-01 | This method requires the virtual machine to be deployed on a target hypervisor |
+|| h6. Icons ||  ||
+| ICON-1 | Duplicate path for an icon |
+| ICON-2 | The requested icon does not exist |
+| ICON-3 | No icon found with the requested path |
+| ICON-4 | Cannot delete the icon because it is in use by a virtual machine template |
+| ICON-5 | Invalid icon identifier in the icon link |
+|| h6. Job ||  ||
+| JOB-1 | The requested job does not exist |
+|| h6. License ||  ||
+| LICENSE-0 | The requested license does not exist |
+| LICENSE-1 | The license provided is not valid |
+| LICENSE-2 | Could not initialize licensing ciphers |
+| LICENSE-3 | Could not read licensing cipher key |
+| LICENSE-4 | The maximum number of managed cores has been reached \- please use the Abiquo support portal or email sales@abiquo.com for a trial or production license |
+| LICENSE-5 | The license is already being used |
+|| h6. Limits ||  ||
+| LIMIT-6 | Invalid VLAN hard limit; this cannot be greater than the number of VLANS per virtual datacenter: &#123;0&#125; |
+| LIMIT-7 | Duplicate limits by enterprise and datacenter |
+| LIMIT-8 | Limits by enterprise and datacenter do not exist |
+| LIMIT-9 | Cannot edit resource limits; current enterprise allocation exceeds the new specified limits (see SYSTEM traces in order to determine which resources are at HARD limit) |
+| LIMIT-10 | Cannot edit resource limits; current enterprise and datacenter allocation exceeds the new specified limits (see SYSTEM traces in order to determine which resources are at HARD limit) |
+| LIMIT-11 | Cannot remove enterprise access to this datacenter because the datacenter is used by virtual datacenter(s) belonging to the enterprise |
+| LIMIT-12 | Cannot remove enterprise access to this datacenter because the datacenter has network(s) belonging to the enterprise |
+| LIMIT-13 | Cannot edit resource limits; current enterprise allocation exceeds the new specified limits |
+| LIMIT-14 | Cannot edit resource limits; current datacenter allocation exceeds the new specified limits |
+| LIMIT-15 | Invalid link of the tier to allow |
+| LIMIT-16 | Datacenter identifier from tier link does not match the identifier from datacenter link |
+| LIMIT-17 | Cannot restrict the tier because the enterprise has already created volumes in it |
+| LIMIT-18 | Not enough permissions to create/edit the limit in this datacenter |
+| LIMIT-19 | Not enough permissions to allow new tiers in this datacenter |
+| LIMIT-20 | Invalid link of the datastore tier to allow |
+| LIMIT-21 | Datacenter identifier from datastore tier link does not match the identifier from datacenter link |
+| LIMIT-22 | Cannot restrict the datastore tier because the enterprise has already created virtual machines in it |
+| LIMIT-23 | Not enough permissions to allow new datastore tiers in this datacenter |
+| LIMIT-24 | Invalid link of the backup policy to allow |
+| LIMIT-25 | Cannot restrict the backup policy '%s' because the enterprise already has virtual machines with that policy assigned |
+| LIMIT-26 | Invalid link of hardware profile to allow |
+| LIMIT-27 | Datacenter identifier from hardware profile link does not match the identifier from datacenter link |
+| LIMIT-28 | Not enough permissions to allow new hardware profiles in this datacenter |
+| LIMIT-29 | Disabling hardware profile for this limit is not supported |
+| LIMIT-30 | Cannot restrict the hardware profile because the enterprise already has virtual machines with that hardware profile assigned |
+| LIMIT-31 | Cannot allow inactive hardware profiles |
+| LIMITS_EXCEEDED | The required resources exceed the allowed limits |
+| SOFT_LIMIT_EXCEEDED | The required resources exceed the soft limits |
+|| h6. Link ||  ||
+| LINK-0 | The 'rel' property of the link is required |
+| LINK-1 | The 'href' property of the link is required |
+| LINK-5 | Link was not found |
+|| h6. Load balancer ||  ||
+| LOADBALANCER-1 | The requested load balancer does not exist |
+| LOADBALANCER-2 | The requested routing rule does not exist |
+| LOADBALANCER-3 | This is the only routing rule of the load balancer and it cannot be deleted. To remove it, delete the load balancer. |
+| LOADBALANCER-4 | A routing rule with the same port in and port out already exists for the load balancer |
+| LOADBALANCER-5 | Routing rule belongs to a load balancer that cannot be modified |
+| LOADBALANCER-6 | Not all required fields are present for the embedded SSL certificate |
+| LOADBALANCER-7 | A link to the SSL certificate or the embedded form must be used, but not both at the same time. |
+| LOADBALANCER-8 | The requested load balancer address does not exist |
+| LOADBALANCER-9 | There is already one health check with the same path and protocol in the load balancer |
+| LOADBALANCER-10 | The requested health check does not exist in the load balancer |
+| LOADBALANCER-11 | Selected private networks are not in the same virtual datacenter |
+| LOADBALANCER-12 | Selected firewalls are not in the same virtual datacenter |
+| LOADBALANCER-13 | Certificate cannot be stored in the provider. Ensure the load balancer is properly created |
+| LOADBALANCER-14 | Address cannot be selected in the provider. Ensure the load balancer is properly created |
+| LOADBALANCER-15 | Virtual machines cannot be attached to load balancer in the provider. Ensure the load balancer is properly created |
+| LOADBALANCER-18 | The requested SSL certificate does not exist |
+| LOADBALANCER-19 | VLAN not found during load balancer import |
+| LOADBALANCER-20 | Load balancer has VLAN networks but cannot select the virtual datacenter |
+| LOADBALANCER-21 | Firewall not found while importing load balancer; try to synchronize firewalls before load balancers |
+| LOADBALANCER-22 | Cannot embed RoutingRules, HealthChecks or LoadBalancerAddresses during modify, use sub\-resources instead |
+| LOADBALANCER-23 | Create firewall policies in the provider before assigning them to the load balancer |
+| LOADBALANCER-24 | Load balancer requires at least one routing rule |
+| LOADBALANCER-25 | Create VLAN networks (or elastic IPs) in the provider before assigning them to the load balancer |
+| LOADBALANCER-26 | Cannot modify load balancer address because it is not associated with a load balancer or is managed by the provider |
+| LOADBALANCER-27 | The load balancer is being used by virtual machines and cannot be deleted |
+| LOADBALANCER-28 | Plugin does not support the specified network type, check LOADBALANCER_SUBNETS_TYPE constraint |
+| LOADBALANCER-29 | Plugin does not support the association of a load balancer with a virtual datacenter and it does not support the use of private networks with load balancers |
+| LOADBALANCER-30 | The requested conditional action does not exist |
+| LOADBALANCER-31 | Invalid action for conditional action |
+| LOADBALANCER-32 | Invalid condition for conditional action |
+| LOADBALANCER-33 | Virtual machines cannot be assigned directly to a load balancer that uses routing rules with conditional actions. Assign VMs through target groups |
+| LOADBALANCER-34 | Global subnet not found during load balancer import |
+| LOADBALANCER-35 | Global network not found during load balancer import |
+| LOADBALANCER5-16 | Given virtual machines are not compatible with the load balancer |
+| LOADBALANCER5-17 | An unexpected error occurred while assigning virtual machines to load balancer |
+|| h6. Locations ||  ||
+| LOCATION-1 | The location link is required |
+| LOCATION-2 | The location link is not valid |
+| LOCATION-3 | The given provider type is not compatible with the given location |
+| LOCATION-4 | The location does not exist |
+| LOCATION-5 | The given virtual datacenter is not compatible with the given location |
+|| h6. Machine or hypervisor ||  ||
+| HYPERVISOR-1 | Invalid hypervisor IP. A hypervisor with that IP already exists |
+| HYPERVISOR-2 | Invalid hypervisor service IP. A hypervisor with that service IP already exists |
+| HYPERVISOR-3 | Invalid hypervisor endpoint information. A hypervisor with that connection already exists |
+| HYPERVISOR_TYPE-0 | The requested hypervisor type is invalid |
+| HYPERVISOR_TYPE-1 | Missing hypervisor type link |
+| HYPERVISOR_TYPE-2 | Invalid hypervisor type link |
+| MACHINE-0 | The requested machine does not exist |
+| MACHINE-1 | The machine is not assigned to the datacenter or rack |
+| MACHINE-2 | Machine definition should have at least one datastore created and enabled |
+| MACHINE-4 | Invalid virtual switch name |
+| MACHINE-5 | The requested state change is not valid |
+| MACHINE-6 | The requested machine could not be contacted |
+| MACHINE-7 | Machine cannot be removed because it is blocked by the high availability engine. Manually re\-enable to return it to managed state then try again. |
+| MACHINE-8 | Invalid IPMI configuration |
+| MACHINE-9 | Invalid IP range |
+| MACHINE-10 | The IQN of the target physical machine is not set |
+| MACHINE-11 | The machine is in a managed rack and its name cannot be changed. |
+| MACHINE-12 | The requested machine cannot be reserved because another enterprise has already reserved it. |
+| MACHINE-13 | The  machine with ID '%d' cannot be released because it is not reserved |
+| MACHINE-14 | The requested machine is already reserved. |
+| MACHINE-15 | There are no virtual machines on the physical machine |
+| MACHINE-16 | The  machine '%s' cannot be reserved because it contains virtual machines deployed by another enterprise. |
+| MACHINE-17 | The state of the physical machine does not allow retrieval of virtual machines |
+| MACHINE-18 | Invalid link to network service type |
+| MACHINE-19 | Duplicate network service type for network interfaces |
+| MACHINE-20 | Cannot update machine: network service type of network interface cannot be changed when it is in use |
+| MACHINE-21 | At least one network interface must have a network service type assigned |
+| MACHINE-22 | Cannot update machine '%s (%s)': cannot change network service type of network interface '%s' when it is in use |
+| MACHINE-23 | The network service types assigned to the host NICs and the target virtual datacenter are different |
+| MACHINE-24 | The state of the physical machine does not allow capture of virtual machines |
+| MACHINE-25 | Duplicate network interface name |
+| MACHINE-26 | Invalid entity: 'virtualSwitch' element not found |
+| MACHINE-27 | The requested plugin does not provide any host discovery method |
+| MACHINE-28 | There are virtual machines that are currently not synchronized and it is impossible to recover their current vNICs |
+| MACHINE-29 | Machines in the same datacenter must have a unique name |
+| MACHINE-30 | Cannot delete the physical machine because it contains protected virtual machines |
+| MACHINE-31 | Cannot retrieve virtual machines. A VM with name '%s' already exists in another datacenter. |
+|| h6. Mail ||  ||
+| MAIL-0 | No recipient has been selected, please indicate owner and/or enterprise admin |
+| MAIL-1 | Sender does not have email address set |
+| MAIL-2 | No recipient has been found |
+| MAIL-3 | Bad Internet address error |
+| MAIL-4 | Bad JNDI Error |
+| MAIL-5 | Message body text is required |
+|| h6. Monitoring and metrics ||  ||
+| MONITORING-1 | Metric not found |
+| MONITORING-2 | The metric name is required |
+| MONITORING-3 | Illegal time range for a statistic query |
+| MONITORING-4 | The supplied relative time contains years or months |
+| MONITORING-6 | The supplied relative start time is invalid |
+| MONITORING-8 | The minimum granularity is 60 seconds |
+| MONITORING-9 | The supplied metric already exists |
+| MONITORING-10 | Unknown monitoring level |
+| MONITORING-11 | The name of the monitoring level is required |
+| MONITORING-12 | Cannot collect metrics for imported virtual machines |
+| MONITORING-13 | Alarm not found |
+| MONITORING-14 | The given alarm already exists |
+| MONITORING-15 | The given alarm DTO is null |
+| MONITORING-16 | The alarm name is required |
+| MONITORING-17 | The alarm formula is required |
+| MONITORING-18 | The alarm statistic is required |
+| MONITORING-21 | The supplied formula does not exist |
+| MONITORING-22 | The supplied statistic does not exist |
+| MONITORING-23 | Alert not found |
+| MONITORING-24 | The supplied alert already exists |
+| MONITORING-25 | The supplied alert DTO is null |
+| MONITORING-26 | The alert name is required |
+| MONITORING-27 | The supplied collection of alarms is null or empty |
+| MONITORING-28 | Could not connect to the watchtower service |
+| MONITORING-29 | Bad request to watchtower server |
+| MONITORING-30 | Something has gone wrong on the watchtower server |
+| MONITORING-31 | Monitoring is not enabled, all monitoring related operations are unavailable |
+| MONITORING-32 | Malformed alarm link |
+| MONITORING-33 | Hypervisor metrics are not available for public cloud providers |
+| MONITORING-34 | Cannot retrieve hypervisor metrics of virtual machines that are not deployed |
+| MONITORING-35 | The hypervisor plugin does not support hypervisor metrics collection |
+| MONITORING-37 | Unable to create an alarm for a virtual machine cloned by a scaling group |
+| MONITORING-38 | The relative start time must be less than the 'abiquo.monitoring.max.statistic.period.days' property |
+| MONITORING-39 | Absolute or relative queries are allowed but not both |
+| MONITORING-40 | The alarm time range must be >= 1 |
+| MONITORING-41 | The datapoints limit must be >= 1 |
+| MONITORING-42 | Not allowed to get statistics of a composite metric |
+| MONITORING-46 | Not allowed to get composite statistics of a regular metric |
+| MONITORING-47 | Unable to create alarm with unknown metric dimensions |
+| MONITORING-48 | Not allowed to update metadata of built\-in metrics |
+| MONITORING-74 | Not allowed to put datapoints to built\-in metrics |
+|| h6. Move VM ||  ||
+| MOVE-VM-0 | Not allowed to move a virtual machine that belongs to a scaling group |
+| MOVE-VM-1 | Target virtual appliance link is required |
+| MOVE-VM-2 | Target network configuration link is required |
+| MOVE-VM-3 | Unknown link rel, only expecting ''virtualappliance'', ''network_configuration'', ''firewall'', ''loadbalancer'' and ''nicX'' |
+| MOVE-VM-4 | Can move virtual machines that are deployed only |
+| MOVE-VM-5 | Not allowed to move a virtual machine with volumes |
+| MOVE-VM-6 | Not allowed to move a virtual machine running in a public cloud region |
+| MOVE-VM-7 | Not allowed to move a virtual machine to a different datacenter |
+| MOVE-VM-8 | Not allowed to move a virtual machine to a different hypervisor type |
+| MOVE-VM-9 | Not allowed to move a virtual machine to another enterprise |
+| MOVE-VM-10 | Not allowed to move a virtual machine to a different device |
+| MOVE-VM-11 | To move a virtual machine within the same virtual datacenter, use the virtual appliance move endpoint |
+| MOVE-VM-12 | Not allowed to move a virtual machine with NAT rules |
+|| h6. NAT IP ||  ||
+| NAT-IP-0 | The NAT IP was not found |
+| NAT-IP-1 | Expecting a link to virtualdatacenter to assign |
+| NAT-IP-3 | Cannot delete a NAT IP with rules |
+| NAT-IP-4 | Cannot make a NAT IP unavailable while it has rules |
+| NAT-IP-5 | There is no IP available in the NAT network |
+| NAT-IP-6 | There is no IP available in any NAT network |
+| NAT-IP-7 | Invalid NAT IP link |
+| NAT-IP-8 | Cannot use a NAT IP not assigned to the virtualDatacenter |
+| NAT-IP-9 | NAT IP does not belong to NAT network CIDR |
+| NAT-IP-10 | NAT IP already exists |
+| NAT-IP-11 | NAT IP is not attached |
+| NAT-IP-12 | Cannot delete a NAT IP while it is attached to a virtual datacenter |
+| NAT-IP-13 | Cannot use NAT IP: it is already attached to another virtual datacenter, unavailable, or in quarantine |
+| NAT-IP-14 | Cannot delete the default NAT IP of a VDC |
+| NAT-IP-15 | To change the default SNAT IP, assign another NAT IP as the default for SNAT |
+| NAT-IP-16 | Invalid NAT IP link type. Plugin doesn't allow the creation of a rule with this kind of IP. |
+| NAT-IP-17 | NAT IP is already in use in the provider. Will make it unavailable, please try again. |
+| NAT-IP-18 | Cannot specify default SNAT IP when creating the virtual datacenter in this provider. |
+|| h6. NAT network ||  ||
+| NAT-NET-1 | The NAT network was not found |
+| NAT-NET-2 | NAT not supported in the device |
+| NAT-NET-3 | NAT network requires a device link |
+| NAT-NET-4 | Cannot edit or delete NAT with created IPs |
+| NAT-NET-5 | Invalid format for network CIDR |
+|| h6. NAT rule ||  ||
+| NAT-RULE-0 | The NAT rule was not found |
+| NAT-RULE-1 | An ''original'' link to a NAT IP is required |
+| NAT-RULE-2 | A ''translated'' link to a private IP is required |
+| NAT-RULE-3 | Original port already in use for the specified NAT IP |
+| NAT-RULE-5 | Load balancer address cannot be private to use a NAT IP |
+| NAT-RULE-6 | Cannot modify load balancer address when it is in use in NAT rules |
+| NAT-RULE-7 | Cannot delete an IP with associated NAT rules |
+| NAT-RULE-8 | Cannot clone NAT rule because all the ports are in use |
+| NAT-RULE-9 | Cannot clone NAT rule because there is no available NAT IP in the same network and virtual datacenter with all the ports available |
+| NAT-RULE-10 | Cannot create NAT rule: it should set ''originalPort'' and ''translatedPort'' or use all ports |
+| NAT-RULE-11 | Cannot create NAT rule using a private IP that is not attached to the virtual machine |
+| NAT-RULE-12 | Cannot create NAT rule because the NAT IP is in quarantine |
+| NAT-RULE-13 | Unsupported NAT protocol |
+| NAT-RULE-14 | Cannot specify multiple SNAT rules for the same private IP |
+| NAT-RULE-15 | Cannot specify ports or protocol in SNAT rules |
+|| h6. Network ||  ||
+| NET-0 | Invalid network configuration for the virtual datacenter |
+| NET-8 | This network has no IP addresses |
+| NET-9 | Parameter IPFrom is greater than IPTo |
+| NET-10 | Parameter IPFrom is invalid |
+| NET-11 | Parameter IPTo is invalid |
+| NET-12 | Invalid link for configuring the virtual machine network |
+| NET-13 | Invalid virtual datacenter identifier in the configuration link |
+| NET-14 | Invalid virtual appliance identifier in the configuration link |
+| NET-15 | Invalid virtual machine identifier in the configuration link |
+| NET-16 | Invalid configuration identifier in the configuration link. Configuration ID does not belong to a VLAN configuration used by this virtual machine |
+| NET-17 | Nonexistent network configuration |
+|| h6. Network device ||  ||
+| NETDEVICE-1 | The device does not exist for that location and enterprise |
+| NETDEVICE-2 | Devices managed by the provider are immutable |
+| NETDEVICE-3 | There is another default device |
+| NETDEVICE-4 | Cannot change enterprise/delete because the device is in use |
+| NETDEVICE-5 | The entity is associated with a device that is not configured in the current virtual datacenter |
+|| h6. Network service type ||  ||
+| NST-0 | The name of the network service type must be supplied |
+| NST-1 | The name of the network service type already exists |
+| NST-2 | The requested network service type does not exist |
+| NST-3 | You can edit the current default network service type for a datacenter but you cannot delete it. |
+| NST-4 | A datacenter requires at least one network service type and there is only one left. |
+| NST-5 | Invalid network service type identifier in the enterprise link |
+| NST-6 | Missing network service type link |
+| NST-7 | The network service type and the excluded from firewalls flag cannot be changed because there are virtual machines using IPs in this VLAN |
+| NST-8 | Network service type cannot be deleted because it is assigned to physical machine(s) |
+| NST-9 | Network service type cannot be deleted because it is assigned to VLAN(s) |
+| NST-10 | Invalid datacenter identifier in the network service type link |
+| NST-11 | Invalid network service type for '%s'. This distributed network interface must have an associated network service type. Conflict with machine '%s (%s)' |
+| NST-12 | Conflict error trying to assign network service '%s' to network interface '%s'. Conflict with machine '%s (%s)' |
+|| h6. Node collector ||  ||
+| NC-0 | The requested IP does not exist |
+| NC-1 | Missing IP query parameter |
+| NC-2 | Bad credentials attempting to retrieve the list of physical machines from rack |
+| NC-3 | Bad credentials attempting to retrieve the machine |
+| NC-4 | There is a machine running at the given IP but no hypervisor is responding |
+| NC-5 | There is no machine running at the given IP |
+| NC-6 | Unexpected exception building the request to discovery manager |
+| NC-7 | The discovery manager is currently not available |
+| NC-8 | The requested virtual machine was not found on the remote hypervisor |
+| NC-9 | The requested host is not managed |
+| NC-10 | The IP format is invalid |
+| NC-11 | Access is denied, please check whether the &#91;domain\-username\-password&#93; are correct. Also, if not already done please check the GETTING STARTED and FAQ sections in readme.htm. They provide information on how to correctly configure the Windows machine for DCOM access, so as to avoid such exceptions. |
+|| h6. OVF package ||  ||
+| OVF-PACKAGE-0 | The requested OVF package does not exist |
+| OVF-PACKAGE-1 | The requested OVF package list does not exist |
+| OVF-PACKAGE-2 | Cannot return the template definition |
+| OVF-PACKAGE-3 | Cannot find the RepositorySpace |
+| OVF-PACKAGE-4 | The requested RepositorySpace does not exist |
+| OVF-PACKAGE-5 | The URL of the disk format type is invalid |
+| OVF-PACKAGE-6 | The OVF URL in the template definition is invalid |
+|| h6. OVF package list ||  ||
+| OVF-PACKAGE-LIST-0 | OVF Package list name already exists |
+| OVF-PACKAGE-LIST-1 | The template definition list is not associated with a URL (ovfindex.xml), so it cannot be refreshed from the source |
+| OVF-PACKAGE-LIST-2 | OVF Package list name is required |
+|| h6. Parsing links ||  ||
+| LNK-0 | Invalid link. Check documentation |
+| LNK-1 | Invalid number of links: this resource only accepts a single link |
+| LNK-2 | Virtual machine template link with rel 'virtualmachinetemplate' is mandatory |
+| LNK-3 | Virtual machine template link is invalid |
+| LNK-4 | Region link not found or invalid |
+|| h6. Persistent ||  ||
+| CONSTR-InstanceName | Missing instance name |
+| CONSTR-LENGTH-NAME-MAX | The length of the NAME parameter must be less than 255 characters |
+| CONSTR-LENGTH-NAME-MIN | The length of the NAME parameter must be greater than 1 characters |
+| CONSTR-LENGTH-VOL-NAME-MAX | The length of the NAME parameter must be less than 255 characters |
+| CONSTR-LENGTH-VOL-NAME-MIN | The length of the NAME parameter must be greater than 1 characters |
+| CONSTR-SNAPSHOT-LENGTH-NAME-MAX | The length of the NAME parameter must be less than 255 characters |
+| CONSTR-SNAPSHOT-LENGTH-NAME-MIN | The length of the NAME parameter must be greater than 1 characters |
+| PERSISTENT-1 | The virtual machine template is already persistent |
+| PERSISTENT-2 | A RAW format conversion does not exist for the virtual machine template but is required to make it persistent |
+| PERSISTENT-3 | No name given for the new persistent template |
+| PERSISTENT-4 | No tier or volume for storing the persistent virtual machine template was found in the request but one of these is required |
+| PERSISTENT-5 | There are no pools available in at least one of the selected tiers |
+| PERSISTENT-6 | An error occurred while creating the volume. Please contact your administrator |
+| PERSISTENT-7 | Another virtual machine is already using the persistent virtual machine template. |
+| PERSISTENT-8 | No virtual machine template found to persist |
+| PERSISTENT-9 | Invalid tier link |
+| PERSISTENT-10 | Invalid volume link |
+| PERSISTENT-11 | Invalid virtual datacenter link |
+| PERSISTENT-12 | No virtual datacenter found for the persistent virtual machine |
+| PERSISTENT-13 | Unable to create the initiator mapping for the volume. |
+| PERSISTENT-14 | The virtual datacenter does not belong to the correct enterprise |
+| PERSISTENT-15 | Invalid disk link |
+| PERSISTENT-16 | Defined sequence repeated |
+| PERSISTENT-17 | Disk misses for defined sequence |
+| PERSISTENT-18 | Destination disk sequences must match with origin disk sequences |
+| PERSISTENT-19 | Cannot request creation of a persistent disk from an empty disk |
+| PERSISTENT-20 | Cannot request creation of a persistent disk from an ISO disk |
+|| h6. Pricing credentials ||  ||
+| PRICING-CREDS-1 | The requested pricing credentials do not exist |
+| PRICING-CREDS-2 | The supplied pricing credentials are already in use. |
+| PRICING-CREDS-3 | The credentials require a provider attribute |
+| PRICING-CREDS-4 | The credentials require an access key attribute |
+| PRICING-CREDS-5 | Cannot update the provider of existing pricing credentials |
+| PRICING-CREDS-6 | A link to a hypervisortype or publiccloudregion is required |
+| PRICING-CREDS-7 | Cannot use pricing credentials in a dynamic region plugin |
+|| h6. Pricing template ||  ||
+| PRICINGTEMPLATE-0 | Missing currency parameter |
+| PRICINGTEMPLATE-1 | Missing enterprise parameter |
+| PRICINGTEMPLATE-2 | Duplicate name for pricing template |
+| PRICINGTEMPLATE-3 | The requested pricing template does not exist |
+| PRICINGTEMPLATE-4 | Cannot delete a pricing template that is associated with an enterprise |
+| PRICINGTEMPLATE-5 | The smallest charging period is DAY |
+| PRICINGTEMPLATE-6 | Pricing template name cannot be empty |
+| PRICINGTEMPLATE-8 | Charging period values should be between 2 and 6 |
+| PRICINGTEMPLATE-9 | Check minimum charge value is not null or wrong type |
+| PRICINGTEMPLATE-10 | Minimum charge values should be between 0 and 6 |
+| PRICINGTEMPLATE-11 | CPU can have prices for on/off or a generic CPU price |
+| PRICINGTEMPLATE-12 | RAM can have prices for on/off or a generic RAM price |
+| PRICINGTEMPLATE-13 | VM can have prices for on/off or a generic VM price and protected |
+|| h6. Privilege ||  ||
+| PRIVILEGE-0 | The requested privilege does not exist |
+| PRIVILEGE-1 | The user does not have the requested privilege |
+|| h6. Provider limit ||  ||
+| PROVIDER-LIMITS-36 | The provider limits already exist |
+| PROVIDER-LIMITS-37 | An endpoint is only allowed for a dynamic region |
+|| h6. Public cloud ||  ||
+| PUBLIC-1 | The requested credentials do not exist |
+| PUBLIC-2 | Unable to establish a connection to the endpoint of the public cloud region |
+| PUBLIC-3 | The requested provider already has credentials assigned. |
+| PUBLIC-4 | The requested provider is not supported. |
+| PUBLIC-5 | The requested operation is not supported in a public cloud region |
+| PUBLIC-6 | The requested operation is not supported in a datacenter |
+| PUBLIC-7 | The provider field of public cloud credentials cannot be modified |
+| PUBLIC-8 | Missing public cloud region link |
+| PUBLIC-9 | Plugin not loaded or not a cloud provider |
+| PUBLIC-10 | The enterprise does not have credentials for this provider |
+| PUBLIC-11 | The access ID and secret key are required to validate the credentials |
+| PUBLIC-12 | The given credentials are not valid for this region |
+| PUBLIC-13 | The given credentials could not be validated. At least one public cloud region of the same provider type must be allowed for this enterprise in order to verify the credentials |
+| PUBLIC-14 | The supplied public cloud credentials are already in use. |
+| PUBLIC-15 | A public cloud region is required to create a public cloud credential for this provider type |
+| PUBLIC-16 | A link to a public cloud region or a provider type must be provided |
+| PUBLIC-17 | The public cloud region of a public cloud credential cannot be modified |
+| PUBLIC-18 | The public cloud credentials are not valid for compute operations in the provider |
+|| h6. Public cloud region ||  ||
+| PUBLICREGION-1 | The enterprise link is required |
+| PUBLICREGION-2 | The name is required |
+| PUBLICREGION-5 | The region is already used by another public cloud region |
+| PUBLICREGION-6 | The name is already used by another public cloud region |
+| PUBLICREGION-7 | The remote services for a public cloud region must be: Virtualization Manager, Monitor Manager, Plugin Manager, Service Manager, Remote Access Manager |
+| PUBLICREGION-8 | The requested public cloud region does not exist |
+| PUBLICREGION-9 | The requested public cloud region is invalid for the given public cloud provider |
+| PUBLICREGION-10 | Cannot obtain the endpoint of the given provider type and region. |
+| PUBLICREGION-11 | Cannot delete a public cloud region that is being used by some virtual datacenters |
+| PUBLICREGION-12 | The region of a public cloud region cannot be modified |
+| PUBLICREGION-13 | The provider type of a public cloud region cannot be modified |
+| PUBLICREGION-14 | The requested public cloud region does not support storage limits |
+| PUBLICREGION-15 | The requested public cloud region does not support repository limits |
+| PUBLICREGION-16 | The endpoint of a public cloud region cannot be modified |
+| PUBLICREGION-17 | The given provider ID belongs to a virtual datacenter of another enterprise |
+| PUBLICREGION-18 | The given provider ID does not belong to any remote virtual datacenter |
+| PUBLICREGION-19 | VDC synchronization is not possible for providers not implementing VPC. Synchronize region instead |
+| PUBLICREGION-20 | Public cloud region synchronize is not possible for providers implementing VPC. Synchronize each VDC individually instead |
+| PUBLICREGION-21 | Cannot synchronize the virtual machines '%s' and '%s' because they already exist in different virtual datacenters but are related by a firewall/load balancer |
+| PUBLICREGION-22 | Cannot synchronize the firewall policies '%s' and '%s' because they already exist in different virtual datacenters but are related by a virtual machine |
+| PUBLICREGION-23 | Cannot synchronize the load balancers '%s' and '%s' because they already exist in different virtual datacenters but are related by a virtual machine |
+| PUBLICREGION-24 | Cannot determine the target virtual datacenter of synchronize because of dependencies between virtual machines and firewalls of virtual datacenters with ids: '%s' and '%s' |
+| PUBLICREGION-25 | Cannot determine the target virtual datacenter of synchronize because of dependencies between virtual machines and load balancers of virtual datacenters with ids: '%s' and '%s' |
+| PUBLICREGION-26 | Cannot determine the target virtual datacenter of synchronize because of dependencies between firewalls and load balancers of virtual datacenters with ids: '%s' and '%s' |
+| PUBLICREGION-27 | Cannot determine the target virtual datacenter of synchronize because of dependencies between virtual machines and networks of virtual datacenters with ids: '%s' and '%s' |
+| PUBLICREGION-28 | Cannot determine the target virtual datacenter of synchronize because of dependencies between firewalls and networks of virtual datacenters with ids: '%s' and '%s' |
+| PUBLICREGION-29 | Cannot determine the target virtual datacenter of synchronize because of dependencies between load balancers and networks of virtual datacenters with ids: '%s' and '%s' |
+| PUBLICREGION-30 | Single resource synchronization is not supported, use the full public cloud region synchronization |
+| PUBLICREGION-31 | Cannot synchronize the networks '%s' and '%s' because they already exist in different virtual datacenters but are related by a virtual machine/load balancer |
+| PUBLICREGION-32 | The requested virtual datacenter was not found. If the resource group of the virtual datacenter has changed, delete the virtual datacenter from Abiquo and onboard it again. |
+| PUBLICREGION-33 | Cannot synchronize the subnets '%s' and '%s' because they already exist in different virtual datacenters but are related by a virtual machine |
+| PUBLICREGION-34 | Cannot determine the target virtual datacenter of synchronize because of dependencies between virtual machines and subnets of virtual datacenters with ids: '%s' and '%s' |
+| PUBLICREGION-35 | This public cloud region contains volumes and cannot be deleted without removing them first |
+|| h6. Query paging standard errors ||  ||
+| QUERY-0 | Invalid 'by' parameter |
+| QUERY-1 | Invalid 'type' parameter. Only 'EXTERNAL', 'UNMANAGED' or 'PUBLIC' allowed |
+| QUERY-2 | Invalid range: 'startwith' parameter must be less than 'limit' parameter |
+|| h6. RabbitMQ ||  ||
+| RABBITMQ-0 | Failed connection to RabbitMQ |
+|| h6. Rack ||  ||
+| RACK-0 | The rack is not assigned to the datacenter |
+| RACK-3 | There is already a rack with that name in this datacenter |
+| RACK-4 | This rack does not exist |
+| RACK-5 | Machines in this rack cannot be discovered |
+| RACK-7 | There is already a managed rack with this IP defined in the same datacenter |
+| RACK-9 | Cannot remove this rack because there are some virtual machines deployed on it |
+| RACK-11 | This rack contains deployed virtual machines |
+| RACK-12 | The new VLAN tag range is not valid because some VLAN tags on the rack are outside of the new range |
+| RACK-13 | The new VLAN tag range does not contain any available tags, check ''vlanIdMin'', ''vlanIdMax'' and ''vlansIdAvoided'' |
+| RACK-14 | Missing link to rack |
+|| h6. Redis ||  ||
+| REDIS-0 | Failed connection to Redis |
+|| h6. Region ||  ||
+| REGION-0 | Missing region link |
+| REGION-1 | Invalid region link |
+| REGION-2 | Region not found in the provider plugin |
+|| h6. Remote service ||  ||
+| RS-0 | The remote service is not assigned to the datacenter |
+| RS-1 | Wrong remote service type |
+| RS-2 | The remote service does not exist |
+| RS-3 | The remote service URL already exists and cannot be duplicated |
+| RS-4 | Malformed remote service URL |
+| RS-5 | This datacenter already has a storage pool assigned |
+| RS-6 | A remote service of that type with the same UUID is already in use |
+| RS-7 | Failed connection to the remote service |
+| RS-8 | This remote service is not available to be checked |
+| RS-9 | Cannot delete a storage manager with storage pools associated |
+| RS-10 | Cannot delete a DHCP Service. There are virtual machines deployed. |
+| RS-11 | The URL supplied is invalid |
+| RS-12 | The URI of the DHCP remote service is invalid |
+| RS-13 | The remote service does not have the *abiquo.datacenter.id* property set |
+| RS-14 | The remote service is configured with a different datacenter UUID, please adjust the *abiquo.datacenter.id* property in the remote service. |
+| RS-15 | A port must be defined in the URI |
+| RS-16 | The remote service indicated cannot be used in a remote service client pool |
+| RS-17 | An unexpected error occurred while getting the remote service client from the client pool |
+| RS-18 | Remote service exception: the remote service log contains more details |
+| RS-19 | Cannot delete a virtual system monitor service. There are virtual machines deployed. |
+| RS-20 | The URI parameter is required |
+| RS-21 | Remote service UUID already used |
+| RS-22 | The URI of the DHCPv6 remote service is invalid |
+| RS-23 | The remote service is not assigned to the public cloud region |
+| RS-24 | The type parameter is required |
+| RS-25 | Remote service in use |
+| RS-26 | The requested remote service does not exist |
+| RS-27 | A location is required to create the remote service, and only one is allowed |
+| RS-28 | Remote service type not allowed to be used in a datacenter |
+| RS-29 | Remote service type not allowed to be used in a public cloud region |
+| RS-30 | The location already has a remote service of the same type assigned |
+| RS-31 | The type cannot be modified |
+| RS-32 | More than one remote service of the same type is not allowed in a datacenter |
+| RS-33 | Cannot release the Monitor Manager because the datacenter has monitors |
+| RS-35 | Cannot detach not reusable remote service |
+| RS-AM-0 | The repository exported by the current appliance manager is being used in another datacenter |
+| RS-AM-1 | The current repository holds virtual machine templates being used in some virtual appliances, so it is not possible to remove this remote service. You can replace the appliance manager with another one but only if the same repository is used. |
+|| h6. Repository ||  ||
+| REPO-1 | Cannot request ''usage'' or ''refresh'' of a public cloud repository |
+|| h6. Resource groups ||  ||
+| RESOURCEGROUP-1 | The resource group does not exist |
+| RESOURCEGROUP-2 | Name and provider are required |
+| RESOURCEGROUP-3 | There is already a resource group with the same name |
+| RESOURCEGROUP-4 | Resource groups can be created in allowed locations only |
+| RESOURCEGROUP-5 | A single resource group is mandatory |
+| RESOURCEGROUP-6 | The supplied resource group link is invalid |
+| RESOURCEGROUP-7 | The availability set must be in the same resource group as the virtual machine |
+| RESOURCEGROUP-8 | Cannot modify resource group |
+| RESOURCEGROUP-9 | To delete the resource group from the platform, you must first remove all the resources that it contains. To display all resources, you will require access to all VDCs |
+| RESOURCEGROUP-10 | Cannot edit resource group |
+| RESOURCEGROUP-11 | When editing a resource group, you may only change the name |
+| RESOURCEGROUP-12 | Region or hypervisor type link is missing |
+|| h6. Role ||  ||
+| ROLE-0 | The requested role does not exist |
+| ROLE-1 | The requested role cannot be modified |
+| ROLE-2 | Missing privilege parameter |
+| ROLE-3 | The requested role is blocked. It cannot be deleted |
+| ROLE-4 | Cannot delete a role with a user associated |
+| ROLE-5 | Cannot delete a role with a RoleLdap associated |
+| ROLE-6 | Cannot create a role with the same name as an existing role for the same enterprise or with the same name as an existing global role |
+| ROLE-7 | Cannot create a global role with the same name as an existing role |
+| ROLE-8 | Not enough privileges to manage this role |
+| ROLE-9 | Property name must not be blank |
+| ROLE-10 | Cannot modify the enterprise of this role because it is currently assigned to users of that enterprise. |
+| ROLE-11 | Invalid role link |
+| ROLE-12 | Cannot assign the same user to different roles. |
+| ROLE-13 | Cannot delete a role used as a virtual datacenter role |
+| ROLE-14 | Cannot delete the default role of an allowed location |
+| ROLE-15 | Role name cannot exceed 40 chars |
+|| h6. Role LDAP ||  ||
+| ROLELDAP-1 | There are multiple entries for the requested roleLdap |
+|| h6. SAML ||  ||
+| SAML-0 | Cannot create a valid SAML IdP login URI |
+|| h6. Scaling group ||  ||
+| SCALING-GROUP-1 | The provided scaling group is null |
+| SCALING-GROUP-2 | A virtual appliance is needed to create a scaling group |
+| SCALING-GROUP-3 | A master virtual machine is needed to create a scaling group |
+| SCALING-GROUP-4 | Name is required for a scaling group |
+| SCALING-GROUP-5 | The scaling group cooldown seconds must be > 0 |
+| SCALING-GROUP-6 | The scaling group min size must be >= 0 |
+| SCALING-GROUP-7 | The scaling group max size must be greater than min size |
+| SCALING-GROUP-8 | Empty scaling group 'out' rules |
+| SCALING-GROUP-9 | Empty scaling group 'in' rules |
+| SCALING-GROUP-10 | Overlapped time ranges in the provided scaling rules |
+| SCALING-GROUP-11 | Only one default rule is allowed |
+| SCALING-GROUP-12 | The requested scaling group does not exist |
+| SCALING-GROUP-13 | Unable to enable or disable maintenance mode because the scaling group contains locked virtual machine(s) |
+| SCALING-GROUP-14 | The scaling group is in maintenance mode already |
+| SCALING-GROUP-15 | The scaling group is not in maintenance mode |
+| SCALING-GROUP-16 | The scaling group must be in maintenance mode in order to apply the requested operation |
+| SCALING-GROUP-17 | The virtual machine is already assigned to another scaling group |
+| SCALING-GROUP-18 | Unable to scale out if the scaling group is in maintenance mode |
+| SCALING-GROUP-19 | Unable to scale in if the scaling group is in maintenance mode |
+| SCALING-GROUP-20 | A master virtual machine cannot be deleted or released |
+| SCALING-GROUP-21 | The scaling group cannot be in maintenance mode in order to apply the requested operation |
+| SCALING-GROUP-22 | License not found to manage scaling groups |
+| SCALING-GROUP-23 | You are trying to delete a scaling group that is associated with one or more action plans. If you delete the scaling group, the related actions plans will be affected. To proceed with the delete, please try again with the 'force' parameter set to 'true'. |
+| SCALING-GROUP-24 | No scaling rules found in range and no default rule available |
+|| h6. Scaling rule ||  ||
+| SCALING-RULE-1 | The provided scaling rule is null |
+| SCALING-RULE-2 | The scaling rule start time must be before the end time |
+| SCALING-RULE-3 | The scaling rule cooldown seconds must be > 0 |
+| SCALING-RULE-4 | The scaling rule number of instances must be > 0 |
+| SCALING-RULE-5 | The scaling rule start and end time must be provided |
+| SCALING-RULE-6 | The scaling rule cooldown has not been reached |
+|| h6. Schedule ||  ||
+| SCHEDULE-1 | The supplied interval DTO is null |
+| SCHEDULE-2 | The supplied cron DTO is null |
+| SCHEDULE-3 | Unable to parse cron expression |
+| SCHEDULE-4 | Missing field 'seconds' in cron expression |
+| SCHEDULE-5 | Missing field 'minutes' in cron expression |
+| SCHEDULE-6 | Missing field 'hours' in cron expression |
+| SCHEDULE-7 | Missing field 'day of month' or 'day_of_week' in cron expression |
+| SCHEDULE-8 | Missing field 'month' in cron expression |
+| SCHEDULE-9 | The repeat interval in seconds must be > 0 |
+| SCHEDULE-10 | The end date must be after the start date |
+| SCHEDULE-11 | The repeat count must be >= 0 |
+| SCHEDULE-12 | The end date must be in the future |
+|| h6. Scope ||  ||
+| SCOPE-0 | Duplicate name for scope |
+| SCOPE-1 | The requested scope does not exist |
+| SCOPE-2 | Cannot delete the default scope |
+| SCOPE-3 | Cannot modify the default scope |
+| SCOPE-4 | The role supplied in user creation does not have this enterprise visible in its scope |
+| SCOPE-5 | Cannot remove the scope because there are roles associated with it |
+| SCOPE-6 | Cannot associate role with requested scope, because there are users with enterprises not included in this scope. |
+| SCOPE-7 | Scope invalid link |
+| SCOPE-8 | Cannot modify the scope because the enterprise to be removed from scope is the enterprise of a user with this scope assigned |
+| SCOPE-9 | Cannot remove the scope because there are pricing templates associated with it |
+| SCOPE-10 | Cannot modify the scope to remove the enterprise. The virtual machine template is being used by virtual machines in this enterprise. |
+| SCOPE-11 | Cannot remove the scope. The virtual machine template is being used by virtual machines in other enterprises. |
+| SCOPE-12 | Cannot delete the scope because it is the default for an enterprise. |
+| SCOPE-13 | Cannot modify the scope to remove the enterprise. This scope is the default for the enterprise to be removed. |
+| SCOPE-14 | Cannot associate the enterprise with the requested scope because the enterprise is not included in the scope. |
+| SCOPE-15 | User cannot be created because their enterprise is not visible in the selected scope. |
+| SCOPE-16 | User cannot be modified because their enterprise is not visible in the selected scope. |
+| SCOPE-17 | Cannot remove the scope because there are users associated with it |
+| SCOPE-18 | Invalid parent scope. You cannot set a scope as its own parent, and you cannot set a descendant's scope as a parent. |
+| SCOPE-19 | Cannot remove the scope because it is a parent scope. |
+| SCOPE-20 | Cannot add a parent to an unlimited scope |
+| SCOPE-21 | Only users with an unlimited scope are allowed to make a scope unlimited |
+|| h6. Statistics ||  ||
+| NODECOLLECTOR-1 | The remote service has raised an error. |
+| STATS-0 | No statistical data found |
+| STATS-1 | No statistical data found for the requested datacenter |
+| STATS-2 | No statistical data found for the requested enterprise in this datacenter |
+| STATS-3 | No statistical data found for the requested enterprise |
+|| h6. Storage devices ||  ||
+| DEVICE-0 | The requested device does not exist |
+| DEVICE-1 | Duplicate storage device |
+| DEVICE-2 | Plugin does not specify default management or service. This must be included in the request |
+|| h6. Storage pool ||  ||
+| SP-1 | Missing IQN query parameter |
+| SP-2 | The ID of the storage pool and the ID of the object supplied must be the same |
+| SP-3 | The requested storage pool does not exist |
+| SP-4 | There was an unexpected error while modifying the storage pool |
+| SP-5 | Could not get the storage pools from the target device |
+| SP-6 | Could not get the requested storage pool from the target device |
+| SP-7 | Cannot edit or delete the storage pool because it contains volumes |
+| SP-8 | Duplicate storage pool |
+| SP-9 | Tier is disabled |
+| SP-10 | Missing storage pool parameter |
+| SP-11 | The datacenter parameter was not found in the storage pool link |
+| SP-12 | The storage device parameter was not found in the storage pool link |
+| SP-13 | Missing storage pool link |
+| SP-14 | Access to this tier is restricted for your enterprise |
+| SP-15 | The storage pool cannot be added because it is the NFS repository of the Appliance Manager |
+|| h6. Storage system manager ||  ||
+| SSM-1 | Could not get the storage pools on the target storage device |
+| SSM-2 | Could not get the given storage pool on the target storage device |
+| SSM-3 | Could not get the volumes in the given storage pool |
+| SSM-4 | Could not get the given volume in the given storage pool |
+| SSM-5 | Could not create the volume on the target storage device |
+| SSM-6 | Could not delete the volume from the target storage device |
+| SSM-7 | Could not update the volume on the target storage device |
+| SSM-8 | Could not add the given iSCSI initiator on the target storage device |
+| SSM-9 | Could not remove the given iSCSI initiator from the target storage device |
+| SSM-10 | Could not get the metadata of the given storage type |
+|| h6. Subnets ||  ||
+| SUBNET-1 | The subnet does not exist |
+| SUBNET-2 | The subnet has non\-ephemeral IPs or IPs that are being used by virtual machines and cannot be deleted |
+| SUBNET-3 | The subnet has IPs that are being used by virtual machines and cannot be modified |
+| SUBNET-4 | All IPs in the subnet are already created |
+| SUBNET-5 | IP format is invalid |
+| SUBNET-6 | The requested IP is already created in the subnet |
+| SUBNET-7 | The IP does not belong to the subnet |
+| SUBNET-8 | This IP address is currently used by a virtual machine. It cannot be deleted |
+| SUBNET-9 | Invalid link to Subnet IP |
+| SUBNET-10 | The subnet IP does not exist |
+| SUBNET-11 | Invalid location identifier in the subnet IP link |
+| SUBNET-12 | At least one IP should be requested in order to create IPs |
+| SUBNET-13 | The literal of the first IP is required |
+| SUBNET-14 | The requested number of IPs to create is out of range |
+| SUBNET-15 | Name field is required in order to create a non\-ephemeral IP |
+| SUBNET-16 | Cannot reserve an IP for a virtual machine in a different VDC |
+| SUBNET-17 | Cannot reserve an IP without providing a reason |
+| SUBNET-18 | Default subnet not found for the virtual datacenter |
+| SUBNET-19 | The provider of the virtual datacenter does not support subnets |
+| SUBNET-20 | Only subnets in the same virtual datacenter can be set as the default |
+| SUBNET-21 | The subnet is already used by another virtual datacenter |
+| SUBNET-22 | The subnet name is already in use |
+| SUBNET-23 | Subnet IP creation failed |
+|| h6. System properties ||  ||
+| SYSPROP-0 | The requested system property does not exist |
+| SYSPROP-1 | There is already a system property with that name |
+|| h6. Tags ||  ||
+| TAGGING-0 | Tag does not match provider format restrictions |
+| TAGGING-1 | Tag value cannot be null |
+| TAGGING-2 | Tag key can not be null or empty |
+| TAGGING-3 | Tag key is already assigned to resource |
+| TAGGING-4 | Tag key is not assigned to resource |
+| TAGGING-5 | Tag key is assigned in the provider. Try to synchronize. |
+| TAGGING-6 | Resource does not have support for tagging operations |
+| TAGGING-7 | Not enough free slots in provider to materialize tags |
+| TAGGING-8 | Error while executing tag operation in provider |
+| TAGGING-9 | Resource does not have support for async task operations |
+| TAGGING-10 | Resource does not have a provider ID |
+| TAGGING-11 | Entities that are targets of the bulk tagging operation belong to different enterprises |
+| TAGGING-12 | Unable to operate over protected tag keys |
+| TAGGING-13 | Unable to parse tag policy. |
+| TAGGING-14 | This tag policy is already assigned to this enterprise. |
+| TAGGING-15 | Tag policy cannot be assigned to enterprise, some child policies are not compatible. |
+| TAGGING-16 | Tag policy cannot override effects of its parent tag policy. |
+| TAGGING-17 | The parent tag policy does not allow this key operation. |
+| TAGGING-18 | The parent tag policy does not allow this value operation. |
+| TAGGING-19 | The parent tag policy does not allow you to restrict key operations. |
+| TAGGING-20 | The parent tag policy does not allow you to restrict value operations. |
+| TAGGING-21 | The parent tag policy does not allow you to require tags on specific resources. |
+| TAGGING-22 | The parent tag policy does not allow you to restrict operations to require tags on specific resources. |
+| TAGGING-23 | The tag policy collection does not contain a unique tag policy key. |
+| TAGGING-24 | The tag policy was not found. |
+| TAGGING-25 | The enterprise has tag policies attached that are not compatible with child tag policies. |
+| TAGGING-26 | Unable to delete tag policy because it is overridden by child tag policies. |
+| TAGGING-27 | Unable to build AsyncTask, abstract datacenter is not available. |
+| TAGGING-28 | Tag filter valid operations are 'or' and 'and' |
+| TAGGING-29 | Empty collections of values for tag filter are not allowed |
+| TAGGING-30 | Tag filter operation is required |
+|| h6. Target group ||  ||
+| TARGETGROUP-1 | The requested target group does not exist |
+| TARGETGROUP-2 | Target group health check not found |
+| TARGETGROUP-3 | Cannot embed HealthCheck during modify, use sub\-resource instead |
+| TARGETGROUP-4 | The requested target group target does not exist |
+| TARGETGROUP-5 | Invalid target group target |
+| TARGETGROUP-6 | Cannot register targets with the same provider ID and port |
+| TARGETGROUP-7 | Invalid link to target group |
+| TARGETGROUP-8 | The requested target group is currently being used by a load balancer and cannot be deleted |
+| TARGETGROUP-9 | Regional sync of target group not supported, please use the global endpoint to sync target groups |
+|| h6. Tasks ||  ||
+| TASK-1 | The requested task does not exist |
+| TASK-2 | The task is not in the appropriate state |
+|| h6. Tiers ||  ||
+| TIER-0 | The requested storage tier does not exist |
+| TIER-1 | Tier embedded in StoragePool cannot be null |
+| TIER-2 | Missing link to storage tier |
+| TIER-3 | Missing storage tier parameter |
+| TIER-4 | Datacenter parameter in storage tier link not found |
+| TIER-5 | The storage tier is not in the datacenter where you are trying to create the storage pool |
+| TIER-6 | Cannot disable a tier with associated storage pools |
+| TIER-7 | The requested storage tier is disabled |
+| TIER-8 | Location parameter was not found in storage tier link |
+| TIER-9 | The location link of the storage tier does not match the location of the virtual datacenter supplied |
+| TIER-10 | The supplied storage allocation policy is not of a valid type |
+|| h6. Two factor authentication ||  ||
+| 2FA-0 | Unexpected error generating the two factor verification code |
+| 2FA-1 | Two\-factor authentication is already enabled for the current user |
+| 2FA-2 | The given two\-factor authentication provider is not supported |
+| 2FA-3 | The platform is not configured to use two factor authentication |
+| 2FA-4 | Cannot enable two\-factor authentication for another user |
+| 2FA-5 | Cannot enable two\-factor authentication. Email is required. |
+| 2FA-6 | Cannot disable two\-factor authentication for another  user |
+|| h6. User ||  ||
+| USER 9 | The user cannot delete his own user account |
+| USER 10 | Cannot change the user nick (username) |
+| USER 11 | The user password is required |
+| USER 12 | The user name is required |
+| USER 13 | The user nick (username) is required |
+| USER 14 | Your enterprise does not allow you to manage this virtual datacenter |
+| USER-0 | The user is not assigned to the enterprise |
+| USER-1 | Missing link to the role |
+| USER-2 | Missing roles parameter |
+| USER-3 | The requested user does not exist |
+| USER-4 | Duplicate username for user |
+| USER-5 | The email is not valid |
+| USER-6 | Users can only be created in Abiquo auth mode |
+| USER-7 | User's role can only be modified in Abiquo auth mode |
+| USER-8 | In LDAP mode cannot modify user's enterprise |
+| USER-15 | The supplied session does not exist |
+| USER-16 | The role of the user is locked. Only users with the same role can delete users with locked roles |
+| USER-17 | Cannot move user with local role to another enterprise |
+| USER-18 | Cannot assign role to user because the user's enterprise is not visible in the user's scope |
+| USER-19 | Your scope is not allowed to use this scope. |
+| USER-20 | User must have a role from their enterprise or a global role |
+| USER-21 | The field surname is required |
+| USER-22 | The role of the user is locked. Only users with the same role can modify users with locked roles |
+| USER-23 | The requested application does not exist |
+| USER-24 | The virtual datacenter does not belong to the user's enterprise |
+| USER-25 | Cannot modify the user's role because this is the last user with the cloud admin role |
+| USER-26 | The user email is required |
+| USER-27 | The user link is invalid |
+| USER-28 | The requested metadata for this enterprise does not exist |
+| USER-29 | The requested metadata for this user does not exist |
+| USER-30 | Metadata cannot be null |
+|| h6. User password ||  ||
+| PSW-1 | Passwords must contain characters from three of the following five categories:  \-Uppercase characters of European languages (A through Z, with diacritic marks, Greek and Cyrillic characters)  \-Lowercase characters of European languages (a through z, sharp\-s, with diacritic marks, Greek and Cyrillic characters)  \-Base 10 digits (0 through 9) \-Non\-alphanumeric characters: ~!@#$%^&*_\-+=\|`\()&#123;&#125;&#91;&#93;:;"'<>,.?/  \-Any Unicode character that is categorized as an alphabetic character but is not uppercase or lowercase. This includes Unicode characters from Asian languages |
+| PSW-2 | Password must be at least %s characters in length |
+| PSW-3 | Cannot repeat any of the last %s passwords |
+| PSW-5 | Password recovery is not allowed |
+| PSW-6 | Your words did not match. Please try submitting again. |
+| PSW-7 | Please enter reCAPTCHA. |
+| PSW-8 | Missing reCAPTCHA private key in abiquo.properties |
+| PSW-9 | User must change password on first login. |
+| PSW-10 | Password must not contain the user's entire Username or entire First Name or entire Last Name. These checks are not case sensitive. |
+| PSW-11 | Fail reCAPTCHA validation. Please try submitting again. |
+| PSW-12 | Missing reCAPTCHA public key in the client\-config\-custom.json |
+| PSW-48 | Password cannot be changed until %s days have passed since the last change |
+|| h6. VLAN ||  ||
+| VLAN-0 | You have reached the maximum VLANs that you can create in this virtual datacenter |
+| VLAN-1 | Cannot create two VLANs with the same name in a virtual datacenter |
+| VLAN-2 | Cannot use any address outside the private range |
+| VLAN-3 | For performance reasons, the platform does not allow you to create large networks |
+| VLAN-4 | This network can have a netmask of between 30 and 22. Use a value above 22 |
+| VLAN-5 | This network can have a netmask of between 30 and 22. Use a value below 30 |
+| VLAN-6 | The network does not match the mask. Check your request |
+| VLAN-7 | Gateway address out of range |
+| VLAN-8 | The requested virtual network does not exist |
+| VLAN-9 | There must be at least one default VLAN in each virtual datacenter |
+| VLAN-10 | Attributes 'address', 'mask' and 'tag' cannot be changed when editing a private VLAN. |
+| VLAN-11 | The VLAN cannot be deleted because it is the default VLAN of this enterprise |
+| VLAN-12 | Cannot delete a VLAN with IPs used by virtual machines |
+| VLAN-13 | Field 'tag' is mandatory when you create public VLANs |
+| VLAN-14 | Cannot delete a VLAN with IPs purchased by enterprises |
+| VLAN-15 | Cannot create two VLANs with the same name in a datacenter |
+| VLAN-16 | VLAN tag out of limits or already used with same configuration |
+| VLAN-17 | The requested IP object does not exist |
+| VLAN-18 | Only 'quarantine' and 'available' attributes can be modified when editing an IP |
+| VLAN-19 | Attributes 'address' and 'mask' cannot be changed when editing a public, external or unmanaged network |
+| VLAN-20 | The IP does not exist or is not available |
+| VLAN-21 | The IP does not exist or is not purchased |
+| VLAN-22 | This IP address is currently being used. It cannot be released |
+| VLAN-23 | Invalid link to private IP address to create NIC |
+| VLAN-24 | Invalid virtual datacenter identifier in the IP link |
+| VLAN-25 | The IP address is already used by another virtual machine |
+| VLAN-26 | Invalid link to public IP address to create NIC |
+| VLAN-27 | Cannot release this IP from the virtual machine because the configured default gateway is in the same subnet. Please choose a different gateway before removing this IP |
+| VLAN-28 | The NIC does not exist |
+| VLAN-29 | Every virtual machine should have at least one NIC |
+| VLAN-30 | Invalid link to reorder NICs on a virtual machine |
+| VLAN-31 | Invalid link values (virtual datacenter, virtual appliance and/or virtual machine identifiers) for reordering NICs on a virtual machine |
+| VLAN-32 | Cannot set the IP as 'not available' while it is purchased by an enterprise |
+| VLAN-33 | Cannot release a public IP while it is assigned to a virtual machine |
+| VLAN-34 | The configuration does not exist |
+| VLAN-35 | Cannot assign the external VLAN as default because it is not assigned to any enterprise |
+| VLAN-36 | Unable to find default VLAN in virtual datacenter. Inconsistent state in database |
+| VLAN-37 | Invalid enterprise identifier in the enterprise link |
+| VLAN-38 | The IP address is already assigned to a virtual datacenter |
+| VLAN-39 | Cannot delete a VLAN with IPs assigned to a virtual datacenter |
+| VLAN-40 | The requested external VLAN does not belong to the same datacenter as the virtual datacenter |
+| VLAN-41 | IP format is invalid |
+| VLAN-42 | The IP does not exist |
+| VLAN-43 | This is the default VLAN for the virtual datacenter and it cannot be deleted |
+| VLAN-44 | The external VLAN belongs to another enterprise |
+| VLAN-45 | The IP address is not available to be used by a virtual machine |
+| VLAN-46 | The requested IP object does not exist |
+| VLAN-47 | Cannot change enterprise because this network is used as the default by a virtual datacenter |
+| VLAN-48 | The virtual network is not unmanaged |
+| VLAN-49 | Cannot delete unmanaged networks associated with virtual machines |
+| VLAN-50 | Enterprise link with rel 'enterprise' is mandatory |
+| VLAN-51 | The IP %s is in quarantine |
+| VLAN-52 | Invalid input. Repeated NIC attachment value is not allowed |
+| VLAN-53 | Cannot edit the name and gateway of the VLAN because it has IPs assigned to virtual machines |
+| VLAN-54 | Unmanaged IP cannot be put in quarantine |
+| VLAN-55 | The network service type does not belong to the same datacenter as the VLAN |
+| VLAN-56 | The virtual network is not an external network |
+| VLAN-57 | Invalid input. Repeated IP href value is not allowed |
+| VLAN-58 | The requested VLAN does not exist |
+| VLAN-59 | The IP supplied does not belong to an unmanaged network |
+| VLAN-60 | When editing an UnmanagedIp, you may only change the attribute 'ip' |
+| VLAN-67 | Private VLAN tags are automatically allocated and cannot be changed |
+| VLAN-68 | The IP %s is not available |
+| VLAN-69 | Cannot create an IP in networks other than IPv6 networks |
+| VLAN-70 | The IP does not belong to the network |
+| VLAN-71 | All IPs in the network are already created |
+| VLAN-72 | The requested IP is already created in the network |
+| VLAN-73 | The supplied IP format does not match the IP version |
+| VLAN-74 | Cannot change the IP version of a VLAN |
+| VLAN-75 | IPv6 networks can have a netmask of 64, 56 or 48 |
+| VLAN-76 | Cannot get a new MAC address for the IP |
+| VLAN-77 | Cannot create unmanaged IPs. Abiquo does not create IPs for unmanaged networks |
+| VLAN-78 | Cannot create IPs manually in strict networks |
+| VLAN-79 | Attributes 'gateway' and 'strict' cannot be changed when editing an IPv6 VLAN |
+| VLAN-80 | IPv4 VLANs cannot be strict |
+| VLAN-81 | Address attribute is required |
+| VLAN-82 | Mask attribute is required and must be equal or greater than 0 |
+| VLAN-83 | Cannot set the IP as 'not available' while it is attached to a virtual machine |
+| VLAN-84 | At least one IP should be requested in order to create IPs |
+| VLAN-85 | The requested number of IPs to create is out of range |
+| VLAN-86 | Cannot create IPs because too many IPs were requested |
+| VLAN-87 | Invalid IPv6 format |
+| VLAN-88 | The IP is not within the allowed range of the VLAN |
+| VLAN-89 | The literal of the first IP is required |
+| VLAN-90 | The assigned VLAN tag is already in use by another existing network |
+| VLAN-91 | VLAN network edition is not supported |
+| VLAN-92 | The VLAN requested has no Global Network |
+| VLAN-93 | The device does not support this networking operation |
+| VLAN-94 | Invalid link to the VLAN network |
+| VLAN-95 | Invalid link to external IP address to create NIC |
+| VLAN-96 | Invalid link to IP address |
+| VLAN-97 | Could not free VLAN network tag from virtual machine delete |
+| VLAN-98 | Cannot assign this range to the VLAN because part or all of the range has been excluded by the administrator |
+| VLAN-99 | The format of the range is invalid |
+| VLAN-100 | Invalid domain name provided as VLAN DNS suffix |
+| VLAN-101 | This IP address is currently used by a virtual machine. It cannot be deleted |
+| VLAN-102 | Cannot delete an IP while it is assigned to an enterprise |
+| VLAN-103 | DHCP IP is outside of the network range |
+| VLAN-104 | Private IPs only can be reserved |
+| VLAN-105 | Cannot reserve an IP without providing a reason |
+| VLAN-106 | Cannot reserve an IP for a virtual machine in a different VDC |
+| VLAN-107 | The IP %s is reserved |
+| VLAN-108 | A VLAN in the virtualmachine does not have the required dhcpIp because the network was created before assigning the dnsmasq remote service. Please use the 'dnsmasq\-restore' tool to migrate the existing leases of the VLAN and the tool will also add the dhcpIp of the VLAN. |
+| VLAN-109 | MAC address already exists |
+| VLAN-110 | MAC address has incorrect format |
+| VLAN_61 | The requested IPs are not from an external network |
+| VLAN_62 | The requested IPs are not from an unmanaged network |
+| VLAN_63 | The requested IPs are not from a public network |
+| VLAN_64 | The requested IP is not from an external network |
+| VLAN_65 | The requested IP is not from an unmanaged network |
+| VLAN_66 | The requested IP is not from a public network |
+|| h6. VM HR ||  ||
+| VM-HR-1 | It is not possible to modify the cores per socket of the virtual machine in its current state. Power it off first |
+|| h6. VM clone ||  ||
+| VM_CLONE-1 | Clone of virtual machine from persistent templates is not allowed |
+| VM_CLONE-2 | Clone of imported virtual machines is not allowed |
+| VM_CLONE-3 | Clone of null virtual machine is not allowed |
+| VM_CLONE-4 | Null options are provided to clone the virtual machine |
+| VM_CLONE-5 | Null user was provided to clone the virtual machine |
+| VM_CLONE-6 | No public IPs available to clone virtual machine |
+| VM_CLONE-7 | No private IPs available to clone virtual machine |
+| VM_CLONE-8 | No external IPs available to clone virtual machine |
+| VM_CLONE-9 | No unmanaged IPs available to clone virtual machine |
+| VM_CLONE-10 | No floating IPs available to clone virtual machine |
+| VM_CLONE-11 | Unable to clone virtual machine |
+| VM_CLONE-12 | Clone of captured virtual machines is not allowed |
+| VM_CLONE-13 | Invalid label for virtual machine clone |
+| VM_CLONE-14 | No global subnet IPs available to clone virtual machine |
+|| h6. VM relocate ||  ||
+| VM-RELOCATE-1 | To relocate virtual machine the target machine link is required |
+| VM-RELOCATE-2 | The selected target hypervisor doesn't satisfy one or more constraints |
+| VM-RELOCATE-3 | The virtual machine relocate operation is not supported by the plugin |
+| VM-RELOCATE-4 | The virtual machine must be deployed in order for it to be relocated |
+| VM-RELOCATE-5 | Relocate of virtual machine is not allowed in public cloud regions |
+| VM-RELOCATE-6 | The relocate operation must be done between machines in the same datacenter |
+| VM-RELOCATE-7 | The relocate operation must be done between machines in the same rack |
+| VM-RELOCATE-8 | Relocate operation to the same machine is not allowed |
+| VM-RELOCATE-9 | Relocate between different hypervisor types is not allowed |
+| VM-RELOCATE-10 | The virtual machine must have datastore tier for all disks |
+|| h6. VM snapshot ||  ||
+| SNAP-1 | Snapshot not found |
+| SNAP-2 | Snapshot including memory requires a powered ON Virtual Machine |
+| SNAP-3 | Suspend virtual machine when reverting requires a powered ON Virtual Machine |
+| SNAP-4 | Invalid virtual machine state to take a snapshot |
+| SNAP-5 | Snapshot expiration hours exceeds the limit |
+|| h6. Version ||  ||
+| VERSION-1 | Invalid version format |
+| VERSION-2 | No logo exists for the requested version |
+| VERSION-3 | No animated logo exists for the requested version |
+|| h6. Virtual appliance ||  ||
+| AAFFINITY-0 | The anti\-affinity layer requires more machines than currently available in the datacenter |
+| AAFFINITY-1 | The anti\-affinity layer requires more machines than currently available in the rack |
+| LAYER-0 | The layer already exists. To add virtual machines to an existing layer, use virtual machine reconfigure |
+| LAYER-1 | Cannot create a new layer by reconfiguring the virtual machine. Use the define layer feature |
+| LAYER-2 | Layer creation requires exactly two virtualmachine links |
+| LAYER-3 | Cannot create layer because one or more of the virtual machines is already associated with a layer |
+| LAYER-4 | Cannot delete layer because it is associated with more than one virtual machine |
+| LAYER-5 | Malformed layer link |
+| LAYER-6 | Cannot move a deployed virtual machine from one layer to another |
+| LAYER-7 | Cannot remove association between a layer and one virtual machine. Use the delete layer feature |
+| LAYER-8 | Cannot associate the virtual machine with this layer because the virtual machine is already allocated to a hypervisor that is incompatible with the layer |
+| VAPP-0 | The requested virtual appliance does not exist |
+| VAPP-1 | The virtual appliance is not deployed |
+| VAPP-2 | The virtual appliance is not running |
+| VAPP-3 | The virtual appliance is deployed |
+| VAPP-5 | The virtual appliance cannot be deleted in this state. It should be NOT_DEPLOYED, UNKNOWN or EMPTY |
+| VAPP-6 | The virtual appliance cannot be moved because it has no link to its virtual datacenter |
+| VAPP-7 | The virtual appliance cannot be moved or copied because the target virtual datacenter is not in the same datacenter |
+| VAPP-8 | The virtual appliance cannot be moved in this state. It should be NOT_DEPLOYED |
+| VAPP-9 | The virtual appliance cannot be moved or copied because it contains captured virtual machines |
+| VAPP-10 | The virtual appliance cannot be moved or copied because it contains virtual machine templates that are not compatible with the target hypervisor |
+| VAPP-11 | The virtual appliance cannot be copied because it contains persistent virtual machine templates |
+| VAPP-12 | The virtual appliance does not contain any virtual machines |
+| VAPP-13 | The virtual appliance cannot be copied in this state. It should be NOT_DEPLOYED |
+| VAPP-14 | The virtual appliance move DTO does not contain the ''original'' link |
+| VAPP-15 | The virtual appliance move DTO does not contain the ''source'' link |
+| VAPP-16 | There are no virtual machines in the specified layer |
+| VAPP-17 | The length of the layer property must be between 0 and 255 characters |
+| VAPP-18 | The virtual appliance cannot be moved or copied because the target virtual datacenter is not in the same enterprise |
+| VAPP-19 | The virtual appliance cannot be created because of validation errors |
+| VAPP-20 | Error undeploying virtual appliance |
+| VAPP-21 | Invalid virtual appliance link |
+| VAPP-22 | No target virtual appliance is specified and current is already restricted |
+|| h6. Virtual appliance specs ||  ||
+| SPEC-0 | The requested virtual appliance spec does not exist |
+| SPEC-1 | Not enough privileges to assign different user scope to virtual appliance spec |
+| SPEC-2 | Cannot create a new spec version. Spec not found for this virtual appliance |
+| SPEC-3 | Cannot create a spec version because the spec's scopes is greater than the current user's scope |
+| SPEC-4 | Expected default spec value (true/false) |
+| SPEC-5 | The requested virtual appliance does not have any virtual machines. It is not possible to create a spec |
+| SPEC-6 | Cannot create the spec, the tier ID is not properly set |
+| SPEC-7 | Cannot create the spec, the datastore tier ID is not properly set |
+| SPEC-8 | Cannot create the spec, the virtual machine template ID is not properly set |
+| SPEC-9 | Cannot create a version of a spec that belongs to another enterprise |
+| SPEC-10 | Cannot delete the requested spec because it belongs to another enterprise |
+| SPEC-11 | Cannot modify the requested spec because it belongs to another enterprise |
+| SPEC-12 | Cannot create the spec, the virtual appliance has persistent virtual machines |
+| SPEC-13 | Disk must have a default datastore tier |
+| SPEC-14 | Cannot materialize spec due validation errors |
+| SPEC-15 | There are not enough public networks to materialize the spec |
+| SPEC-16 | There are no available datastore tiers to assign to the defined disks |
+| SPEC-17 | Access to spec is not allowed. Enterprise is not included in spec's scope |
+| SPEC-18 | Missing vdcId query parameter |
+| SPEC-19 | Access to spec is not allowed for this location |
+| SPEC-20 | Not enough public networks to create the virtual appliance spec |
+| SPEC-21 | Firewall device must be created in your VDC to support firewalls needed for this Spec |
+| SPEC-22 | Load balancer device must be created in your VDC to support load balancers needed for this Spec |
+| SPEC-23 | Spec with extra hard disks is not supported in this VDC |
+| SPEC-24 | Spec with volumes cannot be deployed in a public cloud region |
+| SPEC-25 | Not enough public IPs to create the virtual appliance spec |
+| SPEC-26 | There are not enough available IPs materialized for the spec to assign to this virtual machine |
+| SPEC-27 | Cannot edit spec because the spec's scopes are greater than the current user's scope |
+| SPEC-28 | Backup configurations from the spec will not be materialized in a public cloud region |
+| SPEC-29 | Could not find a template to match the VApp spec template |
+| SPEC-30 | Could not find a datastore tier that is compatible with the VApp spec datastore tier |
+| SPEC-31 | Could not find a storage tier that is compatible with the VApp spec storage tier |
+| SPEC-32 | The number of private networks to materialize is different from the number in the spec definition. |
+| SPEC-33 | Could not find a backup policy compatible with the VApp spec backup policy |
+| SPEC-34 | Cannot create the spec, the backup policy ID is not properly set |
+| SPEC-35 | Cannot materialize the backup policies because the configurations do not match |
+| SPEC-36 | Cannot materialize the backup policies because the sources do not match |
+| SPEC-37 | Could not find a hardware profile compatible with the VApp spec requirements |
+| SPEC-38 | This spec is configured to use multiple policies in the same virtual machine but this is not allowed |
+| SPEC-39 | This spec contains load balancers that require not supported NAT IPs |
+| SPEC-40 | This spec contains virtual machines that require not supported NAT IPs |
+| SPEC-41 | There are not enough available NAT IPs for the required ports |
+| SPEC-42 | Error while creating the spec from the virtual appliance: the NAT IP is using a private network that should already exist in the current spec building process. Contact your administrator |
+| SPEC-43 | The external networks spec requires an existing external network |
+| SPEC-44 | There are some spec ids and entity ids related missing in the request |
+| SPEC-45 | Firewalls routing to other firewalls are not supported in this provider. These rules will be ignored when materializing the spec |
+| SPEC-46 | The datastore tiers set are not compatible with datastore tiers recommended of the virtual machine template |
+| SPEC-47 | Cannot create the spec, the hardware profile ID is not properly set |
+| SPEC-48 | Multiple hardware profiles with the same RAM and CPU have been found |
+| SPEC-49 | The CPU and RAM does not exactly match the virtual machine configuration |
+| SPEC-50 | There are floating IPs without a type specified. Public IPs to purchase will not be calculated until spec materialization |
+| SPEC-51 | Specs with target groups cannot be deployed in a public cloud region that does not support target groups |
+|| h6. Virtual conversion ||  ||
+| VASC-0 | The requested persistent conversion does not exist |
+| VASC-1 | Invalid expected state |
+|| h6. Virtual datacenter ||  ||
+| VDC-0 | The requested virtual datacenter does not exist |
+| VDC-1 | Invalid hypervisor type for this virtual datacenter |
+| VDC-2 | This virtual datacenter contains virtual appliances and cannot be deleted without removing them first |
+| VDC-3 | This virtual datacenter has volumes attached and cannot be deleted without removing them first |
+| VDC-4 | This virtual datacenter has networks without IP addresses |
+| VDC-5 | Cannot edit resource limits; current virtual datacenter allocation exceeds the new specified limits (see SYSTEM traces in order to determine which resources are at HARD limit) |
+| VDC-6 | Virtual datacenter must be created with a private network |
+| VDC-7 | Virtual datacenter must have at least one private VLAN |
+| VDC-8 | Cannot edit resource limits; current virtual datacenter allocation exceeds the new specified limits |
+| VDC-9 | The provided virtual datacenter link is invalid |
+| VDC-10 | The target virtual datacenter must be the same for this action |
+| VDC-11 | This virtual datacenter has load balancers and cannot be deleted without removing them first |
+| VDC-12 | Cannot perform logical delete. You should do it over virtual datacenter of public cloud region |
+| VDC-13 | Cannot create a VDC in this region because the user will not be allowed to manage the VDC |
+| VDC-14 | Virtual datacenter does not have a providerId (it has been deleted in the provider) so cannot perform the current action |
+| VDC-15 | Virtual datacenter name cannot be changed |
+| VDC-16 | This virtual datacenter has target groups and cannot be deleted without removing them first |
+|| h6. Virtual machine ||  ||
+| VM-0 | The virtual machine does not have a hypervisor assigned |
+| VM-1 | The requested virtual machine does not exist |
+| VM-2 | The virtual machine is already locked by another operation |
+| VM-02 | Error reconfiguring virtual machine |
+| VM-3 | The virtual machine is not deployed |
+| VM-4 | The virtual machine cannot change to the required state |
+| VM-5 | The virtual machine cannot change state due to a communication problem |
+| VM-6 | The virtual machine does not support the action PAUSE |
+| VM-7 | The allowed state for deploying virtual machines is NOT_ALLOCATED |
+| VM-8 | Virtual machine(s) in the LOCKED state cannot be deleted |
+| VM-9 | The requested virtual machine template does not exist |
+| VM-10 | The virtual machine is in a state that does not allow the request, therefore it cannot be modified |
+| VM-11 | The virtual machine is not in any hypervisor. Therefore the change of state cannot be applied |
+| VM-12 | The allowed power states for virtual machine deployment are ON, OFF, PAUSED, UNKNOWN or ALLOCATED |
+| VM-13 | Virtual machine configuration actions can only be performed when the virtual machine is NOT_ALLOCATED or OFF |
+| VM-14 | Only the 'used' attribute of the virtual machine network configuration can be changed |
+| VM-15 | There should be at least one 'used' network configuration in each virtual machine |
+| VM-16 | The virtual machine template supplied is not available in the virtual appliance's datacenter |
+| VM-18 | The virtual machine template is not compatible and there is no compatible conversion |
+| VM-19 | The virtual machine template has a compatible conversion but it is not ready (in progress or failed) |
+| VM-20 | To perform this action, the virtual machine must be in NON_MANAGED state |
+| VM-21 | The virtual machine node does not exist |
+| VM-23 | Cannot restore the original virtual machine after a failed reconfigure; the original virtual machine info was not found |
+| VM-24 | The resource is already used by another virtual machine |
+| VM-26 | The allowed power state for resetting a virtual machine is ON |
+| VM-27 | The allowed power state for creating an instance of a virtual machine is OFF |
+| VM-32 | Cannot reconfigure the virtual machine template when the virtual machine is present in the hypervisor |
+| VM-33 | We do not currently allow imported virtual machines to be reconfigured |
+| VM-34 | Only 'cpu' and 'ram' can be reconfigured in imported virtual machines |
+| VM-44 | You are trying to undeploy an imported virtual machine. If you undeploy it, the virtual machine template cannot be recovered. To proceed with the undeploy, please call this functionality again with the 'forceUndeploy=true' option |
+| VM-45 | Some of the resources indicated are already used |
+| VM-46 | At least one IP address must be supplied when changing virtual machine NICs in deployed machine |
+| VM-47 | At least one hard disk must be supplied using a link when changing virtual machine hard disks |
+| VM-48 | Disk already attached to this virtual machine |
+| VM-49 | You have exceeded the number of NICs that can be added to a virtual machine |
+| VM-50 | You are not permitted to add two NICs with IPs in the same VLAN |
+| VM-51 | Cannot create a virtual machine because the persistent virtual machine template is not ready |
+| VM-53 | ESXi only supports memory sizes that are a multiple of 4 |
+| VM-54 | Virtual machine contains extra HardDisk and/or Volumes with the same sequence, try detaching some external storage. |
+| VM-55 | Cannot attach more than 4 disks to an IDE controller |
+| VM-56 | Invalid virtual machine description: missing primary disk, hardware profile or identifier. |
+| VM-57 | The hypervisor where the virtual machine is deployed is not running properly. Contact your System Administrator |
+| VM-58 | There are no IP addresses available in the default network for use by a virtual machine. |
+| VM-59 | Virtual machine cannot be reconfigured due to unexpected errors. Contact your System Administrator |
+| VM-60 | Cannot change the layer of a virtual machine that has been assigned to a hypervisor |
+| VM-61 | The disk link(s) supplied are missing the type attribute or it is invalid |
+| VM-62 | Invalid input. Repeated disk attachment value is not allowed. |
+| VM-63 | Invalid input. Repeated disk href value is not allowed. |
+| VM-64 | Cannot create an instance of a virtual machine that is not managed by the platform. Please capture the virtual machine then try again |
+| VM-65 | The name of the node is required |
+| VM-66 | Cannot deploy the virtual machine because target physical NIC cannot be found. The physical NIC where the virtual NIC with IP was attached may have been removed directly in the hypervisor |
+| VM-67 | Virtual machine link not found |
+| VM-68 | Malformed virtual machine link |
+| VM-69 | Current target hypervisor does not have the required physical NICs to allocate the requested IPs |
+| VM-70 | The primary disk of the virtual machine cannot be modified |
+| VM-71 | At least one primary (sequence 0) disk must be defined. |
+| VM-72 | Primary disk of virtual machine should be unique. |
+| VM-73 | VRDP passwords should be up to 8 characters |
+| VM-74 | Invalid character in password. VRDP password characters should be in range &#91;a..z&#93;&#91;A..Z&#93;&#91;0..9&#93; |
+| VM-75 | The Virtual Machine has two NICs using IPs in the same VLAN |
+| VM-76 | Cannot update the resources in target physical machine and datastore |
+| VM-77 | To capture a virtual machine, the virtualmachine link from the infrastructure context is required |
+| VM-78 | Malformed virtual machine link from infrastructure to capture |
+| VM-79 | The virtual datacenter is not compatible with the hypervisor from which you are capturing the virtual machine |
+| VM-80 | Disk sequences cannot be repeated |
+| VM-82 | The disk sequence does not match the data retrieved from the hypervisor |
+| VM-83 | The disk size does not match the data retrieved from the hypervisor |
+| VM-84 | The size and the sequence are required properties of the disk |
+| VM-85 | Some disks on the remote virtual machine cannot be captured |
+| VM-86 | Every NIC defined requires a VLAN link |
+| VM-87 | Malformed VLAN link |
+| VM-88 | The VLAN link contains an invalid virtual datacenter |
+| VM-89 | The VLAN link contains an invalid enterprise |
+| VM-90 | The VLAN link contains an invalid datacenter |
+| VM-91 | IP sequence cannot be repeated |
+| VM-92 | The selected IP is already attached to another virtual machine |
+| VM-93 | Malformed IP address |
+| VM-94 | The IP from the remote virtual machine does not match the NIC defined by the user in the same sequence |
+| VM-95 | The IP from the remote virtual machine does not match the NIC defined by the user with the same MAC address |
+| VM-96 | The MAC address, the IP address and the sequence are required properties of the NIC |
+| VM-97 | There are some NICs on the remote machine that cannot be captured |
+| VM-98 | The public IP was not purchased for this virtual datacenter |
+| VM-99 | The requested IP is in quarantine |
+| VM-100 | The requested IP is not available |
+| VM-101 | The network service type of the VLAN does not match the network service type of the selected network interface in the hypervisor |
+| VM-102 | The selected remote IP is using a tag that is incompatible with the selected VLAN network |
+| VM-103 | The selected remote IP is using a tag that is already used by a different VLAN than the selected one |
+| VM-104 | Cannot assign the VLAN tag to the selected VLAN because it is out of the rack range |
+| VM-105 | The selected rack will not allow new VLAN tags |
+| VM-106 | A virtual machine must be captured in order to be released |
+| VM-107 | A virtual machine must be deployed in order to be released |
+| VM-108 | Virtual machine cannot be reconfigured because of invalid new values |
+| VM-109 | You are trying to undeploy a virtual machine that uses a template that is not stored in the Apps Library. If you undeploy it, the virtual machine template cannot be recovered. To proceed with the undeploy, please call this functionality again with the 'forceUndeploy=true' option |
+| VM-110 | Virtual machine is using a template without a system disk file. It cannot be deployed. |
+| VM-111 | Virtual machine cannot be created from a virtual machine template without a disk file |
+| VM-112 | Cannot perform this action because the cores per socket setting is not available for this hypervisor |
+| VM-113 | Virtual machine cannot be created from a virtual machine template that is not in the DONE state; check the state and pending tasks |
+| VM-115 | Cannot select an IPv6 strict network to capture a virtual machine |
+| VM-116 | The provider of the given virtual machine does not have support for virtual machine metrics. The monitoring flag cannot be modified. |
+| VM-117 | No candidate machine is capable of handling the requirements of the Network Service Type: could not deploy the Virtual Machine and attach its NICs properly |
+| VM-118 | The virtual machine is already protected |
+| VM-119 | The virtual machine is not protected |
+| VM-120 | The virtual machine is protected and cannot be used |
+| VM-121 | The virtual machine requires at least one IP while it is running |
+| VM-122 | A disk in sequence position 0 is required to capture the remote virtual machine |
+| VM-123 | Cannot capture a virtual machine with persistent disks |
+| VM-124 | Some disk or volume sequences in the instance request are not found in the virtual machine |
+| VM-125 | The MAC address of the remote IP is required, check the remote VM configuration |
+| VM-126 | The identifier of the remote hard disk is required, check the remote VM configuration |
+| VM-127 | The identifier of the remote volume is required, check the remote VM configuration |
+| VM-128 | Invalid ISO disk format in the instance. |
+| VM-130 | Invalid virtual machine description: At least one primary (sequence 0) disk must be defined. |
+| VM-131 | Datastore is required in disk for virtual machine description |
+| VM-132 | There are disks in a datastore with no tier or in a tier that is not allowed for the destination enterprise |
+| VM-133 | Hypervisor does not support changing the virtual machine CPU in the current state |
+| VM-134 | Hypervisor does not support changing the virtual machine RAM in the current state |
+| VM-135 | Hypervisor does not support changing the virtual machine disks in the current state |
+| VM-136 | Hypervisor does not support changing the virtual machine network interfaces in the current state |
+| VM-137 | Hypervisor does not support changing the virtual machine remote access in the current state |
+| VM-138 | Virtual machine template is not configured to support changing the CPU in the current state |
+| VM-139 | Virtual machine template is not configured to support changing the RAM in the current state |
+| VM-140 | Virtual machine template is not configured to support changing the disks in the current state |
+| VM-141 | Virtual machine template is not configured to support changing the network interfaces in the current state |
+| VM-142 | Virtual machine template is not configured to support changing the remote access in the current state |
+| VM-143 | It is not possible to decrease the CPU of the virtual machine in its current state. Power it off first |
+| VM-144 | It is not possible to decrease the RAM of the virtual machine in its current state. Power it off first |
+| VM-145 | Cannot capture a virtual machine without NICs |
+| VM-146 | CPU value outside the maximum and minimum values defined in the virtual machine template |
+| VM-147 | RAM value outside the maximum and minimum values defined in the virtual machine template |
+| VM-148 | You are trying to undeploy a virtual machine with one or more disks that are not stored in the Apps Library, only on the hypervisor datastore. If you undeploy, you won't be able to recover those disks. To proceed with the undeploy, please call this functionality again with the 'forceUndeploy=true' option. |
+| VM-149 | A deployed virtual machine was expected for this action |
+| VM-150 | The selected VLAN %s for IP from sequence %s should be the VLAN %s |
+| VM-151 | The IP of sequence %s belongs to a VLAN that does not exist in the platform |
+| VM-152 | Cannot capture a virtual machine from a hypervisor that doesn't use a network device into a virtual datacenter that uses a network device |
+| VM-153 | Cannot capture the virtual machine because the disk with UUID %s is already used by another virtual machine |
+| VM-154 | The virtual machine does not have a link to an active hardware profile so it cannot be deployed |
+| VM-155 | The VM has no owner or the owner does not have an email configured. Cannot generate and send the password for the guest operating system |
+| VM-156 | Cannot reconfigure the virtual machine until synchronization is completed. Please wait until lastSynchronize is updated. |
+| VM-157 | Cannot create virtual machine fetching metrics. Monitoring is not enabled. |
+| VM-158 | The virtual machine must use one of the hardware profiles that are recommended for this template |
+| VM-159 | Invalid FQDN provided |
+| VM-160 | Cannot modify the FQDN while the VM is deployed |
+| VM-161 | Generating an initial guest password requires guest customizations in the virtual machine template and support by the plugin |
+| VM-162 | Cannot modify the option to generate an initial guest password while the VM is deployed |
+| VM-163 | Could not get the remote access console for the virtual machine |
+| VM-164 | To get the remote console the virtual machine must be in state ON |
+| VM-165 | Windows hostname cannot exceed 15 characters in length |
+| VM-166 | You cannot move or restrict a VM that is part of a scaling group. Perform this action on the scaling group instead |
+| VM-167 | You are trying to delete a virtual machine associated with one or more action plans. If you delete the virtual machine, the related actions plans will be affected. To proceed with the delete, please call this functionality again with the 'force=true' option. |
+| VM-168 | CPU must be specified. |
+| VM-169 | RAM must be specified. |
+| VM-170 | Cannot select the disks to create an instance of a virtual machine in this provider. |
+| VM-171 | Cannot attach IPs in networks from different availability zones |
+| VM-172 | Cannot attach volumes from different availability zones |
+| VM-173 | Cannot attach volumes from different availability zones than the attached networks |
+| VM-174 | Cannot attach volumes from different availability zones than the default network in the virtual datacenter. Specify an IP in another network with the same availability zone as the desired volume. |
+| VM-175 | If you release the VM, the firewall and/or load balancer will still have an association with the VM but it will be invalid so errors may occur. |
+| VM-176 | The virtual machine must use one of the datastore tiers that are recommended for this template but one or more of the disks in the template is not configured to use a recommended tier |
+| VM-177 | Cannot associate the virtual machine with more than one availability set |
+| VM-178 | Cannot change the availability set of a virtual machine |
+| VM-179 | The availability set must be from the same virtual machine's virtual datacenter |
+| VM-180 | Resetting a guest password requires an initial guest password |
+| VM-181 | Resetting a guest password requires guest customizations in the virtual machine template |
+| VM-182 | Virtual machine cannot have empty variables |
+| VM-183 | Variables of a deployed virtual machine cannot be modified |
+| VM-184 | Virtual machine label cannot be modified |
+| VM-185 | Invalid virtual machine label, must match regex %s |
+| VM-186 | The virtual machine must use hardware profiles in order to increase or decrease its hardware profile |
+| VM-187 | No more hardware profiles of the same type are available |
+| VM-188 | Multiple hardware profiles with the same type, CPU, and RAM have been found |
+| VM-189 | Duplicated VM with the same ABQ identifier has been found |
+| VM-190 | Cannot attach different types of floating IP to the same virtual machine |
+| VM-191 | Cannot change the resource group of a virtual machine |
+| VM-192 | Cannot assign a virtual machine to a different availability zone than its volumes and network |
+| VM-193 | The virtual machine does not have a provider id so it cannot be deployed |
+| VM-194 | Invalid virtual machine name, must match regex %s |
+| VM-195 | Attaching a new IP using Windows guest customization through vCenter requires to specify the current admin password in the request 'virtualmachine#guestPassword' |
+| VM-196 | To Increase/decrease dynamic hardware profile is not supported |
+|| h6. Virtual machine template ||  ||
+| CONSTR-SNAPSHOT-LENGTH-NAME-MAX | The length of the NAME parameter must be less than 255 characters |
+| CONSTR-SNAPSHOT-LENGTH-NAME-MIN | The length of the NAME parameter must be greater than 1 characters |
+| VIMAGE-0 | The requested virtual machine template does not exist |
+| VIMAGE-1 | The virtual machine template supplied is not an instance |
+| VIMAGE-2 | Invalid virtual machine template identifier in the virtual machine template link |
+| VIMAGE-3 | Invalid datacenter repository identifier in the datacenter repository link |
+| VIMAGE-7 | The requested virtual machine template is a master template; master templates cannot be deleted |
+| VIMAGE-9 | Cannot delete the requested shared virtual machine template because it belongs to another enterprise |
+| VIMAGE-10 | The virtual machine template is being used by virtual machines and cannot be deleted |
+| VIMAGE-12 | Malformed icon URL |
+| VIMAGE-13 | The virtual machine template is not a persistent template |
+| VIMAGE-14 | Cannot modify a failed persistent virtual machine template |
+| VIMAGE-15 | Cannot modify a persistent virtual machine template that is in progress |
+| VIMAGE-16 | No template definition link found |
+| VIMAGE-17 | Invalid template definition link |
+| VIMAGE-18 | The requested template is already present for the current enterprise in the datacenter provided. |
+| VIMAGE-19 | A persistent virtual machine template that is in progress cannot be deleted |
+| VIMAGE-20 | The disk type of a persistent virtual machine template cannot be modified |
+| VIMAGE-21 | A persistent virtual machine template cannot be shared |
+| VIMAGE-22 | The path of a persistent virtual machine template cannot be modified |
+| VIMAGE-23 | The HD required of a persistent virtual machine template cannot be modified. Resize the primary disk instead |
+| VIMAGE-24 | The disk file size of a persistent virtual machine template cannot be modified |
+| VIMAGE-25 | Missing virtual machine template link |
+| VIMAGE-26 | Invalid virtual machine template link |
+| VIMAGE-27 | The request to create a virtual machine template must include a template definition link |
+| VIMAGE-28 | Cannot promote a virtual machine template instance with QUEUED conversions; please wait for them to finish then try again. |
+| VIMAGE-29 | The virtual machine template belongs to another enterprise and is not a shared template. |
+| VIMAGE-30 | Cannot delete virtual machine template because conversions are in progress. |
+| VIMAGE-31 | Cannot delete instance of virtual machine template because a conversion of this instance is still in progress. |
+| VIMAGE-33 | Cannot delete the disk file of a persistent virtual machine template |
+| VIMAGE-34 | Current virtual machine template is not being used by any deployed virtual machines and it has no instances. Use template delete |
+| VIMAGE-35 | Virtual machine template disk file is not found or currently unavailable in the repository filesystem. |
+| VIMAGE-36 | Cannot process a virtual machine template creation event from datacenter repository refresh check. |
+| VIMAGE-37 | Current virtual machine template already unavailable |
+| VIMAGE-38 | The path of a public cloud template cannot be modified |
+| VIMAGE-39 | A public cloud template already exists for this path identifier |
+| VIMAGE-41 | The disk format type of a public cloud template must be compatible with the provider |
+| VIMAGE-42 | Could not modify disk information; use the new Disk resource |
+| VIMAGE-43 | Could not modify a virtual machine template with multiple disks |
+| VIMAGE-44 | Current virtual machine template operation requires a single disk but more have been specified |
+| VIMAGE-45 | Could not modify a template with multiple disks |
+| VIMAGE-46 | Could not modify disk info. |
+| VIMAGE-47 | A HardDisk or Volume is assigned a sequence position already in use in the virtual machine template |
+| VIMAGE-48 | Cannot create a virtual machine with an empty disk as the primary disk |
+| VIMAGE-49 | Invalid input. Repeated disk attachment value is not allowed. |
+| VIMAGE-50 | Invalid input. Repeated disk href value is not allowed. |
+| VIMAGE-51 | Cannot add/remove disk. Use Disk resource. |
+| VIMAGE-52 | A non\-persistent template cannot be moved between virtual datacenters |
+| VIMAGE-53 | The template is already linked to the given virtual datacenter |
+| VIMAGE-54 | The template is being used by a virtual machine and cannot be moved |
+| VIMAGE-55 | The operation is not allowed because the template/disk does not physically exist in the repository |
+| VIMAGE-56 | The template has not been completely deleted. One or more disks could not be deleted, please check the tracers for details. The template still exists with these failed disks. |
+| VIMAGE-57 | The enterprise of the virtual machine template source and target must be the same. |
+| VIMAGE-58 | A public cloud template has only one disk |
+| VIMAGE-59 | Cannot export a virtual machine template with persistent disks |
+| VIMAGE-60 | Cannot duplicate, promote or export a virtual machine template with only empty disks |
+| VIMAGE-61 | Invalid minimum CPU. Check VM CPU settings or recommended hardware profile |
+| VIMAGE-62 | Invalid maximum CPU. Check VM CPU settings or recommended hardware profile |
+| VIMAGE-63 | Invalid minimum RAM. Check VM RAM settings or recommended hardware profile |
+| VIMAGE-64 | Invalid maximum RAM. Check VM RAM settings or recommended hardware profile |
+| VIMAGE-65 | Cannot edit CPU/RAM or set minimum and maximum values for a public template with a hardware profile |
+| VIMAGE-66 | Cannot access the templates of this enterprise from your current enterprise |
+| VIMAGE-67 | Not enough privileges to assign a different user scope to a virtual machine template |
+| VIMAGE-68 | Access to template is not allowed. Enterprise is not included in template's scope |
+| VIMAGE-69 | Cannot edit template because the template's scopes is greater than the current user's scope |
+| VIMAGE-70 | Cannot edit template because the template belongs to another enterprise |
+| VIMAGE-71 | Generating an initial guest password requires guest customizations |
+| VIMAGE-72 | A virtual machine template without disks is not allowed |
+| VIMAGE-73 | Cannot edit CPU/RAM of a virtual machine template with hardware profile |
+| VIMAGE-74 | The list template publishers functionality is not available in private cloud |
+| VIMAGE-75 | The virtual machine template disks must use the datastore tiers that are recommended for this template. |
+| VIMAGE-76 | Virtual machine template cannot have empty variables |
+| VIMAGE-77 | Virtual machine template terms not found |
+| VIMAGE-78 | Virtual machine template terms not accepted |
+| VIMAGE-AM-DOWN | Check appliance manager configuration error |
+| VIMAGE-INVALID-OVF-ALLOCATION-INITS | Virtual machine template cannot be added due to invalid allocation units |
+| VIMAGE-REPOSITORY-CHANGED | Datacenter repository location has changed |
+| VIMAGE-SYNCH-DATACENTER-REPOSITORY | Cannot obtain downloaded templates in the datacenter repository |
+|| h6. Virtual private network ||  ||
+| VPN-1 | Invalid value for the Authentication field. Valid values are: PSK,CERTIFICATE |
+| VPN-2 | Invalid value for the DH group field. Valid values are: DH2,DH5,DH14 |
+| VPN-3 | The requested VPN does not exist |
+| VPN-4 | Invalid local endpoint IP. Only NAT IPs are allowed |
+| VPN-5 | Missing virtual datacenter link |
+| VPN-6 | Only private networks are supported for VPN local networks |
+| VPN-7 | Local endpoint is autogenerated so cannot be supplied |
+| VPN-8 | Local endpoint is required |
+| VPN-9 | Encryption algorithm not supported |
+| VPN-10 | Diffie\-Hellman Group not supported |
+| VPN-11 | Authentication mode not supported |
+| VPN-12 | Perfect Forward Secrecy cannot be disabled |
+| VPN-13 | Perfect Forward Secrecy is not supported |
+| VPN-14 | Cannot choose a set of networks to expose via VPN |
+| VPN-15 | Must choose a set of networks to expose via VPN |
+| VPN-16 | VPN update is not supported |
+| VPN-17 | Cannot create VPN |
+| VPN-18 | Missing local endpoint link type |
+|| h6. Virtual system monitor ||  ||
+| VSM-0 | An error occurred when monitoring the physical machine |
+| VSM-1 | An error occurred when shutting down the monitored physical machine |
+| VSM-2 | An error occurred when subscribing the virtual machine |
+| VSM-3 | An error occurred when unsubscribing the virtual machine |
+| VSM-4 | An error occurred when refreshing the virtual machine state |
+| VSM-5 | An error occurred when resetting the last known state of the virtual machine |
+| VSM-6 | An error occurred when checking and refreshing the virtual machine state |
+| VSM-7 | VSM service unavailable; check the URL of the service. |
+| VSM-8 | Cannot disable virtual machine monitoring |
+| VSM-9 | Cannot enable virtual machine monitoring |
+| VSM-10 | An error occurred when forcing the virtual machine definition sync |
+| VSM-11 | An error occurred when publishing the virtual machine definition |
+| VSM-12 | An error occurred when forcing monitor sync |
+| VSM-13 | An error occurred when listing all subscriptions |
+| VSM-14 | An error occurred when deleting the subscription |
+|| h6. Volumes ||  ||
+| VOL-0 | Could not create the volume in the selected tier |
+| VOL-1 | There are not enough resources in the selected tier to create the volume |
+| VOL-2 | The name of the volume is required |
+| VOL-3 | The volume does not exist |
+| VOL-4 | An unexpected error occurred while creating the volume |
+| VOL-5 | The volume cannot be deleted because it is associated with a virtual machine |
+| VOL-6 | Could not physically delete the volume from the target storage device |
+| VOL-7 | The volume cannot be deleted because it is being used in a persistent template process |
+| VOL-8 | The persistent volume cannot be deleted because it is being used in a virtual appliance |
+| VOL-9 | The connection field of the volume is required |
+| VOL-10 | The size of the volume cannot be reduced |
+| VOL-11 | The 'name' attribute of the volume cannot exceed 256 characters in length |
+| VOL-13 | The size property must be a non\-zero integer up to 9223372036854775807 |
+| VOL-14 | The volume cannot be edited because it is being used in a virtual machine |
+| VOL-15 | An unexpected error occurred and the volume could not be updated |
+| VOL-17 | The volume does not support the resize operation |
+| VOL-18 | Could not get the storage manager remote service |
+| VOL-19 | Could not add the initiator mappings |
+| VOL-20 | The requested initiator mapping does not exist |
+| VOL-21 | The volume is not attached to the virtual machine |
+| VOL-22 | Invalid link to the volume to attach |
+| VOL-23 | Invalid virtual datacenter in the link to the volume to attach |
+| VOL-24 | The volume is already attached to a virtual machine |
+| VOL-25 | The maximum number of attached disks and volumes has been reached |
+| VOL-26 | An unexpected error occurred while attaching the volume. Please contact the Administrator |
+| VOL-27 | The volume is already detached |
+| VOL-28 | An unexpected error occurred while detaching the volume. Please contact the Administrator |
+| VOL-29 | An unexpected error occurred while reconfiguring storage |
+| VOL-39 | The volume can only be moved to another virtual datacenter in the same datacenter |
+| VOL-40 | There are not enough resources in the selected pool to create the volume |
+| VOL-41 | The volume can only be moved to another virtual datacenter in the same enterprise |
+| VOL-43 | The pool must be iSCSI when creating generic iSCSI volumes |
+| VOL-44 | There is already a volume with that internal name |
+| VOL-45 | The internal name of the volume is required |
+| VOL-46 | The volume cannot be resized or removed from the virtual machine if it has snapshots |
+| VOL-47 | Cannot move a persistent volume. You should try to move the template |
+| VOL-48 | Cannot change the disk controller or controller type of the volume because it is being used in a deployed virtual machine |
+| VOL-49 | Cannot retrieve remote volumes in a storage device in a private datacenter |
+| VOL-50 | Cannot change the availability zone of a volume |
+| VOL-51 | Need to select an availability zone to create a volume |
+| VOL-52 | Volume encryption is not supported |
+| VOL-53 | Cannot encrypt/decrypt an existing volume |
+| VOL-54 | Cannot perform logical delete. You should do it over volumes of public cloud region |
+| VOL-55 | Cannot update volume to use a tier shared by more than one storage pool |
+| VOL-56 | The volume cannot be resized with virtual machine reconfigure because the virtual machine is not deployed |
+|| h6. Workflow ||  ||
+| WKF-01 | Request to workflow endpoint failed |
+| WKF-02 | Cancellation of a workflow task failed |
+| WKF-03 | Continuation of a workflow task failed |
+|| h6. XaaS ||  ||
+| XAS-0 | Failed to request in xas remote service |

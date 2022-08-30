@@ -121,7 +121,7 @@ def main():
         if moveResponse["page"]["id"]:
             newPageId = moveResponse["page"]["id"]
         else:
-            print ("moveResponse: ", moveResponse)
+            print("moveResponse: ", moveResponse)
         wikiPrint = "| " + newPageId + " |" \
                     " " + newPageTitle + " |" \
                     " [" + targetSpacekey + ":" + movedPageTitle + "] |\n"
