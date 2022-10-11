@@ -19,6 +19,106 @@
 import requests
 import json
 
+# Confluence code :-p
+# This code sample uses the 'requests' library:
+# http://docs.python-requests.org
+
+from requests.auth import HTTPBasicAuth
+
+
+# POST <baseurl>/wiki/rest/api/content/<source_page_id>/copy
+# {
+#     "destination": {
+#         "type": "parent_page",
+#         "value": "<parent_id>"
+#     },
+#     "copyAttachments": true,
+#     "copyProperties": true
+# }
+# It should be successfully copied and create new page with <new_page_id>.
+
+# Copy the source page again, but now with "existing_page" destination type to <new_page_id> with "copyContentProperties" and "copyAttachments" flags:
+# POST <baseurl>/wiki/rest/api/content/<source_page_id>/copy
+# {
+#     "destination": {
+#         "type": "existing_page",
+#         "value": "<new_page_id>"
+#     },
+#     "copyAttachments": true,
+#     "copyProperties": true
+# }
+
+# Use this to create master pages and update master pages
+
+# Create master pages with same parent as draft pages
+# - parentPageId = draft page parent
+# - master page name = draft page name - release version
+# - destination_type = parent_page
+
+# Publish release by updating master pages from draft pages
+# - new_page_id = master page id
+# - destination_type = existing_page
+# - parentPageId = null
+
+def copyCloudPage(page_id, site_URL,
+                  cloud_username, pwd,
+                  destination_storage_value, 
+                  destination_page_id,
+                  destination_type,
+                  destination_page_title,
+                  release_version, 
+                  print_version):
+
+    #        parentPageId, versionPageTitle,
+    #        newPageContent, representation='storage',
+    #        version_comment=print_version
+
+    #url = "https://your-domain.atlassian.net/wiki/rest/api/content/{id}/copy"
+    url=site_URL + "/rest/api/content/" + page_id + "/copy"
+    # username=cloud_username
+    # password=pwd
+    
+    #auth = HTTPBasicAuth("email@example.com", "<api_token>")
+    auth = HTTPBasicAuth(cloud_username, pwd)
+
+    headers = {
+       "Accept": "application/json;charset=UTF-8",
+       "Content-Type": "application/json"
+    }
+
+    payload = json.dumps( {
+      "copyAttachments": true,
+      "copyPermissions": true,
+      "copyProperties": true,
+      "copyLabels": true,
+      "copyCustomContents": true,
+      "destination": {
+        "type": destination_type,
+        "value": destination_page_id,
+      },
+      "pageTitle": destination_page_title,
+      "body": {
+        "storage": {
+          "value": destination_storage_value,
+          "representation": "view"
+        },
+        "version":{
+         
+        }
+      }
+    })
+
+    response = requests.request(
+       "POST",
+       url,
+       data=payload,
+       headers=headers,
+       auth=auth
+    )
+
+    print(response.text)
+    return(response.text)
+
 
 def getVersionPgs(spacekey, release_version, confluence):
     print("get version pages: ")

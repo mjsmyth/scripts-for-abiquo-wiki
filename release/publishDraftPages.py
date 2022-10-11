@@ -85,6 +85,10 @@ def main():
         originalPageExists = art.checkPgExists(
             confluence, spacekey, originalPageName)
         pageUpdated = False
+
+        versionComment = print_version + " - release "
+
+
         if originalPageExists:
             originalPageFull = confluence.get_page_by_title(
                 spacekey, originalPageName)
@@ -92,32 +96,62 @@ def main():
         # Compare content and check is already updated or not
             pageUpdated = confluence.is_page_content_is_already_updated(
                 originalPageId, pageContent)
-            releasePageId = originalPageId[:]
 
-        versionComment = print_version + " - release "
-        if not pageUpdated:
-            if originalPageExists:
-                pgVersionsResp = art.getAllPgVers(
-                    site_URL, cloud_username, pwd, spacekey, versionPageId)
-                for pgVersion in pgVersionsResp["results"]:
-                    print("pgVersion: ", pgVersion)
-                    if print_version in pgVersion["message"]:
-                        print("pgv msg: ", pgVersion["message"])
-                        versionComment = pgVersion["message"][:]
-                        break
+            # Publish release by updating master pages from draft pages
+            # - new_page_id = master page id
+            # - destination_type = existing_page
+            # - parentPageId = nul
 
+            if not pageUpdated:
+                destination_storage_value = pageFull["body"]["storage"]["value"]
+                destination_type = "existing_page"
+                destination_page_id = originalPageId[:]
+                destination_page_title = originalPageName[:]
+                # update master page
+                status = art.copyCloudPage(page_id, site_URL,
+                                           cloud_username, pwd,
+                                           destination_storage_value, 
+                                           destination_page_id,
+                                           destination_type,
+                                           destination_page_title,
+                                           release_version, 
+                                           print_version)
+
+
+        else:
+            # create master page
+
+            # Create master pages with same parent as draft pages
+            # - parentPageId = draft page parent
+            # - master page name = draft page name - release version
+            # - destination_type = parent_page
+
+            destination_storage_value = pageFull["body"]["storage"]["value"]
+            destination_type = "parent_page"
+            destination_page_id = parentPage["id"]
+            destination_page_title = originalPageName[:]
+            status = art.copyCloudPage(page_id, site_URL,
+                                       cloud_username, pwd,
+                                       destination_storage_value, 
+                                       destination_page_id,
+                                       destination_type,
+                                       destination_page_title,
+                                       release_version, 
+                                       print_version)
+            print ("Update page status: ", status)
             # Update page or create page if it does not exist
-            status = confluence.update_or_create(
-                parentPageId, originalPageName,
-                pageContent, representation='storage',
-                version_comment=versionComment)
+            # status = confluence.update_or_create(
+            #     parentPageId, originalPageName,
+            #     pageContent, representation='storage',
+            #     version_comment=versionComment)
 
-            if status["id"]:
-                releasePageId = status["id"][:]
-            else:
-                print("status", status)
+            # if status["id"]:
+            #     releasePageId = status["id"][:]
+            # else:
+            #     print("status", status)
 
             # set the page to unhide and print name to be the original page
+
 
         norestrictions = [{"operation": "update", "restrictions":
                            {"user": [],
