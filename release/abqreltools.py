@@ -62,12 +62,13 @@ from requests.auth import HTTPBasicAuth
 
 def copyCloudPage(page_id, site_URL,
                   cloud_username, pwd,
-                  destination_storage_value, 
                   destination_page_id,
+                  destination_storage_value,
                   destination_type,
                   destination_page_title,
                   release_version, 
                   print_version):
+
 
     #        parentPageId, versionPageTitle,
     #        newPageContent, representation='storage',
@@ -87,25 +88,16 @@ def copyCloudPage(page_id, site_URL,
     }
 
     payload = json.dumps( {
-      "copyAttachments": true,
-      "copyPermissions": true,
-      "copyProperties": true,
-      "copyLabels": true,
-      "copyCustomContents": true,
+      "copyAttachments": True,
+      "copyPermissions": True,
+      "copyProperties": True,
+      "copyLabels": True,
+      "copyCustomContents": True,
       "destination": {
         "type": destination_type,
         "value": destination_page_id,
       },
-      "pageTitle": destination_page_title,
-      "body": {
-        "storage": {
-          "value": destination_storage_value,
-          "representation": "view"
-        },
-        "version":{
-         
-        }
-      }
+      "pageTitle": destination_page_title
     })
 
     response = requests.request(
@@ -181,8 +173,10 @@ def checkPgExists(confluence, spacekey, page_name):
     if confluence.page_exists(
             space=spacekey,
             title=page_name):
+        print ("Page exists: ",page_name)
         return True
     else:
+        print ("Page doesn't exist: ", page_name)
         return False
 
 

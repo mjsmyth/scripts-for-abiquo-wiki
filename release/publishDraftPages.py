@@ -78,12 +78,15 @@ def main():
         parentPageId = parentPage["id"]
 
         pageContent = pageFull["body"]["storage"]["value"]
-        # print("parentPageId: ", parentPageId)
-        # print("originalPageName: ", originalPageName)
-        # print("pageContent:", pageContent)
+        print("parentPageId: ", parentPageId)
+        print("originalPageName: ", originalPageName)
+        print("pageContent: ", pageContent)
+        print("pageFull: ", pageFull)
+        # exit()
         originalPageId = ""
         originalPageExists = art.checkPgExists(
             confluence, spacekey, originalPageName)
+        print("OriginalPageExists response: ",originalPageExists)
         pageUpdated = False
 
         versionComment = print_version + " - release "
@@ -94,28 +97,29 @@ def main():
                 spacekey, originalPageName)
             originalPageId = originalPageFull["id"][:]
         # Compare content and check is already updated or not
-            pageUpdated = confluence.is_page_content_is_already_updated(
-                originalPageId, pageContent)
-
+            #pageUpdated = confluence.is_page_content_is_already_updated(
+            #    originalPageId, pageContent)
+            #print("pageUpdated response: ",pageUpdated)
             # Publish release by updating master pages from draft pages
             # - new_page_id = master page id
             # - destination_type = existing_page
             # - parentPageId = nul
-
-            if not pageUpdated:
-                destination_storage_value = pageFull["body"]["storage"]["value"]
-                destination_type = "existing_page"
-                destination_page_id = originalPageId[:]
-                destination_page_title = originalPageName[:]
-                # update master page
-                status = art.copyCloudPage(page_id, site_URL,
-                                           cloud_username, pwd,
-                                           destination_storage_value, 
-                                           destination_page_id,
-                                           destination_type,
-                                           destination_page_title,
-                                           release_version, 
-                                           print_version)
+            #exit()
+            #if not pageUpdated:
+            destination_type = "existing_page"
+            destination_page_id = originalPageId[:]
+            destination_page_title = originalPageName[:]
+            # update master page
+            status = art.copyCloudPage(versionPageId, site_URL,
+                                       cloud_username, pwd,
+                                       destination_page_id,
+                                       pageContent,
+                                       destination_type,
+                                       destination_page_title,
+                                       release_version, 
+                                       print_version)
+            # else:
+            #    print("Page already updated: ", destination_page_title)
 
 
         else:
@@ -126,19 +130,19 @@ def main():
             # - master page name = draft page name - release version
             # - destination_type = parent_page
 
-            destination_storage_value = pageFull["body"]["storage"]["value"]
+            # destination_storage_value = pageFull["body"]["storage"]["value"]
             destination_type = "parent_page"
             destination_page_id = parentPage["id"]
             destination_page_title = originalPageName[:]
-            status = art.copyCloudPage(page_id, site_URL,
+            status = art.copyCloudPage(versionPageId, site_URL,
                                        cloud_username, pwd,
-                                       destination_storage_value, 
                                        destination_page_id,
+                                       pageContent,
                                        destination_type,
                                        destination_page_title,
                                        release_version, 
                                        print_version)
-            print ("Update page status: ", status)
+        print ("Update page status: ", status)
             # Update page or create page if it does not exist
             # status = confluence.update_or_create(
             #     parentPageId, originalPageName,

@@ -71,20 +71,31 @@ def main():
         originalPageName = art.getOrigPgName(release_version, page)
         ancestorsList = pageFull["ancestors"]
         parentPage = ancestorsList.pop()
-        parentPageId = parentPage["id"]
-
-        pageContent = pageFull["body"]["storage"]["value"]
+        # parentPageId = parentPage["id"]
+        # pageContent = pageFull["body"]["storage"]["value"]
         # print("parentPageId: ", parentPageId)
         # print("originalPageName: ", originalPageName)
         # print("pageContent:", pageContent)
 
-        status = confluence.create_page(spacekey,
-                                        originalPageName,
-                                        pageContent,
-                                        parent_id=parentPageId,
-                                        type='page',
-                                        representation='storage',
-                                        editor='v2')
+        destination_type = "parent_page"
+        destination_page_id = parentPage["id"]
+        destination_page_title = originalPageName[:]
+        status = art.copyCloudPage(page_id, site_URL,
+                                   cloud_username, pwd,
+                                   destination_page_id,
+                                   destination_type,
+                                   destination_page_title,
+                                   release_version, 
+                                   print_version)
+        print ("Update page status: ", status)
+
+        # status = confluence.create_page(spacekey,
+        #                                 originalPageName,
+        #                                 pageContent,
+        #                                 parent_id=parentPageId,
+        #                                 type='page',
+        #                                 representation='storage',
+        #                                 editor='v2')
         if status["id"]:
             newPageId = status["id"]
         else:
