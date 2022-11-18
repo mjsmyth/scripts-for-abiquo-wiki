@@ -3,6 +3,9 @@
 # ---------------------------------------
 # Script designed to move draft pages of older version
 # Gets pages with vXXX and moves them to another space
+# You need to create a parent page called 
+# "original spacekey + "_" + release_version"
+# e.g. doc_v603
 #
 # Move draft pages
 # ------------------
@@ -50,12 +53,30 @@ def getParentPageIdByTitle(confluence, targetSpacekey, pageName):
 def main():
     # Get user credentials and space
     print("Will move pages to under a new page vXXX_pages")
-    site_URL = input("Enter Confluence site URL (no protocol & final slash): ")
-    inuname = input("Username: ")
-    inpsswd = input("Password: ")
+    # Get user credentials and space
+    site_URL = input("Confluence Cloud site URL, with protocol,"
+                     + " and wiki, and exclude final slash, "
+                     + "e.g. https://abiquo.atlassian.net/wiki: ")
+    cloud_username = input("Cloud username: ")
+    pwd = input("Cloud token string: ")
     spacekey = input("Space key: ")
     targetSpacekey = input("Target space key: ")
     release_version = input("Release version, e.g. v463: ")
+    # print_version = input("Release print version, e.g. 4.6.3: ")
+
+    # Log in to Confluence
+    confluence = Confluence(
+        url=site_URL,
+        username=cloud_username,
+        password=pwd,
+        cloud=True)
+
+    # site_URL = input("Enter Confluence site URL (no protocol & final slash): ")
+    # inuname = input("Username: ")
+    # inpsswd = input("Password: ")
+    # spacekey = input("Space key: ")
+    # targetSpacekey = input("Target space key: ")
+    # release_version = input("Release version, e.g. v463: ")
 
     parent_title = str(spacekey + "_" + release_version)
     parentPrint = "page: " + parent_title + " " \
@@ -69,10 +90,10 @@ def main():
     versionWiki = spacekey[:]
     if "doc" in spacekey:
         versionWiki = spacekey + " " + "ABI" + release_version[1:2] + " "
-    confluence = Confluence(
-        url='https://' + site_URL,
-        username=inuname,
-        password=inpsswd)
+    # confluence = Confluence(
+    #     url='https://' + site_URL,
+    #     username=inuname,
+    #     password=inpsswd)
 
     parentPageId = getParentPageIdByTitle(confluence,
                                           targetSpacekey,
