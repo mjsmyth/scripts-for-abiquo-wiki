@@ -37,7 +37,7 @@ def main():
     output_wiki_file_name = "wiki_config_wiki_links_" + td + ".txt"
     #   extra_text_file_name = 'process_config_view_extratext_' + td + '.txt'
     extra_text_file_name = 'process_config_view_extra_text.txt'
-    ui_path = "../platform/ui/app/"
+    ui_path = "../../platform/ui/app/"
     ui_path_lang = ui_path + "lang/"
     ui_path_html = ui_path + "modules/configuration/partials/"
 
@@ -122,6 +122,7 @@ def main():
                  "networkform.html",
                  "dashboardform.html",
                  "passwordform.html",
+                 "billingform.html",
                  "wikilinksform.html"]
     for hO in htmlOrder:
         htmlFileWithPath = ui_path_html + hO

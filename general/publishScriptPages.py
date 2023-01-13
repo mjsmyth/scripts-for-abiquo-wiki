@@ -16,25 +16,29 @@ from datetime import datetime
 import abqdoctools as adt
 
 wikiPageList = []
-inputSubdir = "output_files"
+INPUT_SUBDIR = "output_files"
 todaysDate = datetime.today().strftime('%Y-%m-%d')
 # todaysDate = "2021-11-03"
-filePrefix = "wiki_properties_table_"
-wikiInputFile = filePrefix + todaysDate + ".txt"
+# filePrefix = "wiki_properties_table_"
 
-# outputPropertyFile = 'wiki_properties_'
+
+file_prefixes_pages = \
+    [("wiki_properties_table_", "Abiquo configuration properties", "append")]
+#     [("wiki_config_view_table_", "Configuration view", "replace"),
+#      ("wiki_config_wiki_links_", "Configuration view", "append"),
+#      ("wiki_properties_table_", "Abiquo configuration properties", "update")]
+#    [("wiki_api_error_user_guide_", "User interface messages"),
+#     ("wiki_api_error_admin_guide_", "API Error Code List")]
+# outputPropertyFile = 'wiki_properties_table_'
 # wikiPropertiesFile = outputPropertyFile + "format_" + todaysDate + ".txt"
-inputFile = inputSubdir + "/" + wikiInputFile
+
 #    inputDirPropertyFile = inputDir + propertyFile
 
 
 def main():
-    wikiContent = ""
-    with open(inputFile, 'r') as f:
-        wikiContent = f.read()
-
+    '''publish api error to cloud wiki'''
     # Get user credentials and space
-    site_URL = input("Confluence Cloud site URL, with protocol,"
+    site_url = input("Confluence Cloud site URL, with protocol,"
                      + " and wiki, and exclude final slash, "
                      + "e.g. https://abiquo.atlassian.net/wiki: ")
     cloud_username = input("Cloud username: ")
@@ -43,19 +47,32 @@ def main():
 
     release_version = input("Release version, e.g. v463: ")
     print_version = input("Release print version, e.g. 4.6.3: ")
-    updatePageTitle = "Abiquo configuration properties"
-    wikiFormat = True
-    tableReplaceString = r'<table(.*?)</table>'
-    status = adt.updateWiki(updatePageTitle, wikiContent, wikiFormat,
-                            site_URL, cloud_username, pwd, spacekey,
-                            tableReplaceString,
-                            release_version, print_version)
-    if status is True:
-        print("Page ", updatePageTitle,
-              " for ", release_version, " draft was updated sucessfully!")
-    else:
-        print("Page ", updatePageTitle,
-              " for ", release_version, " draft was not updated successfully!")
+    # updatePageTitle = "Abiquo configuration properties"
+    wiki_format = True
+    table_replace_string = r'<table(.*?)</table>'
+    for file_prefix, page, operation in file_prefixes_pages:
+        wiki_input_file = file_prefix + todaysDate + ".txt"
+        input_file = INPUT_SUBDIR + "/" + wiki_input_file
+        wiki_content = ""
+        with open(input_file, 'r') as f:
+            wiki_content = f.read()
+
+        status = adt.updateWiki(page, wiki_content, wiki_format,
+                                site_url, cloud_username, pwd, spacekey,
+                                table_replace_string,
+                                release_version, print_version, operation)
+        if status is True:
+            print("Page ", page,
+                  " for ", release_version, " draft was updated sucessfully!")
+        else:
+            print("Page ", page,
+                  " for ", release_version,
+                  " draft was not updated successfully!")
+
+
+# Calls the main() function
+if __name__ == '__main__':
+    main()
 
 
 # Calls the main() function
