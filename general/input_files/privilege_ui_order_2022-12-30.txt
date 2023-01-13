@@ -1,0 +1,212 @@
+﻿Home
+ All privileges
+ List enterprises within scope
+ Allow user to switch enterprise
+ Display enterprise statistics
+ Display enterprise limits in statistics
+ View bills
+ Manage bills
+Services (XaaS)
+ All privileges
+ Use default services
+ Manage default services
+ Use enterprise services
+ Manage enterprise services
+ Use user services
+ Manage user services
+ Use datacenter services
+ Manage datacenter services
+ Use public cloud region services
+ Manage public cloud region services
+ Use location services
+ Manage location services
+ Use virtual datacenter services
+ Manage virtual datacenter services
+ Use virtual appliance services
+ Manage virtual appliance services
+ Use virtual machine services
+ Manage virtual machine services
+ Run actions on usable services
+Infrastructure
+ All privileges
+ Access infrastructure view and private DCs
+ Display resource usage panel
+ Manage datacenter
+ View datacenter details
+ Manage datacenter infrastructure elements
+ Manage network elements
+ Manage storage elements
+ Manage allocation rules
+ Manage datacenter backup configuration
+ Manage devices
+ Manage public cloud regions
+ Access infrastructure view and PCRs
+ View public cloud region details
+ Manage hardware profile types and family
+ View and manage protection managers
+Virtual datacenters
+ All privileges
+ Access virtual datacenters view
+ Manage virtual datacenters
+ Manage virtual appliances
+ Manage virtual network elements
+ Manage virtual storage elements
+ Manage floating IPs
+ Manage firewalls
+ Manage load balancers
+ Manage virtual storage controller
+ Manage public IPs
+ Modify allocation when attaching a disk
+ Manage NAT IPs
+ Manage VPNs
+ Manage classic firewalls
+ Manage private IP reservations
+ Manage default virtual datacenter firewall
+ Manage enterprise datacenter default roles
+ Access public network tab
+ Manage public network elements
+ Access external network tab
+ Manage external network elements
+ Manage availability sets
+ Assign availability set to VM
+ Manage the bandwidth limit for NAT
+ Manage the bandwidth limit for public IPs
+ Manage resource groups
+ Delete resource groups
+ Manage global networks
+ Update private MAC IP
+Virtual appliances
+ All privileges
+ Edit virtual appliance details
+ Deploy and undeploy virtual appliances
+ Perform virtual machine actions
+ Manage persistent templates
+ Create instance
+ Manage virtual machine hard disks
+ Manage layers
+ Manage virtual machine backup configuration
+ Manage virtual machine backup schedule
+ Manage workflow tasks
+ Delete unknown virtual machines
+ Assign firewalls to virtual machines
+ Access persistent templates view
+ Manage virtual machine backup disks
+ Assign load balancers
+ Manage virtual machine metrics
+ Access metrics
+ Restore virtual machine backups
+ Protect/unprotect virtual machines
+ Consume virtual appliance specs
+ Override virtual machine constraints
+ Edit virtual machine details
+ Retrieve default template credentials
+ Relocate a VM to a compatible host
+ Manage workflow for scaling groups
+ Attach NICs in restricted networks to VMs
+ Detach NICs in restricted networks from VMs
+ Manage scaling groups
+ Manage virtual machine ISO disks
+ Manage restricted VApps and VMs
+ View restricted VApps and VMs
+ Restrict VM
+ Move VMs
+ Retrieve virtual machine initial password
+ Assign public IPs to VMs
+ Assign external IPs to VMs
+ Reset VM guest password
+ Manage VM disaster recovery protection
+ Manage VM snapshots
+ View enterprise snapshots list
+ Manage snapshot auto delete function
+ Manage snapshot auto delete expiration date
+Catalogue
+ All privileges
+ Access Catalogue view
+ Manage VM templates from Catalogue
+ Upload virtual machine template
+ Manage repository
+ Download virtual machine template
+ Manage VM template categories
+ Manage VM template global categories
+ Display datacenter capacity and free space
+ Export a virtual machine template to datacenter
+ Export a virtual machine template to public cloud region
+ Manage virtual appliance specs
+ Download VM templates from remote repository
+ Specify allocation of template disks
+ Accept virtual machine template terms of use
+Users
+ All privileges
+ Access Users view
+ Manage enterprises
+ Manage users
+ Manage users of all enterprises
+ No VDC restriction
+ Access Roles and Scope screens
+ Manage roles
+ Associate role with enterprise
+ Manage global role
+ Display connected users
+ Define enterprise manager
+ Manage Chef enterprises
+ Manage scopes
+ Manage enterprise reserved servers
+ Allow user to push own metrics
+ Manage provider credentials
+ Manage user applications
+ Manage reseller enterprises
+ Manage key node enterprises
+ Manage enterprise properties
+ Manage user allowed CIDRs
+ Manage virtual datacenter roles
+ Access budgets section
+ Manage budgets
+ Manage role and scope allowed CIDRs
+ Manage mail server for reseller
+ Manage user creation in provider
+ Access user metadata (dashboards)
+ Manage user metadata (dashboards)
+ Access enterprise metadata (dashboards)
+ Manage enterprise metadata (dashboards)
+ Manage default themes
+ Manage reseller themes
+Pricing
+ All privileges
+ Access Pricing view
+ Manage pricing
+ Manage pricing credentials
+ Generate billing
+ Manage hardware profile extra charges
+ Manage virtual machine extra charges
+ Manage virtual machine template extra charges
+ View price factors
+ Manage price factors
+ Manage enterprise products
+ View enterprise products
+ View hardware profile extra charges
+ View virtual machine extra charges
+ View virtual machine template extra charges
+ privilege.PRICING_REGENERATE
+Events
+ All privileges
+ Display all events for current enterprise
+ Display all events
+Control
+ All privileges
+ Access alarms section
+ Manage alarms
+ Access alerts section
+ Manage alerts
+ Access action plans, schedule and alert trigger tabs
+ Manage action plans and task schedules
+ View enterprise hierarchy
+ Access resource tags tabs and resource tags management view
+ Manage tags for compatible resources
+ Access tag policies view
+ Manage tag policies
+System configuration
+ All privileges
+ Access Configuration view
+ Modify configuration data
+ Allow access to reports
+ Manage default dashboards
