@@ -129,5 +129,14 @@
 	"Abstract datastore tiers": "ABS-DSTIER-",
 	"VM snapshot": "SNAP-",
     "Target group": "TARGETGROUP",
-    "XaaS": "XAS-"
+    "XaaS": "XAS-",
+    "Price factor": "PF-",
+    "Service request": "SERVICE-REQUEST-",
+    "Service parameter": "SPARAM-",
+    "Service result": "SRESULT-",
+    "Service schema": "SSCHEMA-",
+    "Service state": "SSTATE-",
+    "Theme": "THEME-",
+    "Ticket": "TICKET-0",
+    "Version": "VERSION-"
 }

@@ -67,7 +67,7 @@ def getParentPageId(page):
 
 def updateWiki(updatePageTitle, wikiContent, wikiFormat, site_URL,
                cloud_username, pwd, spacekey, tableReplaceString,
-               release_version, print_version):
+               release_version, print_version, operation):
 
     # Log in to Confluence
     confluence = Confluence(
@@ -106,8 +106,11 @@ def updateWiki(updatePageTitle, wikiContent, wikiFormat, site_URL,
     else:
         pageContent = wikiContent[:]
     newPageContent = ""
-    if "table" in origPageContent:
-        newPageContent = re.sub(tableReplaceString,
+    replace_string = r'<table>(.*?)</table>'
+    if operation == "append":
+        newPageContent = origPageContent + pageContent
+    elif "table" in origPageContent:
+        newPageContent = re.sub(replace_string,
                                 pageContent, origPageContent)
     else:
         newPageContent = origPageContent + pageContent

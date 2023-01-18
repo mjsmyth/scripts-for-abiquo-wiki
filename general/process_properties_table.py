@@ -507,22 +507,46 @@ def main():
 
     GROUPTYPES = {"{plugin}": PLUGINS, "{metric}": METRICS}
 
-    # Display these lozenges in wiki markup
+    # # Display these lozenges in wiki markup
+    # profileImages = {"SERVER":
+    #                  " {status:colour=green|title=API|subtle=false}",
+    #                  "REMOTESERVICES":
+    #                  " {status:colour=blue|title=RS|subtle=false}",
+    #                  "V2VSERVICES":
+    #                  " {status:colour=grey|title=V2V|subtle=false}",
+    #                  "MOUTBOUNDAPI":
+    #                  " {status:colour=yellow|title=OA|subtle=false}",
+    #                  "DNSMASQ":
+    #                  " {status:colour=yellow|title=DNSMASQ|subtle=false}",
+    #                  "COSTUSAGE":
+    #                  " {status:colour=yellow|title=COSTUSAGE|subtle=false}",
+    #                  "BILLING":
+    #                  " {status:colour=yellow|title=BILLING|subtle=false}",
+    #                  "XAASAPI":
+    #                  " {status:colour=yellow|title=XAAS|subtle=false}",
+    #                  "XAASRS":
+    #                  " {status:colour=yellow|title=XAAS|subtle=false}"
+    #                  }
     profileImages = {"SERVER":
-                     " {status:colour=green|title=API|subtle=false}",
+                     " {colour:green}API{colour}",
                      "REMOTESERVICES":
-                     " {status:colour=blue|title=RS|subtle=false}",
+                     " {colour=blue}RS{colour}",
                      "V2VSERVICES":
-                     " {status:colour=grey|title=V2V|subtle=false}",
+                     " {colour=grey}V2V{colour}",
                      "MOUTBOUNDAPI":
-                     " {status:colour=yellow|title=OA|subtle=false}",
+                     " {colour=brown}OA{colour}",
                      "DNSMASQ":
-                     " {status:colour=yellow|title=DNSMASQ|subtle=false}",
+                     " {colour=brown}DNSMASQ{colour}",
                      "COSTUSAGE":
-                     " {status:colour=yellow|title=COSTUSAGE|subtle=false}",
+                     " {colour=brown}COSTUSAGE{colour}",
                      "BILLING":
-                     " {status:colour=yellow|title=BILLING|subtle=false}"
+                     " {colour=brown}BILLING{colour}",
+                     "XAASAPI":
+                     " {colour=brown}XAAS{colour}",
+                     "XAASRS":
+                     " {colour=brown}XAAS{colour}"
                      }
+
 
     # These profiles have columns in the wiki
     defaultProfiles = ["SERVER",
@@ -537,7 +561,9 @@ def main():
                       "MOUTBOUNDAPI": "MOUTBOUNDAPI",
                       "DNSMASQ": "REMOTESERVICES",
                       "COSTUSAGE": "SERVER",
-                      "BILLING": "SERVER"
+                      "BILLING": "SERVER",
+                      "XAASAPI": "SERVER",
+                      "XAASRS": "REMOTESERVICES"
                       }
 
     # Example websites without proper <SERVER_IP_ADDRESS> notation
