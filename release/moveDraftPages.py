@@ -3,6 +3,9 @@
 # ---------------------------------------
 # Script designed to move draft pages of older version
 # Gets pages with vXXX and moves them to another space
+# You need to create a parent page called 
+# "original space_key + "_" + release_version"
+# e.g. doc_v603
 #
 # Move draft pages
 # ------------------
@@ -22,88 +25,106 @@ import abqreltools as art
 import json
 
 
-def createWikiLogPage(wikiPageList):
-    todaysDate = datetime.today().strftime('%Y-%m-%d')
-    output_file = "outputMoveDraftPages." + todaysDate + ".txt"
+def create_wiki_log(wiki_page_list):
+    todays_date = datetime.today().strftime('%Y-%m-%d')
+    output_file = "outputMoveDraftPages." + todays_date + ".txt"
     output_dir = "./output_files"
     output_list = []
     output_list.append("|| Page ID || Name || Link ||\n")
-    output_list.extend(wikiPageList)
-    wikiFile = open(os.path.join(output_dir,
+    output_list.extend(wiki_page_list)
+    wiki_file = open(os.path.join(output_dir,
                     output_file), "w+")
     for line in output_list:
-        wikiFile.write(line)
-    wikiFile.close()
+        wiki_file.write(line)
+    wiki_file.close()
 
 
-def getParentPageIdByTitle(confluence, targetSpacekey, pageName):
+def getParentPageIdByTitle(confluence, targetspace_key, pageName):
     parentPageId = ""
-    parentPageExists = art.checkPgExists(
-        confluence, targetSpacekey, pageName)
+    parentPageExists = art.check_page_exists(
+        confluence, targetspace_key, pageName)
     if parentPageExists:
-        parentPageFull = confluence.get_page_by_title(
-            targetSpacekey, pageName)
-        parentPageId = parentPageFull["id"][:]
+        parentfull_draft_page = confluence.get_page_by_title(
+            targetspace_key, pageName)
+        parentPageId = parentfull_draft_page["id"][:]
     return parentPageId
 
 
 def main():
     # Get user credentials and space
     print("Will move pages to under a new page vXXX_pages")
-    site_URL = input("Enter Confluence site URL (no protocol & final slash): ")
-    inuname = input("Username: ")
-    inpsswd = input("Password: ")
-    spacekey = input("Space key: ")
-    targetSpacekey = input("Target space key: ")
+    # Get user credentials and space
+    site_url = input("Confluence Cloud site URL, with protocol,"
+                     + " and wiki, and exclude final slash, "
+                     + "e.g. https://abiquo.atlassian.net/wiki: ")
+    cloud_username = input("Cloud username: ")
+    pwd = input("Cloud token string: ")
+    space_key = input("Space key: ")
+    targetspace_key = input("Target space key: ")
     release_version = input("Release version, e.g. v463: ")
+    # print_version = input("Release print version, e.g. 4.6.3: ")
 
-    parent_title = str(spacekey + "_" + release_version)
+    # Log in to Confluence
+    confluence = Confluence(
+        url=site_url,
+        username=cloud_username,
+        password=pwd,
+        cloud=True)
+
+    # site_url = input("Enter Confluence site URL (no protocol & final slash): ")
+    # inuname = input("Username: ")
+    # inpsswd = input("Password: ")
+    # space_key = input("Space key: ")
+    # targetspace_key = input("Target space key: ")
+    # release_version = input("Release version, e.g. v463: ")
+
+    parent_title = str(space_key + "_" + release_version)
     parentPrint = "page: " + parent_title + " " \
-                  "in space: ", targetSpacekey
+                  "in space: ", targetspace_key
     print("Parent page is: ", parentPrint)
     confirmParentPage = input("Waiting while you create parent!: ")
     if confirmParentPage:
         print("Moving pages...")
 
     # print_version = input("Release print version, e.g. 4.6.3: ")
-    versionWiki = spacekey[:]
-    if "doc" in spacekey:
-        versionWiki = spacekey + " " + "ABI" + release_version[1:2] + " "
-    confluence = Confluence(
-        url='https://' + site_URL,
-        username=inuname,
-        password=inpsswd)
+    versionWiki = space_key[:]
+    if "doc" in space_key:
+        versionWiki = space_key + " " + "ABI" + release_version[1:2] + " "
+    # confluence = Confluence(
+    #     url='https://' + site_url,
+    #     username=inuname,
+    #     password=inpsswd)
 
     parentPageId = getParentPageIdByTitle(confluence,
-                                          targetSpacekey,
+                                          targetspace_key,
                                           parent_title)
     if not parentPageId:
         noparent = "Please create " + parentPrint
         print(noparent)
-    versionPageList = art.getVersionPgs(
-        spacekey, release_version, confluence)
+    draft_page_list = art.get_draft_pages(
+        space_key, release_version, confluence)
 #    draftPageOnlyList = []
-    wikiPageList = []
+    wiki_page_list = []
 
-    for basePage in versionPageList:
-        page = art.getPgFull(confluence, basePage)
+    for basePage in draft_page_list:
+        page = art.get_full_page(confluence, basePage)
         page["version"]["number"] += 1
         movedPageTitle = page["title"][:]
         newPageTitle = page["title"] + " " + versionWiki
         page["title"] = newPageTitle[:]
         # print(json.dumps(page, indent=4))
     # Get more page details with expands
-        versionPageId = page["id"][:]
-        # print("versionPageId: ", versionPageId)
+        draft_page_id = page["id"][:]
+        # print("draft_page_id: ", draft_page_id)
         # print("target_title: ", newPageTitle)
 
-        movedPageExists = art.checkPgExists(
-            confluence, targetSpacekey, movedPageTitle)
+        movedPageExists = art.check_page_exists(
+            confluence, targetspace_key, movedPageTitle)
         print("movedPageExists: ", movedPageExists)
         if movedPageExists:
             # update existing page before moving
             updatedPage = confluence.update_page(
-                versionPageId,
+                draft_page_id,
                 newPageTitle,
                 body=page["body"]["storage"]["value"],
                 representation="storage")
@@ -113,20 +134,20 @@ def main():
                 print("updatedResponse: ", updatedPage)
 
         moveResponse = confluence.move_page(
-            spacekey,
-            versionPageId,
+            space_key,
+            draft_page_id,
             target_id=parentPageId,
             position="append")
         print("moveResponse: ", json.dumps(moveResponse, indent=4))
         if moveResponse["page"]["id"]:
-            newPageId = moveResponse["page"]["id"]
+            new_page_id = moveResponse["page"]["id"]
         else:
             print("moveResponse: ", moveResponse)
-        wikiPrint = "| " + newPageId + " |" \
+        wikiPrint = "| " + new_page_id + " |" \
                     " " + newPageTitle + " |" \
-                    " [" + targetSpacekey + ":" + movedPageTitle + "] |\n"
-        wikiPageList.append(wikiPrint)
-    createWikiLogPage(wikiPageList)
+                    " [" + targetspace_key + ":" + movedPageTitle + "] |\n"
+        wiki_page_list.append(wikiPrint)
+    create_wiki_log(wiki_page_list)
 
 
 # Calls the main() function

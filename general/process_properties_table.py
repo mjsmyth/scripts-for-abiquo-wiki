@@ -509,26 +509,24 @@ def main():
 
     GROUPTYPES = {"{plugin}": PLUGINS, "{metric}": METRICS}
 
-
-
     profileImages = {"SERVER":
-                     " {colour=green}API{colour}",
+                     "{colour:green}API{colour}",
                      "REMOTESERVICES":
-                     " {colour=blue}RS{colour}",
+                     "{colour:blue}RS{colour}",
                      "V2VSERVICES":
-                     " {colour=grey}V2V{colour}",
+                     "{colour:grey}V2V{colour}",
                      "MOUTBOUNDAPI":
-                     " {colour=brown}OA{colour}",
+                     "{colour:brown}OA{colour}",
                      "DNSMASQ":
-                     " {colour=brown}DNSMASQ{colour}",
+                     "{colour:brown}DNSMASQ{colour}",
                      "COSTUSAGE":
-                     " {colour=brown}COSTUSAGE{colour}",
+                     "{colour:brown}COSTUSAGE{colour}",
                      "BILLING":
-                     " {colour=brown}BILLING{colour}",
+                     "{colour:brown}BILLING{colour}",
                      "XAASAPI":
-                     " {colour=brown}XAAS{colour}",
+                     "{colour:brown}XAAS{colour}",
                      "XAASRS":
-                     " {colour=brown}XAAS{colour}"
+                     "{colour:brown}XAAS{colour}"
                      }
 
 

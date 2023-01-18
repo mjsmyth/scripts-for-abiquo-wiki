@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*
 #
 # This script reads files from the input_files directory:
-# - UI labels file (get from /UI/app/lang/lang_en_US_labels.json from current branch in your platform/ui repo
-# - database privileges information (run process_privileges.sql on the latest Abiquo DB to create process_privileges_sql.txt)
+# - UI labels file (get from /UI/app/lang/lang_en_US_labels.json from current
+#  branch in your platform/ui repo
+# - database privileges information (run process_privileges.sql on the latest
+#  Abiquo DB to create process_privileges_sql.txt)
 # - an extra text file (process_privileges_extratext.txt)
-# It creates wiki_privileges.txt - a wiki storage format table for pasting into Privileges page of the wiki
-# NB: check that privs_processed which is written to standard out is equal to 
+# It creates wiki_privileges.txt - a wiki storage format table for pasting into
+#  the Privileges page of the wiki
+# NB: check that privs_processed which is written to standard out is equal to
 # the number of rows in privilege table in Abiquo DB
 # select * from privilege;
 #
@@ -16,8 +19,8 @@ import re
 import json
 import os
 import collections
-import pystache
 import codecs
+import pystache
 import requests
 from datetime import datetime
 import abqdoctools as adt
@@ -27,6 +30,7 @@ import abqdoctools as adt
 
 
 class rolec:
+    '''something to do with roles'''
     def __init__(self, akey, aname, ainitials, aformat):
         self.rkey = akey
         self.rname = aname
@@ -35,16 +39,18 @@ class rolec:
 
 
 def open_if_not_existing(filename):
+    '''nothing to do with roles'''
     try:
         fd = os.open(filename, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     except:
-        print ("File: %s already exists" % filename)
+        print("File: %s already exists" % filename)
         return None
     fobj = os.fdopen(fd, "w")
     return fobj
 
 
 def get_extra_text(input_subdir, extfile):
+    '''read extra text file'''
     extlines = (extline.rstrip() for extline in open(
         os.path.join(input_subdir, extfile)))
     extratext = {}
@@ -56,10 +62,11 @@ def get_extra_text(input_subdir, extfile):
         exttext = extlist[1]
         exttext = exttext.strip()
         extratext[extkey] = exttext
-    return(extratext)
+    return extratext
 
 
 def createRoles():
+    '''create role objects'''
     # This could be read in from a file
     rollers = collections.OrderedDict()
     # r = role(akey,aname,ainitials,aformat)
@@ -73,6 +80,7 @@ def createRoles():
 
 
 def createRoleHeader(rollers):
+    '''create role headers'''
     roleheading = []
     for rrr in rollers:
         rhd = {}
@@ -179,8 +187,8 @@ def newOrderByUItextFile(td):
 
 
 def main():
-    todaysDate = datetime.today().strftime('%Y-%m-%d')
-    # td = "2022-08-17"
+    # todaysDate = datetime.today().strftime('%Y-%m-%d')
+    todaysDate = "2022-12-30"
     input_gitdir = '../../platform/ui/app/lang'
     input_subdir = 'input_files'
     output_subdir = 'output_files'
