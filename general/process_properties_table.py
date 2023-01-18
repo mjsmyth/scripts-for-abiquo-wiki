@@ -107,8 +107,10 @@ def prepareForWiki(pSDict, profileColumns,
 
         # Prepare the default entry
         defaultList = ""
+        # Note this is not correct but if anyone is using hyperv, let's
+        # hope they know what they are doing
         if "C:" in propv:
-            propv = re.sub("\\", "\\\\", propv)
+            propv = re.sub("\\", "/", propv)
         if "default" in propv:
             if type(propv["default"]) is str:
                 if "http" in propv["default"] or ("{" or "[") \
@@ -507,46 +509,24 @@ def main():
 
     GROUPTYPES = {"{plugin}": PLUGINS, "{metric}": METRICS}
 
-    # # Display these lozenges in wiki markup
-    # profileImages = {"SERVER":
-    #                  " {status:colour=green|title=API|subtle=false}",
-    #                  "REMOTESERVICES":
-    #                  " {status:colour=blue|title=RS|subtle=false}",
-    #                  "V2VSERVICES":
-    #                  " {status:colour=grey|title=V2V|subtle=false}",
-    #                  "MOUTBOUNDAPI":
-    #                  " {status:colour=yellow|title=OA|subtle=false}",
-    #                  "DNSMASQ":
-    #                  " {status:colour=yellow|title=DNSMASQ|subtle=false}",
-    #                  "COSTUSAGE":
-    #                  " {status:colour=yellow|title=COSTUSAGE|subtle=false}",
-    #                  "BILLING":
-    #                  " {status:colour=yellow|title=BILLING|subtle=false}",
-    #                  "XAASAPI":
-    #                  " {status:colour=yellow|title=XAAS|subtle=false}",
-    #                  "XAASRS":
-    #                  " {status:colour=yellow|title=XAAS|subtle=false}"
-    #                  }
     profileImages = {"SERVER":
-                     " {colour:green}API{colour}",
+                     "{color:green}API{color}",
                      "REMOTESERVICES":
-                     " {colour=blue}RS{colour}",
+                     "{color:blue}RS{color}",
                      "V2VSERVICES":
-                     " {colour=grey}V2V{colour}",
+                     "{color:grey}V2V{color}",
                      "MOUTBOUNDAPI":
-                     " {colour=brown}OA{colour}",
+                     "{color:brown}OA{color}",
                      "DNSMASQ":
-                     " {colour=brown}DNSMASQ{colour}",
+                     "{color:brown}DNSMASQ{color}",
                      "COSTUSAGE":
-                     " {colour=brown}COSTUSAGE{colour}",
+                     "{color:brown}COSTUSAGE{color}",
                      "BILLING":
-                     " {colour=brown}BILLING{colour}",
+                     "{color:brown}BILLING{color}",
                      "XAASAPI":
-                     " {colour=brown}XAAS{colour}",
+                     "{color:brown}XAAS{color}",
                      "XAASRS":
-                     " {colour=brown}XAAS{colour}"
-                     }
-
+                     "{color:brown}XAAS{color}"
 
     # These profiles have columns in the wiki
     defaultProfiles = ["SERVER",
