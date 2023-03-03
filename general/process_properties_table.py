@@ -492,7 +492,8 @@ def main():
 
     # Deprecated plugins - ha is deprecated and just a placeholder
     # so you could delete it or replace it with something prettier
-    PLGDEPRC = [r"\.ha\."]
+    # PLGDEPRC = [r"\.ha\."]
+    PLGDEPRC = [r"\.ha\.", r"\.esx\.", r"\.esx$", r"\.netapp\."]
 
     # ESXi metrics list
     METRICS = ["cpu",
