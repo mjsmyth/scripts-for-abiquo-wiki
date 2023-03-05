@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <!-- Schema changes -->
+    <changeSet context="data" author="mjsmyth" id="ABICLOUDPREMIUM-XXXXX-fix-wiki-links">
+      <sql>
+            insert into system_properties (name, value) values ('client.wiki.network.managePublicQoS', 'https://abiquo.atlassian.net/wiki/spaces/doc/pages/311377858/Limit+bandwidth+of+Public+IPs+with+QoS');
+      </sql>    
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/329908734/Manage+datacenters"/>
+            <where>name='client.wiki.infra.createDatacenter'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/329908734/Manage+datacenters"/>
+            <where>name='client.wiki.infra.editDatacenter'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311371012/Manage+remote+services"/>
+            <where>name='client.wiki.infra.manageRemoteService'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311371012/Manage+remote+services"/>
+            <where>name='client.wiki.infra.editRemoteService'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370957/Compute+in+datacenters#Create-servers"/>
+            <where>name='client.wiki.infra.createPhysicalMachine'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370957/Compute+in+datacenters#Create-racks"/>
+            <where>name='client.wiki.infra.createRack'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/327581880/Administer+compute+resources+in+datacenters#Send-email-notifications"/>
+            <where>name='client.wiki.infra.mailNotification'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311364013/Abiquo+XaaS"/>
+            <where>name='client.wiki.xaas'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311375688/Reserve+private+network+ranges+with+excluded+networks"/>
+            <where>name='client.wiki.network.excludedNetworks'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311362527/Manage+NAT+for+virtual+datacenters#Limit-NAT-IP-bandwidth-for-a-VDC"/>
+            <where>name='client.wiki.network.manageQoS'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370944/Allocation+rules"/>
+            <where>name='client.wiki.allocation.global'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370944/Allocation+rules"/>
+            <where>name='client.wiki.allocation.datacenter'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311371432/Backup#Configure-backup-policy-properties"/>
+            <where>name='client.wiki.backup.manageBackupPolicyProperties'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311378598/Onboard+from+public+cloud"/>
+            <where>name='client.wiki.vdc.synchronizePublicCloud'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/367985213/Create+a+virtual+appliance+based+on+a+spec"/>
+            <where>name='client.wiki.vdc.createVappBasedOnSpec'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370823/Manage+virtual+appliance+specs#Save-a-VApp-configuration-as-a-blueprint-spec"/>
+            <where>name='client.wiki.vdc.createSpec'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370535/Manage+networks#Create-IP-addresses-in-private-networks"/>
+            <where>name='client.wiki.vdc.createNetworkIp'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311375769/Manage+reserved+private+IP+addresses"/>
+            <where>name='client.wiki.vdc.reserveIpsForVDC'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311362829/Manage+storage+in+public+cloud"/>
+            <where>name='client.wiki.vdc.createVolume'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/367394891/Create+a+virtual+machine"/>
+            <where>name='client.wiki.vdc.createVirtualMachine'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/367362317/Save+VM+disks+to+create+an+instance+template"/>
+            <where>name='client.wiki.vm.createInstance'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311375711/Manage+VM+high+availability"/>
+            <where>name='client.wiki.vm.createLayer'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370552/Manage+firewalls#Edit-firewall-policy-rules"/>
+            <where>name='client.wiki.vdc.editfirewallrules'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311371396/Add+VM+templates+to+the+catalogue"/>
+            <where>name='client.wiki.apps.uploadVM'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311370925/Pricing+view#Create-extra-charges-with-cost-codes"/>
+            <where>name='client.wiki.pricing.createCostCode'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/311362596/Create+a+new+pricing+model"/>
+            <where>name='client.wiki.pricing.createTemplate'</where>    
+      </update>
+      <update tableName="system_properties">
+            <column name="value" value="https://abiquo.atlassian.net/wiki/spaces/doc/pages/334037612/Configure+licenses"/>
+            <where>name='client.wiki.config.licence'</where>    
+      </update>
+    </changeSet>    
+</databaseChangeLog>

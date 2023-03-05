@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <!-- Schema changes -->
+    <changeSet context="data" author="mjsmyth" id="ABICLOUDPREMIUM-XXXXX-fix-wiki-links">
+    {{#creates}}
+      <sql>
+            insert into system_properties (name, value) values ('{{ui_key}}', '{{wiki_link}}');
+      </sql>    
+    {{/creates}}
+    {{#updates}}
+      <update tableName="system_properties">
+            <column name="value" value="{{wiki_link}}"/>
+            <where>name='{{ui_key}}'</where>    
+      </update>
+    {{/updates}}
+    </changeSet>    
+</databaseChangeLog>
