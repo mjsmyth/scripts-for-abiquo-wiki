@@ -1,15 +1,15 @@
 '''
-# Python script: release/publishRelease
+# Python script: unlockMainPages
 # ---------------------------------------
-# Script designed to publish draft pages for new version
-# Gets pages with vXXX and updates pages without it
+# Script designed to unlock main pages for new version
+# Gets pages with vXXX and unlocks pages without it
 #
-# Publish draft pages
+# Unlock main pages
 # ------------------
 # 1. Get the vXXX draft pages and for each
 # 2. Strip version from name
 # 3. Check if the original page exists
-# 4. Unhide master page
+# 4. Unhide main page
 #
 '''
 #!/usr/bin/python3
@@ -46,7 +46,7 @@ def main():
     cloud_username = input("Cloud username: ")
     pwd = input("Cloud token string: ")
     space_key = input("Space key: ")
-
+    confluence_parameters = (site_url, cloud_username, pwd)
     release_version = input("Release version, e.g. v463: ")
     # print_version = input("Release print version, e.g. 4.6.3: ")
 
@@ -58,14 +58,13 @@ def main():
         cloud=True)
 
     draft_page_list = art.get_draft_pages(
-        space_key, release_version, confluence)
+        space_key, release_version, confluence_parameters)
 #    draftPageOnlyList = []
     wiki_page_list = []
 
     for draft_page in draft_page_list:
-        confluence_parameters = site_url, cloud_username, pwd
         main_page_id = ""
-        draft_page_id = draft_page["content"]["id"][:]
+        draft_page_id = draft_page["id"][:]
         print("Version Page ID: ", draft_page_id)
         main_page_name = art.get_main_page_name(release_version, draft_page)
         print("Original Page Name: ", main_page_name)

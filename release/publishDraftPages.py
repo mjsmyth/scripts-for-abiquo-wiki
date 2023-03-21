@@ -49,7 +49,7 @@ def main():
     pwd = input("Cloud token string: ")
     accountId = input("Cloud user accountId: ")
     space_key = input("Space key: ")
-
+    confluence_parameters = (site_url, cloud_username, pwd)
     release_version = input("Release version, e.g. v463: ")
     print_version = input("Release print version, e.g. 4.6.3: ")
 
@@ -61,13 +61,13 @@ def main():
         cloud=True)
 
     draft_page_list = art.get_draft_pages(
-        space_key, release_version, confluence)
+        space_key, release_version, confluence_parameters)
 #    draftPageOnlyList = []
     wiki_page_list = []
 
     for page in draft_page_list:
         main_page_id = ""
-        draft_page_id = page["content"]["id"][:]
+        draft_page_id = page["id"][:]
         print("Version Page ID: ", draft_page_id)
         main_page_name = art.get_main_page_name(release_version, page)
 

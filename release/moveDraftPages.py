@@ -101,8 +101,9 @@ def main():
     if not parentPageId:
         noparent = "Please create " + parentPrint
         print(noparent)
+    confluence_parameters = (site_url, cloud_username, pwd)    
     draft_page_list = art.get_draft_pages(
-        space_key, release_version, confluence)
+        space_key, release_version, confluence_parameters)
 #    draftPageOnlyList = []
     wiki_page_list = []
 

@@ -78,7 +78,7 @@ def main():
         cloud=True)
 
     draft_page_list = art.get_draft_pages(
-        space_key, release_version, confluence)
+        space_key, release_version, confluence_parameters)
     wiki_page_list = []
     create_page_list = []
 
@@ -120,9 +120,9 @@ def main():
             #status_dict = json.loads(status)
             new_page_id = status["id"][:]
             print("new_page_id: ", new_page_id)
-            restrictions = (accountId, "abiquo-team")
-            restns_response = art.hide_page(confluence_parameters, new_page_id, restrictions)
-            print("restns_response: ",restns_response)
+            # restrictions = (accountId, "abiquo-team")
+            # restns_response = art.hide_page(confluence_parameters, new_page_id, restrictions)
+            # print("restns_response: ",restns_response)
         else:
             print("Page not created -------")
             print("status ", str(status))

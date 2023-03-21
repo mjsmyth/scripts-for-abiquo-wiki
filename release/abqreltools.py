@@ -73,20 +73,50 @@ def copy_cloud_page(page_id, confluence_parameters, destination_page):
     return response.json()
 
 
-def get_draft_pages(space_key, release_version, confluence):
+def get_draft_pages(space_key, release_version, confluence_parameters):
+    site_url, cloud_username, pwd = confluence_parameters
+    auth = HTTPBasicAuth(cloud_username, pwd)
     '''Get all the draft pages for the release version'''
     print("get version pages: ")
     print("space_key: ", space_key)
     print("release_version: ", release_version)
-    print("confluence: ", confluence)
+    #print("confluence: ", confluence)
     start_next = 0
     returned_size = 1
     while returned_size > 0:
         # get draft pages for release searching on "vXXX"
-        cql = "space.key={} and (text ~ {})".format(space_key, release_version)
-        results = confluence.cql(cql, start=start_next, limit=None,
-                                 expand=None, include_archived_spaces=None,
-                                 excerpt=None)
+        # cql = "Space={}+AND+title~{}".format(space_key, release_version)
+        # cql = <string>&cqlcontext=<string>&expand=<string>&expand=<string>&cursor=<string>&limit=25
+        cql = "space = " + space_key + " AND text ~ " + release_version 
+        # results = confluence.cql(cql, start=start_next, limit=200,
+        #                         expand=None, include_archived_spaces=None,
+        #                         excerpt=None)
+
+        url = site_url + "/rest/api/content/search"
+        # url = "https://your-domain.atlassian.net/wiki/rest/api/content/search"
+        # auth = HTTPBasicAuth("email@example.com", "<api_token>")
+
+        headers = {
+            "Accept": "application/json;charset=UTF-8"
+        }
+
+        query = {
+            'cql': cql,
+            'limit': 200,
+            'expand': "content"
+        }
+
+        response = requests.request(
+            "GET",
+            url,
+            headers=headers,
+            params=query,
+            auth=auth
+        )
+
+        results = response.json()
+# "/wiki/rest/api/search?expand=body.view,metadata.labels,children.comment&limit=5&start=0&cql=text~"foo*"+AND+space=DEMO+AND+label=bar+order+by+lastmodified+desc"
+
 
         if results:
             print("results: ", results)
@@ -94,23 +124,27 @@ def get_draft_pages(space_key, release_version, confluence):
         returned_size = results["size"]
         page_list = []
         for page in results["results"]:
-            pg_id = page["content"]["id"]
+            # pg_id = page["content"]["id"]
+            pg_id = page["id"]
             # pg_name = str(page["content"]["title"])
             # check the vXXX in title and not only in the page content
             # specific title search will get vXXX when you use vXX
-            page_links_web_ui = str(page["content"]["_links"]["webui"])
+            # page_links_web_ui = str(page["content"]["_links"]["webui"])
+            page_links_web_ui = str(page["_links"]["webui"])
             if release_version.strip().lower() in page_links_web_ui.lower():
                 # only work with pages, not attachments
                 if "att" not in pg_id:
                     page_list.append(page)
                     print("pg_id: ", pg_id)
+            else:
+                print("rejected page: ", pg_id)
         return page_list
 
 
 def get_full_page(confluence, initial_page):
     '''Get more page details with expands'''
     page_got = ""
-    pg_id = initial_page["content"]["id"]
+    pg_id = initial_page["id"]
     print("pg_id: ", pg_id)
     page_got = confluence.get_page_by_id(
         page_id=pg_id,
@@ -123,7 +157,7 @@ def get_full_page(confluence, initial_page):
 
 def get_main_page_name(release_version, page):
     '''Get name of main page from draft page'''
-    pg_name = str(page["content"]["title"])
+    pg_name = str(page["title"])
     master_page_name = (str(pg_name)).replace(
         release_version, "").strip()
     # maybe use re.sub to only replace at end of string
