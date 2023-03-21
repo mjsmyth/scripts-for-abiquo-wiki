@@ -5,15 +5,23 @@
     <!-- Schema changes -->
     <changeSet context="data" author="mjsmyth" id="ABICLOUDPREMIUM-XXXXX-fix-wiki-links">
     {{#creates}}
-      <sql>
+        <sql>
             insert into system_properties (name, value) values ('{{ui_key}}', '{{wiki_link}}');
-      </sql>    
+        </sql>    
     {{/creates}}
     {{#updates}}
-      <update tableName="system_properties">
-            <column name="value" value="{{wiki_link}}"/>
-            <where>name='{{ui_key}}'</where>    
-      </update>
+        <sql>
+            <update tableName="system_properties">
+                <column>value='{{wiki_link}}'</column>
+                <where>name='{{ui_key}}'</where>    
+            </update>
+        </sql>
     {{/updates}}
+    {{#deletes}}
+        <sql>
+            <delete tableName="system_properties">
+                <where>columnName='{{ui_key}}'</where>
+        </delete>
+    {{/deletes}}
     </changeSet>    
 </databaseChangeLog>
