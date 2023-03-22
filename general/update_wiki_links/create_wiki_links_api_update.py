@@ -1,6 +1,11 @@
 #!/usr/bin/python3 -tt
 '''
-Read a tsv file with wiki links to change and create a liquibase to change them
+Read a tsv file with wiki links to change
+In the format:
+    operation   wikiLinkKey wikiLinkLabel currentLink newLink
+and create an API properties data object to change them
+and a liquibase file to change them in the database.
+
 Add line
 # <sql>
     # "insert into system_properties (name, value)
