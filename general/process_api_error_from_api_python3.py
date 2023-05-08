@@ -53,7 +53,7 @@ def main():
     '''Process API errors from API'''
     input_subdir = "input_files"
     output_subdir = "output_files"
-    todays_date = "2022-12-30"
+    todays_date = "2023-05-08"
     api_error_input_file = "apierrors_wiki_" + todays_date + ".txt"
     error_lines = {}
 

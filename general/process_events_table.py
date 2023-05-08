@@ -14,6 +14,7 @@ wikiEventTracerFile = "wiki_event_tracer_all_" + todaysDate + ".txt"
 updatePageTitle = "Events table"
 tableReplaceString = r'<table(.*?)</table>'
 wikiFormat = True
+operation = "replace"
 
 
 def main():
@@ -72,13 +73,14 @@ def main():
         tracerPropertyMessage = re.sub("\]", ")", tracerPropertyMessage)
         tracerPropertyMessage = re.sub(":", " -", tracerPropertyMessage)
         # replace spelling mistakes in parameters temporarily
-        spellingMistakes = {"dataventer": "datacenter",
-                            "mahine": "machine",
-                            "tempalte": "template",
-                            "nackup": "backup",
-                            "Plna": "Plan"}
-        for spellingMistake, correction in spellingMistakes.items():
-            tracerPropertyMessage = tracerPropertyMessage.replace(spellingMistake, correction)
+        # spellingMistakes = {"dataventer": "datacenter",
+        #                     "mahine": "machine",
+        #                     "tempalte": "template",
+        #                     "nackup": "backup",
+        #                     "Plna": "Plan"}  
+
+        # for spellingMistake, correction in spellingMistakes.items():
+        #     tracerPropertyMessage = tracerPropertyMessage.replace(spellingMistake, correction)
         for (entity, action, entityAction) in entityActionList:
             if entityAction in tracerPropertyKey:
                 # print("tracerPropertyKey: ", tracerPropertyKey)
@@ -127,7 +129,7 @@ def main():
     status = adt.updateWiki(updatePageTitle, wikiContent, wikiFormat,
                             site_URL, cloud_username, pwd, spacekey,
                             tableReplaceString,
-                            release_version, print_version)
+                            release_version, print_version, operation)
     if status is True:
         print("Page ", updatePageTitle,
               " for this version's draft was updated sucessfully!")

@@ -138,5 +138,6 @@
     "Service state": "SSTATE-",
     "Theme": "THEME-",
     "Ticket": "TICKET-0",
-    "Version": "VERSION-"
+    "Version": "VERSION-",
+    "Network interface": "NI-"
 }
