@@ -25,7 +25,7 @@ This is a file not a script! Paste the UI labels file in the wiki for each each 
 2. Rename it to "UI Labels vXXX" (where XXX is the latest version number) and save
 3. Pull the latest version of platform master from Github (e.g. use the alias tolete master)
 4. Find the UI labels file with the folder path and file name as follows:
-´´´platform/ui/app/lang/lang_en_US_labels.json´´´
+```platform/ui/app/lang/lang_en_US_labels.json```
 5. Open the labels file in a text editor and copy the text
 6. In the "UI labels vXXX" page, delete the current text
 7. Paste the new labels and Save
@@ -34,10 +34,10 @@ Use the version compare feature to check UI Changes in between versions.
 
 ## API Errors
 
-To add the API errors to the base UI file and the wiki, start with the APIError.java file.
+To add the API errors to the base UI file and the wiki, start with the ``APIError.java`` file.
 This info is now published en every build, in the same folder as the API docs.
 
-´´´platform/api/target/site/apidocs/´´´
+```platform/api/target/site/apidocs/```
 
 * apierrors_wiki
 * apierrors_ui
@@ -49,10 +49,11 @@ For the "apierrors_ui" file.
 Add this JSON to the wiki so customers can customize the API Error messages that their users will see in the UI.
 Also check for new categories to add to the categories input file for the API errors wiki script.
 
-´´´{
+```{
     "server.error.400-BAD-REQUEST" : "Request not valid",
     "server.error.401-UNAUTHORIZED" : "This request requires user authentication",
-    "server.error.403-FORBIDDEN" : "Access denied",´´´
+    "server.error.403-FORBIDDEN" : "Access denied",
+```
 
 1. Copy the "UI error messages" page
 2. Save it with the new version number, e.g. "UI Error Messages v550"
@@ -72,14 +73,14 @@ Also check for new categories to add to the categories input file for the API er
 The output for Wiki errors section of the APIError main is the APIErrors in wiki markup format.
 You could put this straight in the wiki but it is just one table with about 1000 lines in it...
 
-´´´
+```
 | 2FA-0 | Unexpected error generating the two factor verification code | TWO_FACTOR_UNABLE_TO_GENERATE_CODE |
 | 2FA-1 | Two-factor authentication is already enabled for the current user | TWO_FACTOR_AUTH_ENABLED |
 | 2FA-2 | The given two-factor authentication provider is not supported | TWO_FACTOR_UNSUPPORTED_PROVIDER |
 | 400-BAD-REQUEST | Request not valid | STATUS_BAD_REQUEST |
 | 401-UNAUTHORIZED | This request requires user authentication | STATUS_UNAUTHORIZED |
 | 403-FORBIDDEN | Access denied | STATUS_FORBIDDEN |
-´´´
+```
 
 For the input file:
 1. Edit the message with the code PSW-1 that is multi-line and make it a single line
@@ -90,14 +91,13 @@ The input files are:
 * apierrors_wiki
 * input_files/apierror_sections.json
 
-The script is ´´´process_api_error_from_api.py´´´
+The script is ``process_api_error_from_api.py``
 
 1. Edit the script and change the todays_date variable to be the date on your input file.
-2. Run the script with Python 2, e.g.
-´´´python2 process_api_error_from_api.py´´´
+2. Run the script with Python 2, ``python2 process_api_error_from_api.py``
 3. From the output_files directory, open the output files in a text editor:
-´´´output_files/wiki_api_error_admin_guide_2015-08-04.txt
-output_files/wiki_api_error_user_guide_2015-08-04.txt´´´
+``output_files/wiki_api_error_admin_guide_2015-08-04.txt
+output_files/wiki_api_error_user_guide_2015-08-04.txt``
 4. Convert to Markdown and paste these files into wikimarkup boxes on copies of the wiki pages: 
    1. User guide: User interface messages
    2. Admin guide: API Error Code List
@@ -124,23 +124,23 @@ Prepare the UI text:
 2. Copy the Privileges text and paste it in a Google docs file
 3. On each header section line, remove the "indent" by clicking the unordered list item button
 4. Download as a plain text file. Name the text file with the following format:
-´´´privileges/input_files/privilege_ui_order_2016-11-16.txt´´´
-5. Replace "* " with " " 
+``privileges/input_files/privilege_ui_order_2016-11-16.txt``
+5. Replace the asterisk ``* `` with a space `` `` 
 6. Check each privilege is its own line with a space at the start of the line
 7. Check that there are section headers (Home, Infrastructure, etc).  
-8. Compare this file with the file of the previous version, if there are no changes to privileges... you can stop here! 
+8. Compare this file with the file of the previous version, if there are no changes to privileges, you can stop here! 
 
 Prepare to run the script 
 
 1. Edit the script and set the input directory to read "lang_en_US_labels.json" from the platform files on your computer or a copy of this UI file. Hint: use the "t" shortcut in the UI repo to find these files on GitHub
-2. There should be an extra text file in the input_files directory ´´´privileges/input_files/process_privileges_extratext.txt´´´
+2. There should be an extra text file in the input_files directory ``privileges/input_files/process_privileges_extratext.txt``
 3. Check the auth for Abiquo
-4. Enter the date for the input and output files in the script in the format td="2016-11-16"
+4. Enter the date for the input and output files in the script in the format ``td="2016-11-16"``
 
 
 Run the script 
 
-1. Use the command ´´´python privileges/api_process_abiquo_privileges_ui_order.py´´´
+1. Use the command ``python privileges/api_process_abiquo_privileges_ui_order.py``
 2. Edit the wiki page in a Source editor and remove the table. 
 3. This script creates the whole "Section" for the wiki in storage format. Confluence Cloud probably doesn't support the Section so remove it.
 4. Copy the text of the file output by the script and paste it between the last two paragraph symbols.
@@ -154,13 +154,13 @@ Run the script
 
 To create the table for the Events table page:
 1. Update your copy of platform
-2. Run the events table script with the command ´´´python3 process_events_table.py´´´
+2. Run the events table script with the command ``python3 process_events_table.py``
 
 This script gets the generated events (from the last build) and the event privileges and creates a table in wiki markup.
 
 You can find the table in the output_files folder and the filename is in the format 
 
-´´´wiki_event_tracer_all_2020-06-03.txt´´´
+```wiki_event_tracer_all_2020-06-03.txt```
 
 It uses today's date from the system, but you could override this to use another date as required.
 
@@ -176,11 +176,11 @@ The Python 3 script file is at:
 abiquo-wiki-scripts/properties/newproperties_541.py
 To run this properties script, you will need:
 
-Abiquo python library installed with pip3
-An Abiquo API endpoint
-An access token (to get lists of plugins and devices), 
-Updated platform
-The abiquo.properties file is found in the abiquo/system-properties repo.
+1. Abiquo python library installed with pip3
+2. An Abiquo API endpoint
+3. An access token (to get lists of plugins and devices), 
+4. Updated platform repo
+5. The abiquo.properties file is found in the abiquo/system-properties repo.
 
 You should check each PR that commits to this file.
 
@@ -189,33 +189,30 @@ Developers should follow the file format as described in the README.md of the sy
 Note that the script contains some manual additions to the list of plugins and deprecations. 
 
 Run the script as follows:
-
-python3 newproperties_541.py
+``python3 newproperties_541.py``
 The output file will be a wiki markup file with a name in the format with today's date:
-
-wiki_properties__format_yyyy-mm-dd.txt
+``wiki_properties__format_yyyy-mm-dd.txt``
 For example:
-
-wiki_properties__format_2021-12-24.txt
+``wiki_properties__format_2021-12-24.txt``
 This script will overwrite previous files of the same day.
 
 To add this file to the wiki:
 
-Create a copy of the page for the new version (e.g. Abiquo Configuration Properties v550)
-Wait for it to autosave, then save the page
-Remove the properties table
-Wait for it to autosave...
-Select the + options button from the top menu
-Markup → Wiki markup
-Paste wiki markup in the box and click Insert
-Wait for it to autosave, then save the page
+1. Create a copy of the page for the new version (e.g. Abiquo Configuration Properties v550)
+2. Wait for it to autosave, then save the page
+3. Remove the properties table
+4. Wait for it to autosave...
+5. Select the + options button from the top menu
+6. Markup → Wiki markup
+7. Paste wiki markup in the box and click Insert
+8. Wait for it to autosave, then save the page
 
 
 Remember that you also need to update the following pages:
 
-Changes to Abiquo configuration properties
-Changes to Abiquo configuration properties list
-You can probably compare the markup files between versions and build a mini table with the new lines to add to these pages. (big grin)
+1. Changes to Abiquo configuration properties
+2. Changes to Abiquo configuration properties list
+3. You can probably compare the markup files between versions and build a mini table with the new lines to add to these pages. 
 
 
 
@@ -223,26 +220,25 @@ You can probably compare the markup files between versions and build a mini tabl
 
 You can run the config view script to create tables for the "Configuration View" page.
 
-The script is called ´´´process_config_view_python3.py´´´
+The script is called ``process_config_view_python3.py``
 
 The script requires:
 
 1. Access to the API of a fresh Abiquo install
 2. The platform cloned on the local machine
 3. The abiquo-api Python library installed with pip3
-4. An extra text file: ´´´input_files/process_config_view_extra_text.txt´´´
+4. An extra text file: ``input_files/process_config_view_extra_text.txt``
 
 
 To update the config view tables:
 
 1. Edit the script and set the date, if you don't want today's date.
-2. Run the script with the command
-´´´python3.9 process_config_view_python3.py´´´
+2. Run the script with the command ``python3.9 process_config_view_python3.py``
 3. Edit the two files of wiki markup and convert to Markdown
-   1. ´´´output_files/wiki_config_view_table_2021-11-18.txt´´´ 
-   2. ´´´output_files/wiki_config_wiki_links_2021-11-18.txt´´´
+   1. ``output_files/wiki_config_view_table_2021-11-18.txt``
+   2. ``output_files/wiki_config_wiki_links_2021-11-18.txt``
 4. Copy the following page to a vXXX version page:
-   ´´´Configuration view´´´
+   ``Configuration view``
 5. Edit "Configuration view vXXX" with the Alt-text editor
 6. Paste in the new tables
 
