@@ -1,25 +1,27 @@
 #!/usr/bin/python3 -tt
 # -*- coding: utf-8 -*
-#
+'''#
 # This script reads files from the input_files directory:
+# - Copy privileges from Abiquo UI and save with headers and privileges indented 1 space
 # - UI labels file (get from /UI/app/lang/lang_en_US_labels.json from current
 #  branch in your platform/ui repo
-# - database privileges information (run process_privileges.sql on the latest
-#  Abiquo DB to create process_privileges_sql.txt)
+# - privileges from Abiquo API
 # - an extra text file (process_privileges_extratext.txt)
-# It creates wiki_privileges.txt - a wiki storage format table for pasting into
-#  the Privileges page of the wiki
-# NB: check that privs_processed which is written to standard out is equal to
+# - It uses a mustache template (pystache module) 
+# It creates privileges_out_DATE.txt - a wiki storage format table 
+# and updates the Abiquo wiki for the version
+# NB: check that the privileges in Abiquo UI file is equal to
 # the number of rows in privilege table in Abiquo DB
-# select * from privilege;
+# select * from privilege where ROLE = 1 (cloud admin has all privileges);
 #
-
+'''
 
 import re
 import json
 import os
 import collections
 import codecs
+import sys
 import pystache
 import requests
 from datetime import datetime
@@ -30,7 +32,7 @@ import abqdoctools as adt
 
 
 class rolec:
-    '''something to do with roles'''
+    '''Role data structure with no methods left'''
     def __init__(self, akey, aname, ainitials, aformat):
         self.rkey = akey
         self.rname = aname
@@ -39,33 +41,33 @@ class rolec:
 
 
 def open_if_not_existing(filename):
-    '''nothing to do with roles'''
+    '''Open file if it doesn't exist already'''
     try:
-        fd = os.open(filename, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        file_def = os.open(filename, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     except:
-        print("File: %s already exists" % filename)
+        print(f"File {filename} already exists")
         return None
-    fobj = os.fdopen(fd, "w")
-    return fobj
+    file_object = os.fdopen(file_def, "w")
+    return file_object
 
 
 def get_extra_text(input_subdir, extfile):
-    '''read extra text file'''
-    extlines = (extline.rstrip() for extline in open(
-        os.path.join(input_subdir, extfile)))
-    extratext = {}
-    for ext_orig in extlines:
-        # print (ext_orig)
-        extlist = ext_orig.split("|")
-        extkey = extlist[0]
-        extkey = extkey.strip()
-        exttext = extlist[1]
-        exttext = exttext.strip()
-        extratext[extkey] = exttext
+    '''Read extra text file'''
+    with open(os.path.join(input_subdir, extfile), encoding='UTF-8') as extratextfile:
+        extlines = (extline.rstrip() for extline in extratextfile)
+        extratext = {}
+        for ext_orig in extlines:
+            # print (ext_orig)
+            extlist = ext_orig.split("|")
+            extkey = extlist[0]
+            extkey = extkey.strip()
+            exttext = extlist[1]
+            exttext = exttext.strip()
+            extratext[extkey] = exttext
     return extratext
 
 
-def createRoles():
+def create_roles():
     '''create role objects'''
     # This could be read in from a file
     rollers = collections.OrderedDict()
@@ -79,7 +81,7 @@ def createRoles():
     return rollers
 
 
-def createRoleHeader(rollers):
+def create_role_header(rollers):
     '''create role headers'''
     roleheading = []
     for rrr in rollers:
@@ -90,125 +92,126 @@ def createRoleHeader(rollers):
     return roleheading
 
 
-def do_api_request(apiAuth, apiIP, apiUrl, apiAccept):
-    print (apiUrl)
-    apiHeaders = {}
-    apiHeaders['Accept'] = apiAccept
-    apiHeaders['Authorization'] = apiAuth
-    r = requests.get(apiUrl, headers=apiHeaders, verify=False).json()
-    print (r)
-    return r
+def do_api_request(api_auth, api_url, api_accept):
+    '''Make a request to Abiquo API'''
+    # print (api_url)
+    api_headers = {}
+    api_headers['Accept'] = api_accept
+    api_headers['Authorization'] = api_auth
+    api_data = requests.get(api_url, headers=api_headers, verify=False, timeout=60).json()
+    # print (api_data)
+    return api_data
 
 
-def get_api_privs(apiAuth, apiIP):
+def get_api_privs(api_auth, api_ip):
+    '''Get privileges from Abiquo API'''
     # Get role data from the API of a fresh Abiquo
     # First get roles and IDs, then get privileges of each role
     # rol_data = {}
     roles_data = {}
     # get all base role names and ID numbers
-    apiUrl = 'https://' + apiIP + '/api/admin/roles/'
-    apiAccept = 'application/vnd.abiquo.roles+json'
-    default_roles_response = do_api_request(apiAuth, apiIP, apiUrl, apiAccept)
+    api_url = 'https://' + api_ip + '/api/admin/roles/'
+    api_accept = 'application/vnd.abiquo.roles+json'
+    default_roles_response = do_api_request(api_auth, api_url, api_accept)
     default_roles_list = []
     default_roles = {}
     default_roles_list = default_roles_response['collection']
     # create a dictionary with the roles and their IDs
-    for dr in default_roles_list:
-        default_roles[dr['name']] = dr['id']
+    for def_role in default_roles_list:
+        default_roles[def_role['name']] = def_role['id']
     # run through the dictionary and get the privileges for each role
-    for drname, drid in iter(default_roles.items()):
-        apiUrl = 'https://' + apiIP + '/api/admin/roles/' + \
-            str(drid) + '/action/privileges'
-        print (apiUrl)
-        apiAccept = 'application/vnd.abiquo.privileges+json'
-        default_privileges_response = do_api_request(apiAuth, apiIP,
-                                                     apiUrl, apiAccept)
+    for def_rolename, def_roleid in iter(default_roles.items()):
+        api_url = 'https://' + api_ip + '/api/admin/roles/' + \
+            str(def_roleid) + '/action/privileges'
+        print (api_url)
+        api_accept = 'application/vnd.abiquo.privileges+json'
+        default_privileges_response = do_api_request(api_auth,
+                                                     api_url, api_accept)
         # create a list like the sql list, which is a privilege
         # with a list of roles
         default_privileges_list = []
         default_privileges_list = default_privileges_response['collection']
-        for rp in default_privileges_list:
-            pname = rp['name']
+        for def_priv in default_privileges_list:
+            pname = def_priv['name']
             if pname in roles_data:
-                roles_data[pname].append(drname)
+                roles_data[pname].append(def_rolename)
             else:
-                roles_data[pname] = [drname]
+                roles_data[pname] = [def_rolename]
     #            for rrr in roles_data:
     #                print ("rrr: %s" % rrr)
     return roles_data
 
 
-def get_gui_labels(input_gitdir, UIlabelfile):
+def get_gui_labels(input_gitdir, ui_label_file):
+    '''Get Abiquo UI labels'''
     privlabels = {}
     privnames = {}
     privdescs = {}
     privgroups = {}
-    json_data = open(os.path.join(input_gitdir, UIlabelfile))
+    json_data = open(os.path.join(input_gitdir, ui_label_file))
     data = json.load(json_data)
 #   labelkeys = sorted(data.keys())
 #   remove sort
     labelkeys = data.keys()
     for labelkey_orig in labelkeys:
         labelkey = labelkey_orig.split(".")
-        pg = labelkey[0]
-        if pg == "privilegegroup":
-            pgk = labelkey[1]
-            if pgk != "allprivileges":
-                privgroups[pgk] = data[labelkey_orig]
+        pri_group = labelkey[0]
+        if pri_group == "privilegegroup":
+            pri_group_key = labelkey[1]
+            if pri_group_key != "allprivileges":
+                privgroups[pri_group_key] = data[labelkey_orig]
                 # print ("privilege group: ", labelkey)
-        elif pg == "privilege":
-            pd = labelkey[1]
-            if pd == "description":
-                pdk = labelkey[2]
-                privdescs[pdk] = data[labelkey_orig]
+        elif pri_group == "privilege":
+            pri_desc = labelkey[1]
+            if pri_desc == "description":
+                pri_desc_key= labelkey[2]
+                privdescs[pri_desc_key] = data[labelkey_orig]
                 # print("privilege description: ", labelkey)
-            elif pd != "details":
-                privlabels[pd] = pd
-                privnames[pd] = data[labelkey_orig]
+            elif pri_desc != "details":
+                privlabels[pri_desc] = pri_desc
+                privnames[pri_desc] = data[labelkey_orig]
                 # print("privilege: ", labelkey)
     return (privlabels, privnames, privdescs, privgroups)
 
 
-def newOrderByUItextFile(td):
-    uiOrd = collections.OrderedDict()
-    uiCat = ""
-    orderFile = codecs.open('input_files/privilege_ui_order_' + td
+def new_order_by_ui_text_file(todays_date):
+    '''Order privileges from text file of UI list'''
+    ui_order = collections.OrderedDict()
+    ui_cat = ""
+    order_file = codecs.open('input_files/privilege_ui_order_'
+                            + todays_date 
                             + ".txt", 'r', 'utf-8')
-    for line in orderFile:
+    for line in order_file:
         if not re.match(r"\s", line):
-            uiCat = line.strip()
-            if uiCat not in uiOrd:
-                uiOrd[uiCat] = []
+            ui_cat = line.strip()
+            if ui_cat not in ui_order:
+                ui_order[ui_cat] = []
         else:
             if not re.match(" All privileges", line):
                 privilege = line.strip()
-                uiOrd[uiCat].append(privilege)
-    return uiOrd
+                ui_order [ui_cat].append(privilege)
+    return ui_order 
 
 
-def main():
-    # todaysDate = datetime.today().strftime('%Y-%m-%d')
-    todaysDate = "2022-12-30"
-    input_gitdir = '../../platform/ui/app/lang'
-    input_subdir = 'input_files'
-    output_subdir = 'output_files'
+def process_roles(todays_date, input_gitdir, input_subdir, output_subdir):
+    '''Get roles from API and format into table'''
+    #From the API get a list of privileges with roles
+    # api_privs = {} 
+    api_auth = "Basic YWRtaW46eGFiaXF1bw=="
+    # api_auth = input("Enter API authorization, e.g. Basic XXXXXX: ")
+    api_ip = input("Enter API address, e.g. api.abiquo.com: ")
 
-    # From the API get a list of privileges with roles
-    # api_privs = {}
-    apiAuth = input("Enter API authorization, e.g. Basic XXXXXX: ")
-    apiIP = input("Enter API address, e.g. api.abiquo.com: ")
-
-    sqlroles = get_api_privs(apiAuth, apiIP)
+    sqlroles = get_api_privs(api_auth, api_ip)
 
     # From the UI get the privilege names and descriptions,
     # with privilege appLabel as key
-    UIlabelfile = 'lang_en_US_labels.json'
+    ui_label_file = 'lang_en_US_labels.json'
     (privlabels, privnames, privdescs, privgroups) = \
-        get_gui_labels(input_gitdir, UIlabelfile)
+        get_gui_labels(input_gitdir, ui_label_file)
 
     # From a list of roles that we set, create roles and role headers
-    rollers = createRoles()
-    rheaders = createRoleHeader(rollers)
+    rollers = create_roles()
+    rheaders = create_role_header(rollers)
 
     # From the extra text file, get extra text
     extfile = 'process_privileges_extratext.txt'
@@ -217,32 +220,32 @@ def main():
 
     # Create a dictionary of privileges
     ppdict = {}
-    nameLabelDict = {}
+    name_label_dict = {}
 
     # From a text file grabbed from the UI screen, get the groups and the order
-    uiOrder = collections.OrderedDict()
-    uiOrder = newOrderByUItextFile(todaysDate)
+    ui_order_er = collections.OrderedDict()
+    ui_order_er = new_order_by_ui_text_file(todays_date)
 
-    privFullDescs = {}
-    privFullRoles = {}
+    priv_full_descs = {}
+    priv_full_roles = {}
     # Use the roles retrieved from the API to create a privilege data object
-    for pp in sqlroles:
+    for pri in sqlroles:
         # create a privilege data object
-        if pp in extratext:
-            privFullDescs[pp] = privdescs[pp] + ". " + extratext[pp]
+        if pri in extratext:
+            priv_full_descs[pri] = privdescs[pri] + ". " + extratext[pri]
         # roleslist = []
-        for ro in rollers:
-            if ro in sqlroles[pp]:
-                if pp not in privFullRoles:
-                    privFullRoles[pp] = []
-                privFullRoles[pp].append(ro)
+        for rol in rollers:
+            if rol in sqlroles[pri]:
+                if pri not in priv_full_roles:
+                    priv_full_roles[pri] = []
+                priv_full_roles[pri].append(rol)
         # info = ""
 
     # For each privilege from the UI files
     for plabel in privlabels:
         # create a privilege names key dictionary for priv labels
         # because everything else is keyed on priv labels
-        nameLabelDict[privnames[plabel]] = plabel
+        name_label_dict[privnames[plabel]] = plabel
 
     # Process the privileges and create a privilege json
     for plabel in privlabels:
@@ -251,16 +254,16 @@ def main():
         privi["appTag"] = plabel
         privi["privilege"] = privdescs[plabel]
         privi["roles"] = []
-        for rx in rollers:
+        for rox in rollers:
             role = {}
             role['role'] = {}
             rolex = {}
-            rolex["roleformat"] = rollers[rx].rformat
-            roleMark = {}
-            if plabel in privFullRoles:
-                if rx in privFullRoles[plabel]:
-                    roleMark["roleMark"] = "X"
-                    rolex["rolehas"] = roleMark
+            rolex["roleformat"] = rollers[rox].rformat
+            role_mark = {}
+            if plabel in priv_full_roles:
+                if rox in priv_full_roles[plabel]:
+                    role_mark["roleMark"] = "X"
+                    rolex["rolehas"] = role_mark
                 role['role'] = rolex
                 privi["roles"].append(role)
         privi["info"] = {}
@@ -269,14 +272,14 @@ def main():
     # Working in order through the groups and the privileges,
     # get all the info together to print it out
     categories = []
-    for group in uiOrder:
+    for group in ui_order_er:
         category = {}
         category["category"] = group
         category["roleheader"] = rheaders
         category["entries"] = []
-        for priv in uiOrder[group]:
-            if priv in nameLabelDict:
-                privlabel = nameLabelDict[priv]
+        for priv in ui_order_er[group]:
+            if priv in name_label_dict:
+                privlabel = name_label_dict[priv]
             else:
                 print("error with UI label: ", priv)
             category["entries"].append(ppdict[privlabel])
@@ -284,36 +287,56 @@ def main():
 
     privilege_out = {}
     privilege_out["categories"] = categories
+    return privilege_out
 
-    with open(os.path.join(output_subdir,
-                           "privtestout" + todaysDate + ".txt"), 'w') \
-            as ofile:
-        for cpr in privilege_out["categories"]:
-            ofile.write(json.dumps(cpr))
-    # do the mustache render
-    # mustacheTemplate = codecs.open("wiki_privileges_template_"
-    #     + td + ".mustache", 'r', 'utf-8').read()
-    mustacheTemplate = codecs.open("wiki_privileges_template.mustache",
-                                   'r', 'utf-8').read()
-    # mustacheTemplate = open("wiki_privileges_template.mustache", "r").read()
-    #    efo = pystache.render(mustacheTemplate, privilege_out).encode('utf-8',
-    #        'xmlcharrefreplace')
-    efo = pystache.render(mustacheTemplate, privilege_out)
-    # efo = pystache.render(mustacheTemplate, privilege_out)
-    privilegesOutFile = "privileges_out_" + todaysDate + ".txt"
+
+def main():
+    # todays_date = datetime.today().strftime('%Y-%m-%d')
+    todays_date = "2023-10-26"
+    input_gitdir = '../../platform/ui/app/lang'
+    input_subdir = 'input_files'
+    output_subdir = 'output_files'
+    operation = "replacetable"
+    privs_out_file = "privileges_out_" + todays_date + ".txt"
     ef = open_if_not_existing(os.path.join(output_subdir,
-                                           privilegesOutFile))
+                                           privs_out_file))
+    use_existing_file = ""
+    if ef is None:
+        use_existing_file = input("Use existing file = default (y) "
+                                   "or overwrite file (o) or quit (q): ")
+        if use_existing_file == "q":
+            sys.exit()
+        elif use_existing_file == "o":
+            ef = open(os.path.join(output_subdir,privs_out_file), 'w')
+
     if ef:
+        privilege_out = process_roles(todays_date, input_gitdir, input_subdir, output_subdir)
+        with open(os.path.join(output_subdir,
+                "privtestout" + todays_date + ".txt"), 'w') \
+                as ofile:
+            for cpr in privilege_out["categories"]:
+                ofile.write(json.dumps(cpr))
+        # do the mustache render
+        # mustache_template = codecs.open("wiki_privileges_template_"
+        #     + td + ".mustache", 'r', 'utf-8').read()
+        mustache_template = codecs.open("wiki_privileges_template.mustache",
+                                       'r', 'utf-8').read()
+        # mustache_template = open("wiki_privileges_template.mustache", "r").read()
+        #    efo = pystache.render(mustache_template, privilege_out).encode('utf-8',
+        #        'xmlcharrefreplace')
+        efo = pystache.render(mustache_template, privilege_out)
+        # efo = pystache.render(mustache_template, privilege_out)
+
         ef.write(efo)
         ef.close()
 
-    wikiContent = ""
+    wiki_content = ""
 
-    with open(os.path.join(output_subdir, privilegesOutFile), 'r') as f:
-        wikiContent = f.read()
+    with open(os.path.join(output_subdir, privs_out_file), 'r') as f_wiki:
+        wiki_content = f_wiki.read()
 
     # Get user credentials and space
-    site_URL = input("Confluence Cloud site URL, with protocol,"
+    site_url = input("Confluence Cloud site URL, with protocol,"
                      + " and wiki, and exclude final slash, "
                      + "e.g. https://abiquo.atlassian.net/wiki: ")
     cloud_username = input("Cloud username: ")
@@ -322,18 +345,24 @@ def main():
 
     release_version = input("Release version, e.g. v463: ")
     print_version = input("Release print version, e.g. 4.6.3: ")
-    wikiFormat = False
-    updatePageTitle = "Privileges"
-    tableReplaceString = r'<table(.*?)</table>'
-    status = adt.updateWiki(updatePageTitle, wikiContent, wikiFormat,
-                            site_URL, cloud_username, pwd, spacekey,
-                            tableReplaceString,
-                            release_version, print_version)
+    wiki_format = False
+    update_page_title = "Privileges"
+    table_replace_string = r'<table(.*?)</table>'
+
+# def updateWiki(update_page_title, wiki_content, wiki_format, 
+#                site_url,cloud_username, pwd, spacekey, 
+#                table_replace_string,
+#                release_version, print_version, operation):
+
+
+    status = adt.updateWiki(update_page_title, wiki_content, wiki_format,
+                            site_url, cloud_username, pwd, spacekey,
+                            release_version, print_version, operation)
     if status is True:
-        print("Page ", updatePageTitle,
-              " for this version's draft was updated sucessfully!")
+        print("Page ", update_page_title,
+              " for in the draft documentation was updated sucessfully!")
     else:
-        print("Page ", updatePageTitle,
+        print("Page ", update_page_title,
               " for this version's draft was not updated successfully!")
 
 

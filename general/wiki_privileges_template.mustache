@@ -1,4 +1,14 @@
-    <table class="wrapped"><colgroup><col /><col /><col /><col /><col /><col /><col /><col /><col /></colgroup>
+<table data-layout="default">
+    <colgroup>
+        <col style="width: 68.0px;" />
+        <col style="width: 124.0px;" />
+        <col style="width: 328.0px;" />
+        <col style="width: 48.0px;" />
+        <col style="width: 48.0px;" />
+        <col style="width: 48.0px;" />
+        <col style="width: 48.0px;" />
+        <col style="width: 48.0px;" />
+    </colgroup>
       <tbody>
       {{#categories}}
         <tr>
@@ -40,7 +50,6 @@
           <p>{{roleMark}}</p>
           {{/rolehas}}
           {{^rolehas}}
-          &nbsp;
           {{/rolehas}}
           </td>
           {{/role}}
@@ -49,7 +58,7 @@
             <td><ac:emoticon ac:name="yellow-star"/></td>
           {{/info}}
           {{^info}}
-            <td> </td>
+            <td></td>
           {{/info}}
         </tr>
         {{/entries}}
