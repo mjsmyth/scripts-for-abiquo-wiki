@@ -197,8 +197,7 @@ def process_roles(todays_date, input_gitdir, input_subdir, output_subdir):
     '''Get roles from API and format into table'''
     #From the API get a list of privileges with roles
     # api_privs = {} 
-    api_auth = "Basic YWRtaW46eGFiaXF1bw=="
-    # api_auth = input("Enter API authorization, e.g. Basic XXXXXX: ")
+    api_auth = input("Enter API authorization, e.g. Basic XXXXXX: ")
     api_ip = input("Enter API address, e.g. api.abiquo.com: ")
 
     sqlroles = get_api_privs(api_auth, api_ip)
