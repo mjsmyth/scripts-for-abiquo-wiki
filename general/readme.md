@@ -169,44 +169,42 @@ It creates or updates the Confluence draft page for the given version.
 
 ## Properties
 
-There is a new script to update the Abiquo configuration properties page.
+There is a script to create the table for the Abiquo configuration properties page.
 
-The Python 3 script file is at:
+The Python 3 script file is at: ``scripts-for-abiquo-wiki/general/process_properties_table.py``
 
-abiquo-wiki-scripts/properties/newproperties_541.py
 To run this properties script, you will need:
 
 1. Abiquo python library installed with pip3
 2. An Abiquo API endpoint
-3. An access token (to get lists of plugins and devices), 
+3. An access token (to get lists of plugins and devices) 
 4. Updated platform repo
-5. The abiquo.properties file is found in the abiquo/system-properties repo.
+5. The ``abiquo.properties`` file is found in the ``abiquo/system-properties`` repo.
+6. The mustache template file for Confluence storage format is at `wiki_properties_template.mustache`
+7. The storage format text for the `abiquo.guest.password.length` property is at `process_properties_abiquoguestpasswordlength.txt` 
+ 
+You should check each PR that commits to the `abiquo.properties` file.
 
-You should check each PR that commits to this file.
-
-Developers should follow the file format as described in the README.md of the system-properties repo.
+Developers should follow the file format as described in the ``README.md`` of the ``system-properties`` repo.
 
 Note that the script contains some manual additions to the list of plugins and deprecations. 
 
 Run the script as follows:
-``python3 newproperties_541.py``
-The output file will be a wiki markup file with a name in the format with today's date:
-``wiki_properties__format_yyyy-mm-dd.txt``
+``python process_properties_table.py``
+The output file will be a wiki storage format file with a name in the format with today's date:
+``wiki_properties_stformat_yyyy-mm-dd.txt``
 For example:
-``wiki_properties__format_2021-12-24.txt``
+``wiki_properties_stformat_2021-12-24.txt``
 This script will overwrite previous files of the same day.
 
-To add this file to the wiki:
+To manually add this file to the wiki:
 
-1. Create a copy of the page for the new version (e.g. Abiquo Configuration Properties v550)
-2. Wait for it to autosave, then save the page
-3. Remove the properties table
-4. Wait for it to autosave...
-5. Select the + options button from the top menu
-6. Markup → Wiki markup
-7. Paste wiki markup in the box and click Insert
-8. Wait for it to autosave, then save the page
+1. Create a copy of the page for the new version (e.g. Abiquo Configuration Properties v620)
+2. Remove the table
+3. From the page menu, select Edit storage format
+4. Paste the table
 
+You can also add it with a table replace script.
 
 Remember that you also need to update the following pages:
 
