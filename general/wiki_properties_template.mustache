@@ -1,0 +1,35 @@
+<table>
+    <colgroup>
+        <col style="width: 591.0px;" />
+        <col style="width: 500.0px;" />
+        <col style="width: 91.0px;" />
+        <col style="width: 91.0px;" />
+        <col style="width: 91.0px;" />
+    </colgroup>
+      <tbody>
+        <tr>
+            <th>
+                <p> Property </p>
+            </th>
+            <th>
+                <p> Description </p>
+            </th>
+            <th>
+                <p> API </p>
+            </th>
+            <th>
+                <p> RS </p>
+            </th>
+            <th>
+                <p> V2V </p>
+            </th>
+        </tr>
+        {{#propertyentries}}<tr>
+          <td data-highlight-colour={{{propcolor}}}><p>{{{property}}}{{#pluginlist}}{{{plugin}}}{{/pluginlist}}</p></td>
+          <td data-highlight-colour={{{propcolor}}}><p>{{{description}}}{{#validvalues}}<br/>Valid values: <code>{{validvalue}}</code>{{/validvalues}}{{#maindefault}}<br/>Default: <code>{{maindefault}}</code>{{/maindefault}}{{#defaultlist}}{{{plugindefault}}}{{/defaultlist}}</p></td>
+          {{#SERVER}}<td data-highlight-colour={{{propcolor}}}><p><span style="color: rgb(0,128,0);">{{SERVER}}</span></p></td>{{/SERVER}}{{^SERVER}}<td data-highlight-colour={{{propcolor}}}></td>{{/SERVER}}
+          {{#REMOTESERVICES}}<td data-highlight-colour={{{propcolor}}}><p><span style="color: rgb(0,0,255);">{{REMOTESERVICES}}</span></p></td>{{/REMOTESERVICES}}{{^REMOTESERVICES}}<td data-highlight-colour={{{propcolor}}}></td>{{/REMOTESERVICES}}
+          {{#V2VSERVICES}}<td data-highlight-colour={{{propcolor}}}><p><span style="color: rgb(128,128,128);">{{V2VSERVICES}}</span></p></td>{{/V2VSERVICES}}{{^V2VSERVICES}}<td data-highlight-colour={{{propcolor}}}></td>{{/V2VSERVICES}}
+        </tr>{{/propertyentries}}
+      </tbody>
+    </table>

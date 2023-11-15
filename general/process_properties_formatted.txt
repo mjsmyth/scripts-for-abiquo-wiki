@@ -1,0 +1,14 @@
+Template to configure guest initial passwords that enables you to define the length and the character set. The following tokens are allowed in the template: </p>
+<ul><li><code>lower=</code>  - configures the number of lower case characters to generate.</li> 
+<li><code>upper=</code>  - configures the number of upper case characters to generate.</li> 
+<li><code>numbers=</code>  - configures the number of numbers to generate.</li> 
+<li><code>symbols=</code>  - configures the number of special characters to generate.</li> 
+<li><code>global=</code>  - configures the number of total characters to generate.</li></ul> 
+<p>For each token, the value must be in the following format:</p> 
+<ul><li><code>N</code>  - Generate this exact number of characters.</li> 
+<li><code>N-M</code>  - Generate between N and M characters.</li> 
+<li><code>N-</code>  - Generate at least N characters.</li> 
+<li><code>-M</code>  - Generate at most M characters.</li></ul> 
+<p>Examples:</p> 
+<ol><li>Password with at least 2 lower case and upper case letters, between 2 and 4 special characters, and a total length of 10 characters: <code>abiquo.guest.password.length = lower=2-,upper=2-,numbers=0,symbols=2-4,global=10</code></li> 
+<li>Password with at least 5 characters, regardless of the content: <code>abiquo.guest.password.length = global=5-</code></li></ol><p>
